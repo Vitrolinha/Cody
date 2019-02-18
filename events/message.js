@@ -1,6 +1,7 @@
 var roleSetDelay = new Set()
 var vipDelay = new Set()
 var mentionDelay = new Set()
+var tempMuteDelay = new Set()
 module.exports = async function (message) {
     if (message.channel.type === 'dm') return;
     if (message.author.bot) return;
@@ -72,6 +73,24 @@ module.exports = async function (message) {
                                 mentionDelay.delete(message.author.id)
                             }, 10 * 1000)
                             message.channel.send(t('eventos:mentionBot', { member: message.member, prefix: servidor.prefix }))
+                        }
+
+                        if(!tempMuteDelay.has(message.author.id)) {
+                            tempMuteDelay.add(message.author.id)
+                            setTimeout(function() {
+                                tempMuteDelay.delete(message.author.id)
+                            }, 13 * 1000)
+                            if(servidor.muteds.length === 0) return;
+                            if(!servidor.muteds.find(muted => muted.temp)) return;
+                            var timeouts = servidor.muteds.filter(muted => Date.now() >= (muted.date + muted.time))
+                            if(timeouts.length === 0) return;
+                            var role = await member.guild.roles.find(role => role.name === '🔇Cody Mute')
+                            if(!role) return servidor.muteds = [];
+                            timeouts.forEach(async user => {
+                                if(!message.guild.members.get(muted.id)) return servidor.muteds.splice(servidor.muteds.indexOf(servidor.muteds.find(muted => muted.id === user.id)), 1);
+                                var member = await message.guild.members.get(muted.id)
+                                member.removeRole(role.id)
+                            })
                         }
 
                         if(!vipDelay.has(message.author.id)) {

@@ -132,9 +132,9 @@
     "mute": {
         "noPermission": "😕 É **necessário** possuir a **permissão** `GERENCIAR CARGOS`.",
         "noPermBot": "😕 Parece que **não possuo** a permissão `GERENCIAR CARGOS` no **servidor**.",
-        "noArgs": "😶 É preciso **mencionar** o usuário que **deseja mutar**.",
+        "noArgs": "😶 É preciso **mencionar** o usuário que **deseja silenciar**.",
         "topRole": "🙄 Você **não possui** permissão para **adicionar** o cargo `{{role}}` à um **usuário**.",
-        "muted": "✅ O membro {{member}} foi **mutado** por {{author}}.",
+        "muted": "✅ O membro {{member}} foi **silenciado** por {{author}}.",
         "unmuted": "✅ O membro {{member}} foi **desmutado** por {{author}}.",
         "useAgain": "🙄 Parece que o cargo `{{role}}` **não existia**, use o **comando** novamente."
     },
@@ -176,5 +176,16 @@
         "roleNotFound": "🙄 O usuário mencionado **não** possui **este** cargo.",
         "added": "✅ O cargo `{{role}}` foi **adicionado** ao usuário.",
         "removed": "❌ O cargo `{{role}}` foi **retirado** do usuário."
+    },
+    "tempmute": {
+        "noPermission": "😕 É **necessário** possuir a **permissão** `GERENCIAR CARGOS`.",
+        "noPermBot": "😕 Parece que **não possuo** a permissão `GERENCIAR CARGOS` no **servidor**.",
+        "noMention": "😶 É preciso **mencionar** o usuário que **deseja silenciar**.",
+        "topRole": "🙄 Você **não possui** permissão para **adicionar** o cargo `{{role}}` à um **usuário**.",
+        "noTime": "🙄 É **necessário** especificar o **tempo** que deseja **silenciar** o usuário.",
+        "notATime": "🙄 O **argumento** `{{time}}` não é considerado **tempo**.",
+        "tempmuted": "✅ O membro {{member}} foi **silenciado temporáriamente** por {{author}} até **{{time}}**.",
+        "unmuted": "✅ O membro {{member}} foi **desmutado** por {{author}}.",
+        "useAgain": "🙄 Parece que o cargo `{{role}}` **não existia**, use o **comando** novamente."
     }
 }

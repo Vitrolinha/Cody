@@ -18,14 +18,14 @@ module.exports = class Mute extends command {
                 if(message.member.highestRole.position <= role.position && message.guild.owner.id !== message.author.id) return message.channel.send(t('comandos:mute.topRole', { role: roleName }))
                 if(message.guild.me.highestRole.position <= role.position) return message.channel.send(t('comandos:mute.topRole', { role: roleName }))
                 await member.addRole(role.id)
-                if(!servidor.muteds.includes(member.id)) {
-                    servidor.muteds.push(member.id)
+                if(!servidor.muteds.find(muted => muted.id === member.id)) {
+                    servidor.muteds.push({ id: member.id, temp: false, date: '0000000000000', time: '0000000000000' })
                     servidor.save()
                 }
                 message.channel.send(t('comandos:mute.muted', { member: member, author: message.member }))
             } else {
-                if(servidor.muteds.includes(member.id)) {
-                    servidor.muteds.splice(servidor.muteds.indexOf(member.id), 1)
+                if(servidor.muteds.find(muted => muted.id === member.id)) {
+                    servidor.muteds.splice(servidor.muteds.indexOf(servidor.muteds.find(muted => muted.id === member.id)), 1)
                     servidor.save()
                 }
                 await member.removeRole(role.id)
