@@ -84,7 +84,7 @@ module.exports = async function (message) {
                             if(!servidor.muteds.find(muted => muted.temp)) return;
                             var timeouts = servidor.muteds.filter(muted => Date.now() >= (muted.date + muted.time))
                             if(timeouts.length === 0) return;
-                            var role = await member.guild.roles.find(role => role.name === '🔇Cody Mute')
+                            var role = await message.guild.roles.find(role => role.name === '🔇Cody Mute')
                             if(!role) return servidor.muteds = [];
                             timeouts.forEach(async user => {
                                 if(!message.guild.members.get(muted.id)) return servidor.muteds.splice(servidor.muteds.indexOf(servidor.muteds.find(muted => muted.id === user.id)), 1);

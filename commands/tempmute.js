@@ -19,7 +19,7 @@ module.exports = class TempMute extends command {
                 if(message.guild.me.highestRole.position <= role.position) return message.channel.send(t('comandos:tempmute.topRole', { role: roleName }))
                 if(!args[1]) return message.channel.send(t('comandos:tempmute.noTime'))
                 var time = this.client.ms(args.slice(1).join(' '))
-                if(!time) return message.channel.send(t('comandos:tempmute.notATime', { time: time }))
+                if(!time) return message.channel.send(t('comandos:tempmute.notATime', { time: args.slice(1).join(' ') }))
                 await member.addRole(role.id)
                 if(!servidor.muteds.find(muted => muted.id === member.id)) {
                     servidor.muteds.push({ id: member.id, temp: true, date: Date.now(), time: time })
