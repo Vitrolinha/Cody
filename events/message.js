@@ -29,7 +29,7 @@ module.exports = async function (message) {
                     escapeValue: false
                 },
                 returnEmptyString: false
-            }, (e, f) => {
+            }, async (e, f) => {
                 if (f) {
                     if(!usuario.banned.get('ban')) {
                         if (message.content.startsWith(servidor.prefix)) {
