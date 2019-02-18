@@ -58,5 +58,10 @@
         "desc": "Veja toda a equipe responsável pelo meu desenvolvimento.",
         "howToUse": "{{prefix}}staff\n{{prefix}}staff form",
         "category": 1
+    },
+    "tempmute": {
+        "desc": "Proíba um usuário de escrever no servidor temporáriamente.",
+        "howToUse": "{{prefix}}tempmute <mention> <time>",
+        "category": 2
     }
 }

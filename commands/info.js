@@ -3,6 +3,7 @@ const { command } = require('../utils')
 module.exports = class Info extends command {
     constructor (name, client) {
         super (name, client)
+        this.aliases = ['information']
     }
     async run ({message, args}) {
             var links = [{
