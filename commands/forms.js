@@ -15,7 +15,7 @@ module.exports = class Forms extends command {
             .setTitle(this.client.users.get(cnt.user) ? `${this.client.users.get(cnt.user).username} (${cnt.role}):` : `${cnt.user} (${cnt.role})`)
             .setDescription(cnt.reason)
             .setThumbnail(this.client.users.get(cnt.user) ? this.client.users.get(cnt.user).displayAvatarURL : 'https://i.imgur.com/b4fhI15.png')
-            .setTimestamp(new Date(cnt.date))
+            .setTimestamp(new Date(parseInt(cnt.date)))
             .setFooter(message.author.username, message.author.displayAvatarURL)
             .setColor(2631906)
             return embed;
