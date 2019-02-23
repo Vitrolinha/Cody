@@ -24,6 +24,11 @@
         "howToUse": "{{prefix}}concierge <welcome/byebye> set <msg>\n{{prefix}}concierge <welcome/byebye> del\n{{prefix}}concierge parameters",
         "category": 1
     },
+    "config": {
+        "desc": "Configure várias funções do bot.",
+        "howToUse": "{{prefix}}config prefix <new-prefix>",
+        "category": 1
+    },
     "help": {
         "desc": "Visualize os comandos possuidos no bot.",
         "howToUse": "{{prefix}}help\n{{prefix}}help <command-name>",

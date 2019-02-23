@@ -64,6 +64,15 @@
         "parametersTo": "⚙ Parâmetros:",
         "parameters": "```{member} menciona o usuário\n{user.name} cita o nome de usuário\n{user.id} cita o id do usuário\n{guild} cita o nome do servidor```"
     },
+    "config": {
+        "noPermission":"😕 É **necessário** possuir a **permissão** `GERENCIAR SERVIDOR`.",
+        "howToUse": "🗃 Como usar:",
+        "prefix": {
+            "noArgs": "🙄 Você deve **especificar** o **novo prefixo**.",
+            "bigPrefix": "😒 O **prefixo cítado** é **muito grande**. (4 caracteres)",
+            "defined": "✅ O **prefixo** `{{prefix}}` foi definido **no servidor**."
+        }
+    },
     "clear": {
         "noArgs": "🙄 Você **precisa** citar a **quantidade de mensagens** à serem **deletadas**.",
         "noPerm": "🙄 Parece que **não tenho permissão** para **executar** esta função, **verifique** se possuo a permissão `GERENCIAR MENSAGENS`.",
@@ -73,7 +82,7 @@
         "cleared": "✅ Foram deletadas **{{count}} mensagens** por **{{member}}**."
     },
     "eval": {
-        "noPermission": "😒 Você **precisa** ser um `owner`, `subowner` ou `developer` para usar **este** comando.",
+        "noPermission": "😒 Você **precisa** ser um `owner`, `subowner`, `operator` ou `developer` para usar **este** comando.",
         "noThisServer": "😒 Este **comando** só pode ser **executado** em meu **servidor principal**.",
         "noCode": "🙄 É necessário **inserir** um código para execução.",
         "code": "💿 Código:",
