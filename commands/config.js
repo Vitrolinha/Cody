@@ -21,8 +21,7 @@ module.exports = class Config extends command {
         } else {
             var embed = new this.client.Discord.RichEmbed()
                 .setTitle(t('comandos:config.howToUse'))
-                .setDescription(`${prefix}config prefix <new-prefix>`)
-                .setThumbnail('https://i.imgur.com/b4fhI15.png')
+                .setDescription(`\`\`\`${prefix}config prefix <new-prefix>\`\`\``)
                 .setTimestamp(new Date())
                 .setFooter(message.author.username, message.author.displayAvatarURL)
                 .setColor(2631906)
