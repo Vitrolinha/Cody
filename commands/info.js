@@ -19,7 +19,7 @@ module.exports = class Info extends command {
             var guildsSize = await this.client.guildsAlt.size()
             var channelsSize = await this.client.channelsAlt.size()
             var usersSize = await this.client.usersAlt.size()
-            var dbl = await this.client.dbl.getBot(client.user.id)
+            var dbl = await this.client.dbl.getBot(this.client.user.id)
             var embed = new this.client.Discord.RichEmbed()
                 .setTitle(t('comandos:info.title'))
                 .setDescription(t('comandos:info.description', { myFounder: this.client.users.get('337410863545843714').tag }))
