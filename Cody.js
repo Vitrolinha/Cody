@@ -12,6 +12,7 @@ module.exports = class Cody extends Client {
         this.i18next = require('i18next')
         this.translationBackend = require('i18next-node-fs-backend')
         this.moment = require('moment')
+        require('moment-duration-format')
         this.ms = require('ms')
         this.setGameTime = Date.now()
         this.shardLog = async (cnt) => {
