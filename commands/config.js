@@ -22,7 +22,7 @@ module.exports = class Config extends command {
                 servidor.config.set('vipMessages', oVip)
                 servidor.save()
                 var msg = oVip ? t('comandos:config.vipMessages.defined') : t('comandos:config.vipMessages.removed')
-                message.channel.send()
+                message.channel.send(msg)
             }
         } else {
             var embed = new this.client.Discord.RichEmbed()
