@@ -33,19 +33,19 @@ module.exports = async function (member) {
             })
         }
     })
-    if(member.guild.id === '507295947789828106' && this.user.id !== '539671041409024000') {
+    if(member.guild.id === this.config.codyGuild && this.user.id !== '539671041409024000') {
         var roles = [{
             name: 'operator',
-            roleID: '540659452874063873'
+            roleID: this.config.operatorRole
         }, {
             name: 'developer',
-            roleID: '509880066071855122'
+            roleID: this.config.developerRole
         }, {
             name: 'supervisor',
-            roleID: '510230403609788430'
+            roleID: this.config.supervisorRole
         }, {
             name: 'designer',
-            roleID: '534427791865675799'
+            roleID: this.config.designerRole
         }]
         this.database.Users.findOne({'_id': member.user.id}).then(user => {
             if(!user) return;
@@ -55,7 +55,7 @@ module.exports = async function (member) {
                 }
             })
             if(user.vip) {
-                member.addRole('544580493866434560')
+                member.addRole(this.config.vipRole)
             }
         })
     }

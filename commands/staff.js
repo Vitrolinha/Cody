@@ -121,8 +121,8 @@ module.exports = class Staff extends command {
                                                 inWindow.splice(inWindow.indexOf(message.author.id), 1)
                                                 var mtsg = t('comandos:staff.submited', { member: message.author.tag, role: role })
                                                 this.client.shard.broadcastEval(`
-                                                    if(this.guilds.get("507295947789828106")) {
-                                                    this.guilds.get("507295947789828106").channels.get("540740757888172043").send("${mtsg}")
+                                                    if(this.guilds.get(${this.client.config.codyGuild})) {
+                                                    this.guilds.get(${this.client.config.codyGuild}).channels.get("540740757888172043").send("${mtsg}")
                                                     }
                                                 `)
                                             })

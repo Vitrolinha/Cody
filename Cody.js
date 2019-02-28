@@ -9,6 +9,7 @@ module.exports = class Cody extends Client {
         this.DBL = require("dblapi.js");
         this.dbl = new this.DBL(process.env.dbl, this);
         this.database = require('./database.js')
+        this.config = require('./global.json')
         this.i18next = require('i18next')
         this.translationBackend = require('i18next-node-fs-backend')
         this.moment = require('moment')
@@ -119,6 +120,7 @@ module.exports = class Cody extends Client {
                     prefix: this.user.id === '539671041409024000' ? 'c.' : 'c!',
                     concierge: { welcome: { on: false, message: 'None', channel: 'None' }, byebye: { on: false, message: 'None', channel: 'None' } },
                     autorole: { on: false, idRoles: [] },
+                    config: { vipMessages: true },
                     muteds: []
                 })
                 servidor.save()
@@ -203,7 +205,7 @@ module.exports = class Cody extends Client {
             }
         }
         this.verPerm = async (prm, userDC, userDB) => {
-            if(userDB._id === '337410863545843714' || userDC.id === '337410863545843714') return true;
+            if(userDB._id === this.config.ownerID || userDC.id === this.config.ownerID) return true;
             var dcPerms = ['CREATE_INSTANT_INVITE', 'KICK_MEMBERS', 'BAN_MEMBERS', 'ADMINISTRATOR', 'MANAGE_CHANNELS', 'MANAGE_GUILD', 'ADD_REACTIONS', 'READ_MESSAGES', 'SEND_MESSAGES', 'SEND_TTS_MESSAGES', 'MANAGE_MESSAGES', 'EMBED_LINKS', 'ATTACH_FILES', 'READ_MESSAGE_HISTORY', 'MENTION_EVERYONE', 'EXTERNAL_EMOJIS', 'CONNECT', 'SPEAK', 'MUTE_MEMBERS', 'DEAFEN_MEMBERS', 'MOVE_MEMBERS', 'USE_VAD', 'CHANGE_NICKNAME', 'MANAGE_NICKNAMES', 'MANAGE_ROLES_OR_PERMISSIONS', 'MANAGE_WEBHOOKS', 'MANAGE_EMOJIS']
             if(!prm) return false;
             if(!userDB && !userDC) return false;

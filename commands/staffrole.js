@@ -30,7 +30,7 @@ module.exports = class StaffRole extends command {
         var cargo = args[1].toLowerCase()
         var usuarioMencionado = message.mentions.users.first()
         if(usuarioMencionado.bot) return message.channel.send(t('comandos:staffrole.mentionBot'))
-        if(cargosB[cargo].permission >= authorPerm && message.author.id !== '337410863545843714') return message.channel.send(t('comandos:staffrole.noRolePermission'));
+        if(cargosB[cargo].permission >= authorPerm && message.author.id !== this.client.config.ownerID) return message.channel.send(t('comandos:staffrole.noRolePermission'));
         this.client.database.Users.findOne({'_id': usuarioMencionado.id}).then(mencionadoDB => {
             if(mencionadoDB) {
                 if(funcao === 'add' && mencionadoDB.cargos.get(cargo)) return message.channel.send(t('comandos:staffrole.alreadyHaveRole'));

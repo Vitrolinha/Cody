@@ -50,6 +50,7 @@ module.exports = async function (message) {
                                             if(cmdDB) {
                                                 if(cmdDB.maintenance && !(await this.verPerm(['owner', 'subowner', 'developer', 'supervisor', 'designer'], false, usuario))) return message.channel.send(t('eventos:cmdInManu', { cmd: command }))
                                                 commandRun.process({message, args, prefix, usuario, servidor}, t, setFixedT)
+                                                if(!servidor.config.get('vipMessages')) return;
                                                 var random = Math.round(Math.random() * 1000)
                                                 if(random >= 500 && random <= 550 && !usuario.vip) {
                                                     message.channel.send(t('eventos:voteInDBL', { member: message.member }))
@@ -103,32 +104,34 @@ module.exports = async function (message) {
                                 if(usuario.vip && !voted) {
                                     usuario.vip = false
                                     usuario.save()
+                                    if(!servidor.config.get('vipMessages')) return;
                                     message.channel.send(t('eventos:timeoutVip', { member: message.member }))
                                 } else if(!usuario.vip && voted) {
                                     usuario.vip = true
                                     usuario.save()
+                                    if(!servidor.config.get('vipMessages')) return;
                                     message.channel.send(t('eventos:definedVip', { member: message.member }))
                                 }
                             })
                         }
 
-                        if(message.guild.id === '507295947789828106' && this.user.id !== '539671041409024000') {
+                        if(message.guild.id === this.config.codyGuild && this.user.id !== '539671041409024000') {
                             if(roleSetDelay.has(message.author.id)) return;
                             setTimeout(() => {
                                 roleSetDelay.delete(message.author.id)
                             }, 20 * 1000)
                             var roles = [{
                                 name: 'operator',
-                                roleID: '540659452874063873'
+                                roleID: this.config.operatorRole
                             }, {
                                 name: 'developer',
-                                roleID: '509880066071855122'
+                                roleID: this.config.developerRole
                             }, {
                                 name: 'supervisor',
-                                roleID: '510230403609788430'
+                                roleID: this.config.supervisorRole
                             }, {
                                 name: 'designer',
-                                roleID: '534427791865675799'
+                                roleID: this.config.designerRole
                             }]
                             this.database.Users.findOne({'_id': message.author.id}).then(user => {
                                 roles.forEach(role => {
@@ -138,10 +141,10 @@ module.exports = async function (message) {
                                         message.member.removeRole(role.roleID)
                                     }
                                 })
-                                if(user.vip && !message.member.roles.get('544580493866434560')) {
-                                    message.member.addRole('544580493866434560')
-                                } else if(message.member.roles.get('544580493866434560') && !user.vip) {
-                                    message.member.removeRole('544580493866434560')
+                                if(user.vip && !message.member.roles.get(this.config.vipRole)) {
+                                    message.member.addRole(this.config.vipRole)
+                                } else if(message.member.roles.get(this.config.vipRole) && !user.vip) {
+                                    message.member.removeRole(this.config.vipRole)
                                 }
                             })
                         }

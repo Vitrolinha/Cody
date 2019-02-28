@@ -36,8 +36,8 @@ module.exports = class Forms extends command {
                     user.save()
                     var mtsg = t('comandos:forms.approved', { member: this.client.users.get(form.user), author: message.member, role: form.role })
                     this.client.shard.broadcastEval(`
-                        if(this.guilds.get("507295947789828106")) {
-                        this.guilds.get("507295947789828106").channels.get("540740757888172043").send("${mtsg}")
+                        if(this.guilds.get(${this.client.config.codyGuild})) {
+                        this.guilds.get(${this.client.config.codyGuild}).channels.get("540740757888172043").send("${mtsg}")
                         }
                     `)
                     form.delete()
@@ -50,8 +50,8 @@ module.exports = class Forms extends command {
                 r.remove(r.users.last().id).catch(e => {})
                 var mtsg2 = await t('comandos:forms.refused', { member: this.client.users.get(form.user), author: message.member, role: form.role })
                 this.client.shard.broadcastEval(`
-                    if(this.guilds.get("507295947789828106")) {
-                    this.guilds.get("507295947789828106").channels.get("540740757888172043").send("${mtsg2}")
+                    if(this.guilds.get(${this.client.config.codyGuild})) {
+                    this.guilds.get(${this.client.config.codyGuild}).channels.get("540740757888172043").send("${mtsg2}")
                     }
                 `)
                 form.delete()

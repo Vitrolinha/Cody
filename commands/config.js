@@ -17,11 +17,17 @@ module.exports = class Config extends command {
                 servidor.prefix = newPrefix
                 servidor.save()
                 message.channel.send(t('comandos:config.prefix.defined', { prefix: newPrefix }))
+            } else if(config === 'vipmessages') {
+                var oVip = servidor.config.get('vipMessages') ? false : true
+                servidor.config.set('vipMessages', oVip)
+                servidor.save()
+                var msg = oVip ? t('comandos:config.vipMessages.defined') : t('comandos:config.vipMessages.removed')
+                message.channel.send()
             }
         } else {
             var embed = new this.client.Discord.RichEmbed()
                 .setTitle(t('comandos:config.howToUse'))
-                .setDescription(`\`\`\`${prefix}config prefix <new-prefix>\`\`\``)
+                .setDescription(`\`\`\`${prefix}config prefix <new-prefix>\n${prefix}config vipMessages\`\`\``)
                 .setTimestamp(new Date())
                 .setFooter(message.author.username, message.author.displayAvatarURL)
                 .setColor(2631906)

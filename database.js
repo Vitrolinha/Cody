@@ -49,6 +49,10 @@ var Guild = new Schema({
     type: Map,
     default: { on: false, idRoles: [] }
   },
+  config: {
+    type: Map,
+    default: { vipMessages: true }
+  },
   muteds: {
     type: Array,
     default: []
