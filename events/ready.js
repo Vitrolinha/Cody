@@ -3,9 +3,9 @@ module.exports = async function () {
         this.shardLog(`${this.user.tag} iniciado`)
         this.setGame({random: true, force: true})
         if(this.user.id === this.config.codyID) {
-            this.dbl.postStats(await this.guildsAlt.size(), this.shard.id, this.shard.count);
+            this.dbl.postStats(this.guildsAlt.size(), this.shard.id, this.shard.count);
             setInterval(() => {
-                this.dbl.postStats(await this.guildsAlt.size(), this.shard.id, this.shard.count);
+                this.dbl.postStats(this.guildsAlt.size(), this.shard.id, this.shard.count);
             }, 1800000);
         }
         setInterval(async () => {
