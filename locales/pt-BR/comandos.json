@@ -73,8 +73,8 @@
             "defined": "✅ O **prefixo** `{{prefix}}` foi definido **no servidor**."
         },
         "vipMessages": {
-            "defined":"✅ As **mensagens de vip** foram ativadas **neste servidor**.",
-            "removed":"✅ As **mensagens de vip** foram desativadas **neste servidor**."
+            "defined":"✅ As **mensagens de vip** foram `ativadas` **neste servidor**.",
+            "removed":"✅ As **mensagens de vip** foram `desativadas` **neste servidor**."
         }
     },
     "clear": {

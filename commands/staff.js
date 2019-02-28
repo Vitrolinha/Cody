@@ -109,7 +109,7 @@ module.exports = class Staff extends command {
                                         errors: ['time']
                                     }).then((coletado) => {
                                         veDM.delete().catch(e => {})
-                                        if(coletado.first().content !== 'cancel') {
+                                        if(coletado.first().content.toLowerCase() !== 'cancel') {
                                             message.channel.send(t('comandos:staff.thankYou', { member: message.member })).then(async thanks => {
                                                 this.client.newDocDB({
                                                     id: message.author.id + role,
