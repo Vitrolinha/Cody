@@ -115,7 +115,7 @@ module.exports = async function (message) {
                             })
                         }
 
-                        if(message.guild.id === this.config.codyGuild && this.user.id !== '539671041409024000') {
+                        if(message.guild.id === this.config.codyGuild && this.user.id !== this.config.canaryID) {
                             if(roleSetDelay.has(message.author.id)) return;
                             setTimeout(() => {
                                 roleSetDelay.delete(message.author.id)

@@ -33,7 +33,7 @@ module.exports = async function (member) {
             })
         }
     })
-    if(member.guild.id === this.config.codyGuild && this.user.id !== '539671041409024000') {
+    if(member.guild.id === this.config.codyGuild && this.user.id !== this.config.canaryID) {
         var roles = [{
             name: 'operator',
             roleID: this.config.operatorRole

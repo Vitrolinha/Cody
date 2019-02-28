@@ -117,7 +117,7 @@ module.exports = class Cody extends Client {
                 var servidor = new this.database.Guilds({
                     _id: doc.id,
                     lang: this.regionsLang[doc.content.region] ? this.regionsLang[doc.content.region] : 'pt-BR',
-                    prefix: this.user.id === '539671041409024000' ? 'c.' : 'c!',
+                    prefix: this.user.id === this.config.canaryID ? 'c.' : 'c!',
                     concierge: { welcome: { on: false, message: 'None', channel: 'None' }, byebye: { on: false, message: 'None', channel: 'None' } },
                     autorole: { on: false, idRoles: [] },
                     config: { vipMessages: true },
