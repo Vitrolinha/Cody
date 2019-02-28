@@ -7,7 +7,7 @@ module.exports = class Config extends command {
     }
     async run ({message, args, prefix, usuario, servidor}, t) {
         if(!(await this.client.verPerm(['MANAGE_GUILD', 'owner', 'subowner', 'operator'], message.member, usuario))) return message.channel.send(t('comandos:config.noPermission'));
-        var configs = ['prefix']
+        var configs = ['prefix', 'vipmessages']
         if(args[0] && configs.includes(args[0].toLowerCase())) {
             var config = args[0].toLowerCase()
             if(config === 'prefix') {
