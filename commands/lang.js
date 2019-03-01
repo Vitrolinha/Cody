@@ -1,5 +1,5 @@
 const { command } = require('../utils')
-var inWindow = []
+const inWindow = []
 
 module.exports = class Ping extends command {
     constructor (name, client) {
@@ -11,8 +11,8 @@ module.exports = class Ping extends command {
         if(!message.channel.permissionsFor(this.client.user.id).has('ADD_REACTIONS')) return message.channel.send(t('comandos:lang.noPermBot'))
         if(inWindow.includes(message.author.id)) return message.channel.send(t('comandos:lang.inWindow'))
         inWindow.push(message.author.id)
-        var langs = [{name: 'pt-BR', emoji: '🇧🇷'}, { name: 'en-US', emoji: '🇺🇸' }]
-        var embed = new this.client.Discord.RichEmbed()
+        let langs = [{name: 'pt-BR', emoji: '🇧🇷'}, { name: 'en-US', emoji: '🇺🇸' }]
+        let embed = new this.client.Discord.RichEmbed()
             .setTitle(t('comandos:lang.title'))
             .setDescription(`${t('comandos:lang.desc', { error: t('comandos:staff.notHaveErrors') })}\n\n${langs.map(lang => `${lang.emoji} **${lang.name}**`).join('  ')}`)
             .setTimestamp(new Date())
@@ -25,7 +25,7 @@ module.exports = class Ping extends command {
             const ptBR = msg.createReactionCollector((r, u) => r.emoji.name === "🇧🇷" && u.id === message.author.id, { time: 60000 });
             const enUS = msg.createReactionCollector((r, u) => r.emoji.name === "🇺🇸" && u.id === message.author.id, { time: 60000 });
             const finalizar = msg.createReactionCollector((r, u) => r.emoji.name === "❌" && u.id === message.author.id, { time: 60000 });
-            var force = false
+            let force = false
             ptBR.on('collect', async r => {
                 r.remove(r.users.last().id).catch(e => {})
                 if(servidor.lang === 'pt-BR') {

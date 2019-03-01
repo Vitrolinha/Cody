@@ -2,7 +2,7 @@ module.exports = async function (member) {
     this.database.Guilds.findOne({'_id': member.guild.id}).then(async servidor => {
         if(!servidor) return;
         if(servidor.muteds.find(muted => muted.id === member.id)) {
-            var role = await member.guild.roles.find(role => role.name === '🔇Cody Mute')
+            let role = await member.guild.roles.find(role => role.name === '🔇Cody Mute')
             if(!role) return servidor.muteds = [];
             member.addRole(role.id)
         }
@@ -23,8 +23,8 @@ module.exports = async function (member) {
             })
         }
         if(servidor.concierge.get('welcome').on) {
-            var ath = servidor.concierge.get('welcome')
-            var mensagem = ath.message.replace('{member}', member).replace('{user.name}', member.user.username).replace('{user.id}', member.user.id).replace('{guild}', member.guild.name)
+            let ath = servidor.concierge.get('welcome')
+            let mensagem = ath.message.replace('{member}', member).replace('{user.name}', member.user.username).replace('{user.id}', member.user.id).replace('{guild}', member.guild.name)
             member.guild.channels.get(ath.channel).send(mensagem).catch(err => {
                 ath.on = false
                 ath.message = 'None'
@@ -34,7 +34,7 @@ module.exports = async function (member) {
         }
     })
     if(member.guild.id === this.config.codyGuild && this.user.id !== this.config.canaryID) {
-        var roles = [{
+        let roles = [{
             name: 'operator',
             roleID: this.config.operatorRole
         }, {

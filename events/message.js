@@ -1,7 +1,7 @@
-var roleSetDelay = new Set()
-var vipDelay = new Set()
-var mentionDelay = new Set()
-var tempMuteDelay = new Set()
+const roleSetDelay = new Set()
+const vipDelay = new Set()
+const mentionDelay = new Set()
+const tempMuteDelay = new Set()
 module.exports = async function (message) {
     if (message.channel.type === 'dm') return;
     if (message.author.bot) return;
@@ -10,8 +10,8 @@ module.exports = async function (message) {
         t = translate
     }
 
-    var usuario = await this.database.Users.findOne({'_id': message.author.id})
-    var servidor = await this.database.Guilds.findOne({'_id': message.guild.id})
+    let usuario = await this.database.Users.findOne({'_id': message.author.id})
+    let servidor = await this.database.Guilds.findOne({'_id': message.guild.id})
 
     if(usuario && servidor) {
         const language = (servidor && servidor.lang) || 'pt-BR'
@@ -34,14 +34,14 @@ module.exports = async function (message) {
                     if(!usuario.banned.get('ban')) {
                         if (message.content.startsWith(servidor.prefix)) {
                             if(message.content === servidor.prefix) return;
-                            var command = message.content.split(' ')[0].slice(servidor.prefix.length)
+                            let command = message.content.split(' ')[0].slice(servidor.prefix.length)
                             try {
-                                var prefix = servidor.prefix
-                                var tempoPassado = Date.now() - parseInt(usuario.cmdcoldown)
-                                var tempoRestante = (parseInt(usuario.cmdcoldown) + 3000) - (tempoPassado + parseInt(usuario.cmdcoldown))
-                                var segundos = parseInt(tempoRestante/1000)
-                                var milesimos = tempoRestante - (segundos*1000)
-                                var commandRun = this.commands.find(c => c.name === command || c.aliases.includes(command))
+                                let prefix = servidor.prefix
+                                let tempoPassado = Date.now() - parseInt(usuario.cmdcoldown)
+                                let tempoRestante = (parseInt(usuario.cmdcoldown) + 3000) - (tempoPassado + parseInt(usuario.cmdcoldown))
+                                let segundos = parseInt(tempoRestante/1000)
+                                let milesimos = tempoRestante - (segundos*1000)
+                                let commandRun = this.commands.find(c => c.name === command || c.aliases.includes(command))
                                 if (commandRun) {
                                     if (tempoPassado < 3000) return message.channel.send(t('eventos:cmdCooldown', { member: message.member, seconds: segundos, thousandth: milesimos }));
                                     usuario.cmdcoldown = Date.now()
@@ -51,7 +51,7 @@ module.exports = async function (message) {
                                                 if(cmdDB.maintenance && !(await this.verPerm(['owner', 'subowner', 'developer', 'supervisor', 'designer'], false, usuario))) return message.channel.send(t('eventos:cmdInManu', { cmd: command }))
                                                 commandRun.process({message, args, prefix, usuario, servidor}, t, setFixedT)
                                                 if(!servidor.config.get('vipMessages')) return;
-                                                var random = Math.round(Math.random() * 1000)
+                                                let random = Math.round(Math.random() * 1000)
                                                 if(random >= 500 && random <= 550 && !usuario.vip) {
                                                     message.channel.send(t('eventos:voteInDBL', { member: message.member }))
                                                 }
@@ -83,13 +83,13 @@ module.exports = async function (message) {
                             }, 13 * 1000)
                             if(servidor.muteds.length === 0) return;
                             if(!servidor.muteds.find(muted => muted.temp)) return;
-                            var timeouts = servidor.muteds.filter(muted => Date.now() >= (muted.date + muted.time))
+                            let timeouts = servidor.muteds.filter(muted => Date.now() >= (muted.date + muted.time))
                             if(timeouts.length === 0) return;
-                            var role = await message.guild.roles.find(role => role.name === '🔇Cody Mute')
+                            let role = await message.guild.roles.find(role => role.name === '🔇Cody Mute')
                             if(!role) return servidor.muteds = [];
                             timeouts.forEach(async user => {
                                 if(!message.guild.members.get(user.id)) return servidor.muteds.splice(servidor.muteds.indexOf(servidor.muteds.find(muted => muted.id === user.id)), 1);
-                                var member = await message.guild.members.get(user.id)
+                                let member = await message.guild.members.get(user.id)
                                 if(!member.roles.get(role.id)) return servidor.muteds.splice(servidor.muteds.indexOf(servidor.muteds.find(muted => muted.id === user.id)), 1);
                                 member.removeRole(role.id)
                             })
@@ -120,7 +120,7 @@ module.exports = async function (message) {
                             setTimeout(() => {
                                 roleSetDelay.delete(message.author.id)
                             }, 20 * 1000)
-                            var roles = [{
+                            let roles = [{
                                 name: 'operator',
                                 roleID: this.config.operatorRole
                             }, {

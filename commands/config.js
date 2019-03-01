@@ -7,25 +7,25 @@ module.exports = class Config extends command {
     }
     async run ({message, args, prefix, usuario, servidor}, t) {
         if(!(await this.client.verPerm(['MANAGE_GUILD', 'owner', 'subowner', 'operator'], message.member, usuario))) return message.channel.send(t('comandos:config.noPermission'));
-        var configs = ['prefix', 'vipmessages']
+        let configs = ['prefix', 'vipmessages']
         if(args[0] && configs.includes(args[0].toLowerCase())) {
-            var config = args[0].toLowerCase()
+            let config = args[0].toLowerCase()
             if(config === 'prefix') {
                 if(!args[1]) return message.channel.send(t('comandos:config.prefix.noArgs'))
-                var newPrefix = args[1]
+                let newPrefix = args[1]
                 if(newPrefix.length > 4) return message.channel.send(t('comandos:config.prefix.bigPrefix'))
                 servidor.prefix = newPrefix
                 servidor.save()
                 message.channel.send(t('comandos:config.prefix.defined', { prefix: newPrefix }))
             } else if(config === 'vipmessages') {
-                var oVip = servidor.config.get('vipMessages') ? false : true
+                let oVip = servidor.config.get('vipMessages') ? false : true
                 servidor.config.set('vipMessages', oVip)
                 servidor.save()
-                var msg = oVip ? t('comandos:config.vipMessages.defined') : t('comandos:config.vipMessages.removed')
+                let msg = oVip ? t('comandos:config.vipMessages.defined') : t('comandos:config.vipMessages.removed')
                 message.channel.send(msg)
             }
         } else {
-            var embed = new this.client.Discord.RichEmbed()
+            let embed = new this.client.Discord.RichEmbed()
                 .setTitle(t('comandos:config.howToUse'))
                 .setDescription(`\`\`\`${prefix}config prefix <new-prefix>\n${prefix}config vipMessages\`\`\``)
                 .setTimestamp(new Date())

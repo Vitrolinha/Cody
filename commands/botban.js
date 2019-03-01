@@ -7,7 +7,7 @@ module.exports = class BotBan extends command {
     }
     async run ({message, args, usuario, servidor, prefix}) {
         if(!(await this.client.verPerm(['owner', 'subowner', 'operator', 'developer', 'supervisor'], false, usuario))) return message.channel.send(t('comandos:botban.noPermission'));
-        var invalid = new this.client.Discord.RichEmbed()
+        let invalid = new this.client.Discord.RichEmbed()
             .addField(t('comandos:botban.howToUse'), `\`\`\`\n${prefix}botban mention\n${prefix}botban mention <time>\`\`\``, false)
             .setTimestamp(new Date())
             .setFooter(message.author.username, message.author.displayAvatarURL)
@@ -15,8 +15,8 @@ module.exports = class BotBan extends command {
         this.client.moment.locale(servidor.lang)
         if(!args[0]) return message.channel.send(invalid)
         if(!args[0] === message.mentions.users.first().toString()) return message.channel.send(invalid)
-        var mencionado = message.mentions.users.first()
-        var time = message.content.split(' ').slice(2).join(' ')
+        let mencionado = message.mentions.users.first()
+        let time = message.content.split(' ').slice(2).join(' ')
         if(mencionado.id === message.author.id) return message.channel.send(t('comandos:botban.iMentioned'));
         if(mencionado.bot) return message.channel.send(t('comandos:botban.botMention'))
         this.client.database.Users.findOne({'_id': mencionado.id}).then(async mencionadoDB => {

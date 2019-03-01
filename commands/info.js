@@ -6,7 +6,7 @@ module.exports = class Info extends command {
         this.aliases = ['information']
     }
     async run ({message, args}) {
-            var links = [{
+            let links = [{
                 name: 'convite',
                 link: `https://discordapp.com/oauth2/authorize?client_id=${this.client.user.id}&scope=bot&permissions=2146958847`
             }, {
@@ -16,11 +16,11 @@ module.exports = class Info extends command {
                 name: 'discord bot list',
                 link: 'https://discordbots.org/bot/507292506942210048'
             }]
-            var guildsSize = await this.client.guildsAlt.size()
-            var channelsSize = await this.client.channelsAlt.size()
-            var usersSize = await this.client.usersAlt.size()
-            var dbl = await this.client.dbl.getBot(this.client.user.id)
-            var embed = new this.client.Discord.RichEmbed()
+            let guildsSize = await this.client.guildsAlt.size()
+            let channelsSize = await this.client.channelsAlt.size()
+            let usersSize = await this.client.usersAlt.size()
+            let dbl = await this.client.dbl.getBot(this.client.user.id)
+            let embed = new this.client.Discord.RichEmbed()
                 .setTitle(t('comandos:info.title'))
                 .setDescription(t('comandos:info.description', { myFounder: this.client.users.get('337410863545843714').tag }))
                 .addField(t('comandos:info.statistics'), t('comandos:info.statisticsDesc', { ping: parseInt(this.client.ping), memory: (process.memoryUsage().heapUsed / 1024 / 1024).toString().slice(0,4), votes: dbl.points }), true)

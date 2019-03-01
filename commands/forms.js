@@ -1,5 +1,5 @@
 const { command } = require('../utils')
-var inWindow = []
+const inWindow = []
 
 module.exports = class Forms extends command {
     constructor (name, client) {
@@ -8,10 +8,10 @@ module.exports = class Forms extends command {
     async run ({message, usuario}) {
         if(!(await this.client.verPerm(['owner', 'subowner', 'operator'], false, usuario))) return message.channel.send(t('comandos:forms.noPermission'));
         if(inWindow.includes(message.author.id)) return message.channel.send(t('comandos:forms.inWindow'))
-        var first = await this.client.database.Forms.findOne({})
+        let first = await this.client.database.Forms.findOne({})
         if(!first) return message.channel.send(t('comandos:forms.notHaveForms'))
-        var genEmbed = async (cnt) => {
-            var embed = new this.client.Discord.RichEmbed()
+        let genEmbed = async (cnt) => {
+            let embed = new this.client.Discord.RichEmbed()
             .setTitle(this.client.users.get(cnt.user) ? `${this.client.users.get(cnt.user).username} (${cnt.role}):` : `${cnt.user} (${cnt.role})`)
             .setDescription(cnt.reason)
             .setThumbnail(this.client.users.get(cnt.user) ? this.client.users.get(cnt.user).displayAvatarURL : 'https://i.imgur.com/b4fhI15.png')
@@ -24,17 +24,17 @@ module.exports = class Forms extends command {
             await msg.react('✅')
             await msg.react('❌')
             await msg.react('🖐')
-            const aprovar = msg.createReactionCollector((r, u) => r.emoji.name === "✅" && u.id === message.author.id, { time: 120000 });
-            const reprovar = msg.createReactionCollector((r, u) => r.emoji.name === "❌" && u.id === message.author.id, { time: 120000 });
+            const aprolet = msg.createReactionCollector((r, u) => r.emoji.name === "✅" && u.id === message.author.id, { time: 120000 });
+            const reprolet = msg.createReactionCollector((r, u) => r.emoji.name === "❌" && u.id === message.author.id, { time: 120000 });
             const cancelar = msg.createReactionCollector((r, u) => r.emoji.name === "🖐" && u.id === message.author.id, { time: 120000 });
-            var form = await first;
+            let form = await first;
             inWindow.push(message.author.id)
-            aprovar.on('collect', async r => {
+            aprolet.on('collect', async r => {
                 r.remove(r.users.last().id).catch(e => {})
                 this.client.database.Users.findOne({"_id": form.user}).then(async user => {
                     user.cargos.set(form.role, true)
                     user.save()
-                    var mtsg = t('comandos:forms.approved', { member: this.client.users.get(form.user), author: message.member, role: form.role })
+                    let mtsg = t('comandos:forms.approved', { member: this.client.users.get(form.user), author: message.member, role: form.role })
                     this.client.shard.broadcastEval(`
                         if(this.guilds.get("${this.client.config.codyGuild}")) {
                         this.guilds.get("${this.client.config.codyGuild}").channels.get("540740757888172043").send("${mtsg}")
@@ -46,9 +46,9 @@ module.exports = class Forms extends command {
                     msg.edit(await genEmbed(form))
                 })
             })
-            reprovar.on('collect', async r => {
+            reprolet.on('collect', async r => {
                 r.remove(r.users.last().id).catch(e => {})
-                var mtsg2 = await t('comandos:forms.refused', { member: this.client.users.get(form.user), author: message.member, role: form.role })
+                let mtsg2 = await t('comandos:forms.refused', { member: this.client.users.get(form.user), author: message.member, role: form.role })
                 this.client.shard.broadcastEval(`
                     if(this.guilds.get("${this.client.config.codyGuild}")) {
                     this.guilds.get("${this.client.config.codyGuild}").channels.get("540740757888172043").send("${mtsg2}")
@@ -62,15 +62,15 @@ module.exports = class Forms extends command {
             cancelar.on('collect', async r => {
                 inWindow.splice(inWindow.indexOf(message.author.id), 1)
                 msg.delete().catch(e => {})
-                aprovar.emit('end')
-                reprovar.emit('end')
+                aprolet.emit('end')
+                reprolet.emit('end')
                 cancelar.emit('end')
             })
             cancelar.on('end', async r => {
                 inWindow.splice(inWindow.indexOf(message.author.id), 1)
                 msg.delete().catch(e => {})
-                aprovar.emit('end')
-                reprovar.emit('end')
+                aprolet.emit('end')
+                reprolet.emit('end')
             })
         })
     }

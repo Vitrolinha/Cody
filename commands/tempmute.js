@@ -6,19 +6,19 @@ module.exports = class TempMute extends command {
         this.aliases = ['mutetemp', 'timemute']
     }
     async run ({message, args, usuario, servidor}) {
-        var roleName = '🔇Cody Mute'
+        let roleName = '🔇Cody Mute'
         if(!await this.client.verPerm(['MANAGE_ROLES_OR_PERMISSIONS', 'owner', 'subowner', 'operator'], message.member, usuario)) return message.channel.send(t('comandos:tempmute.noPermission'));
         if(!message.guild.me.hasPermission(['MANAGE_ROLES_OR_PERMISSIONS'])) return message.channel.send(t('comandos:tempmute.noPermBot'))
         if(!args[0]) return message.channel.send(t('comandos:tempmute.noMention'));
-        var member = message.mentions.members.first() ? message.mentions.members.first() : message.guild.members.get(args[0]) ? message.guild.members.get(args[0]) : message.guild.members.find(user => user.user.username === args[0]) ? message.guild.members.find(user => user.user.username === args[0]) : message.guild.members.find(user => user.user.tag === args[0]) ? message.guild.members.find(user => user.user.tag === args[0]) : false
+        let member = message.mentions.members.first() ? message.mentions.members.first() : message.guild.members.get(args[0]) ? message.guild.members.get(args[0]) : message.guild.members.find(user => user.user.username === args[0]) ? message.guild.members.find(user => user.user.username === args[0]) : message.guild.members.find(user => user.user.tag === args[0]) ? message.guild.members.find(user => user.user.tag === args[0]) : false
         if(!member) return message.channel.send(t('comandos:tempmute.noMention'));
         if(message.guild.roles.find(role => role.name === roleName)) {
-            var role = await message.guild.roles.find(role => role.name === roleName)
+            let role = await message.guild.roles.find(role => role.name === roleName)
             if(!member.roles.get(role.id)) {
                 if(message.member.highestRole.position <= role.position && message.guild.owner.id !== message.author.id) return message.channel.send(t('comandos:tempmute.topRole', { role: roleName }))
                 if(message.guild.me.highestRole.position <= role.position) return message.channel.send(t('comandos:tempmute.topRole', { role: roleName }))
                 if(!args[1]) return message.channel.send(t('comandos:tempmute.noTime'))
-                var time = this.client.ms(args.slice(1).join(' '))
+                let time = this.client.ms(args.slice(1).join(' '))
                 if(!time) return message.channel.send(t('comandos:tempmute.notATime', { time: args.slice(1).join(' ') }))
                 await member.addRole(role.id)
                 if(!servidor.muteds.find(muted => muted.id === member.id)) {
@@ -40,7 +40,7 @@ module.exports = class TempMute extends command {
                 message.channel.send(t('comandos:tempmute.unmuted', { member: member, author: message.member }))
             }
         } else {
-            var role = await message.guild.createRole({name: roleName, permissions: 0})
+            let role = await message.guild.createRole({name: roleName, permissions: 0})
             message.guild.channels.filter(channel => channel.permissionsFor(this.client.user.id).has('MANAGE_ROLES_OR_PERMISSIONS')).forEach(async channel => {
                 channel.overwritePermissions(role, {SEND_MESSAGES: false, CONNECT: false, SPEAK: false})
             })

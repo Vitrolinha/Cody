@@ -10,7 +10,7 @@ module.exports = class Clear extends command {
         if(!message.channel.permissionsFor(this.client.user.id).has('MANAGE_MESSAGES')) return message.channel.send(t('comandos:clear.noPerm'));
         if(!args[0]) return message.channel.send(t('comandos:clear.noArgs'));
         if(!Number(args[0])) return message.channel.send(t('comandos:clear.notNumber', { nan: args[0] }));
-        var quantidade = parseInt(args[0])
+        let quantidade = parseInt(args[0])
         if(quantidade <= 0) return message.channel.send(t('comandos:clear.number0', { count: quantidade }));
         if(quantidade > 100) return message.channel.send(t('comandos:clear.more100', { number: quantidade }));
         await message.delete()

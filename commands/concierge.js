@@ -7,22 +7,22 @@ module.exports = class Concierge extends command {
     }
     async run ({message, args, usuario, servidor, prefix}) {
         if(!(await this.client.verPerm(['MANAGE_GUILD', 'owner', 'subowner', 'operator'], message.member, usuario))) return message.channel.send(t('comandos:concierge.noPermission'));
-        var invalid = new this.client.Discord.RichEmbed()
+        let invalid = new this.client.Discord.RichEmbed()
             .addField(t('comandos:concierge.howToUse'), `\`\`\`${prefix}concierge <welcome/byebye> set <message>\n${prefix}concierge <welcome/byebye> del\n${prefix}concierge parameters\`\`\``)
             .setTimestamp(new Date())
             .setFooter(message.author.username, message.author.displayAvatarURL)
             .setColor(2631906)
         if(!args[0]) return message.channel.send(invalid);
         if(args[0] !== 'welcome' && args[0] !== 'byebye' && args[0] !== 'parameters') return message.channel.send(t('comandos:concierge.invalidAct', { act: args[0].toLowerCase() }));
-        var action = args[0].toLowerCase()
+        let action = args[0].toLowerCase()
         if(!args[1] && action !== "parameters") return message.channel.send(t('comandos:concierge.noFunction'));
         if(action !== 'parameters' && args[1] !== 'set' && args[1] !== 'del') return message.channel.send(t('comandos:concierge.invalidFunction', { function: args[1].toLowerCase() }))
         if(action === 'welcome') {
-            var funcao = args[1].toLowerCase()
-            var ath = servidor.concierge.get(action)
+            let funcao = args[1].toLowerCase()
+            let ath = servidor.concierge.get(action)
             if(funcao === 'set') {
                 if(!args[2]) return message.channel.send(t('comandos:concierge.noMsg'));
-                var msg = args.splice(2).join(' ')
+                let msg = args.splice(2).join(' ')
                 if(!ath.on) {
                     ath.on = true
                 }
@@ -39,11 +39,11 @@ module.exports = class Concierge extends command {
                 message.channel.send(t('comandos:concierge.removedWelcome'))
             }
         } else if(action === 'byebye') {
-            var funcao = args[1].toLowerCase()
-            var ath = servidor.concierge.get(action)
+            let funcao = args[1].toLowerCase()
+            let ath = servidor.concierge.get(action)
             if(funcao === 'set') {
                 if(!args[2]) return message.channel.send(t('comandos:conciere.noMsg'));
-                var msg = args.splice(2).join(' ')
+                let msg = args.splice(2).join(' ')
                 if(!ath.on) {
                     ath.on = true
                 }
@@ -60,7 +60,7 @@ module.exports = class Concierge extends command {
                 message.channel.send(t('comandos:concierge.removedByebye'))
             }
         } else if(action === 'parameters') {
-            var parameters = new this.client.Discord.RichEmbed()
+            let parameters = new this.client.Discord.RichEmbed()
                 .addField(t('comandos:concierge.parametersTo'), t('comandos:concierge.parameters'))
                 .setTimestamp(new Date())
                 .setFooter(message.author.username, message.author.displayAvatarURL)

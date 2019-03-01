@@ -1,5 +1,5 @@
 const { command } = require('../utils')
-var inWindow = []
+const inWindow = []
 
 module.exports = class Staff extends command {
     constructor (name, client) {
@@ -9,7 +9,7 @@ module.exports = class Staff extends command {
         if(args[0] && args[0].toLowerCase() === 'form') {
             if(inWindow.includes(message.author.id)) return message.channel.send(t('comandos:staff.inWindow'))
             inWindow.push(message.author.id)
-            var embed = new this.client.Discord.RichEmbed()
+            let embed = new this.client.Discord.RichEmbed()
             .setTitle(t('comandos:staff.formTitle'))
             .setDescription(t('comandos:staff.formDesc', { error: t('comandos:staff.notHaveErrors') }))
             .setThumbnail('https://i.imgur.com/b4fhI15.png')
@@ -25,12 +25,12 @@ module.exports = class Staff extends command {
                     const supervisor = msg.createReactionCollector((r, u) => r.emoji.name === "2⃣" && u.id === message.author.id, { time: 60000 });
                     const finalizar = msg.createReactionCollector((r, u) => r.emoji.name === "❌" && u.id === message.author.id, { time: 60000 });
                     const designer = msg.createReactionCollector((r, u) => r.emoji.name === "3⃣" && u.id === message.author.id, { time: 60000 });
-                    var role = 'None'
-                    var force = false
-                    var completed = false
-                    var fim = false
+                    let role = 'None'
+                    let force = false
+                    let completed = false
+                    let fim = false
                     this.client.database.Forms.find({'user': message.author.id}).then(async formDB => {
-                        var roles = []
+                        let roles = []
                         await formDB.forEach(role => { roles.push(role.role) })
                         desenvolvedor.on('collect', async r => {
                             r.remove(r.users.last().id).catch(e => {})
@@ -119,7 +119,7 @@ module.exports = class Staff extends command {
                                                     reason: coletado.first().content
                                                 })
                                                 inWindow.splice(inWindow.indexOf(message.author.id), 1)
-                                                var mtsg = t('comandos:staff.submited', { member: message.author.tag, role: role })
+                                                let mtsg = t('comandos:staff.submited', { member: message.author.tag, role: role })
                                                 this.client.shard.broadcastEval(`
                                                     if(this.guilds.get("${this.client.config.codyGuild}")) {
                                                     this.guilds.get("${this.client.config.codyGuild}").channels.get("540740757888172043").send("${mtsg}")
@@ -144,14 +144,14 @@ module.exports = class Staff extends command {
                 }
             })
         } else {
-            var minutos = parseInt(((Date.now() - this.client.dataStaff.lastUpdate)/1000)/60)
-            var owners = this.client.dataStaff.owner.map(user => this.client.users.get(user) ? `**${this.client.users.get(user).tag}**` : t('comandos:staff.userNotFound'))
-            var subowners = this.client.dataStaff.subowner.map(user => this.client.users.get(user) ? `**${this.client.users.get(user).tag}**` : t('comandos:staff.userNotFound'))
-            var operators = this.client.dataStaff.operator.map(user => this.client.users.get(user) ? `**${this.client.users.get(user).tag}**` : t('comandos:staff.userNotFound'))
-            var developers = this.client.dataStaff.developer.map(user => this.client.users.get(user) ? `**${this.client.users.get(user).tag}**` : t('comandos:staff.userNotFound'))
-            var supervisors = this.client.dataStaff.supervisor.map(user => this.client.users.get(user) ? `**${this.client.users.get(user).tag}**` : t('comandos:staff.userNotFound'))
-            var designers = this.client.dataStaff.designer.map(user => this.client.users.get(user) ? `**${this.client.users.get(user).tag}**` : t('comandos:staff.userNotFound'))
-            var embed = new this.client.Discord.RichEmbed()
+            let minutos = parseInt(((Date.now() - this.client.dataStaff.get('lastUpdate'))/1000)/60)
+            let owners = this.client.dataStaff.get('owner').map(user => this.client.users.get(user) ? `**${this.client.users.get(user).tag}**` : t('comandos:staff.userNotFound'))
+            let subowners = this.client.dataStaff.get('subowner').map(user => this.client.users.get(user) ? `**${this.client.users.get(user).tag}**` : t('comandos:staff.userNotFound'))
+            let operators = this.client.dataStaff.get('operator').map(user => this.client.users.get(user) ? `**${this.client.users.get(user).tag}**` : t('comandos:staff.userNotFound'))
+            let developers = this.client.dataStaff.get('developer').map(user => this.client.users.get(user) ? `**${this.client.users.get(user).tag}**` : t('comandos:staff.userNotFound'))
+            let supervisors = this.client.dataStaff.get('supervisor').map(user => this.client.users.get(user) ? `**${this.client.users.get(user).tag}**` : t('comandos:staff.userNotFound'))
+            let designers = this.client.dataStaff.get('designer').map(user => this.client.users.get(user) ? `**${this.client.users.get(user).tag}**` : t('comandos:staff.userNotFound'))
+            let embed = new this.client.Discord.RichEmbed()
                 .setTitle(t('comandos:staff.title'))
                 .setDescription(t('comandos:staff.desc', {prefix: prefix}))
                 .addField(t('comandos:staff.owners'), owners.join(', '))

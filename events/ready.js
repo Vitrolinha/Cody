@@ -14,6 +14,6 @@ module.exports = async function () {
         this.setDataStaff()
         setInterval(() => {
             this.setDataStaff()
-        }, 15 * 1000 * 60)
+        }, 20 * 1000 * 60)
     },10 * 1000)
 }

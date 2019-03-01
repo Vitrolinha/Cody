@@ -155,7 +155,7 @@
         "userNotFound": "**Não encontrado#0000**",
         "title": "Informação Rápida:",
         "desc": "Abaixo está toda a **equipe** responsável pelo **desenvolvimento** do bot **Cody**, se **deseja** fazer parte dessa **maravilhosa** equipe **execute o comando**: `{{prefix}}staff form`",
-        "footer": "Atualizado à {{lastUpdate}} minutos atrás. (15 em 15 minutos)",
+        "footer": "Atualizado à {{lastUpdate}} minutos atrás. (20 em 20 minutos)",
         "owners": "👑 Donos(as):",
         "subowners": "👑 Sub Donos(as):",
         "operators": "👷 Operadores(as):",

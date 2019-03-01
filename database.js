@@ -1,13 +1,13 @@
 const Cody = require('./Cody')
 const client = new Cody()
-var mongoose = require('mongoose')
-var Schema = mongoose.Schema
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 mongoose.connect(process.env.database, { useNewUrlParser: true }, (err) => {
   if (err) return console.log(`Shard ${client.shard.id + 1}: Erro ao conectar no database!\n${err}`)
   console.log(`Shard ${client.shard.id + 1}: Conectado ao BANCO DE DADOS!`)
 })
 
-var User = new Schema({
+const User = new Schema({
   _id: {
     type: String
   },
@@ -29,7 +29,7 @@ var User = new Schema({
   }
 })
 
-var Guild = new Schema({
+const Guild = new Schema({
   _id: {
     type: String
   },
@@ -59,7 +59,7 @@ var Guild = new Schema({
   },
 })
 
-var Command = new Schema({
+const Command = new Schema({
   _id: {
     type: String
   },
@@ -69,7 +69,7 @@ var Command = new Schema({
   }
 })
 
-var Form = new Schema({
+const Form = new Schema({
   _id: {
     type: String
   },
@@ -88,10 +88,10 @@ var Form = new Schema({
   }
 })
 
-var Users = mongoose.model('Users', User)
-var Guilds = mongoose.model('Guilds', Guild)
-var Commands = mongoose.model('Commands', Command)
-var Forms = mongoose.model('Forms', Form)
+const Users = mongoose.model('Users', User)
+const Guilds = mongoose.model('Guilds', Guild)
+const Commands = mongoose.model('Commands', Command)
+const Forms = mongoose.model('Forms', Form)
 exports.Users = Users
 exports.Guilds = Guilds
 exports.Commands = Commands
