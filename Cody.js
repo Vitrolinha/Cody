@@ -144,41 +144,25 @@ module.exports = class Cody extends Client {
         this.setGame = async (content) => {
             if((Date.now() - this.setGameTime) >= 240000 || content.force) {
                 if(content.random) {
+                    var playing = ['Minecraft', 'GTA V', 'Dead Cells', 'https://discord.gg/5Xt3uHF', 'Vote em mim e adquira vários benefícios: https://discordbots.org/bot/507292506942210048/vote']
+                    var streaming = [`Cody - ${await this.usersAlt.size()} usuários em ${await this.guildsAlt.size()} servidores com ${await this.channelsAlt.size()} canais.`]
+                    var listening = ['Spotify.', `${await this.usersAlt.size()} usuários fazerem suas coisas.`]
+                    var watching = ['animes.', 'Netflix.']
                     var randomGames = [{
-                        content: `Cody - ${await this.usersAlt.size()} usuários em ${await this.guildsAlt.size()} servidores com ${await this.channelsAlt.size()} canais.`,
-                        type: 1,
+                        content: playing[Math.round(Math.random() * (playing.length - 1))],
+                        type: 0,
                         url: 'https://www.twitch.tv/zmarciogod'
                     }, {
-                        content: 'animes.',
-                        type: 3,
+                        content: streaming[Math.round(Math.random() * (streaming.length - 1))],
+                        type: 1,
                         url: false
                     }, {
-                        content: 'Netflix.',
-                        type: 3,
-                        url: false
-                    }, {
-                        content: `${await this.usersAlt.size()} usuários fazerem suas coisas.`,
+                        content: listening[Math.round(Math.random() * (listening.length - 1))],
                         type: 2,
                         url: false
                     }, {
-                        content: `Spotify`,
-                        type: 2,
-                        url: false
-                    }, {
-                        content: `Minecraft`,
-                        type: 0,
-                        url: false
-                    }, {
-                        content: `Robocraft`,
-                        type: 0,
-                        url: false
-                    }, {
-                        content: `GTA`,
-                        type: 0,
-                        url: false
-                    }, {
-                        content: `https://discord.gg/5Xt3uHF`,
-                        type: 0,
+                        content: watching[Math.round(Math.random() * (watching.length - 1))],
+                        type: 3,
                         url: false
                     }]
                     if(this.user.presence.game && randomGames.find(game => game.content === this.user.presence.game.name)) {
