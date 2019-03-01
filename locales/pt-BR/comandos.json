@@ -121,6 +121,7 @@
         "community": "👥 Comunidade:",
         "communityDesc": "- **{{guilds}}** servidores\n- **{{channels}}** canais\n- **{{users}}** usuários",
         "uptime": "⏱ Tempo ligado:",
+        "uptimeDesc": "- **{{hours}}** horas\n- **{{minutes}}** minutos\n- **{{seconds}}** segundos",
         "urls": "🌏 Urls:"
     },
     "kick": {
