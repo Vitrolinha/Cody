@@ -98,7 +98,8 @@ module.exports = class Cody extends Client {
                 concierge: { welcome: { on: false, message: 'None', channel: 'None' }, byebye: { on: false, message: 'None', channel: 'None' } },
                 autorole: { on: false, idRoles: [] },
                 config: { vipMessages: true },
-                muteds: []
+                muteds: [],
+                lockedChannels: []
             })
             servidor.save()
         } else if(doc.type === 3) {

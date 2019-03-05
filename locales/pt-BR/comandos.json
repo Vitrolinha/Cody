@@ -143,6 +143,12 @@
         "desc": "Para alterar o **idioma do bot**, basta **reagir** na bandeira de seu **pais**.\n\n**Erro:** `{{error}}`",
         "defined": "✅ O **idioma** `{{lang}}` foi **definido**."
     },
+    "lock": {
+        "noPermission": "😕 É **necessário** possuir a **permissão** `GERENCIAR CANAIS`.",
+        "noPermBot": "😕 Parece que **não possuo** a permissão para `GERENCIAR PERMISSÕES` neste **canal**.",
+        "locked": "✅ O **canal** {{channel}} foi **bloqueado**.",
+        "unlocked": "✅ O **canal** {{channel}} foi **desbloqueado**."
+    },
     "mute": {
         "noPermission": "😕 É **necessário** possuir a **permissão** `GERENCIAR CARGOS`.",
         "noPermBot": "😕 Parece que **não possuo** a permissão `GERENCIAR CARGOS` no **servidor**.",

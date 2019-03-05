@@ -21,7 +21,7 @@ module.exports = class Help extends command {
         if(commandAlt && t(`help:${commandAlt.name.toLowerCase()}.desc`) !== `${commandAlt.name.toLowerCase()}.desc`) {
           let cmdName = commandAlt.name.toLowerCase()
           let embed = new this.client.Discord.RichEmbed()
-            .setTitle(`🖇 ${this.client.firstUpperLetter(cmdName)}:`)
+            .setTitle(`🖇 ${await this.client.firstUpperLetter(cmdName)}:`)
             .setDescription(t(`help:${cmdName}.desc`))
             .addField(t('comandos:help.howToUse'), '```a\n' + t(`help:${cmdName}.howToUse`, { prefix: prefix }) + '```')
             .addField(t('comandos:help.aliases'), comandos.filter(command => command.name === cmdName)[0].aliases.length > 0 ? '```' + comandos.filter(command => command.name === cmdName)[0].aliases.map(aliase => prefix + aliase).join('\n') + '```' : t('comandos:help.notHaveAliases'))
