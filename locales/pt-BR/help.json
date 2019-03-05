@@ -52,7 +52,7 @@
     "lock": {
         "desc": "Desative o envio de mensagens no canal de texto.",
         "howToUse": "{{prefix}}lock\n{{prefix}}lock <channel-mention/id/name>",
-        "category": 1
+        "category": 2
     },
     "mute": {
         "desc": "Proíba um usuário de escrever no servidor.",

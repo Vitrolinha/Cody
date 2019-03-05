@@ -7,7 +7,7 @@ module.exports = class Mute extends command {
     }
     async run ({message, args, usuario, servidor}) {
         if(!await this.client.verPerm(['MANAGE_CHANNELS', 'owner', 'subowner', 'operator'], message.member, usuario)) return message.channel.send(t('comandos:lock.noPermission'));
-        var channel = args[0] ? message.mentions.channels.first() ? message.mentions.channels.first() : message.channels.get(args[0]) ? message.channels.get(args[0]) : message.channels.find(channel => channel.name.toLowerCase() === args.join(' ').toLowerCase()) ? message.channels.find(channel => channel.name.toLowerCase() === args.join(' ').toLowerCase()) : message.channel : message.channel
+        var channel = args[0] ? message.mentions.channels.first() ? message.mentions.channels.first() : message.guild.channels.get(args[0]) ? message.guild.channels.get(args[0]) : message.guild.channels.find(channel => channel.name.toLowerCase() === args.join(' ').toLowerCase()) ? message.guild.channels.find(channel => channel.name.toLowerCase() === args.join(' ').toLowerCase()) : message.channel : message.channel
         if(!channel.permissionsFor(this.client.user.id).has('MANAGE_ROLES_OR_PERMISSIONS')) return message.channel.send(t('comandos:lock.noPermBot'));
         var role = message.guild.roles.find(role => role.name === '@everyone')
         if(!servidor.lockedChannels.includes(channel.id)) {
