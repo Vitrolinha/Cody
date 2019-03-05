@@ -13,10 +13,12 @@ module.exports = class Mute extends command {
         if(!servidor.lockedChannels.includes(channel.id)) {
             channel.overwritePermissions(role, {SEND_MESSAGES: false})
             servidor.lockedChannels.push(channel.id)
+            servidor.save()
             message.channel.send(t('comandos:lock.locked', { channel: channel }))
         } else {
             channel.overwritePermissions(role, {SEND_MESSAGES: true})
             servidor.lockedChannels.splice(servidor.lockedChannels.indexOf(channel.id), 1)
+            servidor.save()
             message.channel.send(t('comandos:lock.unlocked', { channel: channel }))
         }
     }
