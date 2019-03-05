@@ -44,7 +44,7 @@ module.exports = class StaffRole extends command {
                 mencionadoDB.cargos.set(cargo, false)
                 message.channel.send(t('comandos:staffrole.removed', { role: cargo }))
                 if(!this.client.dataStaff.get(cargo).includes(mencionadoDB._id)) return;
-                this.client.dataStaff.get(cargo).splice(this.dataStaff.get(cargo).indexOf(mencionadoDB._id), 1)
+                this.client.dataStaff.get(cargo).splice(this.client.dataStaff.get(cargo).indexOf(mencionadoDB._id), 1)
                 }
                 mencionadoDB.save();
             } else {
