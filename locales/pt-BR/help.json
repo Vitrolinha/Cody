@@ -32,7 +32,7 @@
     "discrim": {
         "desc": "Procure usuários do Discord pelo discriminador.",
         "howToUse": "{{prefix}}discrim <discriminator>",
-        "category": 2
+        "category": 1
     },
     "help": {
         "desc": "Visualize os comandos possuidos no bot.",

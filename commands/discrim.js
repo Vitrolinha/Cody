@@ -4,7 +4,7 @@ const inWindow = []
 module.exports = class Lock extends command {
     constructor (name, client) {
         super (name, client)
-        this.aliases = ['discriminator']
+        this.aliases = ['discriminator', 'discriminador']
     }
     async run ({message, args}) {
         if(inWindow.includes(message.author.id)) return message.channel.send(t('comandos:discrim.inWindow'))
