@@ -1,6 +1,6 @@
 const { command } = require('../utils')
 
-module.exports = class Mute extends command {
+module.exports = class Lock extends command {
     constructor (name, client) {
         super (name, client)
         this.aliases = ['lockchannel']

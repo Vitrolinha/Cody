@@ -4,7 +4,7 @@ const inWindow = []
 module.exports = class Ping extends command {
     constructor (name, client) {
         super (name, client)
-        this.aliases = ['language', 'idioma']
+        this.aliases = ['language', 'idioma', 'langs', 'linguagem']
     }
     async run ({message, servidor, usuario}, t , setFixedT) {
         if(!await this.client.verPerm(['MANAGE_GUILD', 'owner', 'subowner', 'operator', 'developer', 'supervisor'], message.member, usuario)) return message.channel.send(t('comandos:lang.noPermission'));
@@ -58,6 +58,7 @@ module.exports = class Ping extends command {
                 force = true
                 inWindow.splice(inWindow.indexOf(message.author.id), 1)
                 msg.delete().catch(e => {})
+                message.delete().catch(e => {})
                 ptBR.emit('end')
                 enUS.emit('end')
                 finalizar.emit('end')
@@ -65,6 +66,7 @@ module.exports = class Ping extends command {
             finalizar.on('end', async r => {
                 if(force) return;
                 msg.delete().catch(e => {})
+                message.delete().catch(e => {})
                 inWindow.splice(inWindow.indexOf(message.author.id), 1)
             })
         })

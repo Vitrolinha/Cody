@@ -25,7 +25,7 @@
         "noArgs": "😶 É preciso **mencionar** o usuário que **deseja banir**.",
         "topRole": "🙄 O **usuário mencionado** possui um cargo **mais alto** que o seu.",
         "notBannable": "😒 Parece que **não consigo banir** este usuário.",
-        "notReason": "Mótivo não mencionado.",
+        "notReason": "motivo não mencionado.",
         "banned": "✅ O **usuário** `{{member}}` foi **banido do servidor** por {{author}}."
     },
     "botban": {
@@ -85,6 +85,14 @@
         "more100": "🙄 O **número** `{{number}}` é **maior** que **100**.",
         "cleared": "✅ Foram deletadas **{{count}} mensagens** por **{{member}}**."
     },
+    "discrim": {
+        "noArgs":"🙄 Você deve **especificar** o **discriminador**.",
+        "discrimLength": "😒 O **discriminador** deve conter **4 digitos**.",
+        "isNaN": "😒 O **discriminador** deve ser um **número**.",
+        "notFound": "😒 Não foram **encontrados** usuários com o **discriminador** `{{discrim}}`.",
+        "title": "🛰 {{count}} Resultados: (Shard [{{shard}}/{{totalShard}}])",
+        "footer": "Página {{page}} de {{total}}"
+    },
     "eval": {
         "noPermission": "😒 Você **precisa** ser um `owner`, `subowner`, `operator` ou `developer` para usar **este** comando.",
         "noThisServer": "😒 Este **comando** só pode ser **executado** em meu **servidor principal**.",
@@ -130,7 +138,7 @@
         "noArgs": "😶 É preciso **mencionar** o usuário que **deseja expulsar**.",
         "topRole": "🙄 O **usuário mencionado** possui um cargo **mais alto** que o seu.",
         "notKickable": "😒 Parece que **não consigo expulsar** este usuário.",
-        "notReason": "Mótivo não mencionado.",
+        "notReason": "Motivo não mencionado.",
         "kicked": "✅ O **usuário** `{{member}}` foi **expulso do servidor** por {{author}}."
     },
     "lang": {
@@ -174,8 +182,8 @@
         "formAlreadySubmitted": "formulário já enviado",
         "alreadyHaveRole": "cargo já possuído",
         "timesUp": "🙄 **Tempo esgotado!** {{member}}, você **demorou** ao adicionar sua **reação** à mensagem.",
-        "reasonForRole": "🔐 {{member}}, Diga o **mótivo** de querer se **tornar** `{{role}}` do bot **Cody**. (digite `cancel` para cancelar ou aguarde 1 minuto )",
-        "timesUpReason": "🙄 **Tempo esgotado!** {{member}}, você **demorou** ao dizer o **mótivo**.",
+        "reasonForRole": "🔐 {{member}}, Diga o **motivo** de querer se **tornar** `{{role}}` do bot **Cody**. (digite `cancel` para cancelar ou aguarde 1 minuto )",
+        "timesUpReason": "🙄 **Tempo esgotado!** {{member}}, você **demorou** ao dizer o **motivo**.",
         "thankYou": "😊 Obrigado **{{member}}** por enviar seu **formulário**.",
         "canceled": "😒 {{member}}, seu **formulário** foi cancelado.",
         "submited": "😊 O usuário **{{member}}** acaba de **enviar** um formulário para `{{role}}`.",

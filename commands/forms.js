@@ -24,12 +24,12 @@ module.exports = class Forms extends command {
             await msg.react('✅')
             await msg.react('❌')
             await msg.react('🖐')
-            const aprolet = msg.createReactionCollector((r, u) => r.emoji.name === "✅" && u.id === message.author.id, { time: 120000 });
-            const reprolet = msg.createReactionCollector((r, u) => r.emoji.name === "❌" && u.id === message.author.id, { time: 120000 });
+            const aprovar = msg.createReactionCollector((r, u) => r.emoji.name === "✅" && u.id === message.author.id, { time: 120000 });
+            const reprovar = msg.createReactionCollector((r, u) => r.emoji.name === "❌" && u.id === message.author.id, { time: 120000 });
             const cancelar = msg.createReactionCollector((r, u) => r.emoji.name === "🖐" && u.id === message.author.id, { time: 120000 });
             let form = await first;
             inWindow.push(message.author.id)
-            aprolet.on('collect', async r => {
+            aprovar.on('collect', async r => {
                 r.remove(r.users.last().id).catch(e => {})
                 this.client.database.Users.findOne({"_id": form.user}).then(async user => {
                     user.cargos.set(form.role, true)
@@ -46,7 +46,7 @@ module.exports = class Forms extends command {
                     msg.edit(await genEmbed(form))
                 })
             })
-            reprolet.on('collect', async r => {
+            reprovar.on('collect', async r => {
                 r.remove(r.users.last().id).catch(e => {})
                 let mtsg2 = await t('comandos:forms.refused', { member: this.client.users.get(form.user), author: message.member, role: form.role })
                 this.client.shard.broadcastEval(`
@@ -62,15 +62,17 @@ module.exports = class Forms extends command {
             cancelar.on('collect', async r => {
                 inWindow.splice(inWindow.indexOf(message.author.id), 1)
                 msg.delete().catch(e => {})
-                aprolet.emit('end')
-                reprolet.emit('end')
+                message.delete().catch(e => {})
+                aprovar.emit('end')
+                reprovar.emit('end')
                 cancelar.emit('end')
             })
             cancelar.on('end', async r => {
                 inWindow.splice(inWindow.indexOf(message.author.id), 1)
                 msg.delete().catch(e => {})
-                aprolet.emit('end')
-                reprolet.emit('end')
+                message.delete().catch(e => {})
+                aprovar.emit('end')
+                reprovar.emit('end')
             })
         })
     }
