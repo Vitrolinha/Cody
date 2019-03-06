@@ -86,6 +86,7 @@
         "cleared": "✅ Foram deletadas **{{count}} mensagens** por **{{member}}**."
     },
     "discrim": {
+        "inWindow":"🙄 **Você** já está com uma **jánela** de discriminadores aberta, **finalize-a** ou aguarde **1 minuto**.",
         "noArgs":"🙄 Você deve **especificar** o **discriminador**.",
         "discrimLength": "😒 O **discriminador** deve conter **4 digitos**.",
         "isNaN": "😒 O **discriminador** deve ser um **número**.",

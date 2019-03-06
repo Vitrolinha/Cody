@@ -29,6 +29,11 @@
         "howToUse": "{{prefix}}config prefix <new-prefix>\n{{prefix}}config vipMessages",
         "category": 1
     },
+    "discrim": {
+        "desc": "Procure usuários do Discord pelo discriminador.",
+        "howToUse": "{{prefix}}discrim <discriminator>",
+        "category": 2
+    },
     "help": {
         "desc": "Visualize os comandos possuidos no bot.",
         "howToUse": "{{prefix}}help\n{{prefix}}help <command-name>",
