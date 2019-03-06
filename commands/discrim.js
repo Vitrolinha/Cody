@@ -23,7 +23,7 @@ module.exports = class Lock extends command {
             return embed;
         }
         message.channel.send(await genEmbed({page: pagina})).then(async msg => {
-            if(totalPages === 1) return;
+            if(totalPages === 0) return;
             await msg.react('⬅')
             await msg.react('➡')
         })
