@@ -65,7 +65,7 @@
         "parameters": "```{member} menciona o usuário\n{user.name} cita o nome de usuário\n{user.id} cita o id do usuário\n{guild} cita o nome do servidor```"
     },
     "config": {
-        "noPermission":"😕 É **necessário** possuir a **permissão** `GERENCIAR SERVIDOR`.",
+        "noPermission": "😕 É **necessário** possuir a **permissão** `GERENCIAR SERVIDOR`.",
         "howToUse": "🗃 Como usar:",
         "prefix": {
             "noArgs": "🙄 Você deve **especificar** o **novo prefixo**.",
@@ -73,8 +73,11 @@
             "defined": "✅ O **prefixo** `{{prefix}}` foi definido **no servidor**."
         },
         "vipMessages": {
-            "defined":"✅ As **mensagens de vip** foram `ativadas` **neste servidor**.",
-            "removed":"✅ As **mensagens de vip** foram `desativadas` **neste servidor**."
+            "defined": "✅ As **mensagens de vip** foram `ativadas` **neste servidor**.",
+            "removed": "✅ As **mensagens de vip** foram `desativadas` **neste servidor**."
+        },
+        "sugest": {
+            "howToUse": "📋 Como usar:"
         }
     },
     "clear": {
@@ -86,8 +89,8 @@
         "cleared": "✅ Foram deletadas **{{count}} mensagens** por **{{member}}**."
     },
     "discrim": {
-        "inWindow":"🙄 **Você** já está com uma **jánela** de discriminadores aberta, **finalize-a** ou aguarde **1 minuto**.",
-        "noArgs":"🙄 Você deve **especificar** o **discriminador**.",
+        "inWindow": "🙄 **Você** já está com uma **jánela** de discriminadores aberta, **finalize-a** ou aguarde **1 minuto**.",
+        "noArgs": "🙄 Você deve **especificar** o **discriminador**.",
         "discrimLength": "😒 O **discriminador** deve conter **4 digitos**.",
         "isNaN": "😒 O **discriminador** deve ser um **número**.",
         "notFound": "😒 Não foram **encontrados** usuários com o **discriminador** `{{discrim}}`.",
