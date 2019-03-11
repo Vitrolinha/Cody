@@ -90,10 +90,7 @@ module.exports = class Config extends command {
                 })
             } else if(action === 'off') {
                 if(!servidor.sugest.get('on')) return message.channel.send(t('comandos:config.sugest.alreadyOff'))
-                servidor.sugest.set('on', false)
-                servidor.sugest.set('channel', '')
-                servidor.sugest.set('type', 0)
-                let limit = servidor.sugest.get('limit')
+                servidor.sugest = { on: false, channel: 'None', type: 0}
                 servidor.save()
                 message.channel.send(t('comandos:config.sugest.disabled'))
             }
