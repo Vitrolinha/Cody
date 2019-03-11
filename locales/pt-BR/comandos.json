@@ -80,7 +80,7 @@
             "howToUse": "📋 Como usar:",
             "title":"📋 Sugestão:",
             "description": "Pare **selecionar**, envie uma **mensagem** no canal com o **número** da opção selecionada.\n\n1⃣ O **usuário terá** que **usar** o comando `{{prefix}}sugest` e a sugestão será **enviada** em um **canal definido** com uma embed.\n2⃣ O usuário **enviará** a sugestão em um **canal definido** e será adicionado **duas reações** para a **votação** na mensagem.\n\n❌ Para cancelar **envie** `cancel` ou aguarde **1 minuto**.",
-            "mentionChannel": "🙄 Mencione o **canal** para as **sugestões**.",
+            "mentionChannel": "🙄 Mencione o **canal** para as **sugestões**. (envie `cancel` para cancelar)\nSe **não mencionar** um canal será **definido** no **canal atual**.",
             "defined1": "✅ O **sistema de sugestões** foi **definido** no **canal** {{channel}}.\n**Comando para enviar sugestões:** `{{prefix}}sugest <sugestão>`",
             "defined2": "✅ O **sistema de sugestões** foi **definido** no **canal** {{channel}}.",
             "canceled": "❌ {{member}}, você **cancelou** o **comando**.",
