@@ -53,6 +53,10 @@ const Guild = new Schema({
     type: Map,
     default: { on: false, idRoles: [] }
   },
+  sugest: {
+    type: Map,
+    default: { on: false, channel: 'None', type: 0}
+  },
   config: {
     type: Map,
     default: { vipMessages: true }

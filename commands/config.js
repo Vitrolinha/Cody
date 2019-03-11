@@ -1,4 +1,5 @@
 const { command } = require('../utils')
+const inWindowSugest = []
 
 module.exports = class Config extends command {
     constructor (name, client) {
@@ -31,7 +32,7 @@ module.exports = class Config extends command {
             let msg = oVip ? t('comandos:config.vipMessages.defined') : t('comandos:config.vipMessages.removed')
             message.channel.send(msg)
         } else if(config === 'sugest') {
-            var actions = ['on', 'off']
+            let actions = ['on', 'off']
             let sugest = new this.client.Discord.RichEmbed()
                 .setTitle(t('comandos:config.sugest.howToUse'))
                 .setDescription(`\`\`\`${prefix}config sugest <${actions.join('/')}>\`\`\``)
@@ -40,8 +41,59 @@ module.exports = class Config extends command {
                 .setColor(2631906)
             if(!args[1]) return message.channel.send(sugest);
             if(!actions.includes(args[1].toLowerCase())) return message.channel.send(sugest);
-            var action = args[1].toLowerCase()
-            message.channel.send(`${action}`)
+            let action = args[1].toLowerCase()
+            if(action === 'on') {
+                let selectType = new this.client.Discord.RichEmbed()
+                    .setTitle(t('comandos:config.sugest.title'))
+                    .setDescription(t('comandos:config.sugest.description', { prefix: prefix }))
+                    .setTimestamp(new Date())
+                    .setFooter(message.author.username, message.author.displayAvatarURL)
+                    .setColor(2631906)
+                let msgType = await message.channel.send(selectType)
+                message.channel.awaitMessages(mensagem => mensagem.author.id === message.author.id && mensagem.content === '1' || mensagem.content === '2' || mensagem.content === 'cancel', {
+                    maxMatches: 1,
+                    time: 60000,
+                    errors: ['time']
+                }).then(async selectedType => {
+                    if(selectedType.first().content !== 'cancel') {
+                        let type = parseInt(message.content)
+                        let msgChannel = message.channel.send(t('comandos:config.sugest.mentionChannel'))
+                        message.channel.awaitMessages(mensagem => mensagem.author.id === message.author.id && message.mentions.channels.first() || message.guild.channels.get(mensagem.content.toLowerCase()) || message.guild.channels.find(channel => channel.name.toLowerCase() === mensagem.content.toLowerCase()) || mensagem.content === 'cancel', {
+                            maxMatches: 1,
+                            time: 60000,
+                            errors: ['time']
+                        }).then(async selectedChannel => {
+                            if(selectedType.first().content !== 'cancel') {
+                                let canal = message.mentions.channels.first() || message.guild.channels.get(selectedChannel.first().content.toLowerCase()) || message.guild.channels.find(channel => channel.name.toLowerCase() === selectedChannel.first().content.toLowerCase())
+                                servidor.sugest = { on: true, channel: canal.id, type: type}
+                                servidor.save()
+                                if(type === 1) {
+                                    message.channel.send(t('comandos:config.sugest.defined1', { channel: canal, member: message.member, prefix: prefix }))
+                                } else if(type === 2) {
+                                    message.channel.send(t('comandos:config.sugest.defined2', { channel: canal, member: message.member, prefix: prefix }))
+                                }
+                            } else {
+                                msgChannel.delete().catch(e => {})
+                                message.channel.send(t('comandos:config.sugest.canceled', { member: message.member }))
+                            }
+                        })
+                    } else {
+                        msgType.delete().catch(e => {})
+                        message.channel.send(t('comandos:config.sugest.canceled', { member: message.member }))
+                    }
+                }).catch(err => {
+                    msgType.delete().catch(e => {})
+                    message.channel.send(t('comandos:config.sugest.timeout', { member: message.member }))
+                })
+            } else if(action === 'off') {
+                if(!servidor.sugest.get('on')) return message.channel.send(t('comandos:config.sugest.alreadyOff'))
+                servidor.sugest.set('on', false)
+                servidor.sugest.set('channel', '')
+                servidor.sugest.set('type', 0)
+                let limit = servidor.sugest.get('limit')
+                servidor.save()
+                message.channel.send(t('comandos:config.sugest.disabled'))
+            }
         }
     }
 }

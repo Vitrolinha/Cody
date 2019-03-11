@@ -77,7 +77,16 @@
             "removed": "✅ As **mensagens de vip** foram `desativadas` **neste servidor**."
         },
         "sugest": {
-            "howToUse": "📋 Como usar:"
+            "howToUse": "📋 Como usar:",
+            "title":"📋 Sugestão:",
+            "description": "Pare **selecionar**, envie uma **mensagem** no canal com o **número** da opção selecionada.\n\n1⃣ O **usuário terá** que **usar** o comando `{{prefix}}sugest` e a sugestão será **enviada** em um **canal definido** com uma embed.\n2⃣ O usuário **enviará** a sugestão em um **canal definido** e será adicionado **duas reações** para a **votação** na mensagem.\n\n❌ Para cancelar **envie** `cancel` ou aguarde **1 minuto**.",
+            "mentionChannel": "🙄 Mencione o **canal** para as **sugestões**.",
+            "defined1": "✅ O **sistema de sugestões** foi **definido** no **canal** {{channel}}.\n**Comando para enviar sugestões:** `{{prefix}}sugest <sugestão>`",
+            "defined2": "✅ O **sistema de sugestões** foi **definido** no **canal** {{channel}}.",
+            "canceled": "❌ {{member}}, você **cancelou** o **comando**.",
+            "timeout": "🕐 {{member}}, você **demorou** demais para **responder**.",
+            "alreadyOff": "😒 O **sistema de sugestões** já está `desativado` **neste servidor**.",
+            "disabled": "✅ O **sistema de sugestões** foi `desativado` **neste servidor**."
         }
     },
     "clear": {
@@ -192,7 +201,7 @@
         "canceled": "😒 {{member}}, seu **formulário** foi cancelado.",
         "submited": "😊 O usuário **{{member}}** acaba de **enviar** um formulário para `{{role}}`.",
         "formTitle": "🕵 Formulários:",
-        "formDesc": "Para **enviar** seu **formulário**, basta reagir com o **número** do cargo.\n\n**Erro:** `{{error}}`\n\n**:one: Desenvolvedor\n:two: Supervisor\n:three: Designer**"
+        "formDesc": "Para **enviar** seu **formulário**, basta reagir com o **número** do cargo.\n\n**Erro:** `{{error}}`\n\n**1⃣ Desenvolvedor\n2⃣ Supervisor\n3⃣ Designer**"
     },
     "staffrole": {
         "noPermission": "😒 Você **precisa** ser um `owner`, `subowner`, `operator` ou `developer` para usar **este** comando.",

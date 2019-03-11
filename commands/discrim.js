@@ -67,8 +67,9 @@ module.exports = class Lock extends command {
                 msg.delete().catch(e => {})
                 message.delete().catch(e => {})
                 if(force) return;
-                aprovar.emit('end')
-                reprovar.emit('end')
+                anterior.emit('end')
+                proxima.emit('end')
+                finalizar.emit('end')
             })
         })
     }
