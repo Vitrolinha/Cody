@@ -58,13 +58,13 @@ module.exports = class Config extends command {
                     if(selectedType.first().content !== 'cancel') {
                         let type = parseInt(message.content)
                         let msgChannel = message.channel.send(t('comandos:config.sugest.mentionChannel'))
-                        message.channel.awaitMessages(mensagem => mensagem.author.id === message.author.id && message.mentions.channels.first() || message.guild.channels.get(mensagem.content.toLowerCase()) || message.guild.channels.find(channel => channel.name.toLowerCase() === mensagem.content.toLowerCase()) || mensagem.content === 'cancel', {
+                        message.channel.awaitMessages(mensagem => mensagem.author.id === message.author.id && mensagem.mentions.channels.first() || mensagem.guild.channels.get(mensagem.content.toLowerCase()) || mensagem.guild.channels.find(channel => channel.name.toLowerCase() === mensagem.content.toLowerCase()) || mensagem.content === 'cancel', {
                             maxMatches: 1,
                             time: 60000,
                             errors: ['time']
                         }).then(async selectedChannel => {
                             if(selectedType.first().content !== 'cancel') {
-                                let canal = message.mentions.channels.first() || message.guild.channels.get(selectedChannel.first().content.toLowerCase()) || message.guild.channels.find(channel => channel.name.toLowerCase() === selectedChannel.first().content.toLowerCase())
+                                let canal = selectedType.first().mentions.channels.first() || selectedType.first().guild.channels.get(selectedChannel.first().content.toLowerCase()) || selectedType.first().guild.channels.find(channel => channel.name.toLowerCase() === selectedChannel.first().content.toLowerCase())
                                 servidor.sugest = { on: true, channel: canal.id, type: type}
                                 servidor.save()
                                 if(type === 1) {
