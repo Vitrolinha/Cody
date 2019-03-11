@@ -63,8 +63,8 @@ module.exports = class Config extends command {
                             time: 60000,
                             errors: ['time']
                         }).then(async selectedChannel => {
-                            if(selectedType.first().content !== 'cancel') {
-                                let canal = selectedType.first().mentions.channels.first() ? selectedType.first().mentions.channels.first() : selectedType.first().guild.channels.get(selectedType.first().content) ? selectedType.first().guild.channels.get(selectedType.first().content) : selectedType.first().guild.channels.find(channel => channel.name.toLowerCase() === selectedType.first().content.toLowerCase()) ? selectedType.first().guild.channels.find(channel => channel.name.toLowerCase() === selectedType.first().content.toLowerCase()) : message.channel
+                            if(selectedChannel.first().content !== 'cancel') {
+                                let canal = selectedChannel.first().mentions.channels.first() ? selectedChannel.first().mentions.channels.first() : selectedChannel.first().guild.channels.get(selectedChannel.first().content) ? selectedChannel.first().guild.channels.get(selectedChannel.first().content) : selectedChannel.first().guild.channels.find(channel => channel.name.toLowerCase() === selectedChannel.first().content.toLowerCase()) ? selectedChannel.first().guild.channels.find(channel => channel.name.toLowerCase() === selectedChannel.first().content.toLowerCase()) : message.channel
                                 servidor.sugest = { on: true, channel: canal.id, type: type}
                                 servidor.save()
                                 if(type === 1) {
