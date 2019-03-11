@@ -56,7 +56,7 @@ module.exports = class Config extends command {
                     errors: ['time']
                 }).then(async selectedType => {
                     if(selectedType.first().content !== 'cancel') {
-                        let type = parseInt(message.content)
+                        let type = parseInt(selectedType.first().content)
                         let msgChannel = await message.channel.send(t('comandos:config.sugest.mentionChannel'))
                         message.channel.awaitMessages(mensagem => mensagem.author.id === message.author.id, {
                             maxMatches: 1,
