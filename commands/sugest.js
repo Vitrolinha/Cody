@@ -15,7 +15,10 @@ module.exports = class Sugest extends command {
             .setDescription(args.slice(1).join(' '))
             .setTimestamp(new Date())
             .setFooter(message.author.username, message.author.displayAvatarURL)
-        canal.send(embed)
+        canal.send(embed).then(async msg => {
+            await msg.react('✅')
+            await msg.react('❌') 
+        })
         message.channel.send(t('comandos:sugest.sended'))
     }
 }
