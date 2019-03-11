@@ -51,13 +51,13 @@ module.exports = class Config extends command {
                     .setFooter(message.author.username, message.author.displayAvatarURL)
                     .setColor(2631906)
                 let msgType = await message.channel.send(selectType)
+                inWindowSugest.push(message.author.id + message.channel.id)
                 message.channel.awaitMessages(mensagem => mensagem.author.id === message.author.id && mensagem.content === '1' || mensagem.content === '2' || mensagem.content === 'cancel', {
                     maxMatches: 1,
                     time: 60000,
                     errors: ['time']
                 }).then(async selectedType => {
                     if(selectedType.first().content !== 'cancel') {
-                        inWindowSugest.push(message.author.id + message.channel.id)
                         let type = parseInt(selectedType.first().content)
                         let msgChannel = await message.channel.send(t('comandos:config.sugest.mentionChannel'))
                         message.channel.awaitMessages(mensagem => mensagem.author.id === message.author.id, {
