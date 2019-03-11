@@ -95,6 +95,20 @@ module.exports = async function (message) {
                             })
                         }
 
+                        if(servidor.sugest.get('on')) {
+                            if(message.channel.id !== servidor.sugest.get('channel')) return;
+                            var canal = await message.guild.channels.get(servidor.sugest.get('channel'))
+                            if(servidor.sugest.get('type') === 1) {
+                                if(message.author.id !== this.client.user.id) return;
+                                await message.react('✅')
+                                await message.react('❌')
+                            } else if(servidor.sugest.get('type') === 2) {
+                                if(message.author.id === this.client.user.id) return;
+                                await message.react('✅')
+                                await message.react('❌')     
+                            }
+                        }
+
                         if(!vipDelay.has(message.author.id)) {
                             vipDelay.add(message.author.id)
                             setTimeout(function() {

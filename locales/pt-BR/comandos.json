@@ -220,6 +220,13 @@
         "added": "✅ O cargo `{{role}}` foi **adicionado** ao usuário.",
         "removed": "❌ O cargo `{{role}}` foi **retirado** do usuário."
     },
+    "sugest": {
+        "sistemOff": "😒 O **sistema de sugestões** está `desativado` neste **servidor**.",
+        "noTypeChannel": "😒 Para **enviar** uma **sugestão**, basta enviar **uma mensagem** no canal <#{{channel}}>.",
+        "channelNotFound": "😶 O **canal definido** não foi **encontrado**.",
+        "title": "🚀 Nova sugestão:",
+        "sended": "✅ Sua **sugestão** foi **enviada**."
+    },
     "tempmute": {
         "noPermission": "😕 É **necessário** possuir a **permissão** `GERENCIAR CARGOS`.",
         "noPermBot": "😕 Parece que **não possuo** a permissão `GERENCIAR CARGOS` no **servidor**.",
