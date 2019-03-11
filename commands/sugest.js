@@ -13,7 +13,7 @@ module.exports = class Sugest extends command {
         if(!args[0]) return message.channel.send(t('comandos:sugest.noArgs'))
         let embed = new this.client.Discord.RichEmbed()
             .setTitle(t('comandos:sugest.title'))
-            .setDescription(args.slice(1).join(' '))
+            .setDescription(args.join(' '))
             .setTimestamp(new Date())
             .setFooter(`${message.author.username} (ID: ${message.author.id})`, message.author.displayAvatarURL)
             .setColor(2631906)
