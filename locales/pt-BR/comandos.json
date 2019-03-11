@@ -224,6 +224,7 @@
         "sistemOff": "😒 O **sistema de sugestões** está `desativado` neste **servidor**.",
         "noTypeChannel": "😒 Para **enviar** uma **sugestão**, basta enviar **uma mensagem** no canal <#{{channel}}>.",
         "channelNotFound": "😶 O **canal definido** não foi **encontrado**.",
+        "noAgs": "😒 É necessário **inserir** sua **sugestão**.",
         "title": "🚀 Nova sugestão:",
         "sended": "✅ Sua **sugestão** foi **enviada**."
     },
