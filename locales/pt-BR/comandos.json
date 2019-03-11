@@ -48,6 +48,15 @@
         "activated": "✅ O comando `{{cmd}}` entrou para à **manutenção**.",
         "disabled": "❌ O comando `{{cmd}}` saiu da **manutenção**."
     },
+    "clear": {
+        "noArgs": "🙄 Você **precisa** citar a **quantidade de mensagens** à serem **deletadas**.",
+        "noPermission":"😕 É **necessário** possuir a **permissão** `GERENCIAR MENSAGENS`.",
+        "noPermBot": "🙄 Parece que **não tenho permissão** para **executar** esta função, **verifique** se possuo a permissão `GERENCIAR MENSAGENS`.",
+        "notNumber": "😒 `{{nan}}` **não** é **um número**.",
+        "number0": "😣 **Não** é **possível** deletar **{{count}} mensagens**.",
+        "more100": "🙄 O **número** `{{number}}` é **maior** que **100**.",
+        "cleared": "✅ Foram deletadas **{{count}} mensagens** por **{{member}}**."
+    },
     "concierge": {
         "noPermission": "😕 É **necessário** possuir a **permissão** `GERENCIAR SERVIDOR`.",
         "howToUse": "🗃 Como usar:",
@@ -78,6 +87,7 @@
         },
         "sugest": {
             "howToUse": "📋 Como usar:",
+            "inWindow":"🙄 **Você** já está com uma **jánela** de **configuração**, **finalize-a** ou aguarde **1 minuto**.",
             "title":"📋 Sugestão:",
             "description": "Pare **selecionar**, envie uma **mensagem** no canal com o **número** da opção selecionada.\n\n1⃣ O **usuário terá** que **usar** o comando `{{prefix}}sugest` e a sugestão será **enviada** em um **canal definido** com uma embed.\n2⃣ O usuário **enviará** a sugestão em um **canal definido** e será adicionado **duas reações** para a **votação** na mensagem.\n\n❌ Para cancelar **envie** `cancel` ou aguarde **1 minuto**.",
             "mentionChannel": "🙄 Mencione o **canal** para as **sugestões**. (envie `cancel` para cancelar)\nSe **não mencionar** um canal será **definido** no **canal atual**.",
@@ -88,14 +98,6 @@
             "alreadyOff": "😒 O **sistema de sugestões** já está `desativado` **neste servidor**.",
             "disabled": "✅ O **sistema de sugestões** foi `desativado` **neste servidor**."
         }
-    },
-    "clear": {
-        "noArgs": "🙄 Você **precisa** citar a **quantidade de mensagens** à serem **deletadas**.",
-        "noPerm": "🙄 Parece que **não tenho permissão** para **executar** esta função, **verifique** se possuo a permissão `GERENCIAR MENSAGENS`.",
-        "notNumber": "😒 `{{nan}}` **não** é **um número**.",
-        "number0": "😣 **Não** é **possível** deletar **{{count}} mensagens**.",
-        "more100": "🙄 O **número** `{{number}}` é **maior** que **100**.",
-        "cleared": "✅ Foram deletadas **{{count}} mensagens** por **{{member}}**."
     },
     "discrim": {
         "inWindow": "🙄 **Você** já está com uma **jánela** de discriminadores aberta, **finalize-a** ou aguarde **1 minuto**.",

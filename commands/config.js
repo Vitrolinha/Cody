@@ -32,6 +32,7 @@ module.exports = class Config extends command {
             let msg = oVip ? t('comandos:config.vipMessages.defined') : t('comandos:config.vipMessages.removed')
             message.channel.send(msg)
         } else if(config === 'sugest') {
+            if(inWindowSugest.includes(message.author.id + message.channel.id)) return message.channel.send(t('comandos:config.sugest.inWindow'))
             let actions = ['on', 'off']
             let sugest = new this.client.Discord.RichEmbed()
                 .setTitle(t('comandos:config.sugest.howToUse'))
@@ -56,6 +57,7 @@ module.exports = class Config extends command {
                     errors: ['time']
                 }).then(async selectedType => {
                     if(selectedType.first().content !== 'cancel') {
+                        inWindowSugest.push(message.author.id + message.channel.id)
                         let type = parseInt(selectedType.first().content)
                         let msgChannel = await message.channel.send(t('comandos:config.sugest.mentionChannel'))
                         message.channel.awaitMessages(mensagem => mensagem.author.id === message.author.id, {
@@ -72,20 +74,25 @@ module.exports = class Config extends command {
                                 } else if(type === 2) {
                                     message.channel.send(t('comandos:config.sugest.defined2', { channel: canal, member: message.member, prefix: prefix }))
                                 }
+                                inWindowSugest.splice(inWindowSugest.indexOf(message.author.id + message.channel.id), 1)
                             } else {
                                 msgChannel.delete().catch(e => {})
+                                inWindowSugest.splice(inWindowSugest.indexOf(message.author.id + message.channel.id), 1)
                                 message.channel.send(t('comandos:config.sugest.canceled', { member: message.member }))
                             }
                         }).catch(err => {
                             msgChannel.delete().catch(e => {})
+                            inWindowSugest.splice(inWindowSugest.indexOf(message.author.id + message.channel.id), 1)
                             message.channel.send(t('comandos:config.sugest.timeout', { member: message.member }))
                         })
                     } else {
                         msgType.delete().catch(e => {})
+                        inWindowSugest.splice(inWindowSugest.indexOf(message.author.id + message.channel.id), 1)
                         message.channel.send(t('comandos:config.sugest.canceled', { member: message.member }))
                     }
                 }).catch(err => {
                     msgType.delete().catch(e => {})
+                    inWindowSugest.splice(inWindowSugest.indexOf(message.author.id + message.channel.id), 1)
                     message.channel.send(t('comandos:config.sugest.timeout', { member: message.member }))
                 })
             } else if(action === 'off') {
