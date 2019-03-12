@@ -178,6 +178,8 @@ module.exports = async function (message) {
                             message.channel.send(t('eventos:unbanned', { member: message.member }))
                         }
                     }
+                } else {
+                    console.log('n existe lol')
                 }
             })
         })
