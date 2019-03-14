@@ -14,7 +14,7 @@ module.exports = class Staff extends command {
             .setDescription(t('comandos:staff.formDesc', { error: t('comandos:staff.notHaveErrors') }))
             .setThumbnail(this.client.user.displayAvatarURL)
             .setFooter(message.author.username, message.author.displayAvatarURL)
-            .setColor(5202)
+            .setColor(5289)
             message.channel.send(embed).then(async msg => {
                 try {
                     await msg.react('1⃣')
@@ -162,7 +162,7 @@ module.exports = class Staff extends command {
                 .addField(t('comandos:staff.designers'), designers.join(', '))
                 .setThumbnail(this.client.user.displayAvatarURL)
                 .setFooter(t('comandos:staff.footer', { lastUpdate: minutos }))
-                .setColor(5202)
+                .setColor(5289)
             message.channel.send(embed)
         }
     }

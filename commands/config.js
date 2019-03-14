@@ -14,7 +14,7 @@ module.exports = class Config extends command {
             .setDescription(`\`\`\`${configs.map(config => `${prefix}config ${config}`).join('\n')}\`\`\``)
             .setTimestamp(new Date())
             .setFooter(message.author.username, message.author.displayAvatarURL)
-            .setColor(5202)
+            .setColor(5289)
         if(!args[0]) return message.channel.send(embed);
         if(!configs.includes(args[0].toLowerCase())) message.channel.send(embed)
         let config = args[0].toLowerCase()
@@ -39,7 +39,7 @@ module.exports = class Config extends command {
                 .setDescription(`\`\`\`${prefix}config sugest <${actions.join('/')}>\`\`\``)
                 .setTimestamp(new Date())
                 .setFooter(message.author.username, message.author.displayAvatarURL)
-                .setColor(5202)
+                .setColor(5289)
             if(!args[1]) return message.channel.send(sugest);
             if(!actions.includes(args[1].toLowerCase())) return message.channel.send(sugest);
             let action = args[1].toLowerCase()
@@ -49,7 +49,7 @@ module.exports = class Config extends command {
                     .setDescription(t('comandos:config.sugest.description', { prefix: prefix }))
                     .setTimestamp(new Date())
                     .setFooter(message.author.username, message.author.displayAvatarURL)
-                    .setColor(5202)
+                    .setColor(5289)
                 let msgType = await message.channel.send(selectType)
                 inWindowSugest.push(message.author.id + message.channel.id)
                 message.channel.awaitMessages(mensagem => mensagem.author.id === message.author.id && mensagem.content === '1' || mensagem.content === '2' || mensagem.content === 'cancel', {

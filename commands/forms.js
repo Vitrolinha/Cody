@@ -17,7 +17,7 @@ module.exports = class Forms extends command {
             .setThumbnail(this.client.users.get(cnt.user) ? this.client.users.get(cnt.user).displayAvatarURL : this.client.user.displayAvatarURL)
             .setTimestamp(new Date(parseInt(cnt.date)))
             .setFooter(message.author.username, message.author.displayAvatarURL)
-            .setColor(5202)
+            .setColor(5289)
             return embed;
         }
         message.channel.send(await genEmbed(first)).then(async msg => {

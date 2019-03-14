@@ -17,7 +17,7 @@ module.exports = class Ping extends command {
             .setDescription(`${t('comandos:lang.desc', { error: t('comandos:staff.notHaveErrors') })}\n\n${langs.map(lang => `${lang.emoji} **${lang.name}**`).join('  ')}`)
             .setTimestamp(new Date())
             .setFooter(message.author.username, message.author.displayAvatarURL)
-            .setColor(5202)
+            .setColor(5289)
         message.channel.send(embed).then(async msg => {
             await msg.react('🇧🇷')
             await msg.react('🇺🇸')

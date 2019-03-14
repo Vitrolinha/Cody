@@ -11,7 +11,7 @@ module.exports = class BotBan extends command {
             .addField(t('comandos:botban.howToUse'), `\`\`\`\n${prefix}botban mention\n${prefix}botban mention <time>\`\`\``, false)
             .setTimestamp(new Date())
             .setFooter(message.author.username, message.author.displayAvatarURL)
-            .setColor(5202)
+            .setColor(5289)
         this.client.moment.locale(servidor.lang)
         if(!args[0]) return message.channel.send(invalid)
         if(!args[0] === message.mentions.users.first().toString()) return message.channel.send(invalid)

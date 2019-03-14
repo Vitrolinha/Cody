@@ -9,7 +9,7 @@ module.exports = class BotConfig extends command {
         if(!(await this.client.verPerm(['owner', 'subowner', 'developer', 'operator'], false, usuario))) return message.channel.send(t('comandos:botconfig.noPermission'));
         let invalid = new this.client.Discord.RichEmbed()
             .addField(t('comandos:botconfig.howToUse'), `\`\`\`\n${prefix}botconfig cmd <manu> <command-name>\`\`\``, false)
-            .setColor(5202)
+            .setColor(5289)
         let funcao = args[0]
         if(!funcao) return message.channel.send(invalid)
         funcao = funcao.toLowerCase()

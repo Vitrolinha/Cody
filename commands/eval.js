@@ -19,7 +19,7 @@ module.exports = class Eval extends command {
             let resultado = await eval(code)
             embed.addField(t('comandos:eval.code'), `\`\`\`${code}\`\`\``, false)
             embed.addField(t('comandos:eval.result'), `\`\`\`${resultado}\`\`\``, false)
-            embed.setColor(5202)
+            embed.setColor(5289)
             message.channel.send(embed)
         } catch(err) {
             embed.addField(t('comandos:eval.code'), `\`\`\`${code}\`\`\``, false)

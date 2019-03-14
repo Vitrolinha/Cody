@@ -28,7 +28,7 @@ module.exports = class Help extends command {
             .setThumbnail(this.client.user.displayAvatarURL)
             .setTimestamp(new Date())
             .setFooter(message.author.username, message.author.displayAvatarURL)
-            .setColor(5202)
+            .setColor(5289)
           message.channel.send(t('comandos:help.cntMessageArg', { cmd: cmdName }), embed)
         } else {
           let menu = new this.client.Discord.RichEmbed()
@@ -39,7 +39,7 @@ module.exports = class Help extends command {
             .setThumbnail(this.client.user.displayAvatarURL)
             .setTimestamp(new Date())
             .setFooter(message.author.username, message.author.displayAvatarURL)
-            .setColor(5202)
+            .setColor(5289)
           if(inWindow.includes(message.author.id + message.channel.id)) return message.channel.send(t('comandos:help.inWindow'))
           inWindow.push(message.author.id + message.channel.id)
           message.channel.send(t('comandos:help.cntMessageNoArg'), menu).then(async msg => {
@@ -56,7 +56,7 @@ module.exports = class Help extends command {
                 .setThumbnail(this.client.user.displayAvatarURL)
                 .setTimestamp(new Date())
                 .setFooter(message.author.username, message.author.displayAvatarURL)
-                .setColor(5202)
+                .setColor(5289)
               utilities.on('collect', async r => {
                 r.remove(r.users.last().id).catch(e => {})
                 embed.setTitle(t(`comandos:help.utilities`, { count: comandos.filter(cmd => cmd.category === 1).length }))
