@@ -11,7 +11,7 @@ module.exports = class Avatar extends command {
             .setImage(user.displayAvatarURL)
             .setTimestamp(new Date())
             .setFooter(message.author.username, message.author.displayAvatarURL)
-            .setColor(2631906)
+            .setColor(5202)
         message.channel.send(embed)
     }
 }

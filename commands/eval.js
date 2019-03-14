@@ -12,14 +12,14 @@ module.exports = class Eval extends command {
         if(!code) return message.channel.send(t('comandos:eval.noCode'));
         if(code.includes('token')) return;
         let embed = new this.client.Discord.RichEmbed()
-            .setThumbnail('https://i.imgur.com/b4fhI15.png')
+            .setThumbnail(this.client.user.displayAvatarURL)
             .setTimestamp(new Date())
             .setFooter(message.author.username, message.author.displayAvatarURL)
         try {
             let resultado = await eval(code)
             embed.addField(t('comandos:eval.code'), `\`\`\`${code}\`\`\``, false)
             embed.addField(t('comandos:eval.result'), `\`\`\`${resultado}\`\`\``, false)
-            embed.setColor(2631906)
+            embed.setColor(5202)
             message.channel.send(embed)
         } catch(err) {
             embed.addField(t('comandos:eval.code'), `\`\`\`${code}\`\`\``, false)

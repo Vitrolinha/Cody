@@ -21,7 +21,7 @@ module.exports = class StaffRole extends command {
         let invalid = new this.client.Discord.RichEmbed()
             .addField(t('comandos:staffrole.howToUse'), `\`\`\`\n${prefix}staffrole <add/del> <role-name> <user-mention>\`\`\``, false)
             .addField(t('comandos:staffrole.roles'), `\`${cargosA.join('` **|** `')}\``)
-            .setColor(2631906)
+            .setColor(5202)
         if(!args[2]) return message.channel.send(invalid);
         if(args[0].toLowerCase() !== 'add' && args[0].toLowerCase() !== 'del') return message.channel.send(t('comandos:staffrole.invalidFunction', { function: args[0].toLowerCase() }));
         if(!cargosA.includes(args[1].toLowerCase())) return message.channel.send(t('comandos:staffrole.roleNotExist', { role: args[1].toLowerCase(), roles: cargosA.join('` **|** `') }));

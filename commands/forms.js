@@ -14,10 +14,10 @@ module.exports = class Forms extends command {
             let embed = new this.client.Discord.RichEmbed()
             .setTitle(this.client.users.get(cnt.user) ? `${this.client.users.get(cnt.user).username} (${cnt.role}):` : `${cnt.user} (${cnt.role})`)
             .setDescription(cnt.reason)
-            .setThumbnail(this.client.users.get(cnt.user) ? this.client.users.get(cnt.user).displayAvatarURL : 'https://i.imgur.com/b4fhI15.png')
+            .setThumbnail(this.client.users.get(cnt.user) ? this.client.users.get(cnt.user).displayAvatarURL : this.client.user.displayAvatarURL)
             .setTimestamp(new Date(parseInt(cnt.date)))
             .setFooter(message.author.username, message.author.displayAvatarURL)
-            .setColor(2631906)
+            .setColor(5202)
             return embed;
         }
         message.channel.send(await genEmbed(first)).then(async msg => {

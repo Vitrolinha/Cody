@@ -16,7 +16,7 @@ module.exports = class Sugest extends command {
             .setDescription(args.join(' '))
             .setTimestamp(new Date())
             .setFooter(`${message.author.username} (ID: ${message.author.id})`, message.author.displayAvatarURL)
-            .setColor(2631906)
+            .setColor(5202)
         canal.send(embed).then(async msg => {
             await msg.react('✅')
             await msg.react('❌') 

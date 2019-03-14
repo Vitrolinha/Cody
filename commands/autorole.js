@@ -11,7 +11,7 @@ module.exports = class Autorole extends command {
             .addField(t('comandos:autorole.definedRoles'), `${servidor.autorole.get('idRoles').length > 0 ? `<@&${servidor.autorole.get('idRoles').join('> **|** <@&')}>` : t('comandos:autorole.none')}`)
             .setTimestamp(new Date())
             .setFooter(message.author.username, message.author.displayAvatarURL)
-            .setColor(2631906)
+            .setColor(5202)
         if(!args[0]) return message.channel.send(invalid);
         let funcao = args[0].toLowerCase()
         if(funcao !== 'add' && funcao !== 'del') return message.channel.send(t('comandos:autorole.invalidFunction', { function: funcao }));

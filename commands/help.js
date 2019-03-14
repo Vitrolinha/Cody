@@ -25,10 +25,10 @@ module.exports = class Help extends command {
             .setDescription(t(`help:${cmdName}.desc`))
             .addField(t('comandos:help.howToUse'), '```a\n' + t(`help:${cmdName}.howToUse`, { prefix: prefix }) + '```')
             .addField(t('comandos:help.aliases'), comandos.filter(command => command.name === cmdName)[0].aliases.length > 0 ? '```' + comandos.filter(command => command.name === cmdName)[0].aliases.map(aliase => prefix + aliase).join('\n') + '```' : t('comandos:help.notHaveAliases'))
-            .setThumbnail('https://i.imgur.com/b4fhI15.png')
+            .setThumbnail(this.client.user.displayAvatarURL)
             .setTimestamp(new Date())
             .setFooter(message.author.username, message.author.displayAvatarURL)
-            .setColor(2631906)
+            .setColor(5202)
           message.channel.send(t('comandos:help.cntMessageArg', { cmd: cmdName }), embed)
         } else {
           let menu = new this.client.Discord.RichEmbed()
@@ -36,10 +36,10 @@ module.exports = class Help extends command {
             .setDescription(t('comandos:help.description', { prefix: prefix }))
             .addField(t('comandos:help.utilities', { count: comandos.filter(cmd => cmd.category === 1).length }), `\`${comandos.filter(cmd => cmd.category === 1).map(cmd => cmd.name).join('`, `')}\``)
             .addField(t('comandos:help.moderation', { count: comandos.filter(cmd => cmd.category === 2).length }), `\`${comandos.filter(cmd => cmd.category === 2).map(cmd => cmd.name).join('`, `')}\``)
-            .setThumbnail('https://i.imgur.com/b4fhI15.png')
+            .setThumbnail(this.client.user.displayAvatarURL)
             .setTimestamp(new Date())
             .setFooter(message.author.username, message.author.displayAvatarURL)
-            .setColor(2631906)
+            .setColor(5202)
           if(inWindow.includes(message.author.id + message.channel.id)) return message.channel.send(t('comandos:help.inWindow'))
           inWindow.push(message.author.id + message.channel.id)
           message.channel.send(t('comandos:help.cntMessageNoArg'), menu).then(async msg => {
@@ -53,10 +53,10 @@ module.exports = class Help extends command {
               const moderation = msg.createReactionCollector((r, u) => r.emoji.name === "⚒" && u.id === message.author.id, { time: 120000 });
               const voltar = msg.createReactionCollector((r, u) => r.emoji.name === "↩" && u.id === message.author.id, { time: 120000 });        
               let embed = new this.client.Discord.RichEmbed()
-                .setThumbnail('https://i.imgur.com/b4fhI15.png')
+                .setThumbnail(this.client.user.displayAvatarURL)
                 .setTimestamp(new Date())
                 .setFooter(message.author.username, message.author.displayAvatarURL)
-                .setColor(2631906)
+                .setColor(5202)
               utilities.on('collect', async r => {
                 r.remove(r.users.last().id).catch(e => {})
                 embed.setTitle(t(`comandos:help.utilities`, { count: comandos.filter(cmd => cmd.category === 1).length }))

@@ -32,10 +32,10 @@ module.exports = class Info extends command {
                 .addField(t('comandos:info.community'), t('comandos:info.communityDesc', { guilds: guildsSize, channels: channelsSize, users:  usersSize }), true)
                 .addField(t('comandos:info.uptime'), t('comandos:info.uptimeDesc', { hours: (horas < 10 ? '0' + horas : horas), minutes: (minutos < 10 ? '0' + minutos : minutos), seconds: (segundos < 10 ? '0' + segundos : segundos) }), true)
                 .addField(t('comandos:info.urls'), links.map(link => link ? `- **[${link.name.toUpperCase()}](${link.link})**` : '- __**EM BREVE**__').join('\n'), true)
-                .setThumbnail('https://i.imgur.com/b4fhI15.png')
+                .setThumbnail(this.client.user.displayAvatarURL)
                 .setTimestamp(new Date())
                 .setFooter(message.author.username, message.author.displayAvatarURL)
-                .setColor(2631906)
+                .setColor(5202)
             message.channel.send(t('comandos:info.cntMessage'), embed)
     }
 }

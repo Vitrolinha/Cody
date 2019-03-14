@@ -11,7 +11,7 @@ module.exports = class Concierge extends command {
             .addField(t('comandos:concierge.howToUse'), `\`\`\`${prefix}concierge <welcome/byebye> set <message>\n${prefix}concierge <welcome/byebye> del\n${prefix}concierge parameters\`\`\``)
             .setTimestamp(new Date())
             .setFooter(message.author.username, message.author.displayAvatarURL)
-            .setColor(2631906)
+            .setColor(5202)
         if(!args[0]) return message.channel.send(invalid);
         if(args[0] !== 'welcome' && args[0] !== 'byebye' && args[0] !== 'parameters') return message.channel.send(t('comandos:concierge.invalidAct', { act: args[0].toLowerCase() }));
         let action = args[0].toLowerCase()
@@ -64,7 +64,7 @@ module.exports = class Concierge extends command {
                 .addField(t('comandos:concierge.parametersTo'), t('comandos:concierge.parameters'))
                 .setTimestamp(new Date())
                 .setFooter(message.author.username, message.author.displayAvatarURL)
-                .setColor(2631906)
+                .setColor(5202)
             message.channel.send(parameters)
         }
     }

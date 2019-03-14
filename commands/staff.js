@@ -12,9 +12,9 @@ module.exports = class Staff extends command {
             let embed = new this.client.Discord.RichEmbed()
             .setTitle(t('comandos:staff.formTitle'))
             .setDescription(t('comandos:staff.formDesc', { error: t('comandos:staff.notHaveErrors') }))
-            .setThumbnail('https://i.imgur.com/b4fhI15.png')
+            .setThumbnail(this.client.user.displayAvatarURL)
             .setFooter(message.author.username, message.author.displayAvatarURL)
-            .setColor(2631906)
+            .setColor(5202)
             message.channel.send(embed).then(async msg => {
                 try {
                     await msg.react('1⃣')
@@ -160,9 +160,9 @@ module.exports = class Staff extends command {
                 .addField(t('comandos:staff.developers'), developers.join(', '))
                 .addField(t('comandos:staff.supervisors'), supervisors.join(', '))
                 .addField(t('comandos:staff.designers'), designers.join(', '))
-                .setThumbnail('https://i.imgur.com/b4fhI15.png')
+                .setThumbnail(this.client.user.displayAvatarURL)
                 .setFooter(t('comandos:staff.footer', { lastUpdate: minutos }))
-                .setColor(2631906)
+                .setColor(5202)
             message.channel.send(embed)
         }
     }
