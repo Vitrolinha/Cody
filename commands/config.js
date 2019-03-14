@@ -10,8 +10,7 @@ module.exports = class Config extends command {
         if(!(await this.client.verPerm(['MANAGE_GUILD', 'owner', 'subowner', 'operator'], message.member, usuario))) return message.channel.send(t('comandos:config.noPermission'));
         let configs = ['prefix', 'vipmessages', 'sugest']
         let embed = new this.client.Discord.RichEmbed()
-            .setTitle(t('comandos:config.howToUse'))
-            .setDescription(`\`\`\`${configs.map(config => `${prefix}config ${config}`).join('\n')}\`\`\``)
+            .addField(t('comandos:config.howToUse'), `\`\`\`${configs.map(config => `${prefix}config ${config}`).join('\n')}\`\`\``)
             .setTimestamp(new Date())
             .setFooter(message.author.username, message.author.displayAvatarURL)
             .setColor(5289)
