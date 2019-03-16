@@ -1,4 +1,5 @@
 const { command } = require('../utils')
+const inWindowCmdChannel = []
 const inWindowSugest = []
 
 module.exports = class Config extends command {
@@ -8,7 +9,7 @@ module.exports = class Config extends command {
     }
     async run ({message, args, prefix, usuario, servidor}, t) {
         if(!(await this.client.verPerm(['MANAGE_GUILD', 'owner', 'subowner', 'operator'], message.member, usuario))) return message.channel.send(t('comandos:config.noPermission'));
-        let configs = ['prefix', 'vipmessages', 'sugest']
+        let configs = ['prefix', 'vipmessages', 'cmdchannel', 'sugest']
         let embed = new this.client.Discord.RichEmbed()
             .addField(t('comandos:config.howToUse'), `\`\`\`${configs.map(config => `${prefix}config ${config}`).join('\n')}\`\`\``)
             .setTimestamp(new Date())
@@ -30,6 +31,9 @@ module.exports = class Config extends command {
             servidor.save()
             let msg = oVip ? t('comandos:config.vipMessages.defined') : t('comandos:config.vipMessages.removed')
             message.channel.send(msg)
+        } else if (config === 'cmdchannel') {
+            if(inWindowCmdChannel.includes(message.author.id + message.channel.id)) return message.channel.send(t('comandos:config.cmdChannel.inWindow'))
+            
         } else if(config === 'sugest') {
             if(inWindowSugest.includes(message.author.id + message.channel.id)) return message.channel.send(t('comandos:config.sugest.inWindow'))
             let actions = ['on', 'off']

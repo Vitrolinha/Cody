@@ -1,0 +1,11 @@
+{
+    "cmdCooldown": "🙄 {{member}}, wait **{{seconds}}** seconds and **{{thousandth}}** milliseconds to user other command.",
+    "noCmdDB": "🤗 The **command** `{{cmd}}` looks not in be **registered**, try use it **again**.",
+    "voteInDBL": "😕 Hello {{member}}, if you **like** to user **my commands**, vote for **bot** and get **commands/functions** exclusive for **you**: https://discordbots.org/bot/507292506942210048/vote",
+    "cmdInManu": "😕 The **command** `{{cmd}}` is in **maintenance**",
+    "mentionBot": "🤗 Hello {{member}}, my **prefix** in this guild is `{{prefix}}`, use **{{prefix}}help** to know **my commands**.",
+    "sugestDelay": "🙄 {{member}}, you **need** wait **5 seconds** for send **other suggestion**.",
+    "timeoutVip": "🙄 {{member}}, the time of **you** vip **ended**, vote again for receive your **vip** again.\nhttps://discordbots.org/bot/507292506942210048/vote",
+    "definedVip": "🤗 **Thank you for vote** in the **Cody** {{member}}, you are now a **vip user**.",
+    "unbanned": "🙄 {{member}}, you **finally** was **unbanned**, now **you** already can use **my functions** freely."
+}

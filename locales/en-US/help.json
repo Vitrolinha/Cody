@@ -1,0 +1,82 @@
+{
+    "autorole": {
+        "desc": "Define vários cargos à serem recebidos ao entrar no servidor.",
+        "howToUse": "{{prefix}}autorole <add/del> <role-mention>\n{{prefix}}autorole <add/del> <role-name>\n{{prefix}}autorole <add/del> <role-id>",
+        "category": 1
+    },
+    "avatar": {
+        "desc": "Visualize o avatar de usuários do discord.",
+        "howToUse": "{{prefix}}avatar\n{{prefix}}avatar <user-mention>\n{{prefix}}avatar <user-name>\n{{prefix}}avatar <user-tag>\n{{prefix}}avatar <user-id>\n{{prefix}}avatar <nickname>\n{{prefix}}avatar <similary>",
+        "category": 1
+    },
+    "ban": {
+        "desc": "Execute um banimento em um usuário.",
+        "howToUse": "{{prefix}}ban <mention>\n{{prefix}}ban <mention> <reason>",
+        "category": 2
+    },
+    "clear": {
+        "desc": "Elimina uma quantidade especifica de mensagens.",
+        "howToUse": "{{prefix}}clear <numberOfMessages>",
+        "category": 1
+    },
+    "concierge": {
+        "desc": "Gerencie a entrada e saida de usuários em seu servidor.",
+        "howToUse": "{{prefix}}concierge <welcome/byebye> set <msg>\n{{prefix}}concierge <welcome/byebye> del\n{{prefix}}concierge parameters",
+        "category": 1
+    },
+    "config": {
+        "desc": "Configure várias funções do bot.",
+        "howToUse": "{{prefix}}config prefix <new-prefix>\n{{prefix}}config vipMessages",
+        "category": 1
+    },
+    "discrim": {
+        "desc": "Procure usuários do Discord pelo discriminador.",
+        "howToUse": "{{prefix}}discrim <discriminator>",
+        "category": 1
+    },
+    "help": {
+        "desc": "Visualize os comandos possuidos no bot.",
+        "howToUse": "{{prefix}}help\n{{prefix}}help <command-name>",
+        "category": 1
+    },
+    "info": {
+        "desc": "Visualize várias informações gerais sobre o bot.",
+        "howToUse": "{{prefix}}info",
+        "category": 1
+    },
+    "kick": {
+        "desc": "Expulse um usuário do servidor.",
+        "howToUse": "{{prefix}}kick <mention>\n{{prefix}}kick <mention> <reason>",
+        "category": 2
+    },
+    "lang": {
+        "desc": "Altere o idioma do bot em seu servidor.",
+        "howToUse": "{{prefix}}lang",
+        "category": 1
+    },
+    "lock": {
+        "desc": "Desative o envio de mensagens no canal de texto.",
+        "howToUse": "{{prefix}}lock\n{{prefix}}lock <channel-mention/id/name>",
+        "category": 2
+    },
+    "mute": {
+        "desc": "Proíba um usuário de escrever no servidor.",
+        "howToUse": "{{prefix}}mute <mention>",
+        "category": 2
+    },
+    "ping": {
+        "desc": "Visualize como está à minha conexão com o discord.",
+        "howToUse": "{{prefix}}ping",
+        "category": 1
+    },
+    "staff": {
+        "desc": "Veja toda a equipe responsável pelo meu desenvolvimento.",
+        "howToUse": "{{prefix}}staff\n{{prefix}}staff form",
+        "category": 1
+    },
+    "tempmute": {
+        "desc": "Proíba um usuário de escrever no servidor temporáriamente.",
+        "howToUse": "{{prefix}}tempmute <mention> <time>",
+        "category": 2
+    }
+}
