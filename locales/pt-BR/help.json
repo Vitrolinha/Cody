@@ -26,7 +26,7 @@
     },
     "config": {
         "desc": "Configure várias funções do bot.",
-        "howToUse": "{{prefix}}config prefix <new-prefix>\n{{prefix}}config vipMessages",
+        "howToUse": "{{prefix}}config prefix <new-prefix>\n{{prefix}}config vipMessages\n{{prefix}}config cmdchannel\n{{prefix}}config sugest",
         "category": 1
     },
     "discrim": {
