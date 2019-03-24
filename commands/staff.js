@@ -122,7 +122,7 @@ module.exports = class Staff extends command {
                                                 let mtsg = t('comandos:staff.submited', { member: message.author.tag, role: role })
                                                 this.client.shard.broadcastEval(`
                                                     if(this.guilds.get("${this.client.config.codyGuild}")) {
-                                                    this.guilds.get("${this.client.config.codyGuild}").channels.get("540740757888172043").send("${mtsg}")
+                                                    this.guilds.get("${this.client.config.codyGuild}").channels.get("${this.client.config.formsChannel}").send("${mtsg}")
                                                     }
                                                 `)
                                             })

@@ -3,11 +3,10 @@ const { command } = require('../utils')
 module.exports = class Eval extends command {
     constructor (name, client) {
         super (name, client)
-        this.aliases = ['e']
+        this.aliases = ['e', 'ev', 'execute']
     }
-    async run ({message, args, usuario, servidor}, t) {
-        if(!(await this.client.verPerm(['owner', 'subowner', 'operator', 'developer'], false, usuario))) return message.channel.send(t('comandos:eval.noPermission'));
-        if((await this.client.verPerm(['developer'], false, usuario)) && !(await this.client.verPerm(['owner', 'subowner', 'operator'], false, usuario)) && message.guild.id !== '507295947789828106') return message.channel.send(t('comandos:eval.noThisServer'))
+    async run ({message, args, usuario}, t) {
+        if(!(await this.client.verPerm(['owner', 'subowner', 'operator'], false, usuario))) return message.channel.send(t('comandos:eval.noPermission'));
         let code = args.join(' ')
         if(!code) return message.channel.send(t('comandos:eval.noCode'));
         if(code.includes('token')) return;
