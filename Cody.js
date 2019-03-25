@@ -100,7 +100,8 @@ module.exports = class Cody extends Client {
                 sugest: { on: false, channel: 'None', type: 0},
                 config: { vipMessages: true },
                 muteds: [],
-                lockedChannels: []
+                lockedChannels: [],
+                allowedChannels: []
             })
             servidor.save()
         } else if(doc.type === 3) {

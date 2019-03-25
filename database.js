@@ -68,6 +68,10 @@ const Guild = new Schema({
   lockedChannels: {
     type: Array,
     default: []
+  },
+  allowedChannels: {
+    type: Array,
+    default: []
   }
 })
 

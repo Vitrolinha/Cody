@@ -126,6 +126,7 @@ module.exports = async function (message) {
                                 } else {
                                     message.channel.send(t('eventos:sugestDelay', { member: message.member })).then(async msg => {
                                         msg.delete(6000)
+                                        message.delete()
                                     })
                                 }
                             }

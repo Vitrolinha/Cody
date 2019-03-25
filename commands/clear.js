@@ -3,7 +3,7 @@ const { command } = require('../utils')
 module.exports = class Clear extends command {
     constructor (name, client) {
         super (name, client)
-        this.aliases = ['limpar']
+        this.aliases = ['limpar', 'purge']
     }
     async run ({message, args, usuario}) {
         if(!(await this.client.verPerm(['MANAGE_MESSAGES', 'owner', 'subowner', 'operator'], message.member, usuario))) return message.channel.send(t('comandos:clear.noPermission'));

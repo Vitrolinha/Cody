@@ -32,9 +32,18 @@ module.exports = class Config extends command {
             let msg = oVip ? t('comandos:config.vipMessages.defined') : t('comandos:config.vipMessages.removed')
             message.channel.send(msg)
         } else if (config === 'cmdchannel') {
+            let actions = ['on', 'off']
+            let cmdChannelEmbed = new this.client.Discord.RichEmbed()
+                .setTitle(t('comandos:config.cmdChannel.howToUse'))
+                .setDescription(`\`\`\`${prefix}config cmdChannel <${actions.join('/')}>\`\`\``)
+                .setTimestamp(new Date())
+                .setFooter(message.author.username, message.author.displayAvatarURL)
+                .setColor(5289)
+            if(!args[0]) return message.channel.send(cmdChannelEmbed);
             if(inWindowCmdChannel.includes(message.author.id + message.channel.id)) return message.channel.send(t('comandos:config.cmdChannel.inWindow'))
             
         } else if(config === 'sugest') {
+            if(!(await this.client.verPerm(['owner', 'subowner', 'operator'], message.member, usuario))) return;
             if(inWindowSugest.includes(message.author.id + message.channel.id)) return message.channel.send(t('comandos:config.sugest.inWindow'))
             let actions = ['on', 'off']
             let sugest = new this.client.Discord.RichEmbed()

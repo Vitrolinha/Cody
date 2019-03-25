@@ -85,6 +85,10 @@
             "defined": "✅ As **mensagens de vip** foram `ativadas` **neste servidor**.",
             "removed": "✅ As **mensagens de vip** foram `desativadas` **neste servidor**."
         },
+        "cmdChannel": {
+            "howToUse": "📋 Como usar:",
+            "inWindow":"🙄 **Você** já está com uma **jánela** de seleção, **finalize-a** ou aguarde **1 minuto**."
+        },
         "sugest": {
             "howToUse": "📋 Como usar:",
             "inWindow":"🙄 **Você** já está com uma **jánela** de **configuração**, **finalize-a** ou aguarde **1 minuto**.",
