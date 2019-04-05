@@ -32,18 +32,37 @@ module.exports = class Config extends command {
             let msg = oVip ? t('comandos:config.vipMessages.defined') : t('comandos:config.vipMessages.removed')
             message.channel.send(msg)
         } else if (config === 'cmdchannel') {
-            let actions = ['on', 'off']
+            let actions = ['add', 'del', 'off']
             let cmdChannelEmbed = new this.client.Discord.RichEmbed()
                 .setTitle(t('comandos:config.cmdChannel.howToUse'))
-                .setDescription(`\`\`\`${prefix}config cmdChannel <${actions.join('/')}>\`\`\``)
+                .setDescription(`\`\`\`${prefix}config cmdChannel <${actions.join('/')}> <\`\`\``)
                 .setTimestamp(new Date())
                 .setFooter(message.author.username, message.author.displayAvatarURL)
                 .setColor(5289)
             if(!args[0]) return message.channel.send(cmdChannelEmbed);
             if(inWindowCmdChannel.includes(message.author.id + message.channel.id)) return message.channel.send(t('comandos:config.cmdChannel.inWindow'))
-            
+            let action = args[0].toLowerCase()
+            let genEmbed = async(doc) => {
+                let embed = new this.client.Discord.RichEmbed()
+
+                    .setTimestamp(new Date())
+                    .setFooter(message.author.username, message.author.displayAvatarURL)
+                    .setColor(5289)
+            }
+            if(action === 'add') {
+
+            } else if(action === 'del') {
+                if(!args[1] && !message.mentions.channels.first()) return message.channel.send(t('comandos:config.cmdChannel.del.noMention'))
+                let mentions = []
+                await message.mentions.channels.forEach(mention => mentions.push(mention))
+                if(servidor.allowedChannels.length !== 0) {
+                    await message.guild.channels.filter(channel => !mentions.find(mention => mention.id === channel.id)).forEach(channel => servidor.allowedChannels.push(channel.id))
+                    servidor.save()
+                }
+            } else if(action === 'off') {
+
+            }
         } else if(config === 'sugest') {
-            if(!(await this.client.verPerm(['owner', 'subowner', 'operator'], message.member, usuario))) return;
             if(inWindowSugest.includes(message.author.id + message.channel.id)) return message.channel.send(t('comandos:config.sugest.inWindow'))
             let actions = ['on', 'off']
             let sugest = new this.client.Discord.RichEmbed()
@@ -64,7 +83,7 @@ module.exports = class Config extends command {
                     .setColor(5289)
                 let msgType = await message.channel.send(selectType)
                 inWindowSugest.push(message.author.id + message.channel.id)
-                message.channel.awaitMessages(mensagem => mensagem.author.id === message.author.id && mensagem.content === '1' || mensagem.content === '2' || mensagem.content === 'cancel', {
+                message.channel.awaitMessages(mensagem => mensagem.author.id === message.author.id && mensagem.content === '1' || mensagem.content === 'cancel', {
                     maxMatches: 1,
                     time: 60000,
                     errors: ['time']

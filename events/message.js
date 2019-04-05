@@ -1,5 +1,4 @@
 const roleSetDelay = new Set()
-const sugestDelay = new Set()
 const vipDelay = new Set()
 const mentionDelay = new Set()
 const tempMuteDelay = new Set()
@@ -110,26 +109,6 @@ module.exports = async function (message) {
                                 if(!member.roles.get(role.id)) return servidor.muteds.splice(servidor.muteds.indexOf(servidor.muteds.find(muted => muted.id === user.id)), 1);
                                 member.removeRole(role.id)
                             })
-                        }
-
-                        if(servidor.sugest.get('on')) {
-                            if(message.channel.id !== servidor.sugest.get('channel')) return;
-                            if(servidor.sugest.get('type') === 2) {
-                                if(message.author.id === this.user.id) return;
-                                if(!sugestDelay.has(message.author.id)) {
-                                    sugestDelay.add(message.author.id)
-                                    setTimeout(function() {
-                                        sugestDelay.delete(message.author.id)
-                                    }, 13 * 1000)
-                                    await message.react('✅')
-                                    await message.react('❌')     
-                                } else {
-                                    message.channel.send(t('eventos:sugestDelay', { member: message.member })).then(async msg => {
-                                        msg.delete(6000)
-                                        message.delete()
-                                    })
-                                }
-                            }
                         }
 
                         if(!vipDelay.has(message.author.id)) {
