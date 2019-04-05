@@ -7,13 +7,7 @@ module.exports = class Cody extends Client {
         this.commands = new Collection()
         this.Discord = require('discord.js')
         this.DBL = require("dblapi.js");
-        this.dbl = new this.DBL(process.env.dbl, { webhookPort: 5000, webhookAuth: process.env.dblhpassword });
-        this.dbl.webhook.on('ready', hook => {
-            console.log(`Webhook running at http://${hook.hostname}:${hook.port}${hook.path}`);
-        });
-        this.dbl.webhook.on('vote', vote => {
-            console.log(`User with ID ${vote.user} just voted!`);
-        });
+        this.dbl = new this.DBL(process.env.dbl, this);
         this.database = require('./database.js')
         this.config = require('./global.json')
         this.i18next = require('i18next')
