@@ -40,6 +40,7 @@ module.exports = class Config extends command {
                 .setFooter(message.author.username, message.author.displayAvatarURL)
                 .setColor(5289)
             if(!args[1]) return message.channel.send(cmdChannelEmbed);
+            if(!actions.includes(args[1].toLowerCase())) return message.channel.send(cmdChannelEmbed);
             if(inWindowCmdChannel.includes(message.author.id + message.channel.id)) return message.channel.send(t('comandos:config.cmdChannel.inWindow'))
             let action = args[1].toLowerCase()
             let genEmbed = async(doc) => {
