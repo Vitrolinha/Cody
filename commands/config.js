@@ -70,11 +70,11 @@ module.exports = class Config extends command {
                 let mentions = []
                 await message.mentions.channels.forEach(mention => mentions.push(mention))
                 if(servidor.allowedChannels.length === 0) {
-                    await message.guild.channels.filter(channel => !mentions.find(mention => mention.id === channel.id)).forEach(channel => servidor.allowedChannels.push(channel.id))
+                    await message.guild.channels.filter(channel => mentions.find(mention => mention.id !== channel.id)).forEach(channel => servidor.allowedChannels.push(channel.id))
                     message.channel.send(await genEmbed(servidor))
                     servidor.save()
                 } else {
-                    await mentions.filter(mention => servidor.allowedChannels.includes(mention.id)).forEach(mention => { servidor.allowedChannels.slice(mention.id) })
+                    await mentions.filter(mention => servidor.allowedChannels.includes(mention.id)).forEach(mention => { servidor.allowedChannels.splice(servidor.allowedChannels.indexOf(mention.id), 1) })
                     message.channel.send(await genEmbed(servidor))
                     servidor.save()
                 }
