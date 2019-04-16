@@ -45,7 +45,7 @@ module.exports = class Config extends command {
             let action = args[1].toLowerCase()
             let genEmbed = async(doc) => {
                 let allowedChannels = doc.allowedChannels
-                let deniedChannels = message.guild.channels.filter(channel => !allowedChannels.includes(channel.id)).map(channel => channel.id)
+                let deniedChannels = message.guild.channels.filter(channel => !allowedChannels.includes(channel.id) && channel.type === 'text').map(channel => channel.id)
                 allowedChannels.filter(channel => !message.guild.channels.get(channel)).forEach(channel => {
                     doc.allowedChannels.splice(channel)
                 })
