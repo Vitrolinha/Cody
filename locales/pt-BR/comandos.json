@@ -95,8 +95,11 @@
             "denied": "❎ Canais bloqueados:",
             "alreadyReseted": "❌ A **lista** já está **limpa**.",
             "reseted": "✅ Canais **resetados** com sucesso! Agora voce **pode usar** comandos em **todos os canais**.",
+            "add": {
+                "noMention": "🙄 **Você** precisa **mencionar** os canais que deseja **permitir** o uso de comandos. (1 ou mais menções)"
+            },
             "del": {
-                "noMention": "🙄 **Você** precisa **mencionar** os canais que deseja bloquear. (1 ou mais menções)"
+                "noMention": "🙄 **Você** precisa **mencionar** os canais que deseja **bloquear** o uso de comandos. (1 ou mais menções)"
             }
         },
         "sugest": {

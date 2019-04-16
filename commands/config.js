@@ -58,12 +58,17 @@ module.exports = class Config extends command {
                 return sucess;
             }
             if(action === 'add') {
-
-            } else if(action === 'del') {
-                if(!args[1] && !message.mentions.channels.first()) return message.channel.send(t('comandos:config.cmdChannel.del.noMention'))
+                if(!args[2] || !message.mentions.channels.first()) return message.channel.send(t('comandos:config.cmdChannel.add.noMention'))
                 let mentions = []
                 await message.mentions.channels.forEach(mention => mentions.push(mention))
-                if(servidor.allowedChannels.length !== 0) {
+                await mentions.filter(mention => !servidor.allowedChannels.includes(mention.id)).forEach(mention => { servidor.allowedChannels.push(mention.id) })
+                message.channel.send(await genEmbed(servidor))
+                servidor.save()
+            } else if(action === 'del') {
+                if(!args[2] || !message.mentions.channels.first()) return message.channel.send(t('comandos:config.cmdChannel.del.noMention'))
+                let mentions = []
+                await message.mentions.channels.forEach(mention => mentions.push(mention))
+                if(servidor.allowedChannels.length === 0) {
                     await message.guild.channels.filter(channel => !mentions.find(mention => mention.id === channel.id)).forEach(channel => servidor.allowedChannels.push(channel.id))
                     message.channel.send(await genEmbed(servidor))
                     servidor.save()
@@ -73,7 +78,6 @@ module.exports = class Config extends command {
                     servidor.save()
                 }
             } else if(action === 'reset') {
-                if(servidor.allowedChannels.length === 0) return message.channel.send(t('comandos:config.cmdChannel.alreadyReseted'));
                 servidor.allowedChannels = []
                 servidor.save()
                 message.channel.send(t('comandos:config.cmdChannel.reseted'))
