@@ -1,4 +1,5 @@
 {
+    "channelBlocked": "😕 {{member}}, é proibido o **uso de comandos** neste canal.",
     "cmdCooldown": "🙄 {{member}}, aguarde **{{seconds}}** segundos e **{{thousandth}}** milissegundos para usar outro comando.",
     "noCmdDB": "🤗 O **comando** `{{cmd}}` parece não estar **registrado**, tente usa-lo **novamente**.",
     "voteInDBL": "😕 Olá {{member}}, se você **gosta** de usar **meus comandos**, vote no **bot** e ganhe **comandos/funções** exclusivas para **você**: https://discordbots.org/bot/507292506942210048/vote",
