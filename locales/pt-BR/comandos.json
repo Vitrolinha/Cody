@@ -89,9 +89,11 @@
             "howToUse": "📋 Como usar:",
             "inWindow":"🙄 **Você** já está com uma **jánela** de seleção, **finalize-a** ou aguarde **1 minuto**.",
             "sucess": "🗂 Alteração feita com sucesso!",
+            "emptyAlloweds": "Não se pode executar comandos em nenhum canal.",
+            "emptyDenieds": "Pode se usar comandos em todos os canais.",
             "allowed": "✅ Canais permitidos:",
             "denied": "❎ Canais bloqueados:",
-            "alreadyReseted": "❎ A **lista** já está **limpa**.",
+            "alreadyReseted": "❌ A **lista** já está **limpa**.",
             "reseted": "✅ Canais **resetados** com sucesso! Agora voce **pode usar** comandos em **todos os canais**.",
             "del": {
                 "noMention": "🙄 **Você** precisa **mencionar** os canais que deseja bloquear. (1 ou mais menções)"
