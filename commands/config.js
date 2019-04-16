@@ -32,7 +32,7 @@ module.exports = class Config extends command {
             let msg = oVip ? t('comandos:config.vipMessages.defined') : t('comandos:config.vipMessages.removed')
             message.channel.send(msg)
         } else if (config === 'cmdchannel') {
-            let actions = ['add', 'del', 'off']
+            let actions = ['add', 'del', 'reset']
             let cmdChannelEmbed = new this.client.Discord.RichEmbed()
                 .setTitle(t('comandos:config.cmdChannel.howToUse'))
                 .setDescription(`\`\`\`${prefix}config cmdChannel <${actions.join('/')}> <\`\`\``)
@@ -43,11 +43,19 @@ module.exports = class Config extends command {
             if(inWindowCmdChannel.includes(message.author.id + message.channel.id)) return message.channel.send(t('comandos:config.cmdChannel.inWindow'))
             let action = args[0].toLowerCase()
             let genEmbed = async(doc) => {
-                let embed = new this.client.Discord.RichEmbed()
-
+                let allowedChannels = doc.allowedChannels
+                let deniedChannels = message.guild.channels.filter(channel => !allowedChannels.includes(channel.id)).map(channel => channel.id)
+                allowedChannels.filter(channel => !message.guild.channels.get(channel)).forEach(channel => {
+                    doc.allowedChannels.splice(channel)
+                })
+                let sucess = new this.client.Discord.RichEmbed()
+                    .setTitle(t('comandos:config.cmdChannel.sucess'))
+                    .addField(t('comandos:config.cmdChannel.allowed'), allowedChannels.map(channel => `**${message.guild.channels.get(channel).name}**`).join(', '))
+                    .addField(t('comandos:config.cmdChannel.denied'), deniedChannels.map(channel => `**${message.guild.channels.get(channel).name}**`).join(', '))
                     .setTimestamp(new Date())
                     .setFooter(message.author.username, message.author.displayAvatarURL)
                     .setColor(5289)
+                return sucess;
             }
             if(action === 'add') {
 
@@ -57,10 +65,18 @@ module.exports = class Config extends command {
                 await message.mentions.channels.forEach(mention => mentions.push(mention))
                 if(servidor.allowedChannels.length !== 0) {
                     await message.guild.channels.filter(channel => !mentions.find(mention => mention.id === channel.id)).forEach(channel => servidor.allowedChannels.push(channel.id))
+                    message.channel.send(await genEmbed(servidor))
+                    servidor.save()
+                } else {
+                    await mentions.filter(mention => !servidor.allowedChannels.includes(mention.id)).forEach(mention => { servidor.allowedChannels.slice(mention.id) })
+                    message.channel.send(await genEmbed(servidor))
                     servidor.save()
                 }
-            } else if(action === 'off') {
-
+            } else if(action === 'reset') {
+                if(servidor.allowedChannels.length === 0) return message.channel.send(t('comandos:config.cmdChannel.alreadyReseted'));
+                servidor.allowedChannels = []
+                servidor.save()
+                message.channel.send(t('comandos:config.cmdChannel.reseted'))
             }
         } else if(config === 'sugest') {
             if(inWindowSugest.includes(message.author.id + message.channel.id)) return message.channel.send(t('comandos:config.sugest.inWindow'))
