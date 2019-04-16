@@ -74,7 +74,7 @@ module.exports = class Config extends command {
                     message.channel.send(await genEmbed(servidor))
                     servidor.save()
                 } else {
-                    await mentions.filter(mention => !servidor.allowedChannels.includes(mention.id)).forEach(mention => { servidor.allowedChannels.slice(mention.id) })
+                    await mentions.filter(mention => servidor.allowedChannels.includes(mention.id)).forEach(mention => { servidor.allowedChannels.slice(mention.id) })
                     message.channel.send(await genEmbed(servidor))
                     servidor.save()
                 }
