@@ -43,7 +43,7 @@ module.exports = async function (message) {
                                 let milesimos = tempoRestante - (segundos*1000)
                                 let commandRun = this.commands.find(c => c.name === command || c.aliases.includes(command))
                                 if (commandRun) {
-                                    if(servidor.allowedChannels.length !== 0 && !servidor.allowedChannels.includes(message.channel.id)) return message.channel.send(t('eventos:channelBlocked', { member: message.member }))
+                                    if(servidor.allowedChannels.length !== 0 && !servidor.allowedChannels.includes(message.channel.id)) return message.channel.send(t('eventos:channelBlocked', { member: message.member })).then(msg => msg.delete(7000));
                                     if (tempoPassado < 3000) return message.channel.send(t('eventos:cmdCooldown', { member: message.member, seconds: segundos, thousandth: milesimos }));
                                     usuario.cmdcoldown = Date.now()
                                     usuario.save();
