@@ -62,7 +62,7 @@ module.exports = class Config extends command {
                 if(!args[2] || !message.mentions.channels.first()) return message.channel.send(t('comandos:config.cmdChannel.add.noMention'))
                 let mentions = []
                 await message.mentions.channels.forEach(mention => mentions.push(mention))
-                await mentions.filter(mention => !servidor.allowedChannels.includes(mention.id)).forEach(mention => { servidor.allowedChannels.push(mention.id) })
+                await mentions.filter(mention => !servidor.allowedChannels.includes(mention.id) && mention.type === 'text').forEach(mention => { servidor.allowedChannels.push(mention.id) })
                 message.channel.send(await genEmbed(servidor))
                 servidor.save()
             } else if(action === 'del') {
