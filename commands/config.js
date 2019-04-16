@@ -39,9 +39,9 @@ module.exports = class Config extends command {
                 .setTimestamp(new Date())
                 .setFooter(message.author.username, message.author.displayAvatarURL)
                 .setColor(5289)
-            if(!args[0]) return message.channel.send(cmdChannelEmbed);
+            if(!args[1]) return message.channel.send(cmdChannelEmbed);
             if(inWindowCmdChannel.includes(message.author.id + message.channel.id)) return message.channel.send(t('comandos:config.cmdChannel.inWindow'))
-            let action = args[0].toLowerCase()
+            let action = args[1].toLowerCase()
             let genEmbed = async(doc) => {
                 let allowedChannels = doc.allowedChannels
                 let deniedChannels = message.guild.channels.filter(channel => !allowedChannels.includes(channel.id)).map(channel => channel.id)
