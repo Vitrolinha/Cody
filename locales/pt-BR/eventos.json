@@ -6,7 +6,5 @@
     "cmdInManu": "😕 O **comando** `{{cmd}}` está em **manutenção**",
     "mentionBot": "🤗 Olá {{member}}, meu **prefixo** no servidor é `{{prefix}}`, use **{{prefix}}help** para saber **meus comandos**.",
     "sugestDelay": "🙄 {{member}}, você **precisa** esperar **5 segundos** para enviar **outra sugestão**.",
-    "timeoutVip": "🙄 {{member}}, o tempo de **seu** vip **acabou**, vote novamente para receber seu **vip** de volta.\nhttps://discordbots.org/bot/507292506942210048/vote",
-    "definedVip": "🤗 **Obrigado por votar** no bot **Cody** {{member}}, você agora é um **usuário vip**.",
     "unbanned": "🙄 {{member}}, você **finalmente** foi **desbanido**, agora **você** já pode usar **minhas funções** livremente."
 }

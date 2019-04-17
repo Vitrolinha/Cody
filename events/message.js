@@ -1,5 +1,4 @@
 const roleSetDelay = new Set()
-const vipDelay = new Set()
 const mentionDelay = new Set()
 const tempMuteDelay = new Set()
 module.exports = async function (message) {
@@ -50,22 +49,6 @@ module.exports = async function (message) {
                                     this.database.Commands.findOne({'_id': commandRun.name}).then(async cmdDB => {
                                             if(cmdDB) {
                                                 if(cmdDB.maintenance && !(await this.verPerm(['owner', 'subowner', 'developer', 'supervisor', 'designer'], false, usuario))) return message.channel.send(t('eventos:cmdInManu', { cmd: command }))
-                                                /*
-                                                if(['eval', 'staffrole', 'botconfig', 'botban', 'forms'].includes(commandRun.name)) {
-                                                    let cmdUsedEmbed = new this.Discord.RichEmbed()
-                                                        .setTitle('Comando de admistrador foi usado:')
-                                                        .setDescription(`\`\`\`${message.content}\`\`\``)
-                                                        .setThumbnail(this.user.displayAvatarURL)
-                                                        .setTimestamp(new Date())
-                                                        .setFooter(`${message.author.tag} (ID: ${message.author.id})`, message.author.displayAvatarURL)
-                                                        .setColor(5289)
-                                                    this.shard.broadcastEval(`
-                                                        if(this.guilds.get("${this.config.codyGuild}")) {
-                                                        this.guilds.get("${this.config.codyGuild}").channels.get("${this.config.commandsChannel}").send({embed: ${cmdUsedEmbed}})
-                                                        }
-                                                    `)
-                                                }
-                                                */
                                                 commandRun.process({message, args, prefix, usuario, servidor}, t, setFixedT)
                                                 if(!servidor.config.get('vipMessages')) return;
                                                 let random = Math.round(Math.random() * 1000)
@@ -112,26 +95,6 @@ module.exports = async function (message) {
                             })
                         }
 
-                        if(!vipDelay.has(message.author.id)) {
-                            vipDelay.add(message.author.id)
-                            setTimeout(function() {
-                                vipDelay.delete(message.author.id)
-                            }, 10 * 1000)
-                            this.dbl.hasVoted(message.author.id).then(voted => {
-                                if(usuario.vip && !voted) {
-                                    usuario.vip = false
-                                    usuario.save()
-                                    if(!servidor.config.get('vipMessages')) return;
-                                    message.channel.send(t('eventos:timeoutVip', { member: message.member }))
-                                } else if(!usuario.vip && voted) {
-                                    usuario.vip = true
-                                    usuario.save()
-                                    if(!servidor.config.get('vipMessages')) return;
-                                    message.channel.send(t('eventos:definedVip', { member: message.member }))
-                                }
-                            })
-                        }
-
                         if(message.guild.id === this.config.codyGuild && this.user.id !== this.config.canaryID) {
                             if(roleSetDelay.has(message.author.id)) return;
                             setTimeout(() => {
@@ -158,11 +121,6 @@ module.exports = async function (message) {
                                         message.member.removeRole(role.roleID)
                                     }
                                 })
-                                if(user.vip && !message.member.roles.get(this.config.vipRole)) {
-                                    message.member.addRole(this.config.vipRole)
-                                } else if(message.member.roles.get(this.config.vipRole) && !user.vip) {
-                                    message.member.removeRole(this.config.vipRole)
-                                }
                             })
                         }
                     } else {
