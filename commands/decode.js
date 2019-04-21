@@ -6,7 +6,7 @@ module.exports = class Decode extends command {
         this.aliases = ['decoder' ,'decodificar']
     }
     async run ({message, usuario}, t) {
-        let minutes = ((1800000 - (Date.now() - usuario.economy.get('lastDecode')))/1000)/60
+        let minutes = parseInt(((1800000 - (Date.now() - usuario.economy.get('lastDecode')))/1000)/60)
         if(parseInt(((Date.now() - usuario.economy.get('lastDecode'))/1800000)) === 0) return message.channel.send(t('comandos:decode.nothingToCollect', { member: message.member, codes: (usuario.economy.get('decoders') * 1000), time: minutes }));
         let codes = usuario.economy.get('decoders') * 1000
         usuario.economy.set('codes', codes)
