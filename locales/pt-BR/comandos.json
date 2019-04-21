@@ -120,7 +120,7 @@
         "damaged": "🎛 {{member}}, **Todos** os seus **decodificadores** estão **danificados**.\n**Tempo para restauração:** `{{hours}} horas e {{minutes}} minutos`",
         "nothingToCollect": "📟 {{member}}, **Não** há **codes** para serem **coletados**.\nVocê pode **coletar** `{{codes}} codes` daqui à **{{time}} minutos**.",
         "decoded": "🖨 Decodificado:",
-        "codes": "**{{codes}}** codes foram coletados."
+        "codes": "**{{codes}}** codes foram coletados.\n**Bônus:** `{{bonus}}`"
     },
     "discrim": {
         "inWindow": "🙄 **Você** já está com uma **jánela** de discriminadores aberta, **finalize-a** ou aguarde **1 minuto**.",

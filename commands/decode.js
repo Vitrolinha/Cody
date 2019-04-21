@@ -13,12 +13,13 @@ module.exports = class Decode extends command {
         let minutes = parseInt(((1800000 - (Date.now() - usuario.economy.get('lastDecode')))/1000)/60)
         if(parseInt(((Date.now() - usuario.economy.get('lastDecode'))/1800000)) === 0) return message.channel.send(t('comandos:decode.nothingToCollect', { member: message.member, codes: (usuario.economy.get('decoders') * 1000), time: minutes }));
         let codes = usuario.economy.get('decoders') * 1000
-        usuario.economy.set('codes', codes)
+        let bonus = usuario.vip ? codes/2 : 0
+        usuario.economy.set('codes', (codes + bonus))
         usuario.economy.set('lastDecode', (Date.now()).toString())
         usuario.save()
         let embed = new this.client.Discord.RichEmbed()
             .setTitle(t('comandos:decode.decoded'))
-            .setDescription(t('comandos:decode.codes', { codes: codes }))
+            .setDescription(t('comandos:decode.codes', { codes: codes, bonus: bonus }))
             .setTimestamp(new Date())
             .setFooter(message.author.username, message.author.displayAvatarURL)
             .setColor(5289)
