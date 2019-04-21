@@ -222,7 +222,7 @@
             "title": "<:shoppingCart:569519004239265823> Produto comprado com sucesso:"
         },
         "productDoesNotExist": "😶 Este **produto** parece **não existir**.",
-        "insufficientCodes": "<:code:569367293729964032> {{member}}, **Restam** `{{codes}} codes` para poder **comprar** este **produto**."
+        "insufficientCodes": "<:code:569367293729964032> {{member}}, **Faltam** `{{codes}} codes` para poder **comprar** este **produto**."
     },
     "staff": {
         "userNotFound": "**Não encontrado#0000**",
