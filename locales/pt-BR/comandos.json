@@ -116,6 +116,11 @@
             "disabled": "✅ O **sistema de sugestões** foi `desativado` **neste servidor**."
         }
     },
+    "decode": {
+        "nothingToCollect": "📟 {{member}}, **Não** há **codes** para serem **coletados**.\nVocê pode **coletar** `{{codes}} codes` daqui à **{{time}} minutos**.",
+        "decoded": "🖨 Decodificado:",
+        "codes": "**{{codes}}** codes foram coletados."
+    },
     "discrim": {
         "inWindow": "🙄 **Você** já está com uma **jánela** de discriminadores aberta, **finalize-a** ou aguarde **1 minuto**.",
         "noArgs": "🙄 Você deve **especificar** o **discriminador**.",

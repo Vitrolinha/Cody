@@ -13,7 +13,7 @@ const User = new Schema({
   },
   economy: {
     type: Map,
-    default: { codes: 0, decoders: 1, lastDecode: '0000000000000' }
+    default: { codes: 0, decoders: 1, lastDecode: '0000000000000', damaged: { on: false, time: 0000000000000 } }
   },
   banned: {
     type: Map,
