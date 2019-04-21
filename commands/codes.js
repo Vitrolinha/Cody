@@ -7,7 +7,7 @@ module.exports = class Decode extends command {
     }
     async run ({message}, t) {
         let user = message.mentions.users.first() ? message.mentions.users.first() : message.author
-        let userDB = await this.client.Users.findOne({'_id': user.id})
+        let userDB = await this.client.database.Users.findOne({'_id': user.id})
         if(userDB) {
             let embed = new this.client.Discord.RichEmbed()
                 .setTitle(`${user.username}:`)
@@ -18,7 +18,7 @@ module.exports = class Decode extends command {
             message.channel.send(embed)
         } else {
             message.channel.send(t('comandos:codes.noUserDB'))
-            this.newDocDB({
+            this.client.newDocDB({
                 id: user.id,
                 type: 1,
                 content: user
