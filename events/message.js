@@ -1,6 +1,7 @@
 const roleSetDelay = new Set()
 const mentionDelay = new Set()
 const tempMuteDelay = new Set()
+const usersCMDColdown = []
 module.exports = async function (message) {
     if (message.channel.type === 'dm') return;
     if (message.author.bot) return;
@@ -35,21 +36,27 @@ module.exports = async function (message) {
                             if(message.content === servidor.prefix) return;
                             let command = message.content.split(' ')[0].slice(servidor.prefix.length)
                             try {
+                                let cmdColdown;
+                                if(usersCMDColdown.find(user => user.id === message.author.id)) {
+                                    cmdColdown = await usersCMDColdown.find(user => user.id === message.author.id)
+                                } else {
+                                    await usersCMDColdown.push({ id: message.author.id, coldown: '0000000000000' })
+                                    cmdColdown = await usersCMDColdown.find(user => user.id === message.author.id)
+                                }
                                 let prefix = servidor.prefix
-                                let tempoPassado = Date.now() - parseInt(usuario.cmdcoldown)
-                                let tempoRestante = (parseInt(usuario.cmdcoldown) + 3000) - (tempoPassado + parseInt(usuario.cmdcoldown))
+                                let tempoPassado = Date.now() - parseInt(cmdColdown.coldown)
+                                let tempoRestante = (parseInt(cmdColdown.coldown) + 3000) - (tempoPassado + parseInt(cmdColdown.coldown))
                                 let segundos = parseInt(tempoRestante/1000)
                                 let milesimos = tempoRestante - (segundos*1000)
                                 let commandRun = this.commands.find(c => c.name === command || c.aliases.includes(command))
                                 if (commandRun) {
                                     if(servidor.allowedChannels.length !== 0 && !servidor.allowedChannels.includes(message.channel.id) && !(await this.verPerm(['MANAGE_MESSAGES', 'owner', 'subowner', 'developer', 'supervisor', 'designer'], false, usuario))) return message.channel.send(t('eventos:channelBlocked', { member: message.member })).then(msg => msg.delete(7000));
                                     if (tempoPassado < 3000) return message.channel.send(t('eventos:cmdCooldown', { member: message.member, seconds: segundos, thousandth: milesimos }));
-                                    usuario.cmdcoldown = Date.now()
-                                    usuario.save();
                                     this.database.Commands.findOne({'_id': commandRun.name}).then(async cmdDB => {
                                             if(cmdDB) {
                                                 if(cmdDB.maintenance && !(await this.verPerm(['owner', 'subowner', 'developer', 'supervisor', 'designer'], false, usuario))) return message.channel.send(t('eventos:cmdInManu', { cmd: command }))
                                                 commandRun.process({message, args, prefix, usuario, servidor}, t, setFixedT)
+                                                usersCMDColdown.find(user => user.id === message.author.id).coldown = Date.now()
                                                 if(!servidor.config.get('vipMessages')) return;
                                                 let random = Math.round(Math.random() * 1000)
                                                 if(random >= 500 && random <= 550 && !usuario.vip) {
