@@ -79,6 +79,11 @@
         "howToUse": "{{prefix}}ping",
         "category": 1
     },
+    "shop": {
+        "desc": "Compre itens com seus codes.",
+        "howToUse": "{{prefix}}shop\n{{prefix}}shop <number>",
+        "category": 3
+    },
     "staff": {
         "desc": "Veja toda a equipe responsável pelo meu desenvolvimento.",
         "howToUse": "{{prefix}}staff\n{{prefix}}staff form",
