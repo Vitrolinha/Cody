@@ -72,7 +72,7 @@ module.exports = class Help extends command {
                 embed.setDescription(comandos.filter(cmd => cmd.category === 2).map(cmd => `**${cmd.name}** - ${cmd.desc.toLowerCase()}`).join('\n'))
                 msg.edit(embed)
               })
-              moderation.on('collect', async r => {
+              economy.on('collect', async r => {
                 r.remove(r.users.last().id).catch(e => {})
                 embed.setTitle(t(`comandos:help.economy`, { count: comandos.filter(cmd => cmd.category === 3).length }))
                 embed.setDescription(comandos.filter(cmd => cmd.category === 3).map(cmd => `**${cmd.name}** - ${cmd.desc.toLowerCase()}`).join('\n'))
