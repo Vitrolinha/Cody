@@ -151,6 +151,7 @@
         "description": "Aqui estão **várias** categorias de **comandos**, basta reagir com o **emoji** da **categoria** desejada ou **finalizar** o comando reagindo com ❌\n\nVisualize **separadamente** os **comandos** com: `{{prefix}}help <command>`",
         "utilities": "🔦 Utilidades ({{count}} comandos):",
         "moderation": "⚒ Moderação ({{count}} comandos):",
+        "economy": "💰 Economia ({{count}} comandos):",
         "inWindow": "🙄 Você **já está** com uma janela de ajuda **aberta** neste canal, **finalize** ela, ou aguarde **2 minutos**.",
         "howToUse": "🗃 Como usar:",
         "aliases": "📖 Alternativas:",

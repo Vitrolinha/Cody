@@ -34,6 +34,11 @@
         "howToUse": "{{prefix}}discrim <discriminator>",
         "category": 1
     },
+    "decode": {
+        "desc": "Recolha todos os codes que foram decodificados.",
+        "howToUse": "{{prefix}}decode",
+        "category": 3
+    },
     "help": {
         "desc": "Visualize os comandos possuidos no bot.",
         "howToUse": "{{prefix}}help\n{{prefix}}help <command-name>",

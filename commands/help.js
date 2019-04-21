@@ -36,6 +36,7 @@ module.exports = class Help extends command {
             .setDescription(t('comandos:help.description', { prefix: prefix }))
             .addField(t('comandos:help.utilities', { count: comandos.filter(cmd => cmd.category === 1).length }), `\`${comandos.filter(cmd => cmd.category === 1).map(cmd => cmd.name).join('`, `')}\``)
             .addField(t('comandos:help.moderation', { count: comandos.filter(cmd => cmd.category === 2).length }), `\`${comandos.filter(cmd => cmd.category === 2).map(cmd => cmd.name).join('`, `')}\``)
+            .addField(t('comandos:help.economy', { count: comandos.filter(cmd => cmd.category === 3).length }), `\`${comandos.filter(cmd => cmd.category === 3).map(cmd => cmd.name).join('`, `')}\``)
             .setThumbnail(this.client.user.displayAvatarURL)
             .setTimestamp(new Date())
             .setFooter(message.author.username, message.author.displayAvatarURL)
@@ -46,10 +47,12 @@ module.exports = class Help extends command {
             try {
               await msg.react('🔦')
               await msg.react('⚒')
+              await msg.react('💰')
               await msg.react('↩')
               await msg.react('❌')
               const finalizar = msg.createReactionCollector((r, u) => r.emoji.name === "❌" && u.id === message.author.id, { time: 120000 });
               const utilities = msg.createReactionCollector((r, u) => r.emoji.name === "🔦" && u.id === message.author.id, { time: 120000 });
+              const economy = msg.createReactionCollector((r, u) => r.emoji.name === "💰" && u.id === message.author.id, { time: 120000 });
               const moderation = msg.createReactionCollector((r, u) => r.emoji.name === "⚒" && u.id === message.author.id, { time: 120000 });
               const voltar = msg.createReactionCollector((r, u) => r.emoji.name === "↩" && u.id === message.author.id, { time: 120000 });        
               let embed = new this.client.Discord.RichEmbed()
@@ -67,6 +70,12 @@ module.exports = class Help extends command {
                 r.remove(r.users.last().id).catch(e => {})
                 embed.setTitle(t(`comandos:help.moderation`, { count: comandos.filter(cmd => cmd.category === 2).length }))
                 embed.setDescription(comandos.filter(cmd => cmd.category === 2).map(cmd => `**${cmd.name}** - ${cmd.desc.toLowerCase()}`).join('\n'))
+                msg.edit(embed)
+              })
+              moderation.on('collect', async r => {
+                r.remove(r.users.last().id).catch(e => {})
+                embed.setTitle(t(`comandos:help.economy`, { count: comandos.filter(cmd => cmd.category === 3).length }))
+                embed.setDescription(comandos.filter(cmd => cmd.category === 3).map(cmd => `**${cmd.name}** - ${cmd.desc.toLowerCase()}`).join('\n'))
                 msg.edit(embed)
               })
               finalizar.on('collect', async r => {
