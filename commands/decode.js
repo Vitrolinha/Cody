@@ -19,7 +19,7 @@ module.exports = class Decode extends command {
         usuario.save()
         let embed = new this.client.Discord.RichEmbed()
             .setTitle(t('comandos:decode.decoded'))
-            .setDescription(t('comandos:decode.codes', { codes: codes, bonus: bonus }))
+            .setDescription(t('comandos:decode.codes', { codes: Number(codes).toLocaleString(), bonus: Number(bonus).toLocaleString() }))
             .setTimestamp(new Date())
             .setFooter(message.author.username, message.author.displayAvatarURL)
             .setColor(5289)

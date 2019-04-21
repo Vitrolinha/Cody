@@ -57,6 +57,9 @@
         "more100": "🙄 O **número** `{{number}}` é **maior** que **100**.",
         "cleared": "✅ Foram deletadas **{{count}} mensagens** por **{{member}}**."
     },
+    "codes": {
+        "desc": "<:code:569367293729964032> **{{codes}}** codes\n<:decoder:569367355461730317> **{{decoders}}** decodificadores"
+    },
     "concierge": {
         "noPermission": "😕 É **necessário** possuir a **permissão** `GERENCIAR SERVIDOR`.",
         "howToUse": "🗃 Como usar:",
@@ -118,8 +121,8 @@
     },
     "decode": {
         "damaged": "🎛 {{member}}, **Todos** os seus **decodificadores** estão **danificados**.\n**Tempo para restauração:** `{{hours}} horas e {{minutes}} minutos`",
-        "nothingToCollect": "📟 {{member}}, **Não** há **codes** para serem **coletados**.\nVocê pode **coletar** `{{codes}} codes` daqui à **{{time}} minutos**.",
-        "decoded": "🖨 Decodificado:",
+        "nothingToCollect": "<:decoder:569367355461730317> {{member}}, **Não** há **codes** para serem **coletados**.\nVocê pode **coletar** `{{codes}} codes` daqui à **{{time}} minutos**.",
+        "decoded": "<:decoder:569367355461730317> Decodificado:",
         "codes": "**{{codes}}** codes foram coletados.\n**Bônus:** `{{bonus}}`"
     },
     "discrim": {

@@ -19,6 +19,10 @@
         "howToUse": "{{prefix}}clear <numberOfMessages>",
         "category": 1
     },
+    "codes": {
+        "desc": "Veja a quantidade de codes que alguém possui.",
+        "howToUse": "{{prefix}}codes\n{{prefix}}codes <mention>"
+    },
     "concierge": {
         "desc": "Gerencie a entrada e saida de usuários em seu servidor.",
         "howToUse": "{{prefix}}concierge <welcome/byebye> set <msg>\n{{prefix}}concierge <welcome/byebye> del\n{{prefix}}concierge parameters",
