@@ -117,6 +117,7 @@
         }
     },
     "decode": {
+        "damaged": "🎛 {{member}}, **Todos** os seus **decodificadores** estão **danificados**.\n**Tempo para restauração:** `{{hours}} horas e {{minutes}} minutos`",
         "nothingToCollect": "📟 {{member}}, **Não** há **codes** para serem **coletados**.\nVocê pode **coletar** `{{codes}} codes` daqui à **{{time}} minutos**.",
         "decoded": "🖨 Decodificado:",
         "codes": "**{{codes}}** codes foram coletados."
