@@ -208,6 +208,22 @@
         "unmuted": "✅ O membro {{member}} foi **desmutado** por {{author}}.",
         "useAgain": "🙄 Parece que o cargo `{{role}}` **não existia**, use o **comando** novamente."
     },
+    "shop": {
+        "inWindow":"🙄 **Você** já está com a **loja** aberta, **finalize-a** ou aguarde **1 minuto**.",
+        "products": {
+            "decoder": "Decodificador:"
+        },
+        "menu": {
+            "title": "<:shoppingCart:569519004239265823> Loja:",
+            "desc": "Para **comprar** um item da loja **utilize** o seguinte comando:\n`{{prefix}}shop <numero do item>`\n\n{{products}}",
+            "footer": "Página {{page}} de {{total}}"
+        },
+        "purchased": {
+            "title": "<:shoppingCart:569519004239265823> Produto comprado com sucesso:"
+        },
+        "productDoesNotExist": "😶 Este **produto** parece **não existir**.",
+        "insufficientCodes": "<:code:569367293729964032> {{member}}, **Restam** `{{codes}} codes` para poder **comprar** este **produto**."
+    },
     "staff": {
         "userNotFound": "**Não encontrado#0000**",
         "title": "Informação Rápida:",

@@ -1,6 +1,6 @@
 const { command } = require('../utils')
 
-module.exports = class Decode extends command {
+module.exports = class Codes extends command {
     constructor (name, client) {
         super (name, client)
         this.aliases = ['code']

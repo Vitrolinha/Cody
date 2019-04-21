@@ -22,6 +22,7 @@ module.exports = class Lock extends command {
                 .setDescription(`\`${founds.map(found => found.tag).slice((cnt.page*25)-25,cnt.page*25).join('` **|** `')}\``)
                 .setTimestamp(new Date())
                 .setFooter(t('comandos:discrim.footer', { page: cnt.page, total: totalPages + 1 }))
+                .setColor(5289)
             return embed;
         }
         message.channel.send(await genEmbed({page: pagina})).then(async msg => {
