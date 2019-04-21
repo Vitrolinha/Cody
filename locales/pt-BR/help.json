@@ -21,7 +21,8 @@
     },
     "codes": {
         "desc": "Veja a quantidade de codes que alguém possui.",
-        "howToUse": "{{prefix}}codes\n{{prefix}}codes <mention>"
+        "howToUse": "{{prefix}}codes\n{{prefix}}codes <mention>",
+        "category": 3
     },
     "concierge": {
         "desc": "Gerencie a entrada e saida de usuários em seu servidor.",
