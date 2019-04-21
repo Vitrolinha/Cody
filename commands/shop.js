@@ -83,7 +83,7 @@ module.exports = class Shop extends command {
                 .setTitle(t('comandos:shop.purchased.title'))
                 .setDescription(`${produto.count} **${produto.name}** \`${Number(produto.price).toLocaleString()} codes\``)
                 .setTimestamp(new Date())
-                .setFooter(t('comandos:shop.menu.footer', { page: cnt.page, total: totalPages + 1 }))
+                .setFooter(message.author.username, message.author.displayAvatarURL)
                 .setColor(5289)
             if(produto.num === 1) {
                 if(produto.price > usuario.economy.get('codes')) return message.channel.send(t('comandos:shop.insufficientCodes', { member: message.member, codes: Number(produto.price - usuario.economy.get('codes')).toLocaleString() }))
