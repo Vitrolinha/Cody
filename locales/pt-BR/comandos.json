@@ -58,7 +58,7 @@
         "cleared": "✅ Foram deletadas **{{count}} mensagens** por **{{member}}**."
     },
     "codes": {
-        "desc": "<:code:569367293729964032> **{{codes}}** codes\n<:decoder:569367355461730317> **{{decoders}}** decodificadores"
+        "desc": "<:code:569367293729964032> **Codes:** {{codes}}\n<:decoder:569367355461730317> **Decodificadores:** {{decoders}}"
     },
     "concierge": {
         "noPermission": "😕 É **necessário** possuir a **permissão** `GERENCIAR SERVIDOR`.",
