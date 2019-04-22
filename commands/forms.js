@@ -21,11 +21,11 @@ module.exports = class Forms extends command {
             return embed;
         }
         message.channel.send(await genEmbed(first)).then(async msg => {
-            await msg.react('<:check:569999735558242304>')
-            await msg.react('570000123594014730')
+            await msg.react('✅')
+            await msg.react('❌')
             await msg.react('🖐')
-            const aprovar = msg.createReactionCollector((r, u) => r.emoji.name === "<:check:569999735558242304>" && u.id === message.author.id, { time: 120000 });
-            const reprovar = msg.createReactionCollector((r, u) => r.emoji.name === "570000123594014730" && u.id === message.author.id, { time: 120000 });
+            const aprovar = msg.createReactionCollector((r, u) => r.emoji.name === "✅" && u.id === message.author.id, { time: 120000 });
+            const reprovar = msg.createReactionCollector((r, u) => r.emoji.name === "❌" && u.id === message.author.id, { time: 120000 });
             const cancelar = msg.createReactionCollector((r, u) => r.emoji.name === "🖐" && u.id === message.author.id, { time: 120000 });
             let form = await first;
             inWindow.push(message.author.id)

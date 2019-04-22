@@ -20,10 +20,10 @@ module.exports = class Staff extends command {
                     await msg.react('1⃣')
                     await msg.react('2⃣')
                     await msg.react('3⃣')
-                    await msg.react('570000123594014730')
+                    await msg.react('❌')
                     const desenvolvedor = msg.createReactionCollector((r, u) => r.emoji.name === "1⃣" && u.id === message.author.id, { time: 60000 });
                     const supervisor = msg.createReactionCollector((r, u) => r.emoji.name === "2⃣" && u.id === message.author.id, { time: 60000 });
-                    const finalizar = msg.createReactionCollector((r, u) => r.emoji.name === "570000123594014730" && u.id === message.author.id, { time: 60000 });
+                    const finalizar = msg.createReactionCollector((r, u) => r.emoji.name === "❌" && u.id === message.author.id, { time: 60000 });
                     const designer = msg.createReactionCollector((r, u) => r.emoji.name === "3⃣" && u.id === message.author.id, { time: 60000 });
                     let role = 'None'
                     let force = false

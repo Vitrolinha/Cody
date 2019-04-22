@@ -49,8 +49,8 @@ module.exports = class Help extends command {
               await msg.react('⚒')
               await msg.react('💰')
               await msg.react('↩')
-              await msg.react('570000123594014730')
-              const finalizar = msg.createReactionCollector((r, u) => r.emoji.name === "570000123594014730" && u.id === message.author.id, { time: 120000 });
+              await msg.react('❌')
+              const finalizar = msg.createReactionCollector((r, u) => r.emoji.name === "❌" && u.id === message.author.id, { time: 120000 });
               const utilities = msg.createReactionCollector((r, u) => r.emoji.name === "🔦" && u.id === message.author.id, { time: 120000 });
               const economy = msg.createReactionCollector((r, u) => r.emoji.name === "💰" && u.id === message.author.id, { time: 120000 });
               const moderation = msg.createReactionCollector((r, u) => r.emoji.name === "⚒" && u.id === message.author.id, { time: 120000 });
