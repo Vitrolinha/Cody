@@ -13,8 +13,8 @@ module.exports = class Decode extends command {
         let minutes = parseInt(((1800000 - (Date.now() - usuario.economy.get('lastDecode')))/1000)/60)
         if(parseInt(((Date.now() - usuario.economy.get('lastDecode'))/1800000)) === 0) return message.channel.send(t('comandos:decode.nothingToCollect', { member: message.member, codes: (usuario.economy.get('decoders') * 1000), time: minutes }));
         let codes = parseInt(usuario.economy.get('lastDecode')) === 0 ? usuario.economy.get('decoders') * 1000 : (parseInt((Date.now() - usuario.economy.get('lastDecode'))/1800000) * (usuario.economy.get('decoders') * 1000))
-        if(codes >= (usuario.economy.get('decoders') * 1000)) {
-            codes = usuario.economy.get('decoders') * 1000
+        if(codes >= (usuario.economy.get('decoders') * 25000)) {
+            codes = usuario.economy.get('decoders') * 25000
         }
         let bonus = usuario.vip ? codes/2 : 0
         let restante = parseInt(usuario.economy.get('lastDecode')) === 0 ? 0 : parseInt((Date.now() - usuario.economy.get('lastDecode')) - ((codes/1000) * 1800000))
