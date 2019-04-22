@@ -18,8 +18,8 @@ module.exports = class Sugest extends command {
             .setFooter(`${message.author.username} (ID: ${message.author.id})`, message.author.displayAvatarURL)
             .setColor(5289)
         canal.send(embed).then(async msg => {
-            await msg.react('✅')
-            await msg.react('❌') 
+            await msg.react('<:check:569999735558242304>')
+            await msg.react('<:cancel:570000123594014730>') 
         })
         message.channel.send(t('comandos:sugest.sended'))
     }

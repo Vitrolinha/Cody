@@ -13,8 +13,8 @@
         "roleNotDefined": "😒 O **cargo** citado **não está definido**.",
         "noPermRole": "😶 Você **não tem** permissão para **dar** este **cargo** à **outras pessoas**.",
         "noPermRoleBot": "😶 Eu **não** possuo **permissão** para adicionar **este** cargo à **outras pessoas**.",
-        "addedRole": "✅ O **cargo** `{{role}}` foi **adicionado ao autorole**.",
-        "removedRole": "❌ O **cargo** `{{role}}` foi **removida do autorole**."
+        "addedRole": "<:check:569999735558242304> O **cargo** `{{role}}` foi **adicionado ao autorole**.",
+        "removedRole": "<:cancel:570000123594014730> O **cargo** `{{role}}` foi **removida do autorole**."
     },
     "avatar": {
         "title": "🖼 Imagem de {{user}}"
@@ -26,7 +26,7 @@
         "topRole": "🙄 O **usuário mencionado** possui um cargo **mais alto** que o seu.",
         "notBannable": "😒 Parece que **não consigo banir** este usuário.",
         "notReason": "motivo não mencionado.",
-        "banned": "✅ O **usuário** `{{member}}` foi **banido do servidor** por {{author}}."
+        "banned": "<:check:569999735558242304> O **usuário** `{{member}}` foi **banido do servidor** por {{author}}."
     },
     "botban": {
         "noPermission": "😒 Você **precisa** ser um `owner`, `subowner`, `operator`, `developer` ou `supervisor` para usar **este** comando",
@@ -35,9 +35,9 @@
         "iMentioned": "😕 Você **não pode** banir **você mesmo**.",
         "botMention": "😶 Você **não** pode **banir um bot**.",
         "mentionedStaff": "🕵 O **usuário mencionado** faz parte da **staff** do bot.",
-        "unbanned": "✅ O **usuário** {{member}} foi **desbanido**.",
-        "bannedNoTime": "✅ O **usuário** {{member}} foi **permanentemente banido**.",
-        "bannedTime": "✅ O **usuário** {{member}} foi **banido** até **{{time}}**."
+        "unbanned": "<:check:569999735558242304> O **usuário** {{member}} foi **desbanido**.",
+        "bannedNoTime": "<:check:569999735558242304> O **usuário** {{member}} foi **permanentemente banido**.",
+        "bannedTime": "<:check:569999735558242304> O **usuário** {{member}} foi **banido** até **{{time}}**."
     },
     "botconfig": {
         "noPermission": "😒 Você **precisa** ser um `owner`, `subowner`, `operator` ou `developer` para usar **este** comando.",
@@ -45,8 +45,8 @@
         "invalidFunc": "😕 A função `{{func}}` **não existe**.",
         "noCmdManu": "🙄 É necessário **inserir** o comando que **entrará** para manutenção.",
         "cmdNotExist": "🙄 O **comando** parece não **existir**.",
-        "activated": "✅ O comando `{{cmd}}` entrou para à **manutenção**.",
-        "disabled": "❌ O comando `{{cmd}}` saiu da **manutenção**."
+        "activated": "<:check:569999735558242304> O comando `{{cmd}}` entrou para à **manutenção**.",
+        "disabled": "<:cancel:570000123594014730> O comando `{{cmd}}` saiu da **manutenção**."
     },
     "clear": {
         "noArgs": "🙄 Você **precisa** citar a **quantidade de mensagens** à serem **deletadas**.",
@@ -55,7 +55,7 @@
         "notNumber": "😒 `{{nan}}` **não** é **um número**.",
         "number0": "😣 **Não** é **possível** deletar **{{count}} mensagens**.",
         "more100": "🙄 O **número** `{{number}}` é **maior** que **100**.",
-        "cleared": "✅ Foram deletadas **{{count}} mensagens** por **{{member}}**."
+        "cleared": "<:check:569999735558242304> Foram deletadas **{{count}} mensagens** por **{{member}}**."
     },
     "codes": {
         "mentionBot": "👾 Um bot **não** possui **codes**.",
@@ -69,12 +69,12 @@
         "noFunction": "🙄 Você **precisa** citar uma **função**, tente `set` ou `del`",
         "invalidFunction": "😣 A **funçao** `{{function}}` é inválida, tente `add` ou `del`.",
         "noMsg": "🙄 Você **precisa** citar à **mensagem** que **será enviada**.",
-        "definedWelcome": "✅ A **mensagem** `{{msg}}` foi **definida** como mensagem de **boas-vindas**.",
+        "definedWelcome": "<:check:569999735558242304> A **mensagem** `{{msg}}` foi **definida** como mensagem de **boas-vindas**.",
         "welcomeNotDefined": "🙄 Mensagem de **boas-vindas** não foi **definida**.",
-        "removedWelcome": "❌ Sistema de **boas-vindas** foi **removido** deste servidor.",
-        "definedByebye": "✅ A **mensagem** `{{msg}}` foi **definida** como mensagem de **despedida**.",
+        "removedWelcome": "<:cancel:570000123594014730> Sistema de **boas-vindas** foi **removido** deste servidor.",
+        "definedByebye": "<:check:569999735558242304> A **mensagem** `{{msg}}` foi **definida** como mensagem de **despedida**.",
         "byebyeNotDefined": "🙄 Mensagem de **despedida** não foi **definida**.",
-        "removedByebye": "❌ Sistema de **despedida** foi **removido** deste servidor.",
+        "removedByebye": "<:cancel:570000123594014730> Sistema de **despedida** foi **removido** deste servidor.",
         "parametersTo": "⚙ Parâmetros:",
         "parameters": "```{member} menciona o usuário\n{user.name} cita o nome de usuário\n{user.id} cita o id do usuário\n{guild} cita o nome do servidor```"
     },
@@ -84,11 +84,11 @@
         "prefix": {
             "noArgs": "🙄 Você deve **especificar** o **novo prefixo**.",
             "bigPrefix": "😒 O **prefixo cítado** é **muito grande**. (4 caracteres)",
-            "defined": "✅ O **prefixo** `{{prefix}}` foi definido **no servidor**."
+            "defined": "<:check:569999735558242304> O **prefixo** `{{prefix}}` foi definido **no servidor**."
         },
         "vipMessages": {
-            "defined": "✅ As **mensagens de vip** foram `ativadas` **neste servidor**.",
-            "removed": "✅ As **mensagens de vip** foram `desativadas` **neste servidor**."
+            "defined": "<:check:569999735558242304> As **mensagens de vip** foram `ativadas` **neste servidor**.",
+            "removed": "<:check:569999735558242304> As **mensagens de vip** foram `desativadas` **neste servidor**."
         },
         "cmdChannel": {
             "howToUse": "📋 Como usar:",
@@ -96,10 +96,10 @@
             "sucess": "🗂 Alteração feita com sucesso!",
             "emptyAlloweds": "Não se pode executar comandos em nenhum canal.",
             "emptyDenieds": "Pode se usar comandos em todos os canais.",
-            "allowed": "✅ Canais permitidos:",
+            "allowed": "<:check:569999735558242304> Canais permitidos:",
             "denied": "❎ Canais bloqueados:",
-            "alreadyReseted": "❌ A **lista** já está **limpa**.",
-            "reseted": "✅ Canais **resetados** com sucesso! Agora voce **pode usar** comandos em **todos os canais**.",
+            "alreadyReseted": "<:cancel:570000123594014730> A **lista** já está **limpa**.",
+            "reseted": "<:check:569999735558242304> Canais **resetados** com sucesso! Agora voce **pode usar** comandos em **todos os canais**.",
             "add": {
                 "noMention": "🙄 **Você** precisa **mencionar** os canais que deseja **permitir** o uso de comandos. (1 ou mais menções)"
             },
@@ -111,14 +111,14 @@
             "howToUse": "📋 Como usar:",
             "inWindow":"🙄 **Você** já está com uma **jánela** de **configuração**, **finalize-a** ou aguarde **1 minuto**.",
             "title":"📋 Sugestão:",
-            "description": "Pare **selecionar**, envie uma **mensagem** no canal com o **número** da opção selecionada.\n\n1⃣ O **usuário terá** que **usar** o comando `{{prefix}}sugest` e a sugestão será **enviada** em um **canal definido** com uma embed.\n2⃣ O usuário **enviará** a sugestão em um **canal definido** e será adicionado **duas reações** para a **votação** na mensagem.\n\n❌ Para cancelar **envie** `cancel` ou aguarde **1 minuto**.",
+            "description": "Pare **selecionar**, envie uma **mensagem** no canal com o **número** da opção selecionada.\n\n1⃣ O **usuário terá** que **usar** o comando `{{prefix}}sugest` e a sugestão será **enviada** em um **canal definido** com uma embed.\n2⃣ O usuário **enviará** a sugestão em um **canal definido** e será adicionado **duas reações** para a **votação** na mensagem.\n\n<:cancel:570000123594014730> Para cancelar **envie** `cancel` ou aguarde **1 minuto**.",
             "mentionChannel": "🙄 Mencione o **canal** para as **sugestões**. (envie `cancel` para cancelar)\nSe **não mencionar** um canal será **definido** no **canal atual**.",
-            "defined1": "✅ O **sistema de sugestões** foi **definido** no **canal** {{channel}}.\n**Comando para enviar sugestões:** `{{prefix}}sugest <sugestão>`",
-            "defined2": "✅ O **sistema de sugestões** foi **definido** no **canal** {{channel}}.",
-            "canceled": "❌ {{member}}, você **cancelou** o **comando**.",
+            "defined1": "<:check:569999735558242304> O **sistema de sugestões** foi **definido** no **canal** {{channel}}.\n**Comando para enviar sugestões:** `{{prefix}}sugest <sugestão>`",
+            "defined2": "<:check:569999735558242304> O **sistema de sugestões** foi **definido** no **canal** {{channel}}.",
+            "canceled": "<:cancel:570000123594014730> {{member}}, você **cancelou** o **comando**.",
             "timeout": "🕐 {{member}}, você **demorou** demais para **responder**.",
             "alreadyOff": "😒 O **sistema de sugestões** já está `desativado` **neste servidor**.",
-            "disabled": "✅ O **sistema de sugestões** foi `desativado` **neste servidor**."
+            "disabled": "<:check:569999735558242304> O **sistema de sugestões** foi `desativado` **neste servidor**."
         }
     },
     "decode": {
@@ -153,7 +153,7 @@
     "help": {
         "cntMessageNoArg": "🙄 Aqui estão alguns **comandos** disponíveis no bot.",
         "title": "Informação rápida:",
-        "description": "Aqui estão **várias** categorias de **comandos**, basta reagir com o **emoji** da **categoria** desejada ou **finalizar** o comando reagindo com ❌\n\nVisualize **separadamente** os **comandos** com: `{{prefix}}help <command>`",
+        "description": "Aqui estão **várias** categorias de **comandos**, basta reagir com o **emoji** da **categoria** desejada ou **finalizar** o comando reagindo com <:cancel:570000123594014730>\n\nVisualize **separadamente** os **comandos** com: `{{prefix}}help <command>`",
         "utilities": "🔦 Utilidades ({{count}} comandos):",
         "moderation": "⚒ Moderação ({{count}} comandos):",
         "economy": "💰 Economia ({{count}} comandos):",
@@ -182,7 +182,7 @@
         "topRole": "🙄 O **usuário mencionado** possui um cargo **mais alto** que o seu.",
         "notKickable": "😒 Parece que **não consigo expulsar** este usuário.",
         "notReason": "Motivo não mencionado.",
-        "kicked": "✅ O **usuário** `{{member}}` foi **expulso do servidor** por {{author}}."
+        "kicked": "<:check:569999735558242304> O **usuário** `{{member}}` foi **expulso do servidor** por {{author}}."
     },
     "lang": {
         "noPermission": "😕 É **necessário** possuir a **permissão** `GERENCIAR SERVIDOR`.",
@@ -192,21 +192,21 @@
         "notHaveErrors": "sem erros no momento",
         "currentLanguage": "idioma já definido",
         "desc": "Para alterar o **idioma do bot**, basta **reagir** na bandeira de seu **pais**.\n\n**Erro:** `{{error}}`",
-        "defined": "✅ O **idioma** `{{lang}}` foi **definido**."
+        "defined": "<:check:569999735558242304> O **idioma** `{{lang}}` foi **definido**."
     },
     "lock": {
         "noPermission": "😕 É **necessário** possuir a **permissão** `GERENCIAR CANAIS`.",
         "noPermBot": "😕 Parece que **não possuo** a permissão para `GERENCIAR PERMISSÕES` neste **canal**.",
-        "locked": "✅ O **canal** {{channel}} foi **bloqueado**.",
-        "unlocked": "✅ O **canal** {{channel}} foi **desbloqueado**."
+        "locked": "<:check:569999735558242304> O **canal** {{channel}} foi **bloqueado**.",
+        "unlocked": "<:check:569999735558242304> O **canal** {{channel}} foi **desbloqueado**."
     },
     "mute": {
         "noPermission": "😕 É **necessário** possuir a **permissão** `GERENCIAR CARGOS`.",
         "noPermBot": "😕 Parece que **não possuo** a permissão `GERENCIAR CARGOS` no **servidor**.",
         "noArgs": "😶 É preciso **mencionar** o usuário que **deseja silenciar**.",
         "topRole": "🙄 Você **não possui** permissão para **adicionar** o cargo `{{role}}` à um **usuário**.",
-        "muted": "✅ O membro {{member}} foi **silenciado** por {{author}}.",
-        "unmuted": "✅ O membro {{member}} foi **desmutado** por {{author}}.",
+        "muted": "<:check:569999735558242304> O membro {{member}} foi **silenciado** por {{author}}.",
+        "unmuted": "<:check:569999735558242304> O membro {{member}} foi **desmutado** por {{author}}.",
         "useAgain": "🙄 Parece que o cargo `{{role}}` **não existia**, use o **comando** novamente."
     },
     "shop": {
@@ -261,8 +261,8 @@
         "noUserDB": "😶 O **usuário mencionado** parece **não** estar registrado em meu **banco de dados**, tente usar o comando novamente.",
         "alreadyHaveRole": "😑 O usuário já possui **este** cargo.",
         "roleNotFound": "🙄 O usuário mencionado **não** possui **este** cargo.",
-        "added": "✅ O cargo `{{role}}` foi **adicionado** ao usuário.",
-        "removed": "❌ O cargo `{{role}}` foi **retirado** do usuário."
+        "added": "<:check:569999735558242304> O cargo `{{role}}` foi **adicionado** ao usuário.",
+        "removed": "<:cancel:570000123594014730> O cargo `{{role}}` foi **retirado** do usuário."
     },
     "sugest": {
         "sistemOff": "😒 O **sistema de sugestões** está `desativado` neste **servidor**.",
@@ -270,7 +270,7 @@
         "channelNotFound": "😶 O **canal definido** não foi **encontrado**.",
         "noArgs": "😒 É necessário **inserir** sua **sugestão**.",
         "title": "🚀 Nova sugestão:",
-        "sended": "✅ Sua **sugestão** foi **enviada**."
+        "sended": "<:check:569999735558242304> Sua **sugestão** foi **enviada**."
     },
     "tempmute": {
         "noPermission": "😕 É **necessário** possuir a **permissão** `GERENCIAR CARGOS`.",
@@ -279,8 +279,8 @@
         "topRole": "🙄 Você **não possui** permissão para **adicionar** o cargo `{{role}}` à um **usuário**.",
         "noTime": "🙄 É **necessário** especificar o **tempo** que deseja **silenciar** o usuário.",
         "notATime": "🙄 O **argumento** `{{time}}` não é considerado **tempo**.",
-        "tempmuted": "✅ O membro {{member}} foi **silenciado temporáriamente** por {{author}} até **{{time}}**.",
-        "unmuted": "✅ O membro {{member}} foi **desmutado** por {{author}}.",
+        "tempmuted": "<:check:569999735558242304> O membro {{member}} foi **silenciado temporáriamente** por {{author}} até **{{time}}**.",
+        "unmuted": "<:check:569999735558242304> O membro {{member}} foi **desmutado** por {{author}}.",
         "useAgain": "🙄 Parece que o cargo `{{role}}` **não existia**, use o **comando** novamente."
     }
 }
