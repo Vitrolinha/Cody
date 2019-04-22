@@ -7,6 +7,7 @@ module.exports = class Codes extends command {
     }
     async run ({message}, t) {
         let user = message.mentions.users.first() ? message.mentions.users.first() : message.author
+        if(user.bot) return message.channel.send(t('comandos:codes.mentionBot'))
         let userDB = await this.client.database.Users.findOne({'_id': user.id})
         if(userDB) {
             let embed = new this.client.Discord.RichEmbed()
