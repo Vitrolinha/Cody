@@ -21,10 +21,10 @@ module.exports = class Ping extends command {
         message.channel.send(embed).then(async msg => {
             await msg.react('🇧🇷')
             await msg.react('🇺🇸')
-            await msg.react('<:cancel:570000123594014730>')
+            await msg.react('570000123594014730')
             const ptBR = msg.createReactionCollector((r, u) => r.emoji.name === "🇧🇷" && u.id === message.author.id, { time: 60000 });
             const enUS = msg.createReactionCollector((r, u) => r.emoji.name === "🇺🇸" && u.id === message.author.id, { time: 60000 });
-            const finalizar = msg.createReactionCollector((r, u) => r.emoji.name === "<:cancel:570000123594014730>" && u.id === message.author.id, { time: 60000 });
+            const finalizar = msg.createReactionCollector((r, u) => r.emoji.name === "570000123594014730" && u.id === message.author.id, { time: 60000 });
             let force = false
             ptBR.on('collect', async r => {
                 r.remove(r.users.last().id).catch(e => {})

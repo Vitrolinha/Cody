@@ -9,8 +9,8 @@ module.exports = class Lock extends command {
     async run ({message, args}) {
         if(inWindow.includes(message.author.id)) return message.channel.send(t('comandos:discrim.inWindow'))
         if(!args[0]) return message.channel.send(t('comandos:discrim.noArgs'))
-        let discrim = args[0].replace('#')
-        if(discrim.length > 4) return message.channel.send(t('comandos:discrim.discrimLength'))
+        let discrim = args[0].replace('#', '')
+        if(discrim.length !== 4) return message.channel.send(t('comandos:discrim.discrimLength'))
         if(isNaN(discrim)) return message.channel.send(t('comandos:discrim.isNaN'))
         let founds = this.client.users.filter(user => user.discriminator === discrim)
         if(founds.size === 0) return message.channel.send(t('comandos:discrim.notFound', { discrim: discrim }))
@@ -29,11 +29,11 @@ module.exports = class Lock extends command {
             if(totalPages === 0) return;
             await msg.react('⬅')
             await msg.react('➡')
-            await msg.react('<:cancel:570000123594014730>')
+            await msg.react('570000123594014730')
             var force = false
             const anterior = msg.createReactionCollector((r, u) => r.emoji.name === "⬅" && u.id === message.author.id, { time: 60000 });
             const proxima = msg.createReactionCollector((r, u) => r.emoji.name === "➡" && u.id === message.author.id, { time: 60000 });
-            const finalizar = msg.createReactionCollector((r, u) => r.emoji.name === "<:cancel:570000123594014730>" && u.id === message.author.id, { time: 60000 });
+            const finalizar = msg.createReactionCollector((r, u) => r.emoji.name === "570000123594014730" && u.id === message.author.id, { time: 60000 });
             inWindow.push(message.author.id)
             anterior.on('collect', async r => {
                 r.remove(r.users.last().id).catch(e => {})
