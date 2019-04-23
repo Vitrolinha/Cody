@@ -15,7 +15,7 @@ module.exports = class BotBan extends command {
         this.client.moment.locale(servidor.lang)
         if(!args[0]) return message.channel.send(invalid)
         if(!message.mentions.users.first()) return message.channel.send(invalid)
-        if(args[0] !== message.mentions.users.first().toString()) return message.channel.send(invalid)
+        if(args[0].replace('!') !== message.mentions.users.first().toString()) return message.channel.send(invalid)
         let mencionado = message.mentions.users.first()
         let time = message.content.split(' ').slice(2).join(' ')
         if(mencionado.id === message.author.id) return message.channel.send(t('comandos:botban.iMentioned'));
