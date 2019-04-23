@@ -17,7 +17,7 @@ module.exports = class Decode extends command {
             codes = usuario.economy.get('decoders') * 25000
         }
         let bonus = usuario.vip ? codes/2 : 0
-        let restante = parseInt(usuario.economy.get('lastDecode')) === 0 ? 0 : parseInt(parseInt((Date.now() - usuario.economy.get('lastDecode'))/1800000)*1800000)
+        let restante = parseInt(usuario.economy.get('lastDecode')) === Date.now() ? 0 : parseInt(parseInt((Date.now() - usuario.economy.get('lastDecode'))/1800000)*1800000)
         usuario.economy.set('codes', (usuario.economy.get('codes') + codes + bonus))
         usuario.economy.set('lastDecode', (parseInt(usuario.economy.get('lastDecode')) + restante).toString())
         usuario.save()
