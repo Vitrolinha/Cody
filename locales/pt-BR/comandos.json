@@ -14,7 +14,7 @@
         "noPermRole": "😶 Você **não tem** permissão para **dar** este **cargo** à **outras pessoas**.",
         "noPermRoleBot": "😶 Eu **não** possuo **permissão** para adicionar **este** cargo à **outras pessoas**.",
         "addedRole": "✅ O **cargo** `{{role}}` foi **adicionado ao autorole**.",
-        "removedRole": "<:cancel:❌> O **cargo** `{{role}}` foi **removida do autorole**."
+        "removedRole": "❌ O **cargo** `{{role}}` foi **removida do autorole**."
     },
     "avatar": {
         "title": "🖼 Imagem de {{user}}"
@@ -46,7 +46,7 @@
         "noCmdManu": "🙄 É necessário **inserir** o comando que **entrará** para manutenção.",
         "cmdNotExist": "🙄 O **comando** parece não **existir**.",
         "activated": "✅ O comando `{{cmd}}` entrou para à **manutenção**.",
-        "disabled": "<:cancel:❌> O comando `{{cmd}}` saiu da **manutenção**."
+        "disabled": "❌ O comando `{{cmd}}` saiu da **manutenção**."
     },
     "clear": {
         "noArgs": "🙄 Você **precisa** citar a **quantidade de mensagens** à serem **deletadas**.",
@@ -71,10 +71,10 @@
         "noMsg": "🙄 Você **precisa** citar à **mensagem** que **será enviada**.",
         "definedWelcome": "✅ A **mensagem** `{{msg}}` foi **definida** como mensagem de **boas-vindas**.",
         "welcomeNotDefined": "🙄 Mensagem de **boas-vindas** não foi **definida**.",
-        "removedWelcome": "<:cancel:❌> Sistema de **boas-vindas** foi **removido** deste servidor.",
+        "removedWelcome": "❌ Sistema de **boas-vindas** foi **removido** deste servidor.",
         "definedByebye": "✅ A **mensagem** `{{msg}}` foi **definida** como mensagem de **despedida**.",
         "byebyeNotDefined": "🙄 Mensagem de **despedida** não foi **definida**.",
-        "removedByebye": "<:cancel:❌> Sistema de **despedida** foi **removido** deste servidor.",
+        "removedByebye": "❌ Sistema de **despedida** foi **removido** deste servidor.",
         "parametersTo": "⚙ Parâmetros:",
         "parameters": "```{member} menciona o usuário\n{user.name} cita o nome de usuário\n{user.id} cita o id do usuário\n{guild} cita o nome do servidor```"
     },
@@ -98,7 +98,7 @@
             "emptyDenieds": "Pode se usar comandos em todos os canais.",
             "allowed": "✅ Canais permitidos:",
             "denied": "❎ Canais bloqueados:",
-            "alreadyReseted": "<:cancel:❌> A **lista** já está **limpa**.",
+            "alreadyReseted": "❌ A **lista** já está **limpa**.",
             "reseted": "✅ Canais **resetados** com sucesso! Agora voce **pode usar** comandos em **todos os canais**.",
             "add": {
                 "noMention": "🙄 **Você** precisa **mencionar** os canais que deseja **permitir** o uso de comandos. (1 ou mais menções)"
@@ -111,11 +111,11 @@
             "howToUse": "📋 Como usar:",
             "inWindow":"🙄 **Você** já está com uma **jánela** de **configuração**, **finalize-a** ou aguarde **1 minuto**.",
             "title":"📋 Sugestão:",
-            "description": "Pare **selecionar**, envie uma **mensagem** no canal com o **número** da opção selecionada.\n\n1⃣ O **usuário terá** que **usar** o comando `{{prefix}}sugest` e a sugestão será **enviada** em um **canal definido** com uma embed.\n2⃣ O usuário **enviará** a sugestão em um **canal definido** e será adicionado **duas reações** para a **votação** na mensagem.\n\n<:cancel:❌> Para cancelar **envie** `cancel` ou aguarde **1 minuto**.",
+            "description": "Pare **selecionar**, envie uma **mensagem** no canal com o **número** da opção selecionada.\n\n1⃣ O **usuário terá** que **usar** o comando `{{prefix}}sugest` e a sugestão será **enviada** em um **canal definido** com uma embed.\n2⃣ O usuário **enviará** a sugestão em um **canal definido** e será adicionado **duas reações** para a **votação** na mensagem.\n\n❌ Para cancelar **envie** `cancel` ou aguarde **1 minuto**.",
             "mentionChannel": "🙄 Mencione o **canal** para as **sugestões**. (envie `cancel` para cancelar)\nSe **não mencionar** um canal será **definido** no **canal atual**.",
             "defined1": "✅ O **sistema de sugestões** foi **definido** no **canal** {{channel}}.\n**Comando para enviar sugestões:** `{{prefix}}sugest <sugestão>`",
             "defined2": "✅ O **sistema de sugestões** foi **definido** no **canal** {{channel}}.",
-            "canceled": "<:cancel:❌> {{member}}, você **cancelou** o **comando**.",
+            "canceled": "❌ {{member}}, você **cancelou** o **comando**.",
             "timeout": "🕐 {{member}}, você **demorou** demais para **responder**.",
             "alreadyOff": "😒 O **sistema de sugestões** já está `desativado` **neste servidor**.",
             "disabled": "✅ O **sistema de sugestões** foi `desativado` **neste servidor**."
@@ -153,7 +153,7 @@
     "help": {
         "cntMessageNoArg": "🙄 Aqui estão alguns **comandos** disponíveis no bot.",
         "title": "Informação rápida:",
-        "description": "Aqui estão **várias** categorias de **comandos**, basta reagir com o **emoji** da **categoria** desejada ou **finalizar** o comando reagindo com <:cancel:❌>\n\nVisualize **separadamente** os **comandos** com: `{{prefix}}help <command>`",
+        "description": "Aqui estão **várias** categorias de **comandos**, basta reagir com o **emoji** da **categoria** desejada ou **finalizar** o comando reagindo com ❌\n\nVisualize **separadamente** os **comandos** com: `{{prefix}}help <command>`",
         "utilities": "🔦 Utilidades ({{count}} comandos):",
         "moderation": "⚒ Moderação ({{count}} comandos):",
         "economy": "💰 Economia ({{count}} comandos):",
@@ -262,7 +262,7 @@
         "alreadyHaveRole": "😑 O usuário já possui **este** cargo.",
         "roleNotFound": "🙄 O usuário mencionado **não** possui **este** cargo.",
         "added": "✅ O cargo `{{role}}` foi **adicionado** ao usuário.",
-        "removed": "<:cancel:❌> O cargo `{{role}}` foi **retirado** do usuário."
+        "removed": "❌ O cargo `{{role}}` foi **retirado** do usuário."
     },
     "sugest": {
         "sistemOff": "😒 O **sistema de sugestões** está `desativado` neste **servidor**.",

@@ -45,13 +45,13 @@ module.exports = async function (message) {
                                 }
                                 let prefix = servidor.prefix
                                 let tempoPassado = Date.now() - parseInt(cmdColdown.coldown)
-                                let tempoRestante = (parseInt(cmdColdown.coldown) + 3000) - (tempoPassado + parseInt(cmdColdown.coldown))
+                                let tempoRestante = (parseInt(cmdColdown.coldown) + 2000) - (tempoPassado + parseInt(cmdColdown.coldown))
                                 let segundos = parseInt(tempoRestante/1000)
                                 let milesimos = tempoRestante - (segundos*1000)
                                 let commandRun = this.commands.find(c => c.name === command || c.aliases.includes(command))
                                 if (commandRun) {
                                     if(servidor.allowedChannels.length !== 0 && !servidor.allowedChannels.includes(message.channel.id) && !(await this.verPerm(['MANAGE_MESSAGES', 'owner', 'subowner', 'developer', 'supervisor', 'designer'], false, usuario))) return message.channel.send(t('eventos:channelBlocked', { member: message.member })).then(msg => msg.delete(7000));
-                                    if (tempoPassado < 3000) return message.channel.send(t('eventos:cmdCooldown', { member: message.member, seconds: segundos, thousandth: milesimos }));
+                                    if (tempoPassado < 2000) return message.channel.send(t('eventos:cmdCooldown', { member: message.member, seconds: segundos, thousandth: milesimos }));
                                     this.database.Commands.findOne({'_id': commandRun.name}).then(async cmdDB => {
                                             if(cmdDB) {
                                                 if(cmdDB.maintenance && !(await this.verPerm(['owner', 'subowner', 'developer', 'supervisor', 'designer'], false, usuario))) return message.channel.send(t('eventos:cmdInManu', { cmd: command }))
@@ -60,7 +60,7 @@ module.exports = async function (message) {
                                                 if(!servidor.config.get('vipMessages')) return;
                                                 let random = Math.round(Math.random() * 1000)
                                                 if(random >= 500 && random <= 550 && !usuario.vip) {
-                                                    message.channel.send(t('eventos:voteInDBL', { member: message.member }))
+                                                    message.channel.send(t('eventos:voteInBPD', { member: message.member }))
                                                 }
                                             } else {
                                                 this.newDocDB({ id: commandRun.name, type: 3 })
