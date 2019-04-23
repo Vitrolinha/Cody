@@ -5,7 +5,7 @@ module.exports = class Give extends command {
         super (name, client)
         this.aliases = ['dar', 'doar', 'pay', 'pagar']
     }
-    async run ({message, usuario, prefix}, t) {
+    async run ({message, args, usuario, prefix}, t) {
         let invalid = new this.client.Discord.RichEmbed()
             .addField(t('comandos:give.howToUse'), `\`\`\`${prefix}give <mention> <count>\`\`\``)
             .setTimestamp(new Date())
