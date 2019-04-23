@@ -21,7 +21,7 @@ module.exports = class Give extends command {
             if(isNaN(args[1])) return message.channel.send(t('comandos:give.isNaN'))
             let value = parseInt(args[1])
             if(value > usuario.economy.get('codes')) return message.channel.send(t('comandos:give.insufficientCodes', { member: message.member }))
-            if(value <= 0) return message.channel.send('comandos:give.bellow0')
+            if(value <= 0) return message.channel.send(t('comandos:give.bellow0'))
             usuario.economy.set('codes', (usuario.economy.set('codes') - value))
             mentionDB.economy.set('codes', (mentionDB.economy.set('codes') - value))
             usuario.save()
