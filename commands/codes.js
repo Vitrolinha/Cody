@@ -7,7 +7,7 @@ module.exports = class Codes extends command {
     }
     async run ({message}, t) {
         let user = message.mentions.users.first() ? message.mentions.users.first() : message.author
-        if(user.bot) return message.channel.send(t('comandos:codes.mentionBot'))
+        if(user.bot) return message.channel.send(t('comandos:codes.mentionBot', { member: message.member }))
         let userDB = await this.client.database.Users.findOne({'_id': user.id})
         if(userDB) {
             let codes = parseInt(userDB.economy.get('lastDecode')) === 0 ? userDB.economy.get('decoders') * 1000 : (parseInt((Date.now() - userDB.economy.get('lastDecode'))/1800000) * (userDB.economy.get('decoders') * 1000))

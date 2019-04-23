@@ -34,14 +34,19 @@
         "howToUse": "{{prefix}}config prefix <new-prefix>\n{{prefix}}config vipMessages\n{{prefix}}config cmdchannel\n{{prefix}}config sugest",
         "category": 1
     },
+    "decode": {
+        "desc": "Recolha todos os codes que foram decodificados.",
+        "howToUse": "{{prefix}}decode",
+        "category": 3
+    },
     "discrim": {
         "desc": "Procure usuários do Discord pelo discriminador.",
         "howToUse": "{{prefix}}discrim <discriminator>",
         "category": 1
     },
-    "decode": {
-        "desc": "Recolha todos os codes que foram decodificados.",
-        "howToUse": "{{prefix}}decode",
+    "give": {
+        "desc": "Doe codes para outros usuários.",
+        "howToUse": "{{prefix}}give <mention> <count>",
         "category": 3
     },
     "help": {

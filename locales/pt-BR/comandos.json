@@ -58,7 +58,7 @@
         "cleared": "✅ Foram deletadas **{{count}} mensagens** por **{{member}}**."
     },
     "codes": {
-        "mentionBot": "👾 Um bot **não** possui **codes**.",
+        "mentionBot": "<:bot:570319734147645450> {{member}}, Um bot **não** possui **codes**.",
         "noUserDB": "😕 O **usuário mencionado** não está **registrado** no meu **banco de dados**. Tente **usar** o comando **novamente**.",
         "desc": "<:code:569367293729964032> **Codes:** {{codes}}\n<:decoder:569367355461730317> **Decodificadores:** {{decoders}}\n<:database:569999651739009025> **Para recolher:** {{toCollect}}/{{total}}"
     },
@@ -149,6 +149,14 @@
         "inWindow": "🙄 Você **já está** com uma janela de formulários **aberta**, **finalize** ela, ou aguarde **2 minutos**.",
         "approved": "😅 O **formulário** de {{member}} para `{{role}}` foi **aprovado** por {{author}}.",
         "refused": "😪 O **formulário** de {{member}} para `{{role}}` foi **recusado** por {{author}}."
+    },
+    "give": {
+        "howToUse": "📋 Como usar:",
+        "noUserDB":"😶 O **usuário mencionado** parece **não** estar registrado em meu **banco de dados**, tente usar o comando novamente.",
+        "isNaN":"😒 O **valor a doar** deve ser um **número**.",
+        "insufficientCodes":"<:code:569367293729964032> {{member}}, **Você** não possui **está** quantidade de **codes** para dar.",
+        "bellow0": "😒 O **valor a doar** não pode ser **0** ou **menor que 0**.",
+        "given": "<:code:569367293729964032> {{member}}, **Você** acaba de **dar** `{{codes}} codes` para `{{mention}}`."
     },
     "help": {
         "cntMessageNoArg": "🙄 Aqui estão alguns **comandos** disponíveis no bot.",
