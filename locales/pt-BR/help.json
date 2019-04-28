@@ -21,7 +21,7 @@
     },
     "codes": {
         "desc": "Veja a quantidade de codes que alguém possui.",
-        "howToUse": "{{prefix}}codes\n{{prefix}}codes <mention>",
+        "howToUse": "{{prefix}}codes\n{{prefix}}codes <mention>\n{{prefix}}codes warn <on/off>",
         "category": 3
     },
     "concierge": {
