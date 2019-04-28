@@ -9,7 +9,7 @@ module.exports = class Codes extends command {
         let user = message.mentions.users.first() ? message.mentions.users.first() : message.author
         if(user.bot) return message.channel.send(t('comandos:codes.mentionBot', { member: message.member }))
         let userDB = await this.client.database.Users.findOne({'_id': user.id})
-        if(args[0].toLowerCase() === 'warn') {
+        if(args[0] && args[0].toLowerCase() === 'warn') {
             let onf = usuario.economy.get('warns') ? false : true
             usuario.economy.set('warns', onf)
             usuario.save()
