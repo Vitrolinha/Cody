@@ -40,7 +40,7 @@ module.exports = class Forms extends command {
                         this.guilds.get("${this.client.config.codyGuild}").channels.get("540740757888172043").send("${mtsg}")
                         }
                     `)
-                    form.delete()
+                    await form.delete()
                     form = await this.client.database.Forms.findOne({})
                     if(!form) return cancelar.emit('end')
                     msg.edit(await genEmbed(form))
@@ -54,7 +54,7 @@ module.exports = class Forms extends command {
                     this.guilds.get("${this.client.config.codyGuild}").channels.get("540740757888172043").send("${mtsg2}")
                     }
                 `)
-                form.delete()
+                await form.delete()
                 form = await this.client.database.Forms.findOne({})
                 if(!form) return cancelar.emit('end')
                 msg.edit(await genEmbed(form))
