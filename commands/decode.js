@@ -20,6 +20,7 @@ module.exports = class Decode extends command {
         let restante = parseInt(usuario.economy.get('lastDecode')) === Date.now() ? 0 : parseInt(parseInt((Date.now() - usuario.economy.get('lastDecode'))/1800000)*1800000)
         usuario.economy.set('codes', (usuario.economy.get('codes') + codes + bonus))
         usuario.economy.set('lastDecode', (parseInt(usuario.economy.get('lastDecode')) + restante).toString())
+        usuario.economy.set('warned', false)
         usuario.save()
         let embed = new this.client.Discord.RichEmbed()
             .setTitle(t('comandos:decode.decoded'))
