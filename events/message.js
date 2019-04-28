@@ -45,13 +45,13 @@ module.exports = async function (message) {
                                 }
                                 let prefix = servidor.prefix
                                 let tempoPassado = Date.now() - parseInt(cmdColdown.coldown)
-                                let tempoRestante = (parseInt(cmdColdown.coldown) + 2000) - (tempoPassado + parseInt(cmdColdown.coldown))
-                                let segundos = parseInt(tempoRestante/1000)
-                                let milesimos = tempoRestante - (segundos*1000)
+                                let tempoRestante = (parseInt(cmdColdown.coldown) + 3000) - (tempoPassado + parseInt(cmdColdown.coldown))
+                                let segundos = parseInt(tempoRestante/3000)
+                                let milesimos = tempoRestante - (segundos*3000)
                                 let commandRun = this.commands.find(c => c.name === command || c.aliases.includes(command))
                                 if (commandRun) {
                                     if(servidor.allowedChannels.length !== 0 && !servidor.allowedChannels.includes(message.channel.id) && !(await this.verPerm(['MANAGE_MESSAGES', 'owner', 'subowner', 'developer', 'supervisor', 'designer'], false, usuario))) return message.channel.send(t('eventos:channelBlocked', { member: message.member })).then(msg => msg.delete(7000));
-                                    if (tempoPassado < 2000) return message.channel.send(t('eventos:cmdCooldown', { member: message.member, seconds: segundos, thousandth: milesimos }));
+                                    if (tempoPassado < 3000) return message.channel.send(t('eventos:cmdCooldown', { member: message.member, seconds: segundos, thousandth: milesimos }));
                                     this.database.Commands.findOne({'_id': commandRun.name}).then(async cmdDB => {
                                             if(cmdDB) {
                                                 if(cmdDB.maintenance && !(await this.verPerm(['owner', 'subowner', 'developer', 'supervisor', 'designer'], false, usuario))) return message.channel.send(t('eventos:cmdInManu', { cmd: command }))
