@@ -226,7 +226,7 @@
         },
         "menu": {
             "title": "<:shoppingCart:569519004239265823> Loja:",
-            "desc": "Para **comprar** um item da loja **utilize** o seguinte comando:\n`{{prefix}}shop <numero do item>`\n\n{{products}}",
+            "desc": "Para **comprar** um item da loja **utilize** o seguinte comando:\n`{{prefix}}shop <numero do item> <quantidade>`\n\n{{products}}",
             "footer": "Página {{page}} de {{total}}"
         },
         "purchased": {
