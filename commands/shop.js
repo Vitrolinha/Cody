@@ -90,8 +90,8 @@ module.exports = class Shop extends command {
                 .setFooter(message.author.username, message.author.displayAvatarURL)
                 .setColor(5289)
             if(produto.num === 1) {
-                if(price <= 0) return message.channel.send(t('comandos:shop.insufficientCodes', { member: message.member, codes: Number(produto.price - usuario.economy.get('codes')).toLocaleString() }))
-                if(price > usuario.economy.get('codes')) return message.channel.send(t('comandos:shop.insufficientCodes', { member: message.member, codes: Number(produto.price - usuario.economy.get('codes')).toLocaleString() }))
+                if(price <= 0) return message.channel.send(t('comandos:shop.insufficientCodes', { member: message.member, codes: Number(price - usuario.economy.get('codes')).toLocaleString() }))
+                if(price > usuario.economy.get('codes')) return message.channel.send(t('comandos:shop.insufficientCodes', { member: message.member, codes: Number(price - usuario.economy.get('codes')).toLocaleString() }))
                 usuario.economy.set('codes', (usuario.economy.get('codes') - price))
                 usuario.economy.set('decoders', (usuario.economy.get('decoders') + count))
                 usuario.save()
