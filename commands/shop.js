@@ -80,9 +80,8 @@ module.exports = class Shop extends command {
             if(!produtos.find(produto => produto.num === parseInt(args.join(' ')))) return message.channel.send(t('comandos:shop.productDoesNotExist'))
             let produto = await produtos.find(produto => produto.num === parseInt(args.join(' ')))
             let count = produto.count ? args[1] ? !isNaN(args[1]) ? parseInt(args[1]) > 0 ? parseInt(args[1]) : 1 : 1 : 1 : 1
+            count = parseInt(parseInt(usuario.economy.get('codes'))/produto.price) >= count ? count : parseInt(parseInt(usuario.economy.get('codes'))/produto.price) 
             let price = produto.price * count
-            count = parseInt(parseInt(usuario.economy.get('codes'))/price) >= count ? count : parseInt(parseInt(usuario.economy.get('codes'))/price) 
-            price = produto.price * count
             let purchased = new this.client.Discord.RichEmbed()
                 .setTitle(t('comandos:shop.purchased.title'))
                 .setDescription(`${count} **${produto.name}** \`${Number(price).toLocaleString()} codes\``)
