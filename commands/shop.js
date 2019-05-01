@@ -11,7 +11,7 @@ module.exports = class Shop extends command {
         let produtos = [{
             name: t('comandos:shop.products.decoder'),
             price: 150000,
-            count: 1,
+            count: true,
             num: 1
         }]
         let totalPages = parseInt(produtos.length/10)
@@ -79,16 +79,20 @@ module.exports = class Shop extends command {
         } else {
             if(!produtos.find(produto => produto.num === parseInt(args.join(' ')))) return message.channel.send(t('comandos:shop.productDoesNotExist'))
             let produto = await produtos.find(produto => produto.num === parseInt(args.join(' ')))
+            let count = produto.count ? args[1] ? !isNaN(args[1]) ? parseInt(args[1]) > 0 ? parseInt(args[1]) : 1 : 1 : 1 : 1
+            let price = produto.price * count
+            count = price/parseInt(usuario.economy.get('codes'))
+            price = produto.price * count
             let purchased = new this.client.Discord.RichEmbed()
                 .setTitle(t('comandos:shop.purchased.title'))
-                .setDescription(`${produto.count} **${produto.name}** \`${Number(produto.price).toLocaleString()} codes\``)
+                .setDescription(`${count} **${produto.name}** \`${Number(price).toLocaleString()} codes\``)
                 .setTimestamp(new Date())
                 .setFooter(message.author.username, message.author.displayAvatarURL)
                 .setColor(5289)
             if(produto.num === 1) {
-                if(produto.price > usuario.economy.get('codes')) return message.channel.send(t('comandos:shop.insufficientCodes', { member: message.member, codes: Number(produto.price - usuario.economy.get('codes')).toLocaleString() }))
-                usuario.economy.set('codes', (usuario.economy.get('codes') - produto.price))
-                usuario.economy.set('decoders', (usuario.economy.get('decoders') + 1))
+                if(price > usuario.economy.get('codes')) return message.channel.send(t('comandos:shop.insufficientCodes', { member: message.member, codes: Number(produto.price - usuario.economy.get('codes')).toLocaleString() }))
+                usuario.economy.set('codes', (usuario.economy.get('codes') - price))
+                usuario.economy.set('decoders', (usuario.economy.get('decoders') + count))
                 usuario.save()
                 message.channel.send(purchased)
             }
