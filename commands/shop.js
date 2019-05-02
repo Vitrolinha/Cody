@@ -84,7 +84,7 @@ module.exports = class Shop extends command {
             let price = produto.price * count
             let purchased = new this.client.Discord.RichEmbed()
                 .setTitle(t('comandos:shop.purchased.title'))
-                .setDescription(`${count} **${produto.name}** \`${Number(price).toLocaleString()} codes\``)
+                .setDescription(`(**${count}**) **${produto.name}** \`${Number(price).toLocaleString()} codes\``)
                 .setTimestamp(new Date())
                 .setFooter(message.author.username, message.author.displayAvatarURL)
                 .setColor(5289)

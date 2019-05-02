@@ -86,7 +86,7 @@
     },
     "shop": {
         "desc": "Compre itens com seus codes.",
-        "howToUse": "{{prefix}}shop\n{{prefix}}shop <number>",
+        "howToUse": "{{prefix}}shop\n{{prefix}}shop <number>\n{prefix} shop <number> <count>",
         "category": 3
     },
     "staff": {
