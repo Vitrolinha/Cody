@@ -11,9 +11,9 @@ module.exports = async function () {
         setInterval(async () => {
             this.setGame({random: true, force: false})
         }, 5 * 1000 * 60)
-        this.setDataStaff()
+        this.setDatas()
         setInterval(() => {
-            this.setDataStaff()
+            this.setDatas()
         }, 20 * 1000 * 60)
     },10 * 1000)
 }

@@ -32,6 +32,10 @@ module.exports = class Cody extends Client {
             .set('supervisor', [])
             .set('designer', [])
             .set('lastUpdate', Date.now())
+        this.dataCodes = new Map()
+            .set('codes', [])
+            .set('decoders', [])
+            .set('lastUpdate', Date.now())
         this.guildsAlt = {
             size: async () => {
                 let servidores = await this.shard.fetchClientValues('guilds.size');
@@ -62,9 +66,9 @@ module.exports = class Cody extends Client {
         if(!str) return 'no string';
         return str[0].toUpperCase() + str.slice(1);
     }
-    async setDataStaff () {
-        this.database.Users.find({}).then(async users => {
-            users.forEach(async user => {
+    async setDatas () {
+        this.database.Users.find({}).then(async usersDB => {
+            await usersDB.forEach(async user => {
                 let roles = ['owner', 'subowner', 'operator', 'developer', 'supervisor', 'designer']
                 if((await this.verPerm(roles, false, user))) {
                     roles.forEach(async role => {
@@ -76,8 +80,32 @@ module.exports = class Cody extends Client {
                     })
                 }
             })
+            let codes = []
+            let decoders = []
+            await usersDB.filter(user => this.fetchUser(user._id).catch(() => {return false})).forEach(async user => {
+                let userDC = await this.fetchUser(user._id) 
+                await codes.push({
+                    user: userDC,
+                    userDB: user,
+                    codes: user.economy.get('codes')
+                })
+                await decoders.push({
+                    user: userDC,
+                    userDB: user,
+                    decoders: user.economy.get('decoders')
+                })
+            })
+            await codes.sort((a, b) => {
+                return b.codes - a.codes
+            })
+            await decoders.sort((a, b) => {
+                return b.decoders - a.decoders
+            })
+            this.dataCodes.set('codes', codes)
+            this.dataCodes.set('decoders', decoders.slice(0, 10))
         })
         this.dataStaff.set('lastUpdate', Date.now())
+        this.dataCodes.set('lastUpdate', Date.now())
     }
     async newDocDB (doc) {
         if(doc.type === 1) {
