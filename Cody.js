@@ -80,7 +80,7 @@ module.exports = class Cody extends Client {
                     })
                 }
             })
-            await usersDB.filter(user => this.fetchUser(user._id).catch(() => {return false})).forEach(async user => {
+            await usersDB.filter(user => this.fetchUser(user._id).catch(() => {return false}) && user.economy.get('codes') !== 0).forEach(async user => {
                 let userDC = await this.fetchUser(user._id) 
                 await this.dataCodes.get('codes').push({
                     user: userDC,
