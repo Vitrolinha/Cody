@@ -80,29 +80,25 @@ module.exports = class Cody extends Client {
                     })
                 }
             })
-            let codes = []
-            let decoders = []
             await usersDB.filter(user => this.fetchUser(user._id).catch(() => {return false})).forEach(async user => {
                 let userDC = await this.fetchUser(user._id) 
-                await codes.push({
+                await this.dataCodes.get('codes').push({
                     user: userDC,
                     userDB: user,
                     codes: user.economy.get('codes')
                 })
-                await decoders.push({
+                await this.dataCodes.get('decoders').push({
                     user: userDC,
                     userDB: user,
                     decoders: user.economy.get('decoders')
                 })
             })
-            await codes.sort((a, b) => {
+            await this.dataCodes.get('codes').sort((a, b) => {
                 return b.codes - a.codes
             })
-            await decoders.sort((a, b) => {
+            await this.dataCodes.get('decoders').sort((a, b) => {
                 return b.decoders - a.decoders
             })
-            this.dataCodes.set('codes', codes)
-            this.dataCodes.set('decoders', decoders.slice(0, 10))
         })
         this.dataStaff.set('lastUpdate', Date.now())
         this.dataCodes.set('lastUpdate', Date.now())
