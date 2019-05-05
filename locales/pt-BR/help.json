@@ -84,6 +84,11 @@
         "howToUse": "{{prefix}}ping",
         "category": 1
     },
+    "rank": {
+        "desc": "Veja os 10 primeiros usuários no ranking do bot.",
+        "howToUse": "{{prefix}}rank\n{{prefix}}rank <codes/decoders>",
+        "category": 1
+    },
     "shop": {
         "desc": "Compre itens com seus codes.",
         "howToUse": "{{prefix}}shop\n{{prefix}}shop <number>\n{prefix} shop <number> <count>",

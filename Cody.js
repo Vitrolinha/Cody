@@ -32,7 +32,7 @@ module.exports = class Cody extends Client {
             .set('supervisor', [])
             .set('designer', [])
             .set('lastUpdate', Date.now())
-        this.dataCodes = new Map()
+        this.dataRanks = new Map()
             .set('codes', [])
             .set('decoders', [])
             .set('lastUpdate', Date.now())
@@ -80,36 +80,36 @@ module.exports = class Cody extends Client {
                     })
                 }
             })
-            await this.dataCodes.set('codes', [])
-            await this.dataCodes.set('decoders', [])
+            await this.dataRanks.set('codes', [])
+            await this.dataRanks.set('decoders', [])
             let users = usersDB.filter(user => this.fetchUser(user._id).catch(() => {return false}) && user.economy.get('codes') !== 0) 
             let num = 0
             let total = users.length
             await users.forEach(async user => {
                 let userDC = await this.fetchUser(user._id) 
-                await this.dataCodes.get('codes').push({
+                await this.dataRanks.get('codes').push({
                     user: userDC,
                     userDB: user,
-                    codes: user.economy.get('codes')
+                    count: user.economy.get('codes')
                 })
-                await this.dataCodes.get('decoders').push({
+                await this.dataRanks.get('decoders').push({
                     user: userDC,
                     userDB: user,
-                    decoders: user.economy.get('decoders')
+                    count: user.economy.get('decoders')
                 })
                 num += 1
                 if(num === total) {
-                    await this.dataCodes.get('codes').sort((a, b) => {
-                        return b.codes - a.codes
+                    await this.dataRanks.get('codes').sort((a, b) => {
+                        return b.count - a.count
                     })
-                    await this.dataCodes.get('decoders').sort((a, b) => {
-                        return b.decoders - a.decoders
+                    await this.dataRanks.get('decoders').sort((a, b) => {
+                        return b.count - a.count
                     })
                 }
             })
         })
         this.dataStaff.set('lastUpdate', Date.now())
-        this.dataCodes.set('lastUpdate', Date.now())
+        this.dataRanks.set('lastUpdate', Date.now())
     }
     async newDocDB (doc) {
         if(doc.type === 1) {

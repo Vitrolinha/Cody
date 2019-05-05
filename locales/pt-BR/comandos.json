@@ -134,7 +134,8 @@
         "damaged": "🎛 {{member}}, **Todos** os seus **decodificadores** estão **danificados**.\n**Tempo para restauração:** `{{hours}} horas e {{minutes}} minutos`",
         "nothingToCollect": "<:decoder:569367355461730317> {{member}}, **Não** há **codes** para serem **coletados**.\nVocê pode **coletar** `{{codes}} codes` daqui à **{{time}} minutos**.",
         "decoded": "<:decoder:569367355461730317> Decodificado:",
-        "codes": "**{{codes}}** codes foram coletados.\n**Bônus:** `{{bonus}}`"
+        "codes": "**{{codes}}** codes foram coletados.\n**Bônus:** `{{bonus}}`",
+        "footer": "Quantidade atual: {{codes}}"
     },
     "discrim": {
         "inWindow": "🙄 **Você** já está com uma **jánela** de discriminadores aberta, **finalize-a** ou aguarde **1 minuto**.",
@@ -226,6 +227,10 @@
         "muted": "✅ O membro {{member}} foi **silenciado** por {{author}}.",
         "unmuted": "✅ O membro {{member}} foi **desmutado** por {{author}}.",
         "useAgain": "🙄 Parece que o cargo `{{role}}` **não existia**, use o **comando** novamente."
+    },
+    "rank": {
+        "inWindow":"🙄 **Você** já está com uma **jánela** de ranking aberta, **finalize-a** ou aguarde **1 minuto**.",
+        "footer": "Sua posição: {{position}} (atualiza em {{lastUpdade}} minutos)"
     },
     "shop": {
         "inWindow":"🙄 **Você** já está com a **loja** aberta, **finalize-a** ou aguarde **1 minuto**.",
