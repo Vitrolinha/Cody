@@ -15,7 +15,7 @@ module.exports = class Rank extends command {
             let num = 1
             atual = type
             let embed = new this.client.Discord.RichEmbed()
-                .setTitle(`Rank ${this.client.firstUpperLetter(type)}:`)
+                .setTitle(`Rank ${await this.client.firstUpperLetter(type)}:`)
                 .setDescription(this.client.dataRanks.get(type).map(user => `(**${num++}**) **${user.user.tag}** - \`${user.count}\``).slice(0, 10).join('\n'))
                 .setTimestamp(new Date())
                 .setFooter(t('comandos:rank.footer', { position: (this.client.dataRanks.get(type).indexOf(this.client.dataRanks.get(type).find(user => user.user.id === message.author.id)) + 1), lastUpdate: minutos }), message.author.displayAvatarURL)
@@ -33,12 +33,12 @@ module.exports = class Rank extends command {
             codes.on('collect', async r => {
                 r.remove(r.users.last().id).catch(e => {})
                 if(atual === 'codes') return;
-                message.edit(await genEmbed('codes'))
+                msg.edit(await genEmbed('codes'))
             })
             decoders.on('collect', async r => {
                 r.remove(r.users.last().id).catch(e => {})
                 if(atual === 'decoders') return;
-                message.edit(await genEmbed('decoders'))
+                msg.edit(await genEmbed('decoders'))
             })
             finalizar.on('collect', async r => {
                 force = true
