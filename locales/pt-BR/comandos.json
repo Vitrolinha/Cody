@@ -104,6 +104,7 @@
             "sucess": "🗂 Alteração feita com sucesso!",
             "emptyAlloweds": "Não se pode executar comandos em nenhum canal.",
             "emptyDenieds": "Pode se usar comandos em todos os canais.",
+            "manyChannels": "Muitos canais a serem exibidos.",
             "allowed": "✅ Canais permitidos:",
             "denied": "❎ Canais bloqueados:",
             "alreadyReseted": "❌ A **lista** já está **limpa**.",
