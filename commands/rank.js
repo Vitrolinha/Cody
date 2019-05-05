@@ -23,12 +23,12 @@ module.exports = class Rank extends command {
             return embed;
         }
         message.channel.send(await genEmbed(atual)).then(async msg => {
-            await msg.react('©')
-            await msg.react('🎛')
+            await msg.react(':code:569367293729964032')
+            await msg.react(':decoder:569367355461730317')
             await msg.react('❌')
             inWindow.push(message.author.id)
-            const codes = msg.createReactionCollector((r, u) => r.emoji.name === "©" && u.id === message.author.id, { time: 60000 });
-            const decoders = msg.createReactionCollector((r, u) => r.emoji.name === "🎛" && u.id === message.author.id, { time: 60000 });
+            const codes = msg.createReactionCollector((r, u) => r.emoji.name === ":code:569367293729964032" && u.id === message.author.id, { time: 60000 });
+            const decoders = msg.createReactionCollector((r, u) => r.emoji.name === ":decoder:569367355461730317" && u.id === message.author.id, { time: 60000 });
             const finalizar = msg.createReactionCollector((r, u) => r.emoji.name === "❌" && u.id === message.author.id, { time: 60000 });
             let force = false
             codes.on('collect', async r => {
