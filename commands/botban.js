@@ -5,26 +5,26 @@ module.exports = class BotBan extends command {
         super (name, client)
         this.aliases = ['bban']
     }
-    async run ({message, args, usuario, servidor, prefix}) {
+    async run ({message, argsAlt, usuario, servidor, prefix}) {
         if(!(await this.client.verPerm(['owner', 'subowner', 'operator', 'developer', 'supervisor'], false, usuario))) return message.channel.send(t('comandos:botban.noPermission'));
         let invalid = new this.client.Discord.RichEmbed()
-            .addField(t('comandos:botban.howToUse'), `\`\`\`\n${prefix}botban mention\n${prefix}botban mention <time>\`\`\``, false)
+            .addField(t('comandos:botban.howToUse'), t('comandos:botban.howDesc', { prefix: prefix }), false)
             .setTimestamp(new Date())
             .setFooter(message.author.username, message.author.displayAvatarURL)
             .setColor(5289)
         this.client.moment.locale(servidor.lang)
-        if(!args[0]) return message.channel.send(invalid)
+        if(!argsAlt[0]) return message.channel.send(invalid)
         if(!message.mentions.users.first()) return message.channel.send(invalid)
-        if(args[0].replace('!', '') !== message.mentions.users.first().toString()) return message.channel.send(invalid)
+        if(argsAlt[0].replace('!', '') !== message.mentions.users.first().toString()) return message.channel.send(invalid)
         let mencionado = message.mentions.users.first()
-        let time = message.content.split(' ').slice(2).join(' ')
+        let time = argsAlt.slice(1).join(' ')
         if(mencionado.id === message.author.id) return message.channel.send(t('comandos:botban.iMentioned'));
         if(mencionado.bot) return message.channel.send(t('comandos:botban.botMention'))
         this.client.database.Users.findOne({'_id': mencionado.id}).then(async mencionadoDB => {
             if(mencionadoDB) {
                 if(await this.client.verPerm(['owner', 'subowner', 'operator', 'developer', 'supervisor', 'designer'], false, mencionadoDB)) return message.channel.send(t('comandos:botban.mentionedStaff'));
                 if(!mencionadoDB.banned.get('ban')) {
-                    if(!args[1]) {
+                    if(!argsAlt[1]) {
                         mencionadoDB.banned.set('ban', true)
                         mencionadoDB.save()
                         message.channel.send(t('comandos:botban.bannedNoTime', { member: mencionado }))

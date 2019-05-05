@@ -5,22 +5,22 @@ module.exports = class BotConfig extends command {
         super (name, client)
         this.aliases = ['bconfig']
     }
-    async run ({message, args, usuario, prefix}) {
+    async run ({message, argsAlt, usuario, prefix}) {
         if(!(await this.client.verPerm(['owner', 'subowner', 'developer', 'operator'], false, usuario))) return message.channel.send(t('comandos:botconfig.noPermission'));
         let invalid = new this.client.Discord.RichEmbed()
-            .addField(t('comandos:botconfig.howToUse'), `\`\`\`\n${prefix}botconfig cmd <manu> <command-name>\`\`\``, false)
+            .addField(t('comandos:botconfig.howToUse'), t('comandos:botconfig.howDesc', { prefix: prefix }), false)
             .setColor(5289)
-        let funcao = args[0]
+        let funcao = argsAlt[0]
         if(!funcao) return message.channel.send(invalid)
         funcao = funcao.toLowerCase()
         if(funcao === 'cmd') {
-            funcao = args[1]
+            funcao = argsAlt[1]
             if(!funcao) return message.channel.send(invalid)
             funcao = funcao.toLowerCase()
             if(funcao === 'manu') {
-                let cmd = args[2]
+                let cmd = argsAlt[2]
                 if(!cmd) return message.channel.send(t('comandos:botconfig.noCmdManu'))
-                cmd = args[2].toLowerCase()
+                cmd = argsAlt[2].toLowerCase()
                 this.client.database.Commands.findOne({'_id': cmd}).then(cmdDB => {
                     if(!cmdDB) return message.channel.send(t('comandos:botconfig.cmdNotExist'))
                     if(!cmdDB.maintenance) { message.channel.send(t('comandos:botconfig.activated', { cmd: cmd })) } else { message.channel.send(t('comandos:botconfig.disabled', { cmd: cmd })) }

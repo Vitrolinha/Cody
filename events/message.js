@@ -6,6 +6,7 @@ module.exports = async function (message) {
     if (message.channel.type === 'dm') return;
     if (message.author.bot) return;
     let args = message.content.split(' ').slice(1)
+    let argsAlt = message.content.split(' ').slice(1).filter(arg => arg !== '')
     const setFixedT = function(translate) {
         t = translate
     }
@@ -55,7 +56,7 @@ module.exports = async function (message) {
                                     this.database.Commands.findOne({'_id': commandRun.name}).then(async cmdDB => {
                                             if(cmdDB) {
                                                 if(cmdDB.maintenance && !(await this.verPerm(['owner', 'subowner', 'developer', 'supervisor', 'designer'], false, usuario))) return message.channel.send(t('eventos:cmdInManu', { cmd: command }))
-                                                commandRun.process({message, args, prefix, usuario, servidor}, t, setFixedT)
+                                                commandRun.process({message, args, argsAlt, prefix, usuario, servidor}, t, setFixedT)
                                                 usersCMDColdown.find(user => user.id === message.author.id).coldown = Date.now()
                                                 if(!servidor.config.get('vipMessages')) return;
                                                 let random = Math.round(Math.random() * 1000)

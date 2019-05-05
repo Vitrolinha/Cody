@@ -5,11 +5,11 @@ module.exports = class Codes extends command {
         super (name, client)
         this.aliases = ['code']
     }
-    async run ({message, args, usuario}, t) {
+    async run ({message, argsAlt, usuario}, t) {
         let user = message.mentions.users.first() ? message.mentions.users.first() : message.author
         if(user.bot) return message.channel.send(t('comandos:codes.mentionBot', { member: message.member }))
         let userDB = await this.client.database.Users.findOne({'_id': user.id})
-        if(args[0] && args[0].toLowerCase() === 'warn') {
+        if(argsAlt[0] && argsAlt[0].toLowerCase() === 'warn') {
             let onf = usuario.economy.get('warns') ? false : true
             usuario.economy.set('warns', onf)
             usuario.save()

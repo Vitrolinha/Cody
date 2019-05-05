@@ -4,9 +4,9 @@ const inWindow = []
 module.exports = class Help extends command {
     constructor (name, client) {
         super (name, client)
-        this.aliases = ['ajuda', 'comandos', 'commands']
+        this.aliases = ['h', 'ajuda', 'comandos', 'commands']
     }
-    async run ({message, args, prefix}, t) {
+    async run ({message, argsAlt, prefix}, t) {
         let comandos = []
         let files = this.client.fs.readdirSync('./commands');
         files.forEach(file => {
@@ -17,7 +17,7 @@ module.exports = class Help extends command {
             category: parseInt(t(`help:${file.split(".")[0]}.category`))
           })
         })
-        let commandAlt = args[0] ? this.client.commands.find(c => c.name === args[0] || c.aliases.includes(args[0])) : false
+        let commandAlt = argsAlt[0] ? this.client.commands.find(c => c.name === argsAlt[0] || c.aliases.includes(argsAlt[0])) : false
         if(commandAlt && t(`help:${commandAlt.name.toLowerCase()}.desc`) !== `${commandAlt.name.toLowerCase()}.desc`) {
           let cmdName = commandAlt.name.toLowerCase()
           let embed = new this.client.Discord.RichEmbed()

@@ -19,7 +19,7 @@ module.exports = class StaffRole extends command {
         let authorPerm = 0
         cargosA.forEach(role => { if(cargosB[role].content) { if(authorPerm < cargosB[role].permission) { authorPerm = cargosB[role].permission } } })
         let invalid = new this.client.Discord.RichEmbed()
-            .addField(t('comandos:staffrole.howToUse'), `\`\`\`\n${prefix}staffrole <add/del> <role-name> <user-mention>\`\`\``, false)
+            .addField(t('comandos:staffrole.howToUse'), t('comandos:staffrole.howDesc', { prefix: prefix }), false)
             .addField(t('comandos:staffrole.roles'), `\`${cargosA.join('` **|** `')}\``)
             .setColor(5289)
         if(!args[2]) return message.channel.send(invalid);

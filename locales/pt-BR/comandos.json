@@ -2,15 +2,16 @@
     "autorole": {
         "noPermission": "😕 É **necessário** possuir a **permissão** `GERENCIAR CARGOS`.",
         "howToUse": "🗃 Como usar:",
+        "howDesc": "`{{prefix}}autorole add <cargo-menção/id/nome>` - adiciona um cargo de entrada.\n`{{prefix}}autorole del <cargo-menção/id/nome>` - remova um cargo do sistema.",
         "definedRoles": "📋 Cargos definidos:",
         "none": "Nenhum cargo definido.",
         "invalidFunction": "😣 A **funçao** `{{function}}` é inválida, tente `add` ou `del`.",
         "limitRoles": "📀 Você chegou ao **limite** de `5` cargos neste **servidor**.",
         "noDefinedRoles": "💿 Não há **cargos** para serem **deletados**.",
         "noMentionRole": "😕 Você deve **mencionar** um **cargo** ou dizer seu **nome** ou **id**.",
-        "invalidRole": "😒 O **cargo** citado **não existe**.",
-        "alreadyDefined": "😒 O **cargo** citado **já está definido**.",
-        "roleNotDefined": "😒 O **cargo** citado **não está definido**.",
+        "invalidRole": "😒 {{member}}, O **cargo** citado **não existe**.",
+        "alreadyDefined": "😒 {{member}}, O **cargo** citado **já está definido**.",
+        "roleNotDefined": "😒 {{member}}, O **cargo** citado **não está definido**.",
         "noPermRole": "😶 Você **não tem** permissão para **dar** este **cargo** à **outras pessoas**.",
         "noPermRoleBot": "😶 Eu **não** possuo **permissão** para adicionar **este** cargo à **outras pessoas**.",
         "addedRole": "✅ O **cargo** `{{role}}` foi **adicionado ao autorole**.",
@@ -31,6 +32,7 @@
     "botban": {
         "noPermission": "😒 Você **precisa** ser um `owner`, `subowner`, `operator`, `developer` ou `supervisor` para usar **este** comando",
         "howToUse": "🗃 Como usar:",
+        "howDesc":"`{{prefix}}botban <menção>` - proíba o usuário de utilizar o bot permanentemente.\n`{{prefix}}botban <menção> <tempo>` - proíba o usuário de utilizar o bot por um tempo.",
         "noUserDB": "😶 O **usuário mencionado** parece **não** estar registrado em meu **banco de dados**, tente usar o comando novamente.",
         "iMentioned": "😕 Você **não pode** banir **você mesmo**.",
         "botMention": "😶 Você **não** pode **banir um bot**.",
@@ -42,6 +44,7 @@
     "botconfig": {
         "noPermission": "😒 Você **precisa** ser um `owner`, `subowner`, `operator` ou `developer` para usar **este** comando.",
         "howToUse": "🗃 Como usar:",
+        "howDesc": "`{{prefix}}botconfig cmd <manu> <nome-do-comando>` - configura algo em um comando.",
         "invalidFunc": "😕 A função `{{func}}` **não existe**.",
         "noCmdManu": "🙄 É necessário **inserir** o comando que **entrará** para manutenção.",
         "cmdNotExist": "🙄 O **comando** parece não **existir**.",
@@ -67,6 +70,7 @@
     "concierge": {
         "noPermission": "😕 É **necessário** possuir a **permissão** `GERENCIAR SERVIDOR`.",
         "howToUse": "🗃 Como usar:",
+        "howDesc": "`{{prefix}}concierge welcome set <mensagem>` - adicione uma mensagem de bem-vindo.\n`{{prefix}}concierge welcome del` - remova a mensagem de boas vindas existente.\n`{{prefix}}concierge byebye set <mensagem>` - adicione uma mensagem de despedidas.\n`{{prefix}}concierge byebye del` - remova a mensagem de despedidas existente.",
         "invalidAct": "😒 A **ação** `{{act}}` parece **não existir**.",
         "noFunction": "🙄 Você **precisa** citar uma **função**, tente `set` ou `del`",
         "invalidFunction": "😣 A **funçao** `{{function}}` é inválida, tente `add` ou `del`.",
@@ -83,6 +87,7 @@
     "config": {
         "noPermission": "😕 É **necessário** possuir a **permissão** `GERENCIAR SERVIDOR`.",
         "howToUse": "🗃 Como usar:",
+        "howDesc": "`{{prefix}}config prefix <prefixo>` - defina um novo prefixo no servidor.\n`{{prefix}}config vipMessages` - ative e desative as mensagens vip.\n`{{prefix}}config cmdChannel <add/del>` - adicione e remova canais de comandos.\n`{{prefix}}config sugest <on/off>` - configure o sistema de sugestões.",
         "prefix": {
             "noArgs": "🙄 Você deve **especificar** o **novo prefixo**.",
             "bigPrefix": "😒 O **prefixo cítado** é **muito grande**. (4 caracteres)",
@@ -94,6 +99,7 @@
         },
         "cmdChannel": {
             "howToUse": "📋 Como usar:",
+            "howDesc": "`{{prefix}}config cmdChannel <add/del>` - adicione e remova canais de comandos.",
             "inWindow":"🙄 **Você** já está com uma **jánela** de seleção, **finalize-a** ou aguarde **1 minuto**.",
             "sucess": "🗂 Alteração feita com sucesso!",
             "emptyAlloweds": "Não se pode executar comandos em nenhum canal.",
@@ -154,6 +160,7 @@
     },
     "give": {
         "howToUse": "📋 Como usar:",
+        "howDesc": "`{{prefix}}give <menção> <quantidade>` - doe codes para um usuário.",
         "noUserDB":"😶 O **usuário mencionado** parece **não** estar registrado em meu **banco de dados**, tente usar o comando novamente.",
         "isNaN":"😒 O **valor a doar** deve ser um **número**.",
         "insufficientCodes":"<:code:569367293729964032> {{member}}, **Você** não possui **está** quantidade de **codes** para dar.",
@@ -262,6 +269,7 @@
     "staffrole": {
         "noPermission": "😒 Você **precisa** ser um `owner`, `subowner`, `operator` ou `developer` para usar **este** comando.",
         "howToUse": "🗃 Como usar:",
+        "howDesc": "`{{prefix}}staffrole add <cargo> <menção>` - adicione um cargo ao usuário.\n`{{prefix}}staffrole del <cargo> <menção>` - remova um cargo do usuário.",
         "roles": "📈 Cargos:",
         "invalidFunction": "😣 A **funçao** `{{function}}` é inválida, tente `add` ou `del`.",
         "roleNotExist": "😕 O cargo `{{role}}` não existe, tente `{{roles}}`.",

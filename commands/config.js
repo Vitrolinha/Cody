@@ -7,20 +7,20 @@ module.exports = class Config extends command {
         super (name, client)
         this.aliases = ['configurar']
     }
-    async run ({message, args, prefix, usuario, servidor}, t) {
+    async run ({message, argsAlt, prefix, usuario, servidor}, t) {
         if(!(await this.client.verPerm(['MANAGE_GUILD', 'owner', 'subowner', 'operator'], message.member, usuario))) return message.channel.send(t('comandos:config.noPermission'));
         let configs = ['prefix', 'vipmessages', 'cmdchannel', 'sugest']
         let embed = new this.client.Discord.RichEmbed()
-            .addField(t('comandos:config.howToUse'), `\`\`\`${configs.map(config => `${prefix}config ${config}`).join('\n')}\`\`\``)
+            .addField(t('comandos:config.howToUse'), t('comandos:config.howDesc', { prefix: prefix }))
             .setTimestamp(new Date())
             .setFooter(message.author.username, message.author.displayAvatarURL)
             .setColor(5289)
-        if(!args[0]) return message.channel.send(embed);
-        if(!configs.includes(args[0].toLowerCase())) message.channel.send(embed)
-        let config = args[0].toLowerCase()
+        if(!argsAlt[0]) return message.channel.send(embed);
+        if(!configs.includes(argsAlt[0].toLowerCase())) message.channel.send(embed)
+        let config = argsAlt[0].toLowerCase()
         if(config === 'prefix') {
-            if(!args[1]) return message.channel.send(t('comandos:config.prefix.noArgs'))
-            let newPrefix = args[1]
+            if(!argsAlt[1]) return message.channel.send(t('comandos:config.prefix.noargsAlt'))
+            let newPrefix = argsAlt[1]
             if(newPrefix.length > 4) return message.channel.send(t('comandos:config.prefix.bigPrefix'))
             servidor.prefix = newPrefix
             servidor.save()
@@ -35,14 +35,14 @@ module.exports = class Config extends command {
             let actions = ['add', 'del', 'reset']
             let cmdChannelEmbed = new this.client.Discord.RichEmbed()
                 .setTitle(t('comandos:config.cmdChannel.howToUse'))
-                .setDescription(`\`\`\`${prefix}config cmdChannel <${actions.join('/')}>\`\`\``)
+                .setDescription(t('comandos:config.cmdChannel.howDesc', { prefix: prefix }))
                 .setTimestamp(new Date())
                 .setFooter(message.author.username, message.author.displayAvatarURL)
                 .setColor(5289)
-            if(!args[1]) return message.channel.send(cmdChannelEmbed);
-            if(!actions.includes(args[1].toLowerCase())) return message.channel.send(cmdChannelEmbed);
+            if(!argsAlt[1]) return message.channel.send(cmdChannelEmbed);
+            if(!actions.includes(argsAlt[1].toLowerCase())) return message.channel.send(cmdChannelEmbed);
             if(inWindowCmdChannel.includes(message.author.id + message.channel.id)) return message.channel.send(t('comandos:config.cmdChannel.inWindow'))
-            let action = args[1].toLowerCase()
+            let action = argsAlt[1].toLowerCase()
             let genEmbed = async(doc) => {
                 let allowedChannels = doc.allowedChannels
                 let deniedChannels = message.guild.channels.filter(channel => !allowedChannels.includes(channel.id) && channel.type === 'text').map(channel => channel.id)
@@ -59,14 +59,14 @@ module.exports = class Config extends command {
                 return sucess;
             }
             if(action === 'add') {
-                if(!args[2] || !message.mentions.channels.first()) return message.channel.send(t('comandos:config.cmdChannel.add.noMention'))
+                if(!argsAlt[2] || !message.mentions.channels.first()) return message.channel.send(t('comandos:config.cmdChannel.add.noMention'))
                 let mentions = []
                 await message.mentions.channels.forEach(mention => mentions.push(mention))
                 await mentions.filter(mention => !servidor.allowedChannels.includes(mention.id) && mention.type === 'text').forEach(mention => { servidor.allowedChannels.push(mention.id) })
                 message.channel.send(await genEmbed(servidor))
                 servidor.save()
             } else if(action === 'del') {
-                if(!args[2] || !message.mentions.channels.first()) return message.channel.send(t('comandos:config.cmdChannel.del.noMention'))
+                if(!argsAlt[2] || !message.mentions.channels.first()) return message.channel.send(t('comandos:config.cmdChannel.del.noMention'))
                 let mentions = []
                 await message.mentions.channels.forEach(mention => mentions.push(mention))
                 if(servidor.allowedChannels.length === 0) {
@@ -92,9 +92,9 @@ module.exports = class Config extends command {
                 .setTimestamp(new Date())
                 .setFooter(message.author.username, message.author.displayAvatarURL)
                 .setColor(5289)
-            if(!args[1]) return message.channel.send(sugest);
-            if(!actions.includes(args[1].toLowerCase())) return message.channel.send(sugest);
-            let action = args[1].toLowerCase()
+            if(!argsAlt[1]) return message.channel.send(sugest);
+            if(!actions.includes(argsAlt[1].toLowerCase())) return message.channel.send(sugest);
+            let action = argsAlt[1].toLowerCase()
             if(action === 'on') {
                 let selectType = new this.client.Discord.RichEmbed()
                     .setTitle(t('comandos:config.sugest.title'))

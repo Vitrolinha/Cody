@@ -8,7 +8,7 @@ module.exports = class Concierge extends command {
     async run ({message, args, usuario, servidor, prefix}) {
         if(!(await this.client.verPerm(['MANAGE_GUILD', 'owner', 'subowner', 'operator'], message.member, usuario))) return message.channel.send(t('comandos:concierge.noPermission'));
         let invalid = new this.client.Discord.RichEmbed()
-            .addField(t('comandos:concierge.howToUse'), `\`\`\`${prefix}concierge <welcome/byebye> set <message>\n${prefix}concierge <welcome/byebye> del\n${prefix}concierge parameters\`\`\``)
+            .addField(t('comandos:concierge.howToUse'), t('comandos:concierge.howDesc', { prefix: prefix }))
             .setTimestamp(new Date())
             .setFooter(message.author.username, message.author.displayAvatarURL)
             .setColor(5289)
