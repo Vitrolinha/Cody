@@ -12,7 +12,7 @@ module.exports = class Ping extends command {
         let pesoCor = ping < 100 ? 65280 : ping < 200 ? 16776960 : 16711680
         let embed = new this.client.Discord.RichEmbed()
             .setTitle(`Shard[${(selected + 1)}/${(this.client.shard.count)}]:`)
-            .setDescription(`📡 Ping: **${parseInt(ping)}**ms`)
+            .setDescription(t('comandos:ping.desc', { api: parseInt(ping), time: (Date.now() - message.createdAt) }))
             .setColor(pesoCor)
         message.channel.send(embed)
     }

@@ -228,6 +228,9 @@
         "unmuted": "✅ O membro {{member}} foi **desmutado** por {{author}}.",
         "useAgain": "🙄 Parece que o cargo `{{role}}` **não existia**, use o **comando** novamente."
     },
+    "ping": {
+        "desc": "📡 Latência da api: **{{api}}**ms\n📨 Tempo de resposta: **{{time}}**ms"
+    },
     "rank": {
         "inWindow":"🙄 **Você** já está com uma **jánela** de ranking aberta, **finalize-a** ou aguarde **1 minuto**.",
         "footer": "Sua posição: {{position}} (atualizado à {{lastUpdate}} minutos atrás)"
