@@ -15,7 +15,7 @@ module.exports = class Shop extends command {
             num: 1
         }, {
             name: t('comandos:shop.products.computer'),
-            price: 1000,
+            price: 1800000,
             count: false,
             num: 2
         }]
@@ -87,6 +87,7 @@ module.exports = class Shop extends command {
             let count = produto.count ? args[1] ? !isNaN(args[1]) ? parseInt(args[1]) > 0 ? parseInt(args[1]) : 1 : 1 : 1 : 1
             count = parseInt(parseInt(usuario.economy.get('codes'))/produto.price) >= count ? count : parseInt(parseInt(usuario.economy.get('codes'))/produto.price) 
             let price = produto.price * count
+            console.log(`${count} - ${price}`)
             if(count === 0) return message.channel.send(t('comandos:shop.insufficientCodes', { member: message.member, codes: Number(produto.price - usuario.economy.get('codes')).toLocaleString() }))
             let purchased = new this.client.Discord.RichEmbed()
                 .setTitle(t('comandos:shop.purchased.title'))
