@@ -26,6 +26,7 @@ module.exports = class Rank extends command {
             await msg.react('©')
             await msg.react('🎛')
             await msg.react('❌')
+            inWindow.push(message.author.id)
             const codes = msg.createReactionCollector((r, u) => r.emoji.name === "©" && u.id === message.author.id, { time: 60000 });
             const decoders = msg.createReactionCollector((r, u) => r.emoji.name === "🎛" && u.id === message.author.id, { time: 60000 });
             const finalizar = msg.createReactionCollector((r, u) => r.emoji.name === "❌" && u.id === message.author.id, { time: 60000 });
