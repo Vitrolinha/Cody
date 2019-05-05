@@ -6,7 +6,8 @@ module.exports = class Codes extends command {
         this.aliases = ['code']
     }
     async run ({message, argsAlt, usuario}, t) {
-        let user = message.mentions.users.first() ? message.mentions.users.first() : message.author
+        let reg = argsAlt[0] ? argsAlt[0].replace(/[^0-9]/g, '') : false
+        let user = argsAlt[0] ? message.guild.users.get(reg) ? message.guild.users.get(reg) : message.author : message.author
         if(user.bot) return message.channel.send(t('comandos:codes.mentionBot', { member: message.member }))
         let userDB = await this.client.database.Users.findOne({'_id': user.id})
         if(argsAlt[0] && argsAlt[0].toLowerCase() === 'warn') {
