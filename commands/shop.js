@@ -15,7 +15,7 @@ module.exports = class Shop extends command {
             num: 1
         }, {
             name: t('comandos:shop.products.computer'),
-            price: 1800000,
+            price: 0,
             count: false,
             num: 2
         }]
