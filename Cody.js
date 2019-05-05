@@ -82,6 +82,8 @@ module.exports = class Cody extends Client {
             })
             await usersDB.filter(user => this.fetchUser(user._id).catch(() => {return false}) && user.economy.get('codes') !== 0).forEach(async user => {
                 let userDC = await this.fetchUser(user._id) 
+                await this.dataCodes.set('codes', [])
+                await this.dataCodes.set('decoders', [])
                 await this.dataCodes.get('codes').push({
                     user: userDC,
                     userDB: user,
@@ -99,6 +101,8 @@ module.exports = class Cody extends Client {
             await this.dataCodes.get('decoders').sort((a, b) => {
                 return b.decoders - a.decoders
             })
+            await this.dataCodes.set('codes', this.dataCodes.get('codes').slice(0, 10))
+            await this.dataCodes.set('decoders', this.dataCodes.get('decoders').slice(0, 10))
         })
         this.dataStaff.set('lastUpdate', Date.now())
         this.dataCodes.set('lastUpdate', Date.now())
@@ -201,8 +205,10 @@ module.exports = class Cody extends Client {
         prm.forEach(perm => {
             if(possui) return;
             if(!dcPerms.includes(perm)) {
+                if(!userDB) return;
                 if(userDB.cargos.get(perm)) { possui = true }
             } else {
+                if(!userDC) return;
                 if(userDC.hasPermission([perm])) { possui = true }
             }
         })
