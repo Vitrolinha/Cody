@@ -34,12 +34,12 @@ module.exports = class Rank extends command {
             codes.on('collect', async r => {
                 r.remove(r.users.last().id).catch(e => {})
                 if(atual === 'codes') return;
-                msg.edit(await genEmbed('codes'))
+                msg.edit(await genEmbed('codes')).catch(e => {})
             })
             decoders.on('collect', async r => {
                 r.remove(r.users.last().id).catch(e => {})
                 if(atual === 'decoders') return;
-                msg.edit(await genEmbed('decoders'))
+                msg.edit(await genEmbed('decoders')).catch(e => {})
             })
             finalizar.on('collect', async r => {
                 force = true
