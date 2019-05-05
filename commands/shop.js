@@ -87,6 +87,7 @@ module.exports = class Shop extends command {
             let count = produto.count ? args[1] ? !isNaN(args[1]) ? parseInt(args[1]) > 0 ? parseInt(args[1]) : 1 : 1 : 1 : 1
             count = parseInt(parseInt(usuario.economy.get('codes'))/produto.price) >= count ? count : parseInt(parseInt(usuario.economy.get('codes'))/produto.price) 
             let price = produto.price * count
+            if(count === 0) return message.channel.send(t('comandos:shop.insufficientCodes', { member: message.member, codes: Number(produto.price - usuario.economy.get('codes')).toLocaleString() }))
             let purchased = new this.client.Discord.RichEmbed()
                 .setTitle(t('comandos:shop.purchased.title'))
                 .setDescription(`(**${count}**) **${produto.name}** \`${Number(price).toLocaleString()} codes\``)
@@ -94,13 +95,16 @@ module.exports = class Shop extends command {
                 .setFooter(message.author.username, message.author.displayAvatarURL)
                 .setColor(5289)
             if(produto.num === 1) {
-                if(count === 0) return message.channel.send(t('comandos:shop.insufficientCodes', { member: message.member, codes: Number(produto.price - usuario.economy.get('codes')).toLocaleString() }))
                 usuario.economy.set('codes', (usuario.economy.get('codes') - price))
                 usuario.economy.set('decoders', (usuario.economy.get('decoders') + count))
                 usuario.save()
                 message.channel.send(purchased)
             } else if(produto.num === 2) {
-                message.channel.send(`${count} - ${price}`)
+                if(usuario.setup.get('buyed')) return message.channel.send(t('comandos:shop.alreadyBuyed', { member: message.member }))
+                usuario.economy.set('codes', (usuario.economy.get('codes') - price))
+                usuario.setup.set('buyed', true)
+                usuario.save()
+                message.channel.send(purchased)
             }
         }
     }
