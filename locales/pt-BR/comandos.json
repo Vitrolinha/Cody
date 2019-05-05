@@ -102,7 +102,7 @@
             "howDesc": "`{{prefix}}config cmdChannel <add/del>` - adicione e remova canais de comandos.",
             "inWindow":"🙄 **Você** já está com uma **jánela** de seleção, **finalize-a** ou aguarde **1 minuto**.",
             "sucess": "🗂 Alteração feita com sucesso!",
-            "emptyAlloweds": "Não se pode executar comandos em nenhum canal.",
+            "emptyAlloweds": "Pode se usar comandos em todos os canais.",
             "emptyDenieds": "Pode se usar comandos em todos os canais.",
             "manyChannels": "Muitos canais a serem exibidos.",
             "allowed": "✅ Canais permitidos:",
