@@ -20,6 +20,7 @@ module.exports = class Rank extends command {
                 .setTimestamp(new Date())
                 .setFooter(t('comandos:rank.footer', { position: (this.client.dataRanks.get(type).indexOf(this.client.dataRanks.get(type).find(user => user.user.id === message.author.id)) + 1), lastUpdate: minutos }), message.author.displayAvatarURL)
                 .setColor(5289)
+            return embed;
         }
         message.channel.send(await genEmbed(atual)).then(async msg => {
             await msg.react('©')
