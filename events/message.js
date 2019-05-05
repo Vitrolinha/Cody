@@ -35,7 +35,7 @@ module.exports = async function (message) {
                     if(!usuario.banned.get('ban')) {
                         if (message.content.startsWith(servidor.prefix)) {
                             if(message.content === servidor.prefix) return;
-                            let command = message.content.split(' ')[0].slice(servidor.prefix.length)
+                            let command = message.content.split(' ')[0].slice(servidor.prefix.length).toLowerCase()
                             try {
                                 let cmdColdown;
                                 if(usersCMDColdown.find(user => user.id === message.author.id)) {
