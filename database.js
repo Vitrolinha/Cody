@@ -15,6 +15,10 @@ const User = new Schema({
     type: Map,
     default: { codes: 0, decoders: 1, lastDecode: '0000000000000', warned: true, warns: false, damaged: { on: false, time: '0000000000000', lastDamaged: '0000000000000' } }
   },
+  setup: {
+    type: Map,
+    default: { buyed: false }
+  },
   banned: {
     type: Map,
     default: { ban: false, tempban: false, time: 0 }

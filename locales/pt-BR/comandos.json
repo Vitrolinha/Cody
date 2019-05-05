@@ -235,7 +235,8 @@
     "shop": {
         "inWindow":"🙄 **Você** já está com a **loja** aberta, **finalize-a** ou aguarde **1 minuto**.",
         "products": {
-            "decoder": "Decodificador:"
+            "decoder": "Decodificador:",
+            "computer": "Computador:"
         },
         "menu": {
             "title": "<:shoppingCart:569519004239265823> Loja:",

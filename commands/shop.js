@@ -13,6 +13,11 @@ module.exports = class Shop extends command {
             price: 150000,
             count: true,
             num: 1
+        }, {
+            name: t('comandos:shop.products.computer'),
+            price: 1800000,
+            count: false,
+            num: 2
         }]
         let totalPages = parseInt(produtos.length/10)
         let pagina = 1
@@ -94,6 +99,8 @@ module.exports = class Shop extends command {
                 usuario.economy.set('decoders', (usuario.economy.get('decoders') + count))
                 usuario.save()
                 message.channel.send(purchased)
+            } else if(produto.num === 2) {
+                message.channel.send(`${count} - ${price}`)
             }
         }
     }
