@@ -230,7 +230,7 @@
     },
     "rank": {
         "inWindow":"🙄 **Você** já está com uma **jánela** de ranking aberta, **finalize-a** ou aguarde **1 minuto**.",
-        "footer": "Sua posição: {{position}} (atualiza em {{lastUpdade}} minutos)"
+        "footer": "Sua posição: {{position}} (atualiza em {{lastUpdate}} minutos)"
     },
     "shop": {
         "inWindow":"🙄 **Você** já está com a **loja** aberta, **finalize-a** ou aguarde **1 minuto**.",
