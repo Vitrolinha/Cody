@@ -10,7 +10,7 @@ module.exports = class Rank extends command {
         if(inWindow.includes(message.author.id)) return message.channel.send(t('comandos:rank.inWindow'))
         let types = ['codes', 'decoders']
         let minutos = parseInt(((Date.now() - this.client.dataRanks.get('lastUpdate'))/1000)/60)
-        let atual = argsAlt[0] ? types.includes(argsAlt[0].toLowerCase()) ? types.includes(argsAlt[0].toLowerCase()) : 'codes' : 'codes'
+        let atual = argsAlt[0] ? types.includes(argsAlt[0].toLowerCase()) ? argsAlt[0].toLowerCase() : 'codes' : 'codes'
         let genEmbed = async(type) => {
             let num = 1
             atual = type
