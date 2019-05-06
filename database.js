@@ -17,7 +17,7 @@ const User = new Schema({
   },
   setup: {
     type: Map,
-    default: { buyed: false }
+    default: { buyed: false, internet: { buyed: false, lastPayment: '0000000000000' } }
   },
   banned: {
     type: Map,

@@ -117,7 +117,7 @@ module.exports = class Cody extends Client {
             let usuario = new this.database.Users({
                 _id: doc.id,
                 economy: { codes: 0, decoders: 1, lastDecode: '0000000000000', warned: true, warns: false, damaged: { on: false, time: '0000000000000', lastDamaged: '0000000000000' } },
-                setup: { buyed: false },
+                setup: { buyed: false, internet: { buyed: false, lastPayment: '0000000000000' } },
                 banned: { ban: false, tempban: false, time: 0 },
                 cargos: { owner: false, subowner: false, operator: false, developer: false, supervisor: false, designer: false },
                 vip: false
