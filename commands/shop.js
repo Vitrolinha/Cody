@@ -22,7 +22,7 @@ module.exports = class Shop extends command {
             name: t('comandos:shop.products.internet'),
             price: 500000,
             count: false,
-            num: 2
+            num: 3
         }]
         let totalPages = parseInt(produtos.length/10)
         let pagina = 1
