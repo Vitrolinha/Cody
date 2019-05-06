@@ -18,6 +18,12 @@ module.exports = class Shop extends command {
             price: 1800000,
             count: false,
             num: 2
+        }, {
+            name: t('comandos:shop.products.internet'),
+            price: 500000,
+            count: false,
+            num: 2,
+            setupAcess: true
         }]
         let totalPages = parseInt(produtos.length/10)
         let pagina = 1
@@ -104,6 +110,13 @@ module.exports = class Shop extends command {
                 if(usuario.setup.get('buyed')) return message.channel.send(t('comandos:shop.alreadyBuyed', { member: message.member }))
                 usuario.economy.set('codes', (usuario.economy.get('codes') - price))
                 usuario.setup.set('buyed', true)
+                usuario.save()
+                message.channel.send(purchased)
+            } else if(produto.num === 3) {
+                if(usuario.setup.get('buyed')) return message.channel.send(t('comandos:shop.alreadyBuyed', { member: message.member }))
+                usuario.economy.set('codes', (usuario.economy.get('codes') - price))
+                usuario.setup.get('internet').buyed = true
+                usuario.setup.get('internet').lastPayment = Date.now().toString()
                 usuario.save()
                 message.channel.send(purchased)
             }
