@@ -112,7 +112,7 @@ module.exports = class Shop extends command {
                 usuario.save()
                 message.channel.send(purchased)
             } else if(produto.num === 3) {
-                if(usuario.setup.get('buyed')) return message.channel.send(t('comandos:shop.alreadyBuyed', { member: message.member }))
+                if(usuario.setup.get('internet').buyed) return message.channel.send(t('comandos:shop.alreadyBuyed', { member: message.member }))
                 usuario.economy.set('codes', (usuario.economy.get('codes') - price))
                 usuario.setup.get('internet').buyed = true
                 usuario.setup.get('internet').lastPayment = Date.now().toString()
