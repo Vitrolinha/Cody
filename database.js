@@ -53,6 +53,10 @@ const Guild = new Schema({
     type: Map,
     default: { on: false, idRoles: [] }
   },
+  register: {
+    type: Map,
+    default: { registatorsRole: [], registeredRoles: [], beginnerRoles: [] }
+  },
   sugest: {
     type: Map,
     default: { on: false, channel: 'None', type: 0}
