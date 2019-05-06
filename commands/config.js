@@ -8,7 +8,7 @@ module.exports = class Config extends command {
         this.aliases = ['configurar']
     }
     async run ({message, argsAlt, prefix, usuario, servidor}, t) {
-        if(await this.client.verPerm(['MANAGE_GUILD', 'owner', 'subowner', 'operator'], message.member, usuario)) return message.channel.send(t('comandos:config.noPermission'));
+        if(!await this.client.verPerm(['MANAGE_GUILD', 'owner', 'subowner', 'operator'], message.member, usuario)) return message.channel.send(t('comandos:config.noPermission'));
         let configs = ['prefix', 'vipmessages', 'cmdchannel', 'sugest']
         let embed = new this.client.Discord.RichEmbed()
             .addField(t('comandos:config.howToUse'), t('comandos:config.howDesc', { prefix: prefix }))
