@@ -90,7 +90,7 @@ module.exports = class Config extends command {
             let actions = ['on', 'off']
             let sugest = new this.client.Discord.RichEmbed()
                 .setTitle(t('comandos:config.sugest.howToUse'))
-                .setDescription(`\`\`\`${prefix}config sugest <${actions.join('/')}>\`\`\``)
+                .setDescription(t('comandos:config.sugest.howDesc', { prefix: prefix }))
                 .setTimestamp(new Date())
                 .setFooter(message.author.username, message.author.displayAvatarURL)
                 .setColor(5289)
