@@ -82,7 +82,7 @@ module.exports = class Cody extends Client {
             })
             await this.dataRanks.set('codes', [])
             await this.dataRanks.set('decoders', [])
-            let users = usersDB.filter(user => this.fetchUser(user._id).catch(() => {return false}) && user.economy.get('codes') !== 0) 
+            let users = usersDB.filter(user => this.fetchUser(user._id).catch(() => {return false}) && user.economy.get('decoders') !== 1) 
             let num = 0
             let total = users.length
             await users.forEach(async user => {
@@ -116,7 +116,7 @@ module.exports = class Cody extends Client {
             if(doc.content.bot) return;
             let usuario = new this.database.Users({
                 _id: doc.id,
-                economy: { codes: 0, decoders: 1, lastDecode: '0000000000000', warned: true, warns: false, damaged: { on: false, time: '0000000000000', lastDamaged: '0000000000000' } },
+                economy: { codes: 0, decoders: 1, lastDecode: '0000000000000', warned: true, warns: false, boosters: { timer: { on: false, count: 0, lastPayment: '0000000000000' } }, damaged: { on: false, time: '0000000000000', lastDamaged: '0000000000000' } },
                 setup: { buyed: false, internet: { buyed: false, lastPayment: '0000000000000' } },
                 banned: { ban: false, tempban: false, time: 0 },
                 cargos: { owner: false, subowner: false, operator: false, developer: false, supervisor: false, designer: false },

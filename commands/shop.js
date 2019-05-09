@@ -4,7 +4,7 @@ const inWindow = []
 module.exports = class Shop extends command {
     constructor (name, client) {
         super (name, client)
-        this.aliases = ['loja']
+        this.aliases = ['loja', 'comprar', 'buy']
     }
     async run ({message, args, prefix, usuario}, t) {
         if(inWindow.includes(message.author.id)) return message.channel.send(t('comandos:shop.inWindow'))
