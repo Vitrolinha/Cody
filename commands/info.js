@@ -13,8 +13,8 @@ module.exports = class Info extends command {
                 name: 'servidor',
                 link: 'https://discord.gg/5Xt3uHF'
             }, {
-                name: 'discord bot list',
-                link: 'https://discordbots.org/bot/507292506942210048'
+                name: 'bots para discord',
+                link: 'https://botsparadiscord.xyz/bots/507292506942210048/votar'
             }]
             let guildsSize = await this.client.guildsAlt.size()
             let channelsSize = await this.client.channelsAlt.size()
