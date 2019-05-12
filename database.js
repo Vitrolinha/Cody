@@ -13,7 +13,7 @@ const User = new Schema({
   },
   economy: {
     type: Map,
-    default: { codes: 0, decoders: 1, lastDecode: '0000000000000', capacitor: 1, warned: true, warns: false, damaged: { on: false, time: '0000000000000', lastDamaged: '0000000000000' } }
+    default: { codes: 0, decoders: 1, lastDecode: '0000000000000', capacitors: 1, warned: true, warns: false, damaged: { on: false, time: '0000000000000', lastDamaged: '0000000000000' } }
   },
   setup: {
     type: Map,

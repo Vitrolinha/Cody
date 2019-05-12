@@ -6,7 +6,7 @@ module.exports = class Shop extends command {
         super (name, client)
         this.aliases = ['loja', 'comprar', 'buy']
     }
-    async run ({message, args, prefix, usuario}, t) {
+    async run ({message, argsAlt, prefix, usuario}, t) {
         if(inWindow.includes(message.author.id)) return message.channel.send(t('comandos:shop.inWindow'))
         let produtos = [{
             name: t('comandos:shop.products.decoder'),
@@ -14,15 +14,20 @@ module.exports = class Shop extends command {
             count: true,
             num: 1
         }, {
+            name: t('comandos:shop.products.capacitor'),
+            prices: (25000 * usuario.economy.get('capacitors'))*3,
+            count: true,
+            num: 2
+        }, {
             name: t('comandos:shop.products.computer'),
             price: 1800000,
             count: false,
-            num: 2
+            num: 3
         }, {
             name: t('comandos:shop.products.internet'),
             price: 500000,
             count: false,
-            num: 3
+            num: 4
         }]
         let totalPages = parseInt(produtos.length/10)
         let pagina = 1
@@ -37,7 +42,7 @@ module.exports = class Shop extends command {
                 .setColor(5289)
             return embed;
         }
-        if(!args[0]) {
+        if(!argsAlt[0]) {
             message.channel.send(await genEmbed({page: pagina})).then(async msg => {
                 if(totalPages === 0) return;
                 await msg.react('⬅')
@@ -87,9 +92,9 @@ module.exports = class Shop extends command {
                 })
             })
         } else {
-            if(!produtos.find(produto => produto.num === parseInt(args.join(' ')))) return message.channel.send(t('comandos:shop.productDoesNotExist'))
-            let produto = await produtos.find(produto => produto.num === parseInt(args.join(' ')))
-            let count = produto.count ? args[1] ? !isNaN(args[1]) ? parseInt(args[1]) > 0 ? parseInt(args[1]) : 1 : 1 : 1 : 1
+            if(!produtos.find(produto => produto.num === parseInt(argsAlt.join(' ')))) return message.channel.send(t('comandos:shop.productDoesNotExist'))
+            let produto = await produtos.find(produto => produto.num === parseInt(argsAlt.join(' ')))
+            let count = produto.count ? argsAlt[1] ? !isNaN(argsAlt[1]) ? parseInt(argsAlt[1]) > 0 ? parseInt(argsAlt[1]) : 1 : 1 : 1 : 1
             count = parseInt(parseInt(usuario.economy.get('codes'))/produto.price) >= count ? count : parseInt(parseInt(usuario.economy.get('codes'))/produto.price) 
             let price = produto.price * count
             console.log(`${count} - ${price}`)
@@ -106,12 +111,17 @@ module.exports = class Shop extends command {
                 usuario.save()
                 message.channel.send(purchased)
             } else if(produto.num === 2) {
+                usuario.economy.set('codes', (usuario.economy.get('codes') - price))
+                usuario.economy.set('capacitors', (usuario.economy.get('capacitors') + count))
+                usuario.save()
+                message.channel.send(purchased)
+            } else if(produto.num === 3) {
                 if(usuario.setup.get('buyed')) return message.channel.send(t('comandos:shop.alreadyBuyed', { member: message.member }))
                 usuario.economy.set('codes', (usuario.economy.get('codes') - price))
                 usuario.setup.set('buyed', true)
                 usuario.save()
                 message.channel.send(purchased)
-            } else if(produto.num === 3) {
+            } else if(produto.num === 4) {
                 if(usuario.setup.get('internet').buyed) return message.channel.send(t('comandos:shop.alreadyBuyed', { member: message.member }))
                 usuario.economy.set('codes', (usuario.economy.get('codes') - price))
                 usuario.setup.get('internet').buyed = true

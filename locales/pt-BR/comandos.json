@@ -240,6 +240,7 @@
         "inWindow":"🙄 **Você** já está com a **loja** aberta, **finalize-a** ou aguarde **1 minuto**.",
         "products": {
             "decoder": "Decodificador:",
+            "capacitor": "Capacitor:",
             "computer": "Computador:",
             "internet": "Internet:"
         },
