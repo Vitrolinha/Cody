@@ -55,7 +55,7 @@ module.exports = async function (message) {
                                     if (tempoPassado < 3000) return message.channel.send(t('eventos:cmdCooldown', { member: message.member, seconds: segundos, thousandth: milesimos }));
                                     this.database.Commands.findOne({'_id': commandRun.name}).then(async cmdDB => {
                                             if(cmdDB) {
-                                                if(cmdDB.maintenance && !(await this.verPerm(['owner', 'subowner', 'developer', 'supervisor', 'designer'], false, usuario))) return message.channel.send(t('eventos:cmdInManu', { cmd: command }))
+                                                if(cmdDB.maintenance && !(await this.verPerm(['owner', 'subowner', 'developer', 'operator', 'supervisor', 'designer'], false, usuario))) return message.channel.send(t('eventos:cmdInManu', { cmd: command }))
                                                 commandRun.process({message, args, argsAlt, prefix, usuario, servidor}, t, setFixedT)
                                                 usersCMDColdown.find(user => user.id === message.author.id).coldown = Date.now()
                                                 if(!servidor.config.get('vipMessages')) return;
