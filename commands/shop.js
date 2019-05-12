@@ -8,14 +8,14 @@ module.exports = class Shop extends command {
     }
     async run ({message, argsAlt, prefix, usuario}, t) {
         if(inWindow.includes(message.author.id)) return message.channel.send(t('comandos:shop.inWindow'))
-        let produtos = await [{
+        let produtos = [{
             name: t('comandos:shop.products.decoder'),
             price: 150000,
             count: true,
             num: 1
         }, {
             name: t('comandos:shop.products.capacitor'),
-            prices: (25000 * parseInt(usuario.economy.get('capacitors')))*3,
+            prices: parseInt((25000 * parseInt(usuario.economy.get('capacitors')))*3),
             count: true,
             num: 2
         }, {
