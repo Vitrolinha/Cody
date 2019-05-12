@@ -65,7 +65,7 @@
         "warnon": "✅ **Você** agora será **avisado** quando chegar no **limite** de **codes** a serem **recolhidos**.",
         "warnoff": "❌ **Você** não **receberá** mais avisos.",
         "noUserDB": "😕 O **usuário mencionado** não está **registrado** no meu **banco de dados**. Tente **usar** o comando **novamente**.",
-        "desc": "<:code:569367293729964032> **Codes:** {{codes}}\n<:decoder:569367355461730317> **Decodificadores:** {{decoders}}\n<:database:569999651739009025> **Para recolher:** {{toCollect}}/{{total}}"
+        "desc": "<:code:569367293729964032> **Codes:** {{codes}}\n<:decoder:569367355461730317> **Decodificadores:** {{decoders}}/{{capacitors}}\n<:database:569999651739009025> **Para recolher:** {{toCollect}}/{{total}}"
     },
     "concierge": {
         "noPermission": "😕 É **necessário** possuir a **permissão** `GERENCIAR SERVIDOR`.",
@@ -252,7 +252,8 @@
         "purchased": {
             "title": "<:shoppingCart:569519004239265823> Produto comprado com sucesso:"
         },
-        "productDoesNotExist": "😶 Este **produto** parece **não existir**.",
+        "insufficientCapacitors": "😶 {{member}}, Você **precisa** de mais **capacitores** para comprar mais **decodificadores**.",
+        "productDoesNotExist": "😶 {{member}}, Este **produto** parece **não existir**.",
         "insufficientCodes": "<:code:569367293729964032> {{member}}, **Faltam** `{{codes}} codes` para poder **comprar** este **produto**.",
         "alreadyBuyed": "😶 {{member}}, **Você** já **comprou** este produto."
     },

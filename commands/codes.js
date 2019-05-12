@@ -24,7 +24,7 @@ module.exports = class Codes extends command {
                 }
                 let embed = new this.client.Discord.RichEmbed()
                     .setTitle(`${user.username}:`)
-                    .setDescription(t('comandos:codes.desc', { codes: Number(userDB.economy.get('codes')).toLocaleString(), decoders: Number(userDB.economy.get('decoders')).toLocaleString(), toCollect: Number(codes).toLocaleString(), total: Number(userDB.economy.get('decoders') * 25000).toLocaleString() }))
+                    .setDescription(t('comandos:codes.desc', { codes: Number(userDB.economy.get('codes')).toLocaleString(), decoders: Number(userDB.economy.get('decoders')).toLocaleString(), capacitors: (usuario.economy.get('capacitors') * 25), toCollect: Number(codes).toLocaleString(), total: Number(userDB.economy.get('decoders') * 25000).toLocaleString() }))
                     .setTimestamp(new Date())
                     .setFooter(message.author.username, message.author.displayAvatarURL)
                     .setColor(5289)

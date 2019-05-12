@@ -15,7 +15,7 @@ module.exports = class Shop extends command {
             num: 1
         }, {
             name: t('comandos:shop.products.capacitor'),
-            price: (25000 * (parseInt(usuario.economy.get('capacitors') * 25)))*2,
+            price: (25000 * (usuario.economy.get('capacitors') * 25))*2,
             count: true,
             num: 2
         }, {
@@ -92,13 +92,16 @@ module.exports = class Shop extends command {
                 })
             })
         } else {
-            if(!produtos.find(produto => produto.num === parseInt(argsAlt.join(' ')))) return message.channel.send(t('comandos:shop.productDoesNotExist'))
+            if(!produtos.find(produto => produto.num === parseInt(argsAlt.join(' ')))) return message.channel.send(t('comandos:shop.productDoesNotExist', { member: message.member }))
             let produto = await produtos.find(produto => produto.num === parseInt(argsAlt.join(' ')))
             let count = produto.count ? argsAlt[1] ? !isNaN(argsAlt[1]) ? parseInt(argsAlt[1]) > 0 ? parseInt(argsAlt[1]) : 1 : 1 : 1 : 1
             count = parseInt(parseInt(usuario.economy.get('codes'))/produto.price) >= count ? count : parseInt(parseInt(usuario.economy.get('codes'))/produto.price) 
             let price = produto.price * count
             console.log(`${count} - ${price}`)
             if(count === 0) return message.channel.send(t('comandos:shop.insufficientCodes', { member: message.member, codes: Number(produto.price - usuario.economy.get('codes')).toLocaleString() }))
+            if(produto.num === 1) {
+                count = (usuario.economy.get('capacitors') * 25) - usuario.economy.get('decoders') < count ? (usuario.economy.get('capacitors') * 25) - usuario.economy.get('decoders') : count
+            }
             let purchased = new this.client.Discord.RichEmbed()
                 .setTitle(t('comandos:shop.purchased.title'))
                 .setDescription(`(**${count}**) **${produto.name}** \`${Number(price).toLocaleString()} codes\``)
@@ -106,6 +109,7 @@ module.exports = class Shop extends command {
                 .setFooter(message.author.username, message.author.displayAvatarURL)
                 .setColor(5289)
             if(produto.num === 1) {
+                if(usuario.economy.get('decoders') === (usuario.economy.get('capacitors') * 25)) return message.channel.send(t('comandos:shop.insufficientCapacitors', { member: message.member }))
                 usuario.economy.set('codes', (usuario.economy.get('codes') - price))
                 usuario.economy.set('decoders', (usuario.economy.get('decoders') + count))
                 usuario.save()
