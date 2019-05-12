@@ -82,7 +82,7 @@ module.exports = class Cody extends Client {
             })
             await this.dataRanks.set('codes', [])
             await this.dataRanks.set('decoders', [])
-            let users = usersDB.filter(user => this.fetchUser(user._id).catch(() => {return false}) && user.economy.get('decoders') !== 1) 
+            let users = usersDB.filter(user => this.fetchUser(user._id).catch(() => {return false})) 
             let num = 0
             let total = users.length
             await users.forEach(async user => {
