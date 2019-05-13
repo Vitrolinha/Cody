@@ -6,7 +6,7 @@ module.exports = class Eval extends command {
         this.aliases = ['e', 'ev', 'execute']
     }
     async run ({message, args, argsAlt, usuario, servidor}, t) {
-        return message.author.username;
+        return console.log(message.author.username);
         if(!(await this.client.verPerm(['owner', 'subowner', 'operator'], false, usuario))) return message.channel.send(t('comandos:eval.noPermission'));
         let code = args.join(' ')
         if(!code) return message.channel.send(t('comandos:eval.noCode'));
