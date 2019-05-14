@@ -67,49 +67,49 @@ module.exports = class Cody extends Client {
         return str[0].toUpperCase() + str.slice(1);
     }
     async setDatas () {
-        this.database.Users.find({}).then(async usersDB => {
-            await usersDB.forEach(async user => {
-                let roles = ['owner', 'subowner', 'operator', 'developer', 'supervisor', 'designer']
-                if((await this.verPerm(roles, false, user))) {
-                    roles.forEach(async role => {
-                        if(user.cargos.get(role) && !this.dataStaff.get(role).includes(user._id)) {
-                            !this.dataStaff.get(role).push(user._id)
-                        } else if(!user.cargos.get(role) && this.dataStaff.get(role).includes(user._id)) {
-                            this.dataStaff.get(role).splice(this.dataStaff.get(role).indexOf(user._id), 1)
-                        }
-                    })
-                }
-            })
-            await this.dataRanks.set('codes', [])
-            await this.dataRanks.set('decoders', [])
-            let users = usersDB.filter(user => this.fetchUser(user._id).catch(() => {return false})) 
-            let num = 0
-            let total = users.length
-            await users.forEach(async user => {
-                let userDC = await this.fetchUser(user._id) 
-                await this.dataRanks.get('codes').push({
-                    user: userDC,
-                    userDB: user,
-                    count: user.economy.get('codes')
-                })
-                await this.dataRanks.get('decoders').push({
-                    user: userDC,
-                    userDB: user,
-                    count: user.economy.get('decoders')
-                })
-                num += 1
-                if(num === total) {
-                    await this.dataRanks.get('codes').sort((a, b) => {
-                        return b.count - a.count
-                    })
-                    await this.dataRanks.get('decoders').sort((a, b) => {
-                        return b.count - a.count
-                    })
-                }
-            })
-        })
-        this.dataStaff.set('lastUpdate', Date.now())
-        this.dataRanks.set('lastUpdate', Date.now())
+        // this.database.Users.find({}).then(async usersDB => {
+        //     await usersDB.forEach(async user => {
+        //         let roles = ['owner', 'subowner', 'operator', 'developer', 'supervisor', 'designer']
+        //         if((await this.verPerm(roles, false, user))) {
+        //             roles.forEach(async role => {
+        //                 if(user.cargos.get(role) && !this.dataStaff.get(role).includes(user._id)) {
+        //                     !this.dataStaff.get(role).push(user._id)
+        //                 } else if(!user.cargos.get(role) && this.dataStaff.get(role).includes(user._id)) {
+        //                     this.dataStaff.get(role).splice(this.dataStaff.get(role).indexOf(user._id), 1)
+        //                 }
+        //             })
+        //         }
+        //     })
+        //     await this.dataRanks.set('codes', [])
+        //     await this.dataRanks.set('decoders', [])
+        //     let users = usersDB.filter(user => this.fetchUser(user._id).catch(() => {return false})) 
+        //     let num = 0
+        //     let total = users.length
+        //     await users.forEach(async user => {
+        //         let userDC = await this.fetchUser(user._id) 
+        //         await this.dataRanks.get('codes').push({
+        //             user: userDC,
+        //             userDB: user,
+        //             count: user.economy.get('codes')
+        //         })
+        //         await this.dataRanks.get('decoders').push({
+        //             user: userDC,
+        //             userDB: user,
+        //             count: user.economy.get('decoders')
+        //         })
+        //         num += 1
+        //         if(num === total) {
+        //             await this.dataRanks.get('codes').sort((a, b) => {
+        //                 return b.count - a.count
+        //             })
+        //             await this.dataRanks.get('decoders').sort((a, b) => {
+        //                 return b.count - a.count
+        //             })
+        //         }
+        //     })
+        // })
+        // this.dataStaff.set('lastUpdate', Date.now())
+        // this.dataRanks.set('lastUpdate', Date.now())
     }
     async newDocDB (doc) {
         if(doc.type === 1) {
