@@ -43,7 +43,7 @@ module.exports = class Help extends command {
             .setFooter(message.author.username, message.author.displayAvatarURL)
             .setColor(5289)
           if(comandos.filter(cmd => cmd.category === 0).length !== 0) {
-            embed.addField(t('comandos:help.maintenance', { count: comandos.filter(cmd => cmd.category === 0).length }), `\`${comandos.filter(cmd => cmd.category === 0).map(cmd => cmd.name).join('`, `')}\``)
+            menu.addField(t('comandos:help.maintenance', { count: comandos.filter(cmd => cmd.category === 0).length }), `\`${comandos.filter(cmd => cmd.category === 0).map(cmd => cmd.name).join('`, `')}\``)
           }
           if(inWindow.includes(message.author.id + message.channel.id)) return message.channel.send(t('comandos:help.inWindow'))
           inWindow.push(message.author.id + message.channel.id)
