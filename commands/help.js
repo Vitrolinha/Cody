@@ -9,12 +9,13 @@ module.exports = class Help extends command {
     async run ({message, argsAlt, prefix}, t) {
         let comandos = []
         let files = this.client.fs.readdirSync('./commands');
+        let maintenanceCommands = await this.client.database.Commands.find({'maintenance': true})
         files.forEach(file => {
           comandos.push({
             name: file.split(".")[0],
             desc: t(`help:${file.split(".")[0]}.desc`),
             aliases: this.client.commands.get(file.split(".")[0]).aliases,
-            category: parseInt(t(`help:${file.split(".")[0]}.category`))
+            category: maintenanceCommands.find(cmd => cmd._id === file.split(".")[0]) ? 0 : parseInt(t(`help:${file.split(".")[0]}.category`))
           })
         })
         let commandAlt = argsAlt[0] ? this.client.commands.find(c => c.name === argsAlt[0] || c.aliases.includes(argsAlt[0])) : false
@@ -41,6 +42,9 @@ module.exports = class Help extends command {
             .setTimestamp(new Date())
             .setFooter(message.author.username, message.author.displayAvatarURL)
             .setColor(5289)
+          if(comandos.filter(cmd => cmd.category === 0).length !== 0) {
+            embed.addField(t('comandos:help.maintenance', { count: comandos.filter(cmd => cmd.category === 0).length }), `\`${comandos.filter(cmd => cmd.category === 0).map(cmd => cmd.name).join('`, `')}\``)
+          }
           if(inWindow.includes(message.author.id + message.channel.id)) return message.channel.send(t('comandos:help.inWindow'))
           inWindow.push(message.author.id + message.channel.id)
           message.channel.send(t('comandos:help.cntMessageNoArg'), menu).then(async msg => {
@@ -48,12 +52,16 @@ module.exports = class Help extends command {
               await msg.react('🔦')
               await msg.react('⚒')
               await msg.react('💰')
+              if(comandos.filter(cmd => cmd.category === 0).length !== 0) {
+                await msg.react('⚠')
+              }
               await msg.react('↩')
               await msg.react('❌')
               const finalizar = msg.createReactionCollector((r, u) => r.emoji.name === "❌" && u.id === message.author.id, { time: 120000 });
               const utilities = msg.createReactionCollector((r, u) => r.emoji.name === "🔦" && u.id === message.author.id, { time: 120000 });
-              const economy = msg.createReactionCollector((r, u) => r.emoji.name === "💰" && u.id === message.author.id, { time: 120000 });
               const moderation = msg.createReactionCollector((r, u) => r.emoji.name === "⚒" && u.id === message.author.id, { time: 120000 });
+              const economy = msg.createReactionCollector((r, u) => r.emoji.name === "💰" && u.id === message.author.id, { time: 120000 });
+              const maintenance = msg.createReactionCollector((r, u) => r.emoji.name === "⚠" && u.id === message.author.id, { time: 120000 });
               const voltar = msg.createReactionCollector((r, u) => r.emoji.name === "↩" && u.id === message.author.id, { time: 120000 });        
               let embed = new this.client.Discord.RichEmbed()
                 .setThumbnail(this.client.user.displayAvatarURL)
@@ -76,6 +84,12 @@ module.exports = class Help extends command {
                 r.remove(r.users.last().id).catch(e => {})
                 embed.setTitle(t(`comandos:help.economy`, { count: comandos.filter(cmd => cmd.category === 3).length }))
                 embed.setDescription(comandos.filter(cmd => cmd.category === 3).map(cmd => `**${cmd.name}** - ${cmd.desc.toLowerCase()}`).join('\n'))
+                msg.edit(embed)
+              })
+              maintenance.on('collect', async r => {
+                r.remove(r.users.last().id).catch(e => {})
+                embed.setTitle(t(`comandos:help.maintenance`, { count: comandos.filter(cmd => cmd.category === 0).length }))
+                embed.setDescription(comandos.filter(cmd => cmd.category === 0).map(cmd => `**${cmd.name}** - ${cmd.desc.toLowerCase()}`).join('\n'))
                 msg.edit(embed)
               })
               finalizar.on('collect', async r => {
