@@ -12,7 +12,7 @@ module.exports = async function (member) {
                     member.addRole(roleID).catch(err => {
                         servidor.autorole.get('idRoles').splice(servidor.autorole.get('idRoles').indexOf(roleID), 1);
                         if(servidor.autorole.get('on') && servidor.autorole.get('idRoles').length === 0) {
-                            sservidor.autorole.set('on', false)
+                            servidor.autorole.set('on', false)
                         }    
                         servidor.save()
                     })
@@ -54,7 +54,7 @@ module.exports = async function (member) {
                     member.addRole(role.roleID)
                 }
             })
-            if(user.vip) {
+            if(user.vip.get('on')) {
                 member.addRole(this.config.vipRole)
             }
         })

@@ -129,9 +129,9 @@ module.exports = async function (message) {
                                         message.member.removeRole(role.roleID)
                                     }
                                 })
-                                if(user.vip && !message.member.roles.get(this.config.vipRole)) {
+                                if(user.vip.get('on') && !message.member.roles.get(this.config.vipRole)) {
                                     message.member.addRole(this.config.vipRole)
-                                } else if(message.member.roles.get(this.config.vipRole) && !user.vip) {
+                                } else if(message.member.roles.get(this.config.vipRole) && !user.vip.get('on')) {
                                     message.member.removeRole(this.config.vipRole)
                                 }
                             })
