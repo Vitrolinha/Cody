@@ -28,8 +28,8 @@ const User = new Schema({
     default: { owner: false, subowner: false, operator: false, developer: false, supervisor: false, designer: false }
   },
   vip: {
-    type: Boolean,
-    default: false
+    type: Map,
+    default: {on: false, time: '0000000000000'}
   }
 })
 
