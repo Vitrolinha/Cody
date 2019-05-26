@@ -65,7 +65,7 @@ module.exports = class Cody extends Client {
             method: 'GET',
             headers: {'Authorization': process.env.bpd}
         }).then(res => res.json())
-        totalVotes = dblJson.points + bpdJson.votes
+        this.totalVotes = dblJson.points + bpdJson.votes
     }
     async shardLog (cnt) {
         cnt = `Shard ${this.shard.id + 1}: ${cnt}`
