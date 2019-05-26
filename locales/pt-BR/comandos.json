@@ -99,7 +99,7 @@
         },
         "cmdChannel": {
             "howToUse": "📋 Como usar:",
-            "howDesc": "`{{prefix}}config cmdChannel <add/del>` - adicione e remova canais de comandos.",
+            "howDesc": "`{{prefix}}config cmdChannel <add/del>` - adicione e remova canais de comandos.\n`{{prefix}}config cmdChannel reset` - resete a lista e libere todos os canais.",
             "inWindow":"🙄 **Você** já está com uma **jánela** de seleção, **finalize-a** ou aguarde **1 minuto**.",
             "sucess": "🗂 Alteração feita com sucesso!",
             "emptyAlloweds": "Pode se usar comandos em todos os canais.",
