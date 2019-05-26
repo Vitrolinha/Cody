@@ -24,6 +24,7 @@ module.exports = class Cody extends Client {
             'us-east': 'en-US',
             'brazil': 'pt-BR'
         }
+        this.totalVotes = 0
         this.dataStaff = new Map()
             .set('owner', [])
             .set('subowner', [])
@@ -56,6 +57,14 @@ module.exports = class Cody extends Client {
         }
         this.initializeEvents('./events')
         this.initializeCommands('./commands')
+    }
+    async setVotes () {
+        let dblJson = await this.client.dbl.getBot(this.user.id)
+        let bpdJson = await fetch(`https://api.botsparadiscord.xyz/bots/${this.user.id}/info`, { 
+            method: 'GET',
+            headers: {'Authorization': process.env.bpd}
+        }).then(res => res.json())
+        totalVotes = dblJson.points + bpdJson.votes
     }
     async shardLog (cnt) {
         cnt = `Shard ${this.shard.id + 1}: ${cnt}`

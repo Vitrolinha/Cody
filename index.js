@@ -9,6 +9,6 @@ const client = new Cody({
     messageCacheLifetime: 1680,
     disableEveryone: false,
     messageSweepInterval: 1680
-  })
+})
 
 client.login(process.env.token)
