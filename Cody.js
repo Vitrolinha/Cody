@@ -60,7 +60,7 @@ module.exports = class Cody extends Client {
         this.initializeCommands('./commands')
     }
     async setVotes () {
-        let dblJson = await this.client.dbl.getBot(this.user.id)
+        let dblJson = await this.dbl.getBot(this.user.id)
         let bpdJson = await fetch(`https://api.botsparadiscord.xyz/bots/${this.user.id}/info`, { 
             method: 'GET',
             headers: {'Authorization': process.env.bpd}
