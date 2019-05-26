@@ -61,7 +61,7 @@ module.exports = class Cody extends Client {
     }
     async setVotes () {
         let dblJson = await this.dbl.getBot(this.user.id)
-        let bpdJson = await fetch(`https://api.botsparadiscord.xyz/bots/${this.user.id}/info`, { 
+        let bpdJson = await this.fetch(`https://api.botsparadiscord.xyz/bots/${this.user.id}/info`, { 
             method: 'GET',
             headers: {'Authorization': process.env.bpd}
         }).then(res => res.json())
