@@ -1,6 +1,5 @@
 const roleSetDelay = new Set()
 const mentionDelay = new Set()
-const tempMuteDelay = new Set()
 const usersCMDColdown = []
 module.exports = async function (message) {
     if (message.channel.type === 'dm') return;
@@ -84,24 +83,24 @@ module.exports = async function (message) {
                             message.channel.send(t('eventos:mentionBot', { member: message.member, prefix: servidor.prefix }))
                         }
 
-                        if(!tempMuteDelay.has(message.author.id)) {
-                            tempMuteDelay.add(message.author.id)
-                            setTimeout(function() {
-                                tempMuteDelay.delete(message.author.id)
-                            }, 13 * 1000)
-                            if(servidor.muteds.length === 0) return;
-                            if(!servidor.muteds.find(muted => muted.temp)) return;
-                            let timeouts = servidor.muteds.filter(muted => Date.now() >= (muted.date + muted.time))
-                            if(timeouts.length === 0) return;
-                            let role = await message.guild.roles.find(role => role.name === '🔇Cody Mute')
-                            if(!role) return servidor.muteds = [];
-                            timeouts.forEach(async user => {
-                                if(!message.guild.members.get(user.id)) return servidor.muteds.splice(servidor.muteds.indexOf(servidor.muteds.find(muted => muted.id === user.id)), 1);
-                                let member = await message.guild.members.get(user.id)
-                                if(!member.roles.get(role.id)) return servidor.muteds.splice(servidor.muteds.indexOf(servidor.muteds.find(muted => muted.id === user.id)), 1);
-                                member.removeRole(role.id)
-                            })
-                        }
+                        // if(!tempMuteDelay.has(message.author.id)) {
+                        //     tempMuteDelay.add(message.author.id)
+                        //     setTimeout(function() {
+                        //         tempMuteDelay.delete(message.author.id)
+                        //     }, 13 * 1000)
+                        //     if(servidor.muteds.length === 0) return;
+                        //     if(!servidor.muteds.find(muted => muted.temp)) return;
+                        //     let timeouts = servidor.muteds.filter(muted => Date.now() >= (muted.date + muted.time))
+                        //     if(timeouts.length === 0) return;
+                        //     let role = await message.guild.roles.find(role => role.name === '🔇Cody Mute')
+                        //     if(!role) return servidor.muteds = [];
+                        //     timeouts.forEach(async user => {
+                        //         if(!message.guild.members.get(user.id)) return servidor.muteds.splice(servidor.muteds.indexOf(servidor.muteds.find(muted => muted.id === user.id)), 1);
+                        //         let member = await message.guild.members.get(user.id)
+                        //         if(!member.roles.get(role.id)) return servidor.muteds.splice(servidor.muteds.indexOf(servidor.muteds.find(muted => muted.id === user.id)), 1);
+                        //         member.removeRole(role.id)
+                        //     })
+                        // }
 
                         if(message.guild.id === this.config.codyGuild && this.user.id !== this.config.canaryID) {
                             if(roleSetDelay.has(message.author.id)) return;
