@@ -34,23 +34,23 @@ module.exports = class TempMute extends command {
                 await msg.react(':interrogation:571032834287075352')
                 await msg.react('↩')
                 await msg.react('❌')
-                const vantages = msg.createReactionCollector((r, u) => r.emoji.name === '582973181711613962' && u.id === message.author.id, { time: 60000 });
-                const support = msg.createReactionCollector((r, u) => r.emoji.name === '571032834287075352' && u.id === message.author.id, { time: 60000 });
+                const vantages = msg.createReactionCollector((r, u) => r.emoji.id === '582973181711613962' && u.id === message.author.id, { time: 60000 });
+                const support = msg.createReactionCollector((r, u) => r.emoji.id === '571032834287075352' && u.id === message.author.id, { time: 60000 });
                 const back = msg.createReactionCollector((r, u) => r.emoji.name === '↩' && u.id === message.author.id, { time: 60000 });
                 const finalizar = msg.createReactionCollector((r, u) => r.emoji.name === '❌' && u.id === message.author.id, { time: 60000 });
                 vantages.on('collect', async r => {
-                    embed.title = t('comandos:vip.vantages.title')
-                    embed.description = t('comandos:vip.vantages.desc')
+                    embed.setTitle(t('comandos:vip.vantages.title'))
+                    embed.setDescription(t('comandos:vip.vantages.desc'))
                     msg.edit(embed)
                 })
                 support.on('collect', async r => {
-                    embed.title = t('comandos:vip.support.title')
-                    embed.description = t('comandos:vip.support.desc')
+                    embed.setTitle(t('comandos:vip.support.title'))
+                    embed.setDescription(t('comandos:vip.support.desc'))
                     msg.edit(embed)
                 })
                 back.on('collect', async r => {
-                    embed.title = `${user.username}:`
-                    embed.description = t('comandos:vip.descStart', { userPoints: userDB.vip.get('votePoints'), guildPoints: servidor.votePoints, vip: (userDB.vip.get('on') ? timeView : t('comandos:vip.vipOff')) })
+                    embed.setTitle(`${user.username}:`)
+                    embed.setDescription(t('comandos:vip.descStart', { userPoints: userDB.vip.get('votePoints'), guildPoints: servidor.votePoints, vip: (userDB.vip.get('on') ? timeView : t('comandos:vip.vipOff')) }))
                     msg.edit(embed)
                 })
                 finalizar.on('collect', async r => {
