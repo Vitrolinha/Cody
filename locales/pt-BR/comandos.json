@@ -324,6 +324,6 @@
         "warnoff": "❌ **Você** não **receberá** mais avisos de seus **pontos de votação**.",
         "noUserDB":"😕 O **usuário mencionado** não está **registrado** no meu **banco de dados**. Tente **usar** o comando **novamente**.",
         "vipOff": "vote para adquirir",
-        "descStart": "<:votePoint:582973181711613962> **Pontos de votação:** {{userPoints}}\n<:guildPoint:582974169663275218> **Pontos do servidor:** {{guildPoints}}\n**Vip:** {{vip}}"
+        "descStart": "<:votePoint:582973181711613962> **Pontos de votação:** {{userPoints}}\n<:guildPoint:582974169663275218> **Pontos do servidor:** {{guildPoints}}\n<:vip:582981311757549607> **Vip:** {{vip}}"
     }
 }
