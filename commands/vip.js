@@ -34,8 +34,8 @@ module.exports = class TempMute extends command {
                 await msg.react(':interrogation:571032834287075352')
                 await msg.react('↩')
                 await msg.react('❌')
-                const vantages = msg.createReactionCollector((r, u) => r.emoji.name === ':votePoint:582973181711613962' && u.id === message.author.id, { time: 60000 });
-                const support = msg.createReactionCollector((r, u) => r.emoji.name === ':interrogation:571032834287075352' && u.id === message.author.id, { time: 60000 });
+                const vantages = msg.createReactionCollector((r, u) => r.emoji.name === '582973181711613962' && u.id === message.author.id, { time: 60000 });
+                const support = msg.createReactionCollector((r, u) => r.emoji.name === '571032834287075352' && u.id === message.author.id, { time: 60000 });
                 const back = msg.createReactionCollector((r, u) => r.emoji.name === '↩' && u.id === message.author.id, { time: 60000 });
                 const finalizar = msg.createReactionCollector((r, u) => r.emoji.name === '❌' && u.id === message.author.id, { time: 60000 });
                 vantages.on('collect', async r => {
