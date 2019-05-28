@@ -345,7 +345,7 @@
             "desc": "`{{prefix}}vip give <membro-menção/id> <quantidade>` - doe pontos para alguém.\n`{{prefix}}vip give guild <quantidade>` - doe pontos para o servidor e libere funções.",
             "field": {
                 "title": "<:guildPoint:582974169663275218> Adquirir vip e pontos de votação:",
-                "desc": "**[BOTS PARA DISCORD](https://botsparadiscord.xyz/bots/507292506942210048/votar) (votar - 1.0 pontos)\n[DISCORD BOT LIST](https://discordbots.org/bot/507292506942210048/vote) (votar - 1.0 pontos)\n[MY BOT LIST](https://mybotlist.xyz/view/507292506942210048) (favoritar - 5.0 pontos)**"
+                "desc": "**[BOTS PARA DISCORD](https://botsparadiscord.xyz/bots/507292506942210048/votar) (votar - 3.0 pontos)\n[DISCORD BOT LIST](https://discordbots.org/bot/507292506942210048/vote) (votar - 1.5 pontos)\n[MY BOT LIST](https://mybotlist.xyz/view/507292506942210048) (favoritar - 5.0 pontos)**"
             }
         }
     }
