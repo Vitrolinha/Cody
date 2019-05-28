@@ -33,6 +33,7 @@ module.exports = class TempMute extends command {
                 await msg.react(':votePoint:582973181711613962')
                 await msg.react(':interrogation:571032834287075352')
                 await msg.react('❌')
+                
             })
         } else {
             message.channel.send(t('comandos:vip.noUserDB'))
