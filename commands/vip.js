@@ -39,16 +39,20 @@ module.exports = class TempMute extends command {
                 const back = msg.createReactionCollector((r, u) => r.emoji.name === '↩' && u.id === message.author.id, { time: 60000 });
                 const finalizar = msg.createReactionCollector((r, u) => r.emoji.name === '❌' && u.id === message.author.id, { time: 60000 });
                 vantages.on('collect', async r => {
+                    r.remove(r.users.last().id).catch(e => {})
                     embed.setTitle(t('comandos:vip.vantages.title'))
                     embed.setDescription(t('comandos:vip.vantages.desc'))
                     msg.edit(embed)
                 })
                 support.on('collect', async r => {
+                    r.remove(r.users.last().id).catch(e => {})
                     embed.setTitle(t('comandos:vip.support.title'))
                     embed.setDescription(t('comandos:vip.support.desc', { prefix: prefix }))
+                    embed.addField(t('comandos:vip.support.field.title'), t('comandos:vip.support.field.desc'))
                     msg.edit(embed)
                 })
                 back.on('collect', async r => {
+                    r.remove(r.users.last().id).catch(e => {})
                     embed.setTitle(`${user.username}:`)
                     embed.setDescription(t('comandos:vip.descStart', { userPoints: userDB.vip.get('votePoints'), guildPoints: servidor.votePoints, vip: (userDB.vip.get('on') ? timeView : t('comandos:vip.vipOff')) }))
                     msg.edit(embed)
