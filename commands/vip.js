@@ -35,7 +35,7 @@ module.exports = class TempMute extends command {
                 if(user2 === message.author) return message.channel.send(t('comandos:vip.give.noArgs', { member: message.member }))
                 if(user2.bot) return message.channel.send(t('comandos:vip.mentionBot', { member: message.member }))
                 if(user2.id === message.author.id) return message.channel.send(t('comandos:vip.give.mentionYou', { member: message.member }))
-                let userDB2 = await this.client.database.Users.findOne({'_id': user.id})
+                let userDB2 = await this.client.database.Users.findOne({'_id': user2.id})
                 if(userDB2) {
                     if(!argsAlt[2]) return message.channel.send(t('comandos:vip.give.noCount', { member: message.member }))
                     if(isNaN(argsAlt[2])) return message.channel.send(t('comandos:vip.give.isNaN', { member: message.member }))
