@@ -43,7 +43,7 @@ module.exports = class TempMute extends command {
                     if(count <= 0) return message.channel.send(t('comandos:vip.give.bellow0', { member: message.member }))
                     if(usuario.vip.get('votePoints') < count) return message.channel.send(t('comandos:vip.give.insufficientPoints', { member: message.member }))
                     usuario.vip.set('votePoints', (usuario.vip.get('votePoints') - count))
-                    userDB2.vip.set('votePoints', (usuario.vip.get('votePoints') + count))
+                    userDB2.vip.set('votePoints', (userDB2.vip.get('votePoints') + count))
                     usuario.save()
                     userDB2.save()
                     message.channel.send(t('comandos:vip.give.given', { member: message.member, mention: user2.tag, points: (count) }))
