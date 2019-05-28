@@ -164,6 +164,7 @@
     "give": {
         "howToUse": "📋 Como usar:",
         "howDesc": "`{{prefix}}give <menção> <quantidade>` - doe codes para um usuário.",
+        "mentionYou": "😕 {{member}}, Você **não pode** dar **codes** para sí mesmo.",
         "noUserDB":"😶 O **usuário mencionado** parece **não** estar registrado em meu **banco de dados**, tente usar o comando novamente.",
         "isNaN":"😒 O **valor a doar** deve ser um **número**.",
         "insufficientCodes":"<:code:569367293729964032> {{member}}, **Você** não possui **está** quantidade de **codes** para dar.",
@@ -322,6 +323,15 @@
         "mentionBot": "<:bot:570319734147645450> {{member}}, Um bot **não** possui **pontos de votação**.",
         "warnon": "✅ **Você** agora será **avisado** quando receber seus **pontos de votação**.",
         "warnoff": "❌ **Você** não **receberá** mais avisos de seus **pontos de votação**.",
+        "give": {
+            "to": "servidor",
+            "noArgs": "😕 {{member}}, Diga **para onde** deseja enviar seus **pontos de votação**.",
+            "isNaN": "😒 {{member}}, A **quantidade a dar** deve ser um **número**.",
+            "bellow0":" 😒 {{member}}, O **quantidade a dar** não pode ser **0** ou **menor que 0**.",
+            "insufficientPoints": "😶 {{member}}, Você **não possui** esta quantidade de **pontos de votação**.",
+            "given":"<:guildPoint:582974169663275218> {{member}}, **Você** acaba de **dar** `{{points}} pontos` para o(a) `{{mention}}`.",
+            "mentionYou": "😕 {{member}}, Você **não pode** dar **pontos de votação** para sí mesmo."
+        },
         "noUserDB":"😕 O **usuário mencionado** não está **registrado** no meu **banco de dados**. Tente **usar** o comando **novamente**.",
         "vipOff": "vote para adquirir",
         "descStart": "<:votePoint:582973181711613962> **Pontos de votação:** {{userPoints}}\n<:guildPoint:582974169663275218> **Pontos do servidor:** {{guildPoints}}\n<:vip:582981311757549607> **Vip:** {{vip}}",
@@ -331,7 +341,7 @@
         },
         "support": {
             "title": "<:bot:570319734147645450> SubComandos:",
-            "desc": "`{{prefix}}vip give <membro-menção/id> <quantidade>` - doe pontos para alguém.\n`{{prefix}}vip give guild <quantidade` - doe pontos para o servidor.",
+            "desc": "`{{prefix}}vip give <membro-menção/id> <quantidade>` - doe pontos para alguém.\n`{{prefix}}vip give guild <quantidade>` - doe pontos para o servidor e libere funções.",
             "field": {
                 "title": "<:guildPoint:582974169663275218> Adquirir vip e pontos de votação:",
                 "desc": "**[BOTS PARA DISCORD](https://botsparadiscord.xyz/bots/507292506942210048/votar) (votar - 1.0 pontos)\n[DISCORD BOT LIST](https://discordbots.org/bot/507292506942210048/vote) (votar - 1.0 pontos)\n[MY BOT LIST](https://mybotlist.xyz/view/507292506942210048) (favoritar - 5.0 pontos)**"

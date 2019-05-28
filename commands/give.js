@@ -15,6 +15,7 @@ module.exports = class Give extends command {
         if(!message.mentions.users.first()) return message.channel.send(invalid)
         if(argsAlt[0].replace('!', '') !== message.mentions.users.first().toString()) return message.channel.send(invalid)
         let mencionado = message.mentions.users.first()
+        if(mencionado.id === message.author.id) return message.channel.send(t('comandos:give.mentionYou', { member: message.member }))
         let mentionDB = await this.client.database.Users.findOne({'_id': mencionado.id})
         if(mentionDB) {
             if(!argsAlt[1]) return message.channel.send(invalid)

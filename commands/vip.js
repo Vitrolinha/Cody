@@ -16,6 +16,43 @@ module.exports = class TempMute extends command {
             usuario.save()
             let msg = onf ? t('comandos:vip.warnon') : t('comandos:vip.warnoff')
             message.channel.send(msg)
+        } else if(argsAlt[0] && argsAlt[0].toLowerCase() === 'give') {
+            if(!argsAlt[1]) return message.channel.send(t('comandos:vip.give.noArgs', { member: message.member }))
+            if(argsAlt[1].toLowerCase() === 'guild') {
+                if(isNaN(argsAlt[2])) return message.channel.send(t('comandos:vip.give.isNaN', { member: message.member }))
+                let count = parseFloat(argsAlt[2].replace(/\,/g, "."))
+                if(count <= 0) return message.channel.send(t('comandos:vip.give.bellow0', { member: message.member }))
+                if(usuario.vip.get('votePoints') < count) return message.channel.send(t('comandos:vip.give.insufficientPoints', { member: message.member }))
+                usuario.vip.set('votePoints', (usuario.vip.get('votePoints') - count))
+                servidor.votePoints += count
+                usuario.save()
+                servidor.save()
+                message.channel.send(t('comandos:vip.give.given', { member: message.member, mention: t('comandos:vip.give.to'), points: (count) }))
+            } else {
+                let reg2 = argsAlt[1] ? argsAlt[1].replace(/[^0-9]/g, '') : message.author.id
+                let user2 = message.guild.members.get(reg) ? message.guild.members.get(reg).user : message.author
+                if(user2.bot) return message.channel.send(t('comandos:vip.mentionBot', { member: message.member }))
+                if(user2.id === message.author.id) return message.channel.send(t('comandos:vip.give.mentionYou', { member: message.member }))
+                let userDB2 = await this.client.database.Users.findOne({'_id': user.id})
+                if(userDB2) {
+                    if(isNaN(argsAlt[2])) return message.channel.send(t('comandos:vip.give.isNaN', { member: message.member }))
+                    let count = parseFloat(argsAlt[2].replace(/\,/g, "."))
+                    if(count <= 0) return message.channel.send(t('comandos:vip.give.bellow0', { member: message.member }))
+                    if(usuario.vip.get('votePoints') < count) return message.channel.send(t('comandos:vip.give.insufficientPoints', { member: message.member }))
+                    usuario.vip.set('votePoints', (usuario.vip.get('votePoints') - count))
+                    userDB2.votePoints += count
+                    usuario.save()
+                    userDB2.save()
+                    message.channel.send(t('comandos:vip.give.given', { member: message.member, mention: user2.user.tag, points: (count) }))
+                } else {
+                    message.channel.send(t('comandos:vip.noUserDB'))
+                    this.client.newDocDB({
+                        id: user2.id,
+                        type: 1,
+                        content: user2
+                    })
+                }
+            }
         } else if(userDB) {
             let total = Math.floor(((userDB.vip.get('time') + 172800000) - Date.now())/1000)
             let horas = Math.floor(total/60/60)
