@@ -85,7 +85,7 @@ module.exports = class Cody extends Client {
                 setup: { buyed: false, internet: { buyed: false, lastPayment: '0000000000000' } },
                 banned: { ban: false, tempban: false, time: 0 },
                 cargos: { owner: false, subowner: false, operator: false, developer: false, supervisor: false, designer: false },
-                vip: { on: false, time: '0000000000000' }
+                vip: { on: false, time: '0000000000000', votePoints: 0 }
             })
             usuario.save()
         } else if(doc.type === 2) {
