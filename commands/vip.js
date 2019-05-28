@@ -42,7 +42,7 @@ module.exports = class TempMute extends command {
                     r.remove(r.users.last().id).catch(e => {})
                     embed.setTitle(t('comandos:vip.vantages.title'))
                     embed.setDescription(t('comandos:vip.vantages.desc'))
-                    embed.field = null
+                    embed.fields = []
                     msg.edit(embed)
                 })
                 support.on('collect', async r => {
@@ -56,7 +56,7 @@ module.exports = class TempMute extends command {
                     r.remove(r.users.last().id).catch(e => {})
                     embed.setTitle(`${user.username}:`)
                     embed.setDescription(t('comandos:vip.descStart', { userPoints: userDB.vip.get('votePoints'), guildPoints: servidor.votePoints, vip: (userDB.vip.get('on') ? timeView : t('comandos:vip.vipOff')) }))
-                    embed.field = null
+                    embed.fields = []
                     msg.edit(embed)
                 })
                 finalizar.on('collect', async r => {
