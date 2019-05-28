@@ -10,11 +10,11 @@ module.exports = class Staff extends command {
             if(inWindow.includes(message.author.id)) return message.channel.send(t('comandos:staff.inWindow'))
             inWindow.push(message.author.id)
             let embed = new this.client.Discord.RichEmbed()
-            .setTitle(t('comandos:staff.formTitle'))
-            .setDescription(t('comandos:staff.formDesc', { error: t('comandos:staff.notHaveErrors') }))
-            .setThumbnail(this.client.user.displayAvatarURL)
-            .setFooter(message.author.username, message.author.displayAvatarURL)
-            .setColor(5289)
+                .setTitle(t('comandos:staff.formTitle'))
+                .setDescription(t('comandos:staff.formDesc', { error: t('comandos:staff.notHaveErrors') }))
+                .setThumbnail(this.client.user.displayAvatarURL)
+                .setFooter(message.author.username, message.author.displayAvatarURL)
+                .setColor(5289)
             message.channel.send(embed).then(async msg => {
                 try {
                     await msg.react('1⃣')

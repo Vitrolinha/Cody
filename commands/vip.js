@@ -23,17 +23,51 @@ module.exports = class TempMute extends command {
             let minutos = Math.floor(total/60-horas*60)
             let segundos = Math.floor(total-(tmp*60))
             let timeView = `${(horas < 10 ? '0' + horas : horas)}:${(minutos < 10 ? '0' + minutos : minutos)}:${(segundos < 10 ? '0' + segundos : segundos)}`
-            let inicio = new this.client.Discord.RichEmbed()
+            let embed = new this.client.Discord.RichEmbed()
                 .setTitle(`${user.username}:`)
                 .setDescription(t('comandos:vip.descStart', { userPoints: userDB.vip.get('votePoints'), guildPoints: servidor.votePoints, vip: (userDB.vip.get('on') ? timeView : t('comandos:vip.vipOff')) }))
                 .setTimestamp(new Date())
                 .setFooter(message.author.username, message.author.displayAvatarURL)
                 .setColor(5289)
-            message.channel.send(inicio).then(async msg => {
+            message.channel.send(embed).then(async msg => {
                 await msg.react(':votePoint:582973181711613962')
                 await msg.react(':interrogation:571032834287075352')
+                await msg.react('↩')
                 await msg.react('❌')
-                
+                const vantages = msg.createReactionCollector((r, u) => r.emoji.name === ':votePoint:582973181711613962' && u.id === message.author.id, { time: 60000 });
+                const support = msg.createReactionCollector((r, u) => r.emoji.name === ':interrogation:571032834287075352' && u.id === message.author.id, { time: 60000 });
+                const back = msg.createReactionCollector((r, u) => r.emoji.name === '↩' && u.id === message.author.id, { time: 60000 });
+                const finalizar = msg.createReactionCollector((r, u) => r.emoji.name === '❌' && u.id === message.author.id, { time: 60000 });
+                vantages.on('collect', async r => {
+                    embed.setTitle(t('comandos:vip.vantages.title'))
+                    embed.setDescription(t('comandos:vip.vantages.desc'))
+                    msg.edit(embed)
+                })
+                support.on('collect', async r => {
+                    embed.setTitle(t('comandos:vip.support.title'))
+                    embed.setDescription(t('comandos:vip.support.desc'))
+                    msg.edit(embed)
+                })
+                back.on('collect', async r => {
+                    embed.setTitle(`${user.username}:`)
+                    embed.setDescription(t('comandos:vip.descStart', { userPoints: userDB.vip.get('votePoints'), guildPoints: servidor.votePoints, vip: (userDB.vip.get('on') ? timeView : t('comandos:vip.vipOff')) }))
+                    msg.edit(embed)
+                })
+                finalizar.on('collect', async r => {
+                    vantages.emit('end')
+                    support.emit('end')
+                    back.emit('end')
+                    msg.delete().catch(e => {})
+                    message.delete().catch(e => {})
+                    finalizar.emit('end')
+                })
+                finalizar.on('end', async r => {
+                    vantages.emit('end')
+                    support.emit('end')
+                    back.emit('end')
+                    msg.delete().catch(e => {})
+                    message.delete().catch(e => {})
+                })
             })
         } else {
             message.channel.send(t('comandos:vip.noUserDB'))

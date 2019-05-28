@@ -93,7 +93,7 @@ module.exports = class Help extends command {
                 msg.edit(embed)
               })
               finalizar.on('collect', async r => {
-                msg.delete()
+                msg.delete().catch(e => {})
                 message.delete().catch(e => {})
                 inWindow.splice(inWindow.indexOf(message.author.id + message.channel.id), 1)
               })
@@ -102,7 +102,7 @@ module.exports = class Help extends command {
                 msg.edit(menu)
               })
               finalizar.on('end', async r => {
-                msg.delete()
+                msg.delete().catch(e => {})
                 message.delete().catch(e => {})
                 inWindow.splice(inWindow.indexOf(message.author.id + message.channel.id), 1)
               })
