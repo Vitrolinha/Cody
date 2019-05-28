@@ -46,7 +46,7 @@ module.exports = class TempMute extends command {
                     userDB2.votePoints += count
                     usuario.save()
                     userDB2.save()
-                    message.channel.send(t('comandos:vip.give.given', { member: message.member, mention: user2.user.tag, points: (count) }))
+                    message.channel.send(t('comandos:vip.give.given', { member: message.member, mention: user2.tag, points: (count) }))
                 } else {
                     message.channel.send(t('comandos:vip.noUserDB'))
                     this.client.newDocDB({
