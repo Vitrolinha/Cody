@@ -5,7 +5,7 @@ module.exports = class TempMute extends command {
         super (name, client)
         this.aliases = ['vote', 'votes', 'votar', 'voto']
     }
-    async run ({message, argsAlt, usuario, servidor}) {
+    async run ({message, argsAlt, prefix, usuario, servidor}) {
         let reg = argsAlt[0] ? argsAlt[0].replace(/[^0-9]/g, '') : message.author.id
         let user = message.guild.members.get(reg) ? message.guild.members.get(reg).user : message.author
         if(user.bot) return message.channel.send(t('comandos:vip.mentionBot', { member: message.member }))
@@ -45,7 +45,7 @@ module.exports = class TempMute extends command {
                 })
                 support.on('collect', async r => {
                     embed.setTitle(t('comandos:vip.support.title'))
-                    embed.setDescription(t('comandos:vip.support.desc'))
+                    embed.setDescription(t('comandos:vip.support.desc', { prefix: prefix }))
                     msg.edit(embed)
                 })
                 back.on('collect', async r => {
