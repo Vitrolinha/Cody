@@ -29,7 +29,7 @@ const User = new Schema({
   },
   vip: {
     type: Map,
-    default: { on: false, time: '0000000000000', votePoints: 0 }
+    default: { on: false, time: '0000000000000', votePoints: 0, warned: false, warns: false }
   }
 })
 
