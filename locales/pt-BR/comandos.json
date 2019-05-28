@@ -319,6 +319,11 @@
         "useAgain": "🙄 Parece que o cargo `{{role}}` **não existia**, use o **comando** novamente."
     },
     "vip": {
-        "descInicio": "**Pontos de voto:** {{votePoints}}"
+        "mentionBot": "<:bot:570319734147645450> {{member}}, Um bot **não** possui **pontos de votação**.",
+        "warnon": "✅ **Você** agora será **avisado** quando receber seus **pontos de votação**.",
+        "warnoff": "❌ **Você** não **receberá** mais avisos de seus **pontos de votação**.",
+        "noUserDB":"😕 O **usuário mencionado** não está **registrado** no meu **banco de dados**. Tente **usar** o comando **novamente**.",
+        "vipOff": "vote para adquirir",
+        "descStart": "<:votePoint:582973181711613962> **Pontos de votação:** {{userPoints}}\n<:guildPoint:582974169663275218> **Pontos do servidor:** {{guildPoints}}\n**Vip:** {{vip}}"
     }
 }
