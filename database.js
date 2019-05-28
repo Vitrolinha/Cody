@@ -76,6 +76,10 @@ const Guild = new Schema({
   allowedChannels: {
     type: Array,
     default: []
+  },
+  votePoints: {
+    type: Number,
+    default: 0
   }
 })
 

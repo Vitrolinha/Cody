@@ -99,7 +99,8 @@ module.exports = class Cody extends Client {
                 config: { vipMessages: true },
                 muteds: [],
                 lockedChannels: [],
-                allowedChannels: []
+                allowedChannels: [],
+                votePoints: 0
             })
             servidor.save()
         } else if(doc.type === 3) {

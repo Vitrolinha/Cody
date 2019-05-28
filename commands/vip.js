@@ -6,6 +6,6 @@ module.exports = class TempMute extends command {
         this.aliases = ['vote', 'votes', 'votar', 'voto']
     }
     async run ({message, args, usuario, servidor}) {
-        
+        let inicio = 
     }
 }
