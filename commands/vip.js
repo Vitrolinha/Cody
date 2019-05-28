@@ -19,6 +19,7 @@ module.exports = class TempMute extends command {
         } else if(argsAlt[0] && argsAlt[0].toLowerCase() === 'give') {
             if(!argsAlt[1]) return message.channel.send(t('comandos:vip.give.noArgs', { member: message.member }))
             if(argsAlt[1].toLowerCase() === 'guild') {
+                if(!argsAlt[2]) return message.channel.send(t('comandos:vip.give.noCount', { member: message.member }))
                 if(isNaN(argsAlt[2])) return message.channel.send(t('comandos:vip.give.isNaN', { member: message.member }))
                 let count = parseFloat(argsAlt[2].replace(/\,/g, "."))
                 if(count <= 0) return message.channel.send(t('comandos:vip.give.bellow0', { member: message.member }))
@@ -30,11 +31,13 @@ module.exports = class TempMute extends command {
                 message.channel.send(t('comandos:vip.give.given', { member: message.member, mention: t('comandos:vip.give.to'), points: (count) }))
             } else {
                 let reg2 = argsAlt[1] ? argsAlt[1].replace(/[^0-9]/g, '') : message.author.id
-                let user2 = message.guild.members.get(reg) ? message.guild.members.get(reg).user : message.author
+                let user2 = message.guild.members.get(reg2) ? message.guild.members.get(reg2).user : message.author
+                if(user2 === message.author) return message.channel.send(t('comandos:vip.give.noArgs', { member: message.member }))
                 if(user2.bot) return message.channel.send(t('comandos:vip.mentionBot', { member: message.member }))
                 if(user2.id === message.author.id) return message.channel.send(t('comandos:vip.give.mentionYou', { member: message.member }))
                 let userDB2 = await this.client.database.Users.findOne({'_id': user.id})
                 if(userDB2) {
+                    if(!argsAlt[2]) return message.channel.send(t('comandos:vip.give.noCount', { member: message.member }))
                     if(isNaN(argsAlt[2])) return message.channel.send(t('comandos:vip.give.isNaN', { member: message.member }))
                     let count = parseFloat(argsAlt[2].replace(/\,/g, "."))
                     if(count <= 0) return message.channel.send(t('comandos:vip.give.bellow0', { member: message.member }))

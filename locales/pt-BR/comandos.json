@@ -326,8 +326,9 @@
         "give": {
             "to": "servidor",
             "noArgs": "😕 {{member}}, Diga **para onde** deseja enviar seus **pontos de votação**.",
-            "isNaN": "😒 {{member}}, A **quantidade a dar** deve ser um **número**.",
-            "bellow0":" 😒 {{member}}, O **quantidade a dar** não pode ser **0** ou **menor que 0**.",
+            "noCount": "😒 {{member}}, Especifique **uma quantidade** de **pontos para doar**.",
+            "isNaN": "😒 {{member}}, A **quantidade de pontos a doar** deve ser um **número**.",
+            "bellow0":" 😒 {{member}}, A **quantidade de pontos a doar** não pode ser **0** ou **menor que 0**.",
             "insufficientPoints": "😶 {{member}}, Você **não possui** esta quantidade de **pontos de votação**.",
             "given":"<:guildPoint:582974169663275218> {{member}}, **Você** acaba de **dar** `{{points}} pontos` para o(a) `{{mention}}`.",
             "mentionYou": "😕 {{member}}, Você **não pode** dar **pontos de votação** para sí mesmo."
