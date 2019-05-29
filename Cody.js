@@ -1,4 +1,4 @@
-const { Client, Collection } = require('discord.js')
+const { Client, Collection } = require('discord.js') // testes
 const { readdirSync, statSync } = require('fs')
 module.exports = class Cody extends Client {
     constructor (options = {}) {
