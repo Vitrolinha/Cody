@@ -1,4 +1,5 @@
 const { command } = require('../utils')
+const inWindow = []
 
 module.exports = class TempMute extends command {
     constructor (name, client) {
@@ -6,6 +7,9 @@ module.exports = class TempMute extends command {
         this.aliases = ['vote', 'votes', 'votar', 'voto']
     }
     async run ({message, argsAlt, prefix, usuario, servidor}) {
+        if(inWindow.find(ar => ar[0] === message.author.id)) {
+            
+        }
         let reg = argsAlt[0] ? argsAlt[0].replace(/[^0-9]/g, '') : message.author.id
         let user = message.guild.members.get(reg) ? message.guild.members.get(reg).user : message.author
         if(user.bot) return message.channel.send(t('comandos:vip.mentionBot', { member: message.member }))
