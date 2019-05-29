@@ -87,6 +87,7 @@ module.exports = class TempMute extends command {
                 })
                 support.on('collect', async r => {
                     r.remove(r.users.last().id).catch(e => {})
+                    embed.fields = []
                     embed.setTitle(t('comandos:vip.support.title'))
                     embed.setDescription(t('comandos:vip.support.desc', { prefix: prefix }))
                     embed.addField(t('comandos:vip.support.field.title'), t('comandos:vip.support.field.desc'))
