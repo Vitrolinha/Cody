@@ -1,4 +1,5 @@
 const { Client, Collection } = require('discord.js')
+const { readdirSync, statSync } = require('fs')
 module.exports = class Cody extends Client {
     constructor (options = {}) {
         super (options)
