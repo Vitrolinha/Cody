@@ -7,8 +7,10 @@ module.exports = class TempMute extends command {
         this.aliases = ['vote', 'votes', 'votar', 'voto']
     }
     async run ({message, argsAlt, prefix, usuario, servidor}) {
-        if(inWindow.find(ar => ar[0] === message.author.id)) {
-            
+        if(inWindow.find(ar => ar.split(' ')[0] === message.author.id)) {
+            let usr = inWindow.find(ar => ar.split(' ')[0] === message.author.id).split(' ')
+            message.channel.messages.get(usr[1]).delete().catch(e => {})
+            inWindow.splice(inWindow.indexOf(inWindow.find(ar => ar.split(' ')[0] === message.author.id)), 1)
         }
         let reg = argsAlt[0] ? argsAlt[0].replace(/[^0-9]/g, '') : message.author.id
         let user = message.guild.members.get(reg) ? message.guild.members.get(reg).user : message.author
@@ -82,6 +84,7 @@ module.exports = class TempMute extends command {
                 const support = msg.createReactionCollector((r, u) => r.emoji.id === '571032834287075352' && u.id === message.author.id, { time: 60000 });
                 const back = msg.createReactionCollector((r, u) => r.emoji.name === '↩' && u.id === message.author.id, { time: 60000 });
                 const finalizar = msg.createReactionCollector((r, u) => r.emoji.name === '❌' && u.id === message.author.id, { time: 60000 });
+                inWindow.push(`${message.author.id} ${msg.id}`)
                 vantages.on('collect', async r => {
                     r.remove(r.users.last().id).catch(e => {})
                     embed.setTitle(t('comandos:vip.vantages.title'))
@@ -118,6 +121,7 @@ module.exports = class TempMute extends command {
                     back.emit('end')
                     msg.delete().catch(e => {})
                     message.delete().catch(e => {})
+                    inWindow.splice(inWindow.indexOf(inWindow.find(ar => ar.split(' ')[0] === message.author.id)), 1)
                 })
             })
         } else {
