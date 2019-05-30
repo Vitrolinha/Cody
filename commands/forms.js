@@ -5,7 +5,7 @@ module.exports = class Forms extends command {
     constructor (name, client) {
         super (name, client)
     }
-    async run ({message, usuario}) {
+    async run ({message, usuario}, t) {
         if(!(await this.client.verPerm(['owner', 'subowner', 'operator'], false, usuario))) return message.channel.send(t('comandos:forms.noPermission'));
         if(inWindow.includes(message.author.id)) return message.channel.send(t('comandos:forms.inWindow'))
         let first = await this.client.database.Forms.findOne({})

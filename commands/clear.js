@@ -5,7 +5,7 @@ module.exports = class Clear extends command {
         super (name, client)
         this.aliases = ['limpar', 'purge', 'prune']
     }
-    async run ({message, argsAlt, usuario}) {
+    async run ({message, argsAlt, usuario}, t) {
         if(!(await this.client.verPerm(['MANAGE_MESSAGES', 'owner', 'subowner', 'operator'], message.member, usuario))) return message.channel.send(t('comandos:clear.noPermission'));
         if(!message.channel.permissionsFor(this.client.user.id).has('MANAGE_MESSAGES')) return message.channel.send(t('comandos:clear.noPermBot'));
         if(!argsAlt[0]) return message.channel.send(t('comandos:clear.noargsAlt'));

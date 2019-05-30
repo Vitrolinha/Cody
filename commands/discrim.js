@@ -6,7 +6,7 @@ module.exports = class Lock extends command {
         super (name, client)
         this.aliases = ['discriminator', 'discriminador']
     }
-    async run ({message, args}) {
+    async run ({message, args}, t) {
         if(inWindow.includes(message.author.id)) return message.channel.send(t('comandos:discrim.inWindow'))
         if(!args[0]) return message.channel.send(t('comandos:discrim.noArgs'))
         let discrim = args[0].replace('#', '')

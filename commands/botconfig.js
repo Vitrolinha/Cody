@@ -5,7 +5,7 @@ module.exports = class BotConfig extends command {
         super (name, client)
         this.aliases = ['bconfig']
     }
-    async run ({message, argsAlt, usuario, prefix}) {
+    async run ({message, argsAlt, usuario, prefix}, t) {
         if(!(await this.client.verPerm(['owner', 'subowner', 'developer', 'operator'], false, usuario))) return message.channel.send(t('comandos:botconfig.noPermission'));
         let invalid = new this.client.Discord.RichEmbed()
             .addField(t('comandos:botconfig.howToUse'), t('comandos:botconfig.howDesc', { prefix: prefix }), false)

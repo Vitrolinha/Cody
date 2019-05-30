@@ -5,7 +5,7 @@ module.exports = class Info extends command {
         super (name, client)
         this.aliases = ['information']
     }
-    async run ({message, args}) {
+    async run ({message, args}, t) {
             let links = [{
                 name: 'convite',
                 link: `https://discordapp.com/oauth2/authorize?client_id=${this.client.user.id}&scope=bot&permissions=2146958847`

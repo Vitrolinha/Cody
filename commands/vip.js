@@ -6,7 +6,7 @@ module.exports = class TempMute extends command {
         super (name, client)
         this.aliases = ['vote', 'votes', 'votar', 'voto']
     }
-    async run ({message, argsAlt, prefix, usuario, servidor}) {
+    async run ({message, argsAlt, prefix, usuario, servidor}, t) {
         if(inWindow.find(ar => ar.split(' ')[0] === message.author.id)) {
             let usr = inWindow.find(ar => ar.split(' ')[0] === message.author.id).split(' ')
             message.channel.messages.get(usr[1]).delete().catch(e => {})

@@ -5,7 +5,7 @@ module.exports = class Concierge extends command {
         super (name, client)
         this.aliases = ['portaria']
     }
-    async run ({message, args, usuario, servidor, prefix}) {
+    async run ({message, args, usuario, servidor, prefix}, t) {
         if(!(await this.client.verPerm(['MANAGE_GUILD', 'owner', 'subowner', 'operator'], message.member, usuario))) return message.channel.send(t('comandos:concierge.noPermission'));
         let invalid = new this.client.Discord.RichEmbed()
             .addField(t('comandos:concierge.howToUse'), t('comandos:concierge.howDesc', { prefix: prefix }))

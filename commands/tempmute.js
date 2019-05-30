@@ -5,7 +5,7 @@ module.exports = class TempMute extends command {
         super (name, client)
         this.aliases = ['mutetemp', 'timemute']
     }
-    async run ({message, args, usuario, servidor}) {
+    async run ({message, args, usuario, servidor}, t) {
         let roleName = '🔇Cody Mute'
         if(!await this.client.verPerm(['MANAGE_ROLES_OR_PERMISSIONS', 'owner', 'subowner', 'operator'], message.member, usuario)) return message.channel.send(t('comandos:tempmute.noPermission'));
         if(!message.guild.me.hasPermission(['MANAGE_ROLES_OR_PERMISSIONS'])) return message.channel.send(t('comandos:tempmute.noPermBot'))

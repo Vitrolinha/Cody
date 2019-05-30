@@ -5,7 +5,7 @@ module.exports = class BotBan extends command {
         super (name, client)
         this.aliases = ['bban']
     }
-    async run ({message, argsAlt, usuario, servidor, prefix}) {
+    async run ({message, argsAlt, usuario, servidor, prefix}, t) {
         if(!(await this.client.verPerm(['owner', 'subowner', 'operator', 'developer', 'supervisor'], false, usuario))) return message.channel.send(t('comandos:botban.noPermission'));
         let invalid = new this.client.Discord.RichEmbed()
             .addField(t('comandos:botban.howToUse'), t('comandos:botban.howDesc', { prefix: prefix }), false)

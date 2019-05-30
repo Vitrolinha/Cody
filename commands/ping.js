@@ -4,7 +4,7 @@ module.exports = class Ping extends command {
     constructor (name, client) {
         super (name, client)
     }
-    async run ({message, args}) {
+    async run ({message, args}, t) {
         let pings = await this.client.shard.broadcastEval('this.ping')
         let dit = args[0] ? parseInt(args[0]) - 1 : 1
         let selected = args[0] ? pings[parseInt(dit)] ? parseInt(dit) : this.client.shard.id : this.client.shard.id
