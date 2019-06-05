@@ -94,7 +94,7 @@ module.exports = async function (message) {
                                     sugestDelay.add(message.author.id)
                                     setTimeout(function() {
                                         sugestDelay.delete(message.author.id)
-                                    }, 13 * 1000)
+                                    }, 5 * 1000)
                                     await message.react('✅')
                                     await message.react('❌')     
                                 } else {
