@@ -1,5 +1,6 @@
 const roleSetDelay = new Set()
 const mentionDelay = new Set()
+const sugestDelay = new Set()
 const usersCMDColdown = []
 module.exports = async function (message) {
     if (message.channel.type === 'dm') return;
@@ -81,6 +82,29 @@ module.exports = async function (message) {
                                 mentionDelay.delete(message.author.id)
                             }, 10 * 1000)
                             message.channel.send(t('eventos:mentionBot', { member: message.member, prefix: servidor.prefix }))
+                        }
+
+                        if(servidor.sugest.get('on')) {
+                            if(message.channel.id !== servidor.sugest.get('channel')) return console.log('a');
+                            if(servidor.sugest.get('type') === 2) {
+                                console.log('b')
+                                if(message.author.id === this.user.id) return console.log('c');
+                                if(!sugestDelay.has(message.author.id)) {
+                                    console.log('d')
+                                    sugestDelay.add(message.author.id)
+                                    setTimeout(function() {
+                                        sugestDelay.delete(message.author.id)
+                                    }, 13 * 1000)
+                                    await message.react('✅')
+                                    await message.react('❌')     
+                                } else {
+                                    message.delete(2000)
+                                    message.channel.send(t('eventos:sugestDelay', { member: message.member })).then(async msg => {
+                                        msg.delete(6000)
+                                    })
+                                    console.log('e')
+                                }
+                            }
                         }
 
                         if(message.guild.id === this.config.codyGuild && this.user.id !== this.config.canaryID) {

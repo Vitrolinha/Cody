@@ -96,7 +96,7 @@ module.exports = class Cody extends Client {
                 concierge: { welcome: { on: false, message: 'None', channel: 'None' }, byebye: { on: false, message: 'None', channel: 'None' } },
                 autorole: { on: false, idRoles: [] },
                 sugest: { on: false, channel: 'None', type: 0},
-                config: { vipMessages: true },
+                config: { vipMessages: true, level: false },
                 muteds: [],
                 lockedChannels: [],
                 allowedChannels: [],

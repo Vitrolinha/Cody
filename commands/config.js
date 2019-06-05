@@ -106,7 +106,7 @@ module.exports = class Config extends command {
                     .setColor(5289)
                 let msgType = await message.channel.send(selectType)
                 inWindowSugest.push(message.author.id + message.channel.id)
-                message.channel.awaitMessages(mensagem => mensagem.author.id === message.author.id && mensagem.content === '1' || mensagem.content === 'cancel', {
+                message.channel.awaitMessages(mensagem => mensagem.author.id === message.author.id && mensagem.content === '1' || mensagem.content === '2' || mensagem.content === 'cancel', {
                     maxMatches: 1,
                     time: 60000,
                     errors: ['time']

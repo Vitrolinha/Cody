@@ -63,7 +63,11 @@ const Guild = new Schema({
   },
   config: {
     type: Map,
-    default: { vipMessages: true }
+    default: { vipMessages: true, level: false }
+  },
+  level: {
+    type: Map,
+    default: { channelLogs: { on: false, channel: 'None' }, customMessage: { on: false, message: 'None' }, users: [] }
   },
   muteds: {
     type: Array,
