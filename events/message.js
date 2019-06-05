@@ -85,24 +85,23 @@ module.exports = async function (message) {
                         }
 
                         if(servidor.sugest.get('on')) {
-                            if(message.channel.id !== servidor.sugest.get('channel')) return console.log('a');
+                            if(message.channel.id !== servidor.sugest.get('channel')) return;
                             if(servidor.sugest.get('type') === 2) {
-                                console.log('b')
-                                if(message.author.id === this.user.id) return console.log('c');
-                                if(!sugestDelay.has(message.author.id)) {
-                                    console.log('d')
-                                    sugestDelay.add(message.author.id)
-                                    setTimeout(function() {
-                                        sugestDelay.delete(message.author.id)
-                                    }, 5 * 1000)
+                                if(message.author.id === this.user.id) return;
+                                if(!sugestDelay.has(message.author.id) || servidor.sugest.get('coldown') === 0) {
+                                    if(servidor.sugest.get('coldown') !== 0) {
+                                        sugestDelay.add(message.author.id)
+                                        setTimeout(function() {
+                                            sugestDelay.delete(message.author.id)
+                                        }, servidor.sugest.get('coldown'))
+                                    }
                                     await message.react('✅')
                                     await message.react('❌')     
                                 } else {
-                                    message.delete(2000)
-                                    message.channel.send(t('eventos:sugestDelay', { member: message.member })).then(async msg => {
-                                        msg.delete(6000)
+                                    message.delete(700)
+                                    message.channel.send(t('eventos:sugestDelay', { member: message.member, time: this.ms(servidor.sugest.get('coldown')) })).then(async msg => {
+                                        msg.delete(servidor.sugest.get('coldown'))
                                     })
-                                    console.log('e')
                                 }
                             }
                         }

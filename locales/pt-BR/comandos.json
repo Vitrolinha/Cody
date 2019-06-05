@@ -120,7 +120,7 @@
             "howToUse": "📋 Como usar:",
             "inWindow":"🙄 **Você** já está com uma **jánela** de **configuração**, **finalize-a** ou aguarde **1 minuto**.",
             "title":"📋 Sugestão:",
-            "howDesc": "`{{prefix}}config sugest on` - ativa o sistema de sugestões no servidor.\n`{{prefix}}config sugest off` - remove o sistema de sugestões do servidor.",
+            "howDesc": "`{{prefix}}config sugest on` - ativa o sistema de sugestões no servidor.\n`{{prefix}}config sugest off` - remove o sistema de sugestões do servidor.\n`{{prefix}}config sugest coldown <time/off>` - define o tempo entre as sugestões.",
             "description": "Pare **selecionar**, envie uma **mensagem** no canal com o **número** da opção selecionada.\n\n1⃣ O **usuário terá** que **usar** o comando `{{prefix}}sugest` e a sugestão será **enviada** em um **canal definido** com uma embed.\n2⃣ O usuário **enviará** a sugestão em um **canal definido** e será adicionado **duas reações** para a **votação** na mensagem.\n\n❌ Para cancelar **envie** `cancel` ou aguarde **1 minuto**.",
             "mentionChannel": "🙄 Mencione o **canal** para as **sugestões**. (envie `cancel` para cancelar)\nSe **não mencionar** um canal será **definido** no **canal atual**.",
             "defined1": "✅ O **sistema de sugestões** foi **definido** no **canal** {{channel}}.\n**Comando para enviar sugestões:** `{{prefix}}sugest <sugestão>`",
@@ -128,7 +128,14 @@
             "canceled": "❌ {{member}}, você **cancelou** o **comando**.",
             "timeout": "🕐 {{member}}, você **demorou** demais para **responder**.",
             "alreadyOff": "😒 O **sistema de sugestões** já está `desativado` **neste servidor**.",
-            "disabled": "✅ O **sistema de sugestões** foi `desativado` **neste servidor**."
+            "systemOff": "😒 O **sistema de sugestões** está `desativado` **neste servidor**.",
+            "disabled": "✅ O **sistema de sugestões** foi `desativado` **neste servidor**.",
+            "coldown": {
+                "alreadyOff":"😒 O **coldown** já está `desativado` **neste servidor**.",
+                "reset": "✅ {{member}}, O **coldown** de **sugestões** foi `desativado` **neste servidor**.",
+                "timeLimit": "🙄 {{member}}, O **tempo de espera** não pode **maior** que `2 horas`.",
+                "defined": "✅ {{member}}, O **tempo de espera** foi definido como `{{time}}` **no servidor**."
+            }
         }
     },
     "decode": {

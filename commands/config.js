@@ -87,7 +87,7 @@ module.exports = class Config extends command {
             }
         } else if(config === 'sugest') {
             if(inWindowSugest.includes(message.author.id + message.channel.id)) return message.channel.send(t('comandos:config.sugest.inWindow'))
-            let actions = ['on', 'off']
+            let actions = ['on', 'off', 'coldown']
             let sugest = new this.client.Discord.RichEmbed()
                 .setTitle(t('comandos:config.sugest.howToUse'))
                 .setDescription(t('comandos:config.sugest.howDesc', { prefix: prefix }))
@@ -154,6 +154,22 @@ module.exports = class Config extends command {
                 servidor.sugest = { on: false, channel: 'None', type: 0}
                 servidor.save()
                 message.channel.send(t('comandos:config.sugest.disabled'))
+            } else if (action === 'coldown') {
+                if(!servidor.sugest.get('on')) return message.channel.send(t('comandos:config.sugest.systemOff'))
+                if(!argsAlt[2]) return message.channel.send(sugest);
+                if(argsAlt[2] === 'off') {
+                    if(servidor.sugest.get('coldown') === 0) return message.channel.send(t('comandos:config.sugest.coldown.alreadyOff'))
+                    servidor.sugest.set('coldown', 0)
+                    servidor.save()
+                    message.channel.send(t('comandos:config.sugest.coldown.reset', { member: message.member }))
+                } else {
+                    let time = argsAlt.splice(2).join(' ')
+                    let timeMS = this.client.ms(time)
+                    if(timeMS > 7200000) return message.channel.send(t('comandos:config.sugest.coldown.timeLimit', { member: message.member }))
+                    servidor.sugest.set('coldown', timeMS)
+                    servidor.save()
+                    message.channel.send(t('comandos:config.sugest.coldown.defined', { member: message.member, time: time }))
+                }
             }
         }
     }

@@ -59,7 +59,7 @@ const Guild = new Schema({
   },
   sugest: {
     type: Map,
-    default: { on: false, channel: 'None', type: 0}
+    default: { on: false, channel: 'None', coldown: 0, type: 0 }
   },
   config: {
     type: Map,

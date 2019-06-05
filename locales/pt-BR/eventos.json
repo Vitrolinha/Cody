@@ -5,6 +5,6 @@
     "voteInBPD": "😕 Olá {{member}}, se você **gosta** de usar **meus comandos**, vote no **bot** e ganhe **comandos/funções** exclusivas para **você**: https://botsparadiscord.xyz/bots/507292506942210048/votar",
     "cmdInManu": "😕 O **comando** `{{cmd}}` está em **manutenção**",
     "mentionBot": "🤗 Olá {{member}}, meu **prefixo** no servidor é `{{prefix}}`, use **{{prefix}}help** para saber **meus comandos**.",
-    "sugestDelay": "🙄 {{member}}, você **precisa** esperar **5 segundos** para enviar **outra sugestão**.",
+    "sugestDelay": "🙄 {{member}}, você **precisa** esperar **{{time}}** para enviar **outra sugestão**.",
     "unbanned": "🙄 {{member}}, você **finalmente** foi **desbanido**, agora **você** já pode usar **minhas funções** livremente."
 }

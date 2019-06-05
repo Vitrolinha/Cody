@@ -95,7 +95,7 @@ module.exports = class Cody extends Client {
                 prefix: this.user.id === this.config.canaryID ? 'c.' : 'c!',
                 concierge: { welcome: { on: false, message: 'None', channel: 'None' }, byebye: { on: false, message: 'None', channel: 'None' } },
                 autorole: { on: false, idRoles: [] },
-                sugest: { on: false, channel: 'None', type: 0},
+                sugest: { on: false, channel: 'None', coldown: 0, type: 0 },
                 config: { vipMessages: true, level: false },
                 muteds: [],
                 lockedChannels: [],
