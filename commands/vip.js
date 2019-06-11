@@ -63,7 +63,7 @@ module.exports = class TempMute extends command {
                 }
             }
         } else if(userDB) {
-            let total = Math.floor(((userDB.vip.get('date') + userDB.vip.get('time')) - Date.now())/1000)
+            let total = Math.floor(((parseInt(userDB.vip.get('date')) + parseInt(userDB.vip.get('time'))) - Date.now())/1000)
             let horas = Math.floor(total/60/60)
             let tmp = Math.floor(total/60)
             let minutos = Math.floor(total/60-horas*60)
