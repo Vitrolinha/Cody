@@ -342,7 +342,7 @@
         },
         "noUserDB":"😕 The ** mentioned user ** is ** not ** registered ** in my ** database **. Try ** to use ** command ** again **.",
         "vipOff": "vote to buy",
-        "descStart": "<:votePoint:582973181711613962> ** Vip points: ** {{userPoints}} \n <: guildPoint: 582974169663275218> ** Server Points: ** {{guildPoints}} \n <: vip: 582981311757549607 ** Vip: ** {{{ vip}}",
+        "descStart": "<:votePoint:582973181711613962> ** Vip points: ** {{userPoints}} \n <:guildPoint:582974169663275218> ** Server Points: ** {{guildPoints}} \n <:vip:582981311757549607> ** Vip: ** {{{ vip}}",
         "vantages": {
             "title": "<:vip:582981311757549607> Benefits:",
             "desc": "- ** ** Bonuses ** to ** collect  \n- ** Special ** positions ** on ** configured servers **. \n- Receipt of ** vote points ** with each vote."
