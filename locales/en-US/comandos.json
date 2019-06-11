@@ -65,7 +65,7 @@
         "warnon": "✅** You ** will now ** be warned ** when you reach the ** limit ** of ** codes ** to be ** collected **.",
         "warnoff": "❌ ** You ** will ** not receive ** more notices.",
         "noUserDB": "😕 The ** mentioned user ** is ** not ** registered ** in my ** database **. Try ** to use ** command ** again **.",
-        "desc": "<:code:569367293729964032> **Codes:** {{codes}}\n<:capacitor:582679024850042892> **Capacitores:** {{capacitors}}\n<:decoder:569367355461730317> **Decodificadores:** {{decoders}}/{{decodersLimit}}\n<:database:569999651739009025> **Para recolher:** {{toCollect}}/{{total}}"
+        "desc": "<:code:569367293729964032> **Codes:** {{codes}}\n<:capacitor:582679024850042892> **Capacitors:** {{capacitors}}\n<:decoder:569367355461730317> **Decoders:** {{decoders}}/{{decodersLimit}}\n<:database:569999651739009025> **To Collect:** {{toCollect}}/{{total}}"
     },
     "concierge": {
         "noPermission": "😕 It is ** necessary ** to have ** permission ** `MANAGE SERVER`.",
