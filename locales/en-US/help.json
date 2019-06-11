@@ -1,0 +1,108 @@
+
+{
+    "autorole": {
+        "desc": "Defines various jobs to be received when entering the server.",
+        "howToUse": "{{prefix}} autorole <add / del> <role-mention> \n {{prefix}} autorole <add / del> <role-name> id>",
+        "category": 1
+    },
+    "avatar": {
+        "desc": "View the avatar of discord users.",
+        "howToUse": "{{prefix}} avatar \n {{prefix}} avatar <user-mention> \n {{prefix}} avatar <user-name> \n {{prefix}} avatar <user-tag> \n {{prefix }} avatar <user-id>  \n {{prefix}} avatar <nickname> \n {{prefix}} avatar <similary>",
+        "category": 1
+    },
+    "ban": {
+        "desc": "Perform a ban on a user.",
+        "howToUse": "{{prefix}}ban <mention>\n{{prefix}}ban <mention> <reason>",
+        "category": 2
+    },
+    "clear": {
+        "desc": "Deletes a specific amount of messages.",
+        "howToUse": "{{prefix}}clear <numberOfMessages>",
+        "category": 1
+    },
+    "codes": {
+        "desc": "See how many codes someone has.",
+        "howToUse": "{{prefix}}codes\n{{prefix}}codes <mention>\n{{prefix}}codes warn",
+        "category": 3
+    },
+    "concierge": {
+        "desc": "Manage the input and output of users on your server.",
+        "howToUse": "{{prefix}}concierge <welcome/byebye> set <msg>\n{{prefix}}concierge <welcome/byebye> del\n{{prefix}}concierge parameters",
+        "category": 1
+    },
+    "config": {
+        "desc": "Configure various bot functions.",
+        "howToUse": "{{prefix}}config prefix <new-prefix>\n{{prefix}}config vipMessages\n{{prefix}}config cmdchannel\n{{prefix}}config sugest",
+        "category": 1
+    },
+    "decode": {
+        "desc": "Collect all the codes that have been decoded.",
+        "howToUse": "{{prefix}}decode",
+        "category": 3
+    },
+    "discrim": {
+        "desc": "Look for Discord users by discriminator.",
+        "howToUse": "{{prefix}}discrim <discriminator>",
+        "category": 1
+    },
+    "give": {
+        "desc": "Give code to other users.",
+        "howToUse": "{{prefix}}give <mention> <count>",
+        "category": 3
+    },
+    "help": {
+        "desc": "View the commands owned by the bot.",
+        "howToUse": "{{prefix}}help\n{{prefix}}help <command-name>",
+        "category": 1
+    },
+    "info": {
+        "desc": "View various general information about the bot.",
+        "howToUse": "{{prefix}}info",
+        "category": 1
+    },
+    "kick": {
+        "desc": "Eject a user from the server.",
+        "howToUse": "{{prefix}}kick <mention>\n{{prefix}}kick <mention> <reason>",
+        "category": 2
+    },
+    "lang": {
+        "desc": "Change the bot language on your server.",
+        "howToUse": "{{prefix}}lang",
+        "category": 1
+    },
+    "lock": {
+        "desc": "Disable the sending of messages in the text channel.",
+        "howToUse": "{{prefix}}lock\n{{prefix}}lock <channel-mention/id/name>",
+        "category": 2
+    },
+    "mute": {
+        "desc": "Forbids a user from writing to the server.",
+        "howToUse": "{{prefix}}mute <mention>",
+        "category": 2
+    },
+    "ping": {
+        "desc": "Visualize how my connection to the discord is.",
+        "howToUse": "{{prefix}}ping",
+        "category": 1
+    },
+    "rank": {
+        "desc": "See the first 10 users in the bot ranking.",
+        "howToUse": "{{prefix}}rank\n{{prefix}}rank <codes/decoders>",
+        "category": 1
+    },
+    "shop": {
+        "desc": "Buy items with your codes.",
+        "howToUse": "{{prefix}}shop\n{{prefix}}shop <number>\n{prefix} shop <number> <count>",
+        "category": 3
+    },
+    "staff": {
+        "desc": "See all the team responsible for my development.",
+        "howToUse": "{{prefix}}staff\n{{prefix}}staff form",
+        "category": 1
+    },
+    "tempmute": {
+        "desc": "Prohibit a user from writing to the server temporarily.",
+        "howToUse": "{{prefix}}tempmute <mention> <time>",
+        "category": 2
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "channelBlocked": "😕 {{member}},to favor...",
+    "cmdCooldown": "🙄 {{member}}, wait ** {{seconds}} ** seconds and ** {{thousandth}} ** milliseconds to use another command.",
+    "noCmdDB": "🤗 The ** command ** `{{cmd}}` appears not to be ** registered **, try ** again **.",
+    "voteInBPD": "😕 The ** command ** `{{cmd}}` appears not to be ** registered **, try ** again **.... https://botsparadiscord.xyz/bots/507292506942210048/votar",
+    "cmdInManu": "😕The ** command ** `{{cmd}}` is in ** maintenance **",
+    "mentionBot": "🤗 Hello {{member}}, my ** prefix ** on the server is `{{prefix}}`, use ** {{prefix}} help ** to know ** my commands **.",
+    "sugestDelay": "🙄 {{member}}, You ** need ** wait ** {{time}} ** to send ** another suggestion **.",
+    "unbanned": "🙄 {{member}}, you ** have finally ** been ** unfocused **, now ** you ** can already ** use ** my functions ** freely."
+}

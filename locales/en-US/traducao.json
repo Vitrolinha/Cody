@@ -1,0 +1,359 @@
+{
+    "autorole": {
+        "noPermission": "😕 It is ** necessary ** to have ** permission ** `MANAGE CHARGES`.",
+        "howToUse": "🗃 How to use",
+        "howDesc": "`{{prefix}}autorole add <post-mention/id/name>` - adds an entry charge.\n`{{prefix}}autorole del <post-mention/id/name>` - remove a charge from the system.",
+        "definedRoles": "📋 Charges defined",
+        "none": "No position defined.",
+        "invalidFunction": "😣 The ** function ** `{{function}}` is invalid, try `add` or` del`.",
+        "limitRoles": "📀 You have reached the ** limit ** of `5` positions on this ** server **.",
+        "noDefinedRoles": "💿 There are no ** charges ** to be ** deleted **.",
+        "noMentionRole": "😕 You must ** mention ** a ** charge ** or say your ** name ** or ** id **.",
+        "invalidRole": "😒 {{member}}, ** position ** quoted ** does not exist**.",
+        "alreadyDefined": "😒 {{member}}, ** The ** title ** quoted ** is already set **.",
+        "roleNotDefined": "😒 {{member}}, ** position ** quoted ** is not defined **.",
+        "noPermRole": "😶 You ** do not ** have ** permission to ** give ** this ** charge ** to ** other people **.",
+        "noPermRoleBot": "😶 I ** do not ** have ** permission ** to add ** this ** charge to ** other people **.",
+        "addedRole": "✅ The ** charge ** `{{role}}` was ** added to autorole**.",
+        "removedRole": "❌The ** charge ** `{{role}} was ** removed from the autorole **."
+    },
+    "avatar": {
+        "title": "🖼 Picture from {{user}}"
+    },
+    "ban": {
+        "noPermission": "😕 It is ** necessary ** to have ** permission ** `BANIR MEMBROS`.",
+        "noBotPermBan": "😒 It looks like ** I do not ** have the `BAN MEMBERS` permission on the ** server **.",
+        "noArgs": "😶 You must ** mention ** the user that ** wants to ban **.",
+        "topRole": "🙄The ** mentioned user ** has a ** higher ** charge than yours.",
+        "notBannable": "😒 It seems that ** I can not ban ** this user.",
+        "notReason": "reason not mentioned.",
+        "banned": "✅ The ** user ** `{{member}}` was ** banned from the server ** by {{author}}."
+    },
+    "botban": {
+        "noPermission": "😒 The ** user ** `{{member}}` was ** banned from the server ** by {{author}}....",
+        "howToUse": "🗃 How To Use:",
+        "howDesc":"`{{prefix}}botban <mention>` - prohibit the user from using the bot permanently.\n`{{prefix}}botban <mention> <temp>` - prohibit the user from using the bot for a while.",
+        "noUserDB": "😶 The ** mentioned user ** seems ** not ** to be registered in my ** database **, try to use the command again.",
+        "iMentioned": "😕 You ** can not ** ban ** yourself **.",
+        "botMention": "😶 You ** can ** not ** ban a bot **.",
+        "mentionedStaff": "🕵 The ** mentioned user ** is part of the bot ** staff **.",
+        "unbanned": "✅ The ** user ** {{member}} was ** unbanned **.",
+        "bannedNoTime": "✅The ** user ** {{member}} was ** permanently banned **.",
+        "bannedTime": "✅ The ** user ** {{member}} was ** banned ** to ** {{time}} **."
+    },
+    "botconfig": {
+        "noPermission": "😒 You ** need ** be a `owner`,` subowner`, `operator` or` developer` to use ** this ** command.",
+        "howToUse": "🗃 How To Use:",
+        "howDesc": "`{{prefix}}botconfig cmd <manu> <name-of-command>` - configura algo em um comando.",
+        "invalidFunc": "😕 The function `{{func}}` ** does not exist **.",
+        "noCmdManu": "🙄 You must ** enter ** the command that ** will enter ** for maintenance.",
+        "cmdNotExist": "🙄 The ** command ** does not seem ** to exist **.",
+        "activated": "✅ The `{{cmd}}` command has entered maintenance.",
+        "disabled": "❌ The `{{cmd}}` command has gone out of maintenance."
+    },
+    "clear": {
+        "noArgs": "🙄 You ** need ** to quote ** the amount of messages ** to be ** deleted **.",
+        "noPermission":"😕 It is ** necessary ** to have ** permission ** `MANAGE MESSAGES`.",
+        "noPermBot": "🙄 It seems that ** I am not allowed ** to ** execute ** this function, ** check ** if I have the `MANAGE MESSAGE` permission.",
+        "notNumber": "😒 `{{nan}}` ** no ** is ** a number **.",
+        "number0": "😣 ** No ** is ** possible ** delete ** {{count}} messages **.",
+        "more100": "🙄 The ** number ** `{{number}}` is ** greater than ** 100 **.",
+        "cleared": "✅ ** {{count}} messages have been deleted ** by ** {{member}} **."
+    },
+    "codes": {
+        "mentionBot": "<:bot:570319734147645450> {{member}}, A bot ** does not ** have ** codes **.",
+        "warnon": "✅** You ** will now ** be warned ** when you reach the ** limit ** of ** codes ** to be ** collected **.",
+        "warnoff": "❌ ** You ** will ** not receive ** more notices.",
+        "noUserDB": "😕 The ** mentioned user ** is ** not ** registered ** in my ** database **. Try ** to use ** command ** again **.",
+        "desc": "<:code:569367293729964032> **Codes:** {{codes}}\n<:capacitor:582679024850042892> **Capacitores:** {{capacitors}}\n<:decoder:569367355461730317> **Decodificadores:** {{decoders}}/{{decodersLimit}}\n<:database:569999651739009025> **Para recolher:** {{toCollect}}/{{total}}"
+    },
+    "concierge": {
+        "noPermission": "😕 It is ** necessary ** to have ** permission ** `MANAGE SERVER`.",
+        "howToUse": "🗃 How To Use:",
+        "howDesc": "`{{prefix}}concierge welcome set <message>` - add a welcome message.\n`{{prefix}}concierge welcome del` - remove the existing welcome message.\n`{{prefix}}concierge byebye set <message>` - add a farewell message.\n`{{prefix}}concierge byebye del` - remove the existing farewell message.",
+        "invalidAct": "😒 The ** action ** `{{act}}` does not exist **.",
+        "noFunction": "🙄 You ** need ** to quote a ** function **, try `set` or` del`",
+        "invalidFunction": "😣 The ** function ** `{{function}}` is invalid, try `add` or` del`.",
+        "noMsg": "🙄 You ** need ** to quote ** message ** that ** will be sent **.",
+        "definedWelcome": "✅ The ** message ** `{{msg}}` was ** defined ** as a ** welcome ** message.",
+        "welcomeNotDefined": "🙄 ** Welcome message ** was not ** defined **.",
+        "removedWelcome": "❌** Welcome ** system ** has been removed ** from this server.",
+        "definedByebye": "✅ The ** message ** `{{msg}}` was ** defined ** as a ** farewell ** message.",
+        "byebyeNotDefined": "🙄 Message ** Goodbye ** was not ** set **.",
+        "removedByebye": "❌ System ** ** was ** removed ** from this server.",
+        "parametersTo": "⚙ Parameters:",
+        "parameters": "```{member} mentions the user\n{user.name} Cites the username\n{user.id}quoted user id\n{guild} cites the server name```"
+    },
+    "config": {
+        "noPermission": "😕 It is ** necessary ** to have ** permission ** `MANAGE SERVER`.",
+        "howToUse": "🗃 How  To Use:",
+        "howDesc": "`{{prefix}}config prefix <prefix>` -set a new prefix on the server.\n`{{prefix}}config vipMessages` - enable and disable vip messages.\n`{{prefix}}config cmdChannel <add/del>` - add and remove command channels.\n`{{prefix}}config sugest <on/off>` - configure o sistema de sugestões.",
+        "prefix": {
+            "noArgs": "🙄You must ** specify ** the ** new ** prefix.",
+            "bigPrefix": "😒 The ** cite prefix ** is ** too large **. (4 characters)",
+            "defined": "✅ The ** prefix ** `{{prefix}}` has been set ** on the server **."
+        },
+        "vipMessages": {
+            "defined": "✅ As ** vip messages ** have been enabled ** on this server **.",
+            "removed": "✅ The ** vip ** messages have been `disabled` ** on this server **."
+        },
+        "cmdChannel": {
+            "howToUse": "📋 How to Use:",
+            "howDesc": "`{{prefix}}config cmdChannel <add/del>` -add and remove command channels.\n`{{prefix}}config cmdChannel reset` - reset the list and release all channels.",
+            "inWindow":"🙄 *** You ** already have a ** jánela ** of selection, ** finalize ** or wait ** 1 minute **.",
+            "sucess": "🗂 Change made successfully!",
+            "emptyAlloweds": "You can use commands on all channels.",
+            "emptyDenieds": "You can use commands on all channels.",
+            "manyChannels": "Many channels to display.",
+            "allowed": "✅ Canals allowed:",
+            "denied": "❎ Blocked Channels:",
+            "alreadyReseted": "❌ The ** list ** is already ** cleaned **.",
+            "reseted": "✅ Channels ** reset successfully **! Now you can ** use ** commands on ** all channels **.",
+            "add": {
+                "noMention": "🙄 ** You ** need ** mention ** the channels you want ** enable ** the use of commands. (1 or more mentions)"
+            },
+            "del": {
+                "noMention": "🙄 ** You ** need ** mention ** the channels you want ** block ** the use of commands. (1 or more mentions)"
+            }
+        },
+        "sugest": {
+            "howToUse": "📋 How to Use:",
+            "inWindow":"🙄** You ** already have a ** jánela ** of ** configuration **, ** finalize ** or wait ** 1 minute **.",
+            "title":"📋 Sugest:",
+            "howDesc": "`{{prefix}}config sugest on` - activates the suggestion system on the server.\n`{{prefix}}config sugest off` - removes the suggestions system from the server.\n`{{prefix}}config sugest coldown <time/off>` -sets the time between suggestions.",
+            "description": "Stop ** select **, send a ** message ** to the channel with the ** number ** of the selected option. \n\n1⃣ The ** user will ** use ** the ** {{prefix }} sugest` and the suggestion will be ** sent ** on a ** defined channel ** with an embed. \n n2⃣ The user ** will ** send the suggestion on a ** defined channel ** and will be added ** two reactions ** for ** voting ** in the message. \n\n❌ To cancel ** send ** `cancel` or wait ** 1 minute **.",
+            "mentionChannel": "🙄 Mention the ** channel ** for ** suggestions **. (send `cancel` to cancel) \n If ** not to mention ** a channel will be ** defined ** on ** current channel **.",
+            "defined1": "✅ The ** suggestion system ** was ** defined ** on ** channel ** {{channel}}. \n ** Command to send suggestions: ** `{{prefix}} sugest <suggestion>`",
+            "defined2": "✅ The ** suggestion system ** was ** defined ** on ** channel ** {{channel}}.",
+            "canceled": "❌The ** suggestion system ** was ** defined ** on ** channel ** {{channel}}....",
+            "timeout": "🕐 {{member}}, you ** took too long to ** respond ** ..",
+            "alreadyOff": "😒 The ** suggestion system ** is already `disabled` ** on this server **.",
+            "systemOff": "😒 The ** suggestion system ** is `disabled` ** on this server **.",
+            "disabled": "✅ The ** suggestion system ** has been `disabled` ** on this server **.",
+            "coldown": {
+                "alreadyOff":"😒 ** coldown ** is already `disabled` ** on this server **.",
+                "reset": "✅ {{member}}, The ** coldown ** of ** suggestions ** was `disabled` ** on this server **.",
+                "timeLimit": "🙄 {{member}}, The ** standby time ** can not ** greater ** than `2 hours`.",
+                "defined": "✅ {{member}}, The ** standby time ** can not ** greater ** than `2 hours`...."
+            }
+        }
+    },
+    "decode": {
+        "damaged": "🎛 {{member}}, The ** wait time ** was set to `{{time}}` ** on the server **....",
+        "nothingToCollect": "<:decoder:569367355461730317> ** All ** your ** decoders ** are ** damaged **. \n ** Time to restore: ** {{hours}} hours and {{minutes}} minutes...",
+        "decoded": "<:decoder:569367355461730317> Decoded:",
+        "codes": "**{{codes}}**codes were collected. \n ** Bonus: ** `{{bonus}}`",
+        "footer": "Current Amount: {{codes}}"
+    },
+    "discrim": {
+        "inWindow": "🙄 **Você** já está com uma **jánela** de discriminadores aberta, **finalize-a** ou aguarde **1 minuto**.",
+        "noArgs": "🙄 You must ** specify ** the ** discriminator **.",
+        "discrimLength": "😒The ** discriminator ** must contain ** 4 digits **.",
+        "isNaN": "😒 The ** discriminator ** must be a ** number **.",
+        "notFound": "😒** users ** were not ** discriminator ** `{{discrim}}`.",
+        "title": "🛰 {{count}} Results: (Shard [{{shard}}/{{totalShard}}])",
+        "footer": "Page{{page}} in {{total}}"
+    },
+    "eval": {
+        "noPermission": "😒 You ** need ** to be a `owner`,` subowner` or `operator` to use ** this ** command.",
+        "noCode": "🙄 You must ** insert ** a code to run.",
+        "code": "💿 Code:",
+        "result": "📀 Result:",
+        "error": "⚠ Error:"
+    },
+    "forms": {
+        "noPermission": "😒 You ** need ** to be a `owner`,` subowner` or `operator` to use ** this ** command.",
+        "notHaveForms": "🙄 No ** form ** was found.",
+        "inWindow": "🙄 No ** form ** was found....",
+        "approved": "😅 The form {{member}} for `{{role}} 'was ** approved ** by {{author}}.",
+        "refused": "😪 The ** form ** of {{member}} for `{{role}} 'was ** declined ** by {{author}}."
+    },
+    "give": {
+        "howToUse": "📋 How to Use:",
+        "howDesc": "`{{prefix}}give <mention> <amount>` -doe codes for a user.",
+        "mentionYou": "😕 {{member}}, You ** can ** not ** give ** codes ** for yourself.",
+        "noUserDB":"😶 The ** mentioned user ** seems ** not ** to be registered in my ** database **, try to use the command again.",
+        "isNaN":"😒 The ** value to donate ** must be a ** number **.",
+        "insufficientCodes":"<:code:569367293729964032> The ** value to donate ** must be a ** number **....",
+        "bellow0": "😒 The ** value to be donated ** can not be ** 0 ** or ** less than 0 **.",
+        "given": "<:code:569367293729964032> {{member}}, ** You ** just ** gave ** `{{codes}} codes` for` {{mention}} `."
+    },
+    "help": {
+        "cntMessageNoArg": "🙄Here are some ** commands ** available on the bot.",
+        "title": "Quick Info:",
+        "description": "Here are ** several ** categories of ** commands **, simply react with the ** emoji ** of ** desired ** category or ** finish ** the command reacting with ❌ \n \n Visualize ** separately * * the ** commands ** with: `{{prefix}} help <command>`",
+        "utilities": "🔦 utility ({{count}} commands):",
+        "moderation": "⚒ Moderation ({{count}} commands):",
+        "economy": "💰 economy ({{count}} comandos):",
+        "maintenance": "⚠ Maintenance ({{count}} commands):",
+        "inWindow": "🙄 You ** are already ** with a help window ** open ** on this channel, ** finish ** it, or wait ** 2 minutes **.",
+        "howToUse": "🗃 How to Use:",
+        "aliases": "📖 Alternatives:",
+        "notHaveAliases": "There are no other ways to use this command.",
+        "cntMessageArg": "🙄 Here are the ** information ** of the ** command ** `{{cmd}}`."
+    },
+    "info": {
+        "cntMessage": "🙄Here are ** several ** information ** about me **.",
+        "title": "Information:",
+        "description": "Information:...",
+        "statistics": "🛰  Statistics:",
+        "statisticsDesc": "- **{{ping}}**ms\n- **{{memory}}**MBused memory\n- **{{votes}}** votes",
+        "community": "👥 Community:",
+        "communityDesc": "- **{{guilds}}** servers\n- **{{channels}}** cchannels\n- **{{users}}** users",
+        "uptime": "⏱ Tempo ligado:",
+        "uptimeDesc": "- **{{hours}}** hours\n- **{{minutes}}** minutes\n- **{{seconds}}** seconds",
+        "urls": "🌏 Urls:"
+    },
+    "kick": {
+        "noPermission": "😕 It is ** necessary ** to have ** permission ** `EXPAND MEMBERS`.",
+        "noBotPermKick": "😒 It looks like ** I do not ** have the `EXPAND MEMBERS` permission on the ** server **.",
+        "noArgs": "😶 You must ** mention ** the user that ** wants to expel **.",
+        "topRole": "🙄 The ** mentioned user ** has a ** higher ** charge than yours.",
+        "notKickable": "😒 It looks like ** I can not kick this user out **.",
+        "notReason": "Reason not mentioned.",
+        "kicked": "✅ Reason not mentioned...."
+    },
+    "lang": {
+        "noPermission": "😕 It is ** necessary ** to have ** permission ** `MANAGE SERVER`.",
+        "inWindow": "🙄 ** You ** already have an open-ended ** jánela **, ** finalize ** or wait ** 1 minute **.",
+        "noPermBot": "😕 I do not have ** permission ** to add ** reactions **.",
+        "title": "📋 Languages:",
+        "notHaveErrors": "no errors at the moment",
+        "currentLanguage": "already defined language",
+        "desc": "To change the ** language of the bot **, simply ** react ** to the flag of your ** country **. \n \n ** Error: ** `{{error}}`",
+        "defined": "✅ The language ** `{{lang}}` was ** defined **."
+    },
+    "lock": {
+        "noPermission": "😕 It is ** necessary ** to have ** permission ** `MANAGE CHANNELS`.",
+        "noPermBot": "😕 It looks like ** I do not ** have permission to `MANAGE PERMISSIONS` on this ** channel **.",
+        "locked": "✅ The ** channel ** {{channel}} was ** blocked **.",
+        "unlocked": "✅ The ** channel ** {{channel}} was ** unblocked **."
+    },
+    "mute": {
+        "noPermission": "😕 It is ** necessary ** to have ** permission ** `MANAGE CHARGES`.",
+        "noPermBot": "😕 It looks like ** I do not ** have the `MANAGE CHARGES` permission on the ** server **.",
+        "noArgs": "😶You must ** mention ** the user who ** wants to mute **.",
+        "topRole": "🙄 You ** do not ** have ** permission to ** add ** the charge `{{role}} to a ** user **.",
+        "muted": "✅ O membro {{member}} foi **silenciado** por {{author}}.",
+        "unmuted": "✅ The {{member}} member was ** debugged ** by {{author}}.",
+        "useAgain": "🙄 The {{member}} member was ** debugged ** by {{author}}...."
+    },
+    "ping": {
+        "desc": "📡 Latency of the api: **{{api}}**ms\n📨 Response Time: **{{time}}**ms"
+    },
+    "rank": {
+        "inWindow":"🙄 ** You ** already have a ** jánela ** open ranking, ** finalize ** or wait ** 1 minute **.",
+        "footer": "Your position: {{position}} (updated to {{lastUpdate}} minutes ago)"
+    },
+    "shop": {
+        "inWindow":"🙄 ** You ** already have the ** shop ** open ** ** finalize ** or wait ** 1 minute **.",
+        "products": {
+            "decoder": "Decoder:",
+            "capacitor": "Capacitor:",
+            "computer": "Computer:",
+            "internet": "Internet:"
+        },
+        "menu": {
+            "title": "<:shoppingCart:569519004239265823> Shop:",
+            "desc": "Internet:...",
+            "footer": "Page {{page}} in {{total}}"
+        },
+        "purchased": {
+            "title": "<:shoppingCart:569519004239265823> Product purchased successfully:"
+        },
+        "insufficientCapacitors": "😶 {{member}}, You ** need ** more ** capacitors ** to buy more ** decoders **.",
+        "productDoesNotExist": "😶 {{member}}, This ** product ** does not ** exist **.",
+        "insufficientCodes": "<:code:569367293729964032> {{member}}, ** Missing ** `{{codes}} codes` to ** buy ** this ** product **.",
+        "alreadyBuyed": "😶 {{member}}, **Você** já **comprou** este produto."
+    },
+    "staff": {
+        "userNotFound": "**Not Found # 0000**",
+        "title": "Quick Info:",
+        "desc": "Quick Info:...",
+        "footer": "Updated to {{lastUpdate}} minutes ago. (Every 20 minutes)...",
+        "owners": "👑 Owners:",
+        "subowners": "👑 Sub Owners:",
+        "operators": "👷 Operators:",
+        "developers": "🔐 Programadores(as):",
+        "supervisors": "🕵 Supervisors:",
+        "designers": "🖼 Designers:",
+        "inWindow": "🙄 ** You ** already have an open-ended ** jánela **, ** finalize ** or wait ** 1 minute **.",
+        "notHaveErrors": "no errors at the moment",
+        "formAlreadySubmitted": "form already submitted",
+        "alreadyHaveRole": "position already possessed",
+        "timesUp": "🙄 **Timeout! ** {{member}}, you ** took ** by adding your ** reaction ** to the message.",
+        "reasonForRole": "🔐 {{member}}, Say the ** reason ** to want ** to ** ** {{role} of the bot ** Cody **. (type `cancel` to cancel or wait 1 minute)",
+        "timesUpReason": "🙄 **Tempo esgotado!** {{member}}, você **demorou** ao dizer o **motivo**.",
+        "thankYou": "😊 Thank you ** {{member}} ** for submitting your ** form **.",
+        "canceled": "😒 {{member}}, your ** form ** has been canceled.",
+        "submited": "😊 The user ** {{member}} ** just ** sent ** a form for `{{role}}`.",
+        "formTitle": "🕵 Forms:",
+        "formDesc": "To ** send ** your ** form **, simply react with the ** number ** of the charge. \n \n ** Error: ** `{{error}}` \n \n ** 1⃣ Developer \n2 \n Supervisor \n3 \n Designer **"
+    },
+    "staffrole": {
+        "noPermission": "😒 You ** need ** be a `owner`,` subowner`, `operator` or` developer` to use ** this ** command.",
+        "howToUse": "🗃 How to Use:",
+        "howDesc": "`{{prefix}}staffrole add <charge> <mention>` - add a charge to the user.\n`{{prefix}}staffrole del <charge> <mention>` - remove a user charge.",
+        "roles": "📈 Charges:",
+        "invalidFunction": "😣The ** function ** `{{function}}` is invalid, try `add` or` del`.",
+        "roleNotExist": "😕 The position `{{role}}` does not exist, try `{{roles}}`.",
+        "noMention": "😯 You ** need ** mention ** a ** user who wants to ** give ** the charge.",
+        "mentionBot": "👾 {{member}}, a bot ** can not ** become ** staff **.",
+        "noRolePermission": "😟You ** can ** not give your ** own ** ** or ** higher **.",
+        "noUserDB": "😶 The ** mentioned user ** seems ** not ** to be registered in my ** database **, try to use the command again.",
+        "alreadyHaveRole": "😑{{member}}, The user already has ** this ** charge.",
+        "roleNotFound": "🙄 {{member}}, The mentioned user ** does ** ** ** ** this charge.",
+        "bannedUser": "🙄 {{member}}, The mentioned user is ** banned ** from the bot.",
+        "added": "✅ The role `{{role}}` was ** added ** to the user.",
+        "removed": "❌ The position `{{role}}` was ** taken from the user."
+    },
+    "sugest": {
+        "sistemOff": "😒 The ** suggestion system ** is `disabled` on this ** server **.",
+        "noTypeChannel": "😒To ** send ** a ** suggestion **, simply send ** a message ** on the channel # # {{channel}}>.",
+        "channelNotFound": "😶 The ** channel defined ** was not ** found **.",
+        "noArgs": "😒 You must ** insert ** your ** suggestion **.",
+        "title": "🚀 New suggestion:",
+        "sended": "✅ Your ** suggestion ** was ** sent **."
+    },
+    "tempmute": {
+        "noPermission": "😕 It is ** necessary ** to have ** permission ** `MANAGE CHARGES`.",
+        "noPermBot": "😕 It looks like ** I do not ** have the `MANAGE CHARGES` permission on the ** server **.",
+        "noMention": "😶You must ** mention ** the user who ** wants to mute **.",
+        "topRole": "🙄 You ** do not ** have ** permission to ** add ** the charge `{{role}} to a ** user **.",
+        "noTime": "🙄 It is ** necessary ** to specify the ** time ** that you want ** to silence the user.",
+        "notATime": "🙄 The ** argument ** `{{time}}` is not considered ** time **.",
+        "tempmuted": "✅ The member {{member}} has been temporarily silenced ** by {{author}} to ** {{time}} **.",
+        "unmuted": "✅ The {{member}} member was ** debugged ** by {{author}}.",
+        "useAgain": "🙄 It appears that the post `{{role}}` ** did not exist **, use the ** command ** again."
+    },
+    "vip": {
+        "mentionBot": "<:bot:570319734147645450> {{member}}, A bot ** does not ** have ** voting points **.",
+        "warnon": "✅ ** You ** will now ** be warned ** when you receive your ** voting points **.",
+        "warnoff": "❌ ** You ** will not ** receive ** more notices from your ** voting points **.",
+        "give": {
+            "to": "server",
+            "noArgs": "😕 {{member}}, Tell ** where ** you want to send your ** voting points**.",
+            "noCount": "😒 {{member}}, Specify ** a ** amount of ** donation points **.",
+            "isNaN": "😒 {{member}}, The ** number of points to donate ** must be a ** number **.",
+            "bellow0":" 😒 {{member}}, The ** number of points to donate ** can not be ** 0 ** or ** less than 0 **.",
+            "insufficientPoints": "😶 {{member}}, You ** do not have ** this amount of ** voting points **.",
+            "given":"<:guildPoint:582974169663275218> {{member}}, ** You ** just ** give ** `{{points}} points to '{{mention}}`.",
+            "mentionYou": "😕 {{member}}, You ** can ** not ** cast ** voting points ** for yourself."
+        },
+        "noUserDB":"😕 The ** mentioned user ** is ** not ** registered ** in my ** database **. Try ** to use ** command ** again **.",
+        "vipOff": "vote to buy",
+        "descStart": "<:votePoint:582973181711613962> ** Vip points: ** {{userPoints}} \n <: guildPoint: 582974169663275218> ** Server Points: ** {{guildPoints}} \n <: vip: 582981311757549607 ** Vip: ** {{{ vip}}",
+        "vantages": {
+            "title": "<:vip:582981311757549607> Benefits:",
+            "desc": "- ** ** Bonuses ** to ** collect  \n- ** Special ** positions ** on ** configured servers **. \n- Receipt of ** vote points ** with each vote."
+        },
+        "support": {
+            "title": "<:bot:570319734147645450> Subcommands:",
+            "desc": "`{{prefix}}vip warn` - to be notified when receiving polling points \n` {{prefix}} vip give <member-mention / id> <number> `- donate points to someone. \n` {{prefix}} vip give guild <quantity>` - give points to the server and release functions.",
+            "field": {
+                "title": "<:guildPoint:582974169663275218>Acquiring vip and voting points:",
+                "desc": "**[BOTS FOR DISCORD](https://botsparadiscord.xyz/bots/507292506942210048/votar) (vote - 3.0 pontos)\n[DISCORD BOT LIST](https://discordbots.org/bot/507292506942210048/vote) (vote - 1.5 pontos)\n[MY BOT LIST](https://mybotlist.xyz/view/507292506942210048) (to favor - 5.0 pontos)**"
+            }
+        }
+    }
+}
