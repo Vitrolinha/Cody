@@ -51,6 +51,14 @@
         "activated": "✅ O comando `{{cmd}}` entrou para à **manutenção**.",
         "disabled": "❌ O comando `{{cmd}}` saiu da **manutenção**."
     },
+    "broadcasteval": {
+        "noPermission": "😒 Você **precisa** ser um `owner`, `subowner` ou `operator` para usar **este** comando.",
+        "noCode": "🙄 É necessário **inserir** um código para execução.",
+        "code": "💿 Código:",
+        "result": "📀 Resultado:",
+        "footer": "Shard: {{page}}/{{total}}",
+        "error": "⚠ Erro:"
+    },
     "clear": {
         "noArgs": "🙄 Você **precisa** citar a **quantidade de mensagens** à serem **deletadas**.",
         "noPermission":"😕 É **necessário** possuir a **permissão** `GERENCIAR MENSAGENS`.",

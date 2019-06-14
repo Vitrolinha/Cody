@@ -30,7 +30,7 @@ module.exports = class Lock extends command {
             await msg.react('⬅')
             await msg.react('➡')
             await msg.react('❌')
-            var force = false
+            let force = false
             const anterior = msg.createReactionCollector((r, u) => r.emoji.name === "⬅" && u.id === message.author.id, { time: 60000 });
             const proxima = msg.createReactionCollector((r, u) => r.emoji.name === "➡" && u.id === message.author.id, { time: 60000 });
             const finalizar = msg.createReactionCollector((r, u) => r.emoji.name === "❌" && u.id === message.author.id, { time: 60000 });

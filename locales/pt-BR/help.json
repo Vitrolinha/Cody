@@ -103,5 +103,10 @@
         "desc": "Proíba um usuário de escrever no servidor temporáriamente.",
         "howToUse": "{{prefix}}tempmute <mention> <time>",
         "category": 2
+    },
+    "vip": {
+        "desc": "Veja suas informações vip e seus pontos de votação.",
+        "howToUse": "{{prefix}}vip\n{{prefix}}vip warn\n{{prefix}}vip give <user-mention/id> <count>\n{{prefix}}vip give guild <count>",
+        "category": 1
     }
 }
