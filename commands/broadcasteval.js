@@ -77,7 +77,7 @@ module.exports = class Eval extends command {
                     finalizar.emit('end')
                 })
             })
-        } catch(e) {
+        } catch(err) {
             embed.addField(t('comandos:broadcasteval.code'), `\`\`\`${code}\`\`\``, false)
             embed.addField(t('comandos:broadcasteval.error'), `\`\`\`${err}\`\`\``, false)
             embed.setColor(16711680)
