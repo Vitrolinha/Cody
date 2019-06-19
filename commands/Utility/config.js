@@ -1,8 +1,8 @@
-const { command } = require('../utils')
-const inWindowCmdChannel = []
-const inWindowSugest = []
+const { command } = require('../../utils'),
+    inWindowCmdChannel = [],
+    inWindowSugest = [];
 
-module.exports = class Config extends command {
+module.exports = class extends command {
     constructor (name, client) {
         super (name, client)
         this.aliases = ['configurar']

@@ -180,7 +180,7 @@
         "howToUse": "📋 Como usar:",
         "howDesc": "`{{prefix}}give <menção> <quantidade>` - doe codes para um usuário.",
         "mentionYou": "😕 {{member}}, Você **não pode** dar **codes** para sí mesmo.",
-        "noUserDB":"😶 O **usuário mencionado** parece **não** estar registrado em meu **banco de dados**, tente usar o comando novamente.",
+        "mentionBot": "<:bot:570319734147645450> {{member}}, Você **não pode doar** codes para um **bot**.",
         "isNaN":"😒 O **valor a doar** deve ser um **número**.",
         "insufficientCodes":"<:code:569367293729964032> {{member}}, **Você** não possui **está** quantidade de **codes** para dar.",
         "bellow0": "😒 O **valor a doar** não pode ser **0** ou **menor que 0**.",

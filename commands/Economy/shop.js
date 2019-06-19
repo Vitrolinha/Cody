@@ -1,7 +1,7 @@
-const { command } = require('../utils')
-const inWindow = []
+const { command } = require('../../utils'),
+    inWindow = [];
 
-module.exports = class Shop extends command {
+module.exports = class extends command {
     constructor (name, client) {
         super (name, client)
         this.aliases = ['loja', 'comprar', 'buy']
@@ -29,29 +29,29 @@ module.exports = class Shop extends command {
             count: false,
             num: 4
         }]
-        let totalPages = parseInt(produtos.length/10)
-        let pagina = 1
-        let genEmbed = async (cnt) => {
-            let productsMap = produtos.map(produto => `${produto.num} - **${produto.name}** \`${Number(produto.price).toLocaleString()} codes\``).slice((cnt.page*10)-10,cnt.page*10).join('\n')
-            let embed = new this.client.Discord.RichEmbed()
-                .setTitle(t('comandos:shop.menu.title'))
-                .setDescription(t('comandos:shop.menu.desc', { prefix: prefix, products: productsMap }))
-                .setThumbnail(this.client.user.displayAvatarURL)
-                .setTimestamp(new Date())
-                .setFooter(t('comandos:shop.menu.footer', { page: cnt.page, total: totalPages + 1 }))
-                .setColor(5289)
-            return embed;
-        }
+        let totalPages = parseInt(produtos.length/10),
+            pagina = 1,
+            genEmbed = async (cnt) => {
+                let productsMap = produtos.map(produto => `${produto.num} - **${produto.name}** \`${Number(produto.price).toLocaleString()} codes\``).slice((cnt.page*10)-10,cnt.page*10).join('\n'),
+                    embed = new this.client.Discord.RichEmbed()
+                        .setTitle(t('comandos:shop.menu.title'))
+                        .setDescription(t('comandos:shop.menu.desc', { prefix: prefix, products: productsMap }))
+                        .setThumbnail(this.client.user.displayAvatarURL)
+                        .setTimestamp(new Date())
+                        .setFooter(t('comandos:shop.menu.footer', { page: cnt.page, total: totalPages + 1 }))
+                        .setColor(5289);
+                return embed;
+            };
         if(!argsAlt[0]) {
             message.channel.send(await genEmbed({page: pagina})).then(async msg => {
                 if(totalPages === 0) return;
                 await msg.react('⬅')
                 await msg.react('➡')
                 await msg.react('❌')
-                var force = false
-                const anterior = msg.createReactionCollector((r, u) => r.emoji.name === "⬅" && u.id === message.author.id, { time: 60000 });
-                const proxima = msg.createReactionCollector((r, u) => r.emoji.name === "➡" && u.id === message.author.id, { time: 60000 });
-                const finalizar = msg.createReactionCollector((r, u) => r.emoji.name === "❌" && u.id === message.author.id, { time: 60000 });
+                let force = false
+                const anterior = msg.createReactionCollector((r, u) => r.emoji.name === "⬅" && u.id === message.author.id, { time: 60000 }),
+                    proxima = msg.createReactionCollector((r, u) => r.emoji.name === "➡" && u.id === message.author.id, { time: 60000 }),
+                    finalizar = msg.createReactionCollector((r, u) => r.emoji.name === "❌" && u.id === message.author.id, { time: 60000 });
                 inWindow.push(message.author.id)
                 anterior.on('collect', async r => {
                     r.remove(r.users.last().id).catch(e => {})
@@ -93,8 +93,8 @@ module.exports = class Shop extends command {
             })
         } else {
             if(!produtos.find(produto => produto.num === parseInt(argsAlt.join(' ')))) return message.channel.send(t('comandos:shop.productDoesNotExist', { member: message.member }))
-            let produto = await produtos.find(produto => produto.num === parseInt(argsAlt.join(' ')))
-            let count = produto.count ? argsAlt[1] ? !isNaN(argsAlt[1]) ? parseInt(argsAlt[1]) > 0 ? parseInt(argsAlt[1]) : 1 : 1 : 1 : 1
+            let produto = await produtos.find(produto => produto.num === parseInt(argsAlt.join(' '))),
+                count = produto.count ? argsAlt[1] ? !isNaN(argsAlt[1]) ? parseInt(argsAlt[1]) > 0 ? parseInt(argsAlt[1]) : 1 : 1 : 1 : 1;
             count = parseInt(parseInt(usuario.economy.get('codes'))/produto.price) >= count ? count : parseInt(parseInt(usuario.economy.get('codes'))/produto.price) 
             let price = produto.price * count
             if(count === 0) return message.channel.send(t('comandos:shop.insufficientCodes', { member: message.member, codes: Number(produto.price - usuario.economy.get('codes')).toLocaleString() }))

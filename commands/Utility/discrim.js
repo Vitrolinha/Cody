@@ -1,7 +1,7 @@
-const { command } = require('../utils')
-const inWindow = []
+const { command } = require('../../utils'),
+    inWindow = [];
 
-module.exports = class Lock extends command {
+module.exports = class extends command {
     constructor (name, client) {
         super (name, client)
         this.aliases = ['discriminator', 'discriminador']

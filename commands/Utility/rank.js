@@ -1,7 +1,7 @@
-const { command } = require('../utils')
-const inWindow = []
+const { command } = require('../../utils'),
+    inWindow = [];
 
-module.exports = class Rank extends command {
+module.exports = class extends command {
     constructor (name, client) {
         super (name, client)
         this.aliases = ['top']

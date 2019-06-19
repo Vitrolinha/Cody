@@ -1,6 +1,6 @@
-const { command } = require('../utils')
+const { command } = require('../../utils');
 
-module.exports = class Concierge extends command {
+module.exports = class extends command {
     constructor (name, client) {
         super (name, client)
         this.aliases = ['portaria']

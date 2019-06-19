@@ -1,5 +1,5 @@
-const { command } = require('../utils')
-const inWindow = []
+const { command } = require('../../utils'),
+    inWindow = [];
 
 module.exports = class Staff extends command {
     constructor (name, client) {

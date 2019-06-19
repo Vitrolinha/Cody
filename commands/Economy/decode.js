@@ -1,14 +1,14 @@
-const { command } = require('../utils')
+const { command } = require('../../utils');
 
-module.exports = class Decode extends command {
+module.exports = class extends command {
     constructor (name, client) {
         super (name, client)
         this.aliases = ['decoder' ,'decodificar']
     }
     async run ({message, usuario}, t) {
-        let total = Date.now() - (Math.floor(usuario.economy.get('damaged')).lastDamaged + Math.floor(usuario.economy.get('damaged').time))
-        let horas = Math.floor(total/60/60)
-        let minutos = Math.floor(total/60-horas*60)
+        let total = Date.now() - (Math.floor(usuario.economy.get('damaged')).lastDamaged + Math.floor(usuario.economy.get('damaged').time)),
+            horas = Math.floor(total/60/60),
+            minutos = Math.floor(total/60-horas*60);
         if(usuario.economy.get('damaged').on) return message.channel.send(t('comandos:decode.damaged', { member: message.member, hours: horas, minutes: minutos }));
         let minutes = parseInt(((1800000 - (Date.now() - usuario.economy.get('lastDecode')))/1000)/60)
         if(parseInt(((Date.now() - usuario.economy.get('lastDecode'))/1800000)) === 0) return message.channel.send(t('comandos:decode.nothingToCollect', { member: message.member, codes: Number(usuario.economy.get('decoders') * 1000).toLocaleString(), time: minutes }));
@@ -16,8 +16,8 @@ module.exports = class Decode extends command {
         if(codes >= (usuario.economy.get('decoders') * 25000)) {
             codes = usuario.economy.get('decoders') * 25000
         }
-        let bonus = usuario.vip.get('on') ? codes/2 : 0
-        let restante = parseInt(usuario.economy.get('lastDecode')) === Date.now() ? 0 : parseInt(parseInt((Date.now() - usuario.economy.get('lastDecode'))/1800000)*1800000)
+        let bonus = usuario.vip.get('on') ? codes/2 : 0,
+            restante = parseInt(usuario.economy.get('lastDecode')) === Date.now() ? 0 : parseInt(parseInt((Date.now() - usuario.economy.get('lastDecode'))/1800000)*1800000);
         usuario.economy.set('codes', (usuario.economy.get('codes') + codes + bonus))
         usuario.economy.set('lastDecode', (parseInt(usuario.economy.get('lastDecode')) + restante).toString())
         usuario.economy.set('warned', false)

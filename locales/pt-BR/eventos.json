@@ -1,7 +1,6 @@
 {
     "channelBlocked": "😕 {{member}}, é proibido o **uso de comandos** neste canal.",
     "cmdCooldown": "🙄 {{member}}, aguarde **{{seconds}}** segundos e **{{thousandth}}** milissegundos para usar outro comando.",
-    "noCmdDB": "🤗 O **comando** `{{cmd}}` parece não estar **registrado**, tente usa-lo **novamente**.",
     "voteInBPD": "😕 Olá {{member}}, se você **gosta** de usar **meus comandos**, vote no **bot** e ganhe **comandos/funções** exclusivas para **você**: https://botsparadiscord.xyz/bots/507292506942210048/votar",
     "cmdInManu": "😕 O **comando** `{{cmd}}` está em **manutenção**",
     "mentionBot": "🤗 Olá {{member}}, meu **prefixo** no servidor é `{{prefix}}`, use **{{prefix}}help** para saber **meus comandos**.",

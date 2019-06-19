@@ -1,6 +1,6 @@
-const { command } = require('../utils')
+const { command } = require('../../utils');
 
-module.exports = class Info extends command {
+module.exports = class extends command {
     constructor (name, client) {
         super (name, client)
         this.aliases = ['information']
@@ -16,9 +16,9 @@ module.exports = class Info extends command {
                 name: 'bots para discord',
                 link: 'https://botsparadiscord.xyz/bots/507292506942210048/votar'
             }]
-            let guildsSize = await this.client.guildsAlt.size()
-            let channelsSize = await this.client.channelsAlt.size()
-            let usersSize = await this.client.usersAlt.size()
+            let guildsSize = await this.client.shardsValue('guilds.size')
+            let channelsSize = await this.client.shardsValue('channels.size')
+            let usersSize = await this.client.shardsValue('users.size')
             let total = Math.floor(this.client.uptime/1000)
             let horas = Math.floor(total/60/60)
             let tmp = Math.floor(total/60)

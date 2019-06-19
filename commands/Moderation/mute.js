@@ -1,6 +1,6 @@
-const { command } = require('../utils')
+const { command } = require('../../utils');
 
-module.exports = class Mute extends command {
+module.exports = class extends command {
     constructor (name, client) {
         super (name, client)
         this.aliases = ['mutar', 'silenciar']
@@ -15,8 +15,7 @@ module.exports = class Mute extends command {
         if(message.guild.roles.find(role => role.name === roleName)) {
             let role = await message.guild.roles.find(role => role.name === roleName)
             if(!member.roles.get(role.id)) {
-                if(message.member.highestRole.position <= role.position && message.guild.owner.id !== message.author.id) return message.channel.send(t('comandos:mute.topRole', { role: roleName }))
-                if(message.guild.me.highestRole.position <= role.position) return message.channel.send(t('comandos:mute.topRole', { role: roleName }))
+                if(message.member.highestRole.position <= role.position && message.guild.me.highestRole.position <= role.position && message.guild.owner.id !== message.author.id) return message.channel.send(t('comandos:mute.topRole', { role: roleName }))
                 await member.addRole(role.id)
                 if(!servidor.muteds.find(muted => muted.id === member.id)) {
                     servidor.muteds.push({ id: member.id, temp: false, date: '0000000000000', time: '0000000000000' })

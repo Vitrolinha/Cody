@@ -1,6 +1,6 @@
-const { command } = require('../utils')
+const { command } = require('../../utils');
 
-module.exports = class Eval extends command {
+module.exports = class extends command {
     constructor (name, client) {
         super (name, client)
         this.aliases = ['beval', 'bval']
@@ -62,15 +62,11 @@ module.exports = class Eval extends command {
                 })
                 finalizar.on('collect', async r => {
                     force = true
-                    msg.delete().catch(e => {})
-                    message.delete().catch(e => {})
                     anterior.emit('end')
                     proxima.emit('end')
                     finalizar.emit('end')
                 })
                 finalizar.on('end', async r => {
-                    msg.delete().catch(e => {})
-                    message.delete().catch(e => {})
                     if(force) return;
                     anterior.emit('end')
                     proxima.emit('end')

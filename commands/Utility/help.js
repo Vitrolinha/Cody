@@ -1,21 +1,21 @@
-const { command } = require('../utils')
-const inWindow = []
+const { command } = require('../../utils'),
+  inWindow = [];
 
-module.exports = class Help extends command {
+module.exports = class extends command {
     constructor (name, client) {
         super (name, client)
         this.aliases = ['h', 'ajuda', 'comandos', 'commands']
     }
     async run ({message, argsAlt, prefix}, t) {
         let comandos = []
-        let files = this.client.fs.readdirSync('./commands');
+        let commands = this.client.commands.array()
         let maintenanceCommands = await this.client.database.Commands.find({'maintenance': true})
-        files.forEach(file => {
+        commands.forEach(commandArr => {
           comandos.push({
-            name: file.split(".")[0],
-            desc: t(`help:${file.split(".")[0]}.desc`),
-            aliases: this.client.commands.get(file.split(".")[0]).aliases,
-            category: maintenanceCommands.find(cmd => cmd._id === file.split(".")[0]) ? 0 : parseInt(t(`help:${file.split(".")[0]}.category`))
+            name: commandArr.name,
+            desc: t(`help:${commandArr.name}.desc`),
+            aliases: commandArr.aliases,
+            category: maintenanceCommands.find(cmd => cmd._id === commandArr.name) ? 0 : parseInt(t(`help:${commandArr.name}.category`))
           })
         })
         let commandAlt = argsAlt[0] ? this.client.commands.find(c => c.name === argsAlt[0] || c.aliases.includes(argsAlt[0])) : false
