@@ -53,6 +53,8 @@ module.exports = class extends command {
                 userDB2.save()
                 message.channel.send(t('comandos:vip.give.given', { member: message.member, mention: user2.tag, points: (count) }))
             }
+        } else if(argsAlt[0] && argsAlt[0].toLowerCase() === 'shop') {
+            
         } else {
             let total = Math.floor(((parseInt(userDB.vip.get('date')) + parseInt(userDB.vip.get('time'))) - Date.now())/1000),
                 horas = Math.floor(total/60/60),

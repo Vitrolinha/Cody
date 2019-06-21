@@ -19,15 +19,21 @@ module.exports = class extends command {
             count: true,
             num: 2
         }, {
+            name: t('comandos:shop.products.processor'),
+            price: 3500000,
+            count: false,
+            arrStr: 'processor',
+            num: 3
+        }, {
             name: t('comandos:shop.products.computer'),
             price: 1800000,
             count: false,
-            num: 3
+            num: 4
         }, {
             name: t('comandos:shop.products.internet'),
             price: 500000,
             count: false,
-            num: 4
+            num: 5
         }]
         let totalPages = parseInt(produtos.length/10),
             pagina = 1,
@@ -120,12 +126,18 @@ module.exports = class extends command {
                 usuario.save()
                 message.channel.send(purchased)
             } else if(produto.num === 3) {
+                if(usuario.altBought.includes(produto.arrStr)) return message.channel.send(t('comandos:shop.alreadyBuyed', { member: message.member }))
+                usuario.economy.set('codes', (usuario.economy.get('codes') - price))
+                usuario.altBought.push(produto.arrStr)
+                usuario.save()
+                message.channel.send(purchased)
+            } else if(produto.num === 4) {
                 if(usuario.setup.get('buyed')) return message.channel.send(t('comandos:shop.alreadyBuyed', { member: message.member }))
                 usuario.economy.set('codes', (usuario.economy.get('codes') - price))
                 usuario.setup.set('buyed', true)
                 usuario.save()
                 message.channel.send(purchased)
-            } else if(produto.num === 4) {
+            } else if(produto.num === 5) {
                 if(usuario.setup.get('internet').buyed) return message.channel.send(t('comandos:shop.alreadyBuyed', { member: message.member }))
                 usuario.economy.set('codes', (usuario.economy.get('codes') - price))
                 usuario.setup.get('internet').buyed = true

@@ -10,8 +10,9 @@ module.exports = class extends command {
             horas = Math.floor(total/60/60),
             minutos = Math.floor(total/60-horas*60);
         if(usuario.economy.get('damaged').on) return message.channel.send(t('comandos:decode.damaged', { member: message.member, hours: horas, minutes: minutos }));
-        let minutes = parseInt(((1800000 - (Date.now() - usuario.economy.get('lastDecode')))/1000)/60)
-        if(parseInt(((Date.now() - usuario.economy.get('lastDecode'))/1800000)) === 0) return message.channel.send(t('comandos:decode.nothingToCollect', { member: message.member, codes: Number(usuario.economy.get('decoders') * 1000).toLocaleString(), time: minutes }));
+        let coldown = usuario.altBought.includes('processor') ? 900000 : 1800000
+        let minutes = parseInt(((coldown - (Date.now() - usuario.economy.get('lastDecode')))/1000)/60)
+        if(parseInt(((Date.now() - usuario.economy.get('lastDecode'))/coldown)) === 0) return message.channel.send(t('comandos:decode.nothingToCollect', { member: message.member, codes: Number(usuario.economy.get('decoders') * 1000).toLocaleString(), time: minutes }));
         let codes = parseInt(usuario.economy.get('lastDecode')) === 0 ? usuario.economy.get('decoders') * 1000 : (parseInt((Date.now() - usuario.economy.get('lastDecode'))/1800000) * (usuario.economy.get('decoders') * 1000))
         if(codes >= (usuario.economy.get('decoders') * 25000)) {
             codes = usuario.economy.get('decoders') * 25000

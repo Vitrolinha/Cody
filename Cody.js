@@ -74,6 +74,7 @@ module.exports = class Cody extends Client {
                     _id: doc.content.id,
                     economy: { codes: 0, decoders: 1, lastDecode: '0000000000000', capacitors: 1, warned: true, warns: false, damaged: { on: false, time: '0000000000000', lastDamaged: '0000000000000' } },
                     setup: { buyed: false, internet: { buyed: false, lastPayment: '0000000000000' } },
+                    altBought: [],
                     banned: { ban: false, tempban: false, time: 0 },
                     cargos: { owner: false, subowner: false, operator: false, developer: false, supervisor: false, designer: false },
                     vip: { on: false, time: '0000000000000', date: '0000000000000', votePoints: 0, warned: true, warns: true, verify: { day: 0, given: false, dbl: 0, bpd: 0, mbl: false } }
@@ -93,7 +94,8 @@ module.exports = class Cody extends Client {
                     muteds: [],
                     lockedChannels: [],
                     allowedChannels: [],
-                    votePoints: 0
+                    votePoints: 0,
+                    vipBought: []
                 }); await servidor.save(); return servidor;
                 break;
             case 3:

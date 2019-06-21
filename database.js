@@ -19,6 +19,10 @@ const User = new Schema({
     type: Map,
     default: { buyed: false, internet: { buyed: false, lastPayment: '0000000000000' } }
   },
+  altBought: {
+    type: Array,
+    default: []
+  },
   banned: {
     type: Map,
     default: { ban: false, tempban: false, time: 0 }
@@ -84,6 +88,10 @@ const Guild = new Schema({
   votePoints: {
     type: Number,
     default: 0
+  },
+  vipBought: {
+    type: Array,
+    default: []
   }
 })
 
