@@ -17,7 +17,8 @@ module.exports = class extends command {
             let msg = onf ? t('comandos:codes.warnon') : t('comandos:codes.warnoff')
             message.channel.send(msg)
         } else {
-            let codes = parseInt(userDB.economy.get('lastDecode')) === 0 ? userDB.economy.get('decoders') * 1000 : (parseInt((Date.now() - userDB.economy.get('lastDecode'))/1800000) * (userDB.economy.get('decoders') * 1000))
+            let coldown = usuario.altBought.includes('processor') ? 900000 : 1800000
+            let codes = parseInt(userDB.economy.get('lastDecode')) === 0 ? userDB.economy.get('decoders') * 1000 : (parseInt((Date.now() - userDB.economy.get('lastDecode'))/coldown) * (userDB.economy.get('decoders') * 1000))
             if(codes >= (userDB.economy.get('decoders') * 25000)) {
                 codes = userDB.economy.get('decoders') * 25000
             }
