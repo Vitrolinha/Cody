@@ -14,18 +14,18 @@ module.exports = class extends command {
           comandos.push({
             name: commandArr.name,
             desc: t(`help:${commandArr.name}.desc`),
-            aliases: commandArr.aliases,
+            aliases: commandArr.aliases.filter(aliase => !aliase.startsWith('$HIDE')),
             category: maintenanceCommands.find(cmd => cmd._id === commandArr.name) ? 0 : parseInt(t(`help:${commandArr.name}.category`))
           })
         })
-        let commandAlt = argsAlt[0] ? this.client.commands.find(c => c.name === argsAlt[0] || c.aliases.includes(argsAlt[0])) : false
+        let commandAlt = argsAlt[0] ? this.client.commands.find(c => c.name === argsAlt[0] || c.aliases.includes(argsAlt[0].replace('$HIDE', ''))) : false
         if(commandAlt && t(`help:${commandAlt.name.toLowerCase()}.desc`) !== `${commandAlt.name.toLowerCase()}.desc`) {
           let cmdName = commandAlt.name.toLowerCase()
           let embed = new this.client.Discord.RichEmbed()
             .setTitle(`🖇 ${await this.client.firstUpperLetter(cmdName)}:`)
             .setDescription(t(`help:${cmdName}.desc`))
             .addField(t('comandos:help.howToUse'), '```a\n' + t(`help:${cmdName}.howToUse`, { prefix: prefix }) + '```')
-            .addField(t('comandos:help.aliases'), comandos.filter(command => command.name === cmdName)[0].aliases.length > 0 ? '```' + comandos.filter(command => command.name === cmdName)[0].aliases.map(aliase => prefix + aliase).join('\n') + '```' : t('comandos:help.notHaveAliases'))
+            .addField(t('comandos:help.aliases'), comandos.filter(command => command.name === cmdName)[0].aliases.length > 0 ? '```' + comandos.filter(command => command.name === cmdName)[0].aliases.filter(aliase => !aliase.startsWith('$HIDE')).map(aliase => prefix + aliase).join('\n') + '```' : t('comandos:help.notHaveAliases'))
             .setThumbnail(this.client.user.displayAvatarURL)
             .setTimestamp(new Date())
             .setFooter(message.author.username, message.author.displayAvatarURL)
@@ -38,6 +38,7 @@ module.exports = class extends command {
             .addField(t('comandos:help.utilities', { count: comandos.filter(cmd => cmd.category === 1).length }), `\`${comandos.filter(cmd => cmd.category === 1).map(cmd => cmd.name).join('`, `')}\``)
             .addField(t('comandos:help.moderation', { count: comandos.filter(cmd => cmd.category === 2).length }), `\`${comandos.filter(cmd => cmd.category === 2).map(cmd => cmd.name).join('`, `')}\``)
             .addField(t('comandos:help.economy', { count: comandos.filter(cmd => cmd.category === 3).length }), `\`${comandos.filter(cmd => cmd.category === 3).map(cmd => cmd.name).join('`, `')}\``)
+            .addField(t('comandos:help.fun', { count: comandos.filter(cmd => cmd.category === 4).length }), `\`${comandos.filter(cmd => cmd.category === 4).map(cmd => cmd.name).join('`, `')}\``)
             .setThumbnail(this.client.user.displayAvatarURL)
             .setTimestamp(new Date())
             .setFooter(message.author.username, message.author.displayAvatarURL)
@@ -52,6 +53,7 @@ module.exports = class extends command {
               await msg.react('🔦')
               await msg.react('⚒')
               await msg.react('💰')
+              await msg.react('😜')
               if(comandos.filter(cmd => cmd.category === 0).length !== 0) {
                 await msg.react('⚠')
               }
@@ -61,6 +63,7 @@ module.exports = class extends command {
               const utilities = msg.createReactionCollector((r, u) => r.emoji.name === "🔦" && u.id === message.author.id, { time: 120000 });
               const moderation = msg.createReactionCollector((r, u) => r.emoji.name === "⚒" && u.id === message.author.id, { time: 120000 });
               const economy = msg.createReactionCollector((r, u) => r.emoji.name === "💰" && u.id === message.author.id, { time: 120000 });
+              const fun = msg.createReactionCollector((r, u) => r.emoji.name === "😜" && u.id === message.author.id, { time: 120000 });
               const maintenance = msg.createReactionCollector((r, u) => r.emoji.name === "⚠" && u.id === message.author.id, { time: 120000 });
               const voltar = msg.createReactionCollector((r, u) => r.emoji.name === "↩" && u.id === message.author.id, { time: 120000 });        
               let embed = new this.client.Discord.RichEmbed()
@@ -84,6 +87,12 @@ module.exports = class extends command {
                 r.remove(r.users.last().id).catch(e => {})
                 embed.setTitle(t(`comandos:help.economy`, { count: comandos.filter(cmd => cmd.category === 3).length }))
                 embed.setDescription(comandos.filter(cmd => cmd.category === 3).map(cmd => `**${cmd.name}** - ${cmd.desc.toLowerCase()}`).join('\n'))
+                msg.edit(embed)
+              })
+              fun.on('collect', async r => {
+                r.remove(r.users.last().id).catch(e => {})
+                embed.setTitle(t(`comandos:help.economy`, { count: comandos.filter(cmd => cmd.category === 4).length }))
+                embed.setDescription(comandos.filter(cmd => cmd.category === 4).map(cmd => `**${cmd.name}** - ${cmd.desc.toLowerCase()}`).join('\n'))
                 msg.edit(embed)
               })
               maintenance.on('collect', async r => {

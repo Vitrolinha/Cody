@@ -35,7 +35,7 @@ module.exports = async function (message) {
             }
             try {
                 let prefix = servidor.prefix,
-                    commandRun = this.commands.find(c => c.name === command || c.aliases.includes(command));
+                    commandRun = this.commands.find(c => c.name === command || c.aliases.includes(command) || c.aliases.includes(`$HIDE${command}`));
                 if (commandRun) {
                     if(servidor.allowedChannels.length === 0 || !servidor.allowedChannels.includes(message.channel.id) || (await this.verPerm(['MANAGE_MESSAGES', 'owner', 'subowner', 'developer', 'supervisor', 'designer'], false, usuario))) {
                         let cmdColdown;

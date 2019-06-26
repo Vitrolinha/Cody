@@ -3,7 +3,7 @@ const { command } = require('../../utils');
 module.exports = class extends command {
     constructor (name, client) {
         super (name, client)
-        this.aliases = ['decoder' ,'decodificar']
+        this.aliases = ['decoder' ,'decodificar', '$HIDEdecodes']
     }
     async run ({message, usuario}, t) {
         let total = Date.now() - (Math.floor(usuario.economy.get('damaged')).lastDamaged + Math.floor(usuario.economy.get('damaged').time)),

@@ -54,6 +54,11 @@
         "howToUse": "{{prefix}}help\n{{prefix}}help <command-name>",
         "category": 1
     },
+    "hug": {
+        "desc": "Dê um abraço em algum usuário.",
+        "howToUse": "{{prefix}}hug <mention-user>\n{{prefix}}hug <user-id>",
+        "category": 4
+    },
     "info": {
         "desc": "Visualize várias informações gerais sobre o bot.",
         "howToUse": "{{prefix}}info",
