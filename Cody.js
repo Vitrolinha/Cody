@@ -47,14 +47,12 @@ module.exports = class Cody extends Client {
         return value.reduce((a, b) => a + b, 0);
     };
     async setVotes () {
-        // if(this.user.id !== this.config.codyID) return this.totalVotes = 0;
-        let dblJson = await this.dbl.getBot('507292506942210048')
-        let bpdJson = await this.fetch(`https://api.botsparadiscord.xyz/bots/507292506942210048/info`, { 
+        if(this.user.id !== this.config.codyID) return this.totalVotes = 0;
+        let dblJson = await this.dbl.getBot(this.user.id)
+        let bpdJson = await this.fetch(`https://api.botsparadiscord.xyz/bots/${this.user.id}/info`, { 
             method: 'GET',
             headers: {'Authorization': process.env.bpd}
         }).then(res => res.json())
-        console.log(dblJson)
-        console.log(bpdJson)
         this.totalVotes = dblJson.monthlyPoints + bpdJson.votes
     };
     async shardLog (cnt) {
