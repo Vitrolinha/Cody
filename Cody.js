@@ -1,5 +1,5 @@
 const { Client, Collection } = require('discord.js')
-const { readdirSync, statSync } = require('fs')
+const { readdirSync, statSync, readFile } = require('fs')
 module.exports = class Cody extends Client {
     constructor (options = {}) {
         super (options)
@@ -47,13 +47,15 @@ module.exports = class Cody extends Client {
         return value.reduce((a, b) => a + b, 0);
     };
     async setVotes () {
-        if(this.user.id !== this.config.codyID) return this.totalVotes = 0;
-        let dblJson = await this.dbl.getBot(this.user.id)
-        let bpdJson = await this.fetch(`https://api.botsparadiscord.xyz/bots/${this.user.id}/info`, { 
+        // if(this.user.id !== this.config.codyID) return this.totalVotes = 0;
+        let dblJson = await this.dbl.getBot('507292506942210048')
+        let bpdJson = await this.fetch(`https://api.botsparadiscord.xyz/bots/507292506942210048/info`, { 
             method: 'GET',
             headers: {'Authorization': process.env.bpd}
         }).then(res => res.json())
-        this.totalVotes = dblJson.points + bpdJson.votes
+        console.log(dblJson)
+        console.log(bpdJson)
+        this.totalVotes = dblJson.monthlyPoints + bpdJson.votes
     };
     async shardLog (cnt) {
         cnt = `Shard ${this.shard.id + 1}: ${cnt}`
@@ -116,6 +118,18 @@ module.exports = class Cody extends Client {
                     reason: doc.reason,
                     date: Date.now()
                 }); await formulario.save(); return formulario;
+                break;
+            case 5:
+                const shipCheck1 = await this.database.Ships.findOne({'_id': doc.id1 + doc.id2})
+                const shipCheck2 = await this.database.Ships.findOne({'_id': doc.id2 + doc.id1})
+                const shipCheck3 = shipCheck1 ? shipCheck1 : shipCheck2 ? shipCheck2 : null
+                if (shipCheck1 || shipCheck2) return shipCheck3;
+                const ship = new this.database.Ships({
+                    _id: doc.id1 + doc.id2,
+                    user1: doc.id1,
+                    user2: doc.id2,
+                    percentage: parseInt((Math.random() * 99) + 1)
+                }); await ship.save(); return ship;
                 break;
         };
     };
@@ -183,9 +197,9 @@ module.exports = class Cody extends Client {
                 if (file.endsWith('.js')) {
                     const Command = require(filePath)
                     const commandName = file.replace(/.js/g,'').toLowerCase()
-                    const command = new Command(commandName, this)
-                    this.commands.set(commandName, command)
-                } else if (statSync(filePath).isDirectory()) {
+                    const command = new Command(commandName, this, filePath)
+                    this.commands.set(commandName, command, filePath)
+                } else if (statSync(filePath).isDirectory()) { // ./commands/Utility/avatar.js
                     this.initializeCommands(filePath)
                 }
             } catch (error) {
@@ -193,6 +207,39 @@ module.exports = class Cody extends Client {
             }
         })
     };
+
+    async reload(commandsName) {
+        let arrayCmds = []
+        if(commandsName instanceof Array || commandsName instanceof Set) {
+            for(const cmds of commandsName) {
+                arrayCmds.push(cmds)
+                isReload(cmds, this, readdirSync)
+            }
+        } else {
+            arrayCmds.push(commandsName)
+            isReload(commandsName, this, readdirSync)
+        }
+        async function isReload(commandsName, client,readdirSync){
+            const pathReload = './commands'
+            readdirSync(pathReload).forEach(file => {
+                readdirSync(`${pathReload}/${file}`).forEach(files => {
+                    if(!files.endsWith('.js')) return;
+                    const parseName = files.replace('.js', '')
+                    const getCommand = client.commands.get(commandsName)
+                    if(parseName === getCommand.name) {
+                        const path = `${pathReload}/${file}/${files}`
+                        delete require.cache[require.resolve(path)]
+                        const Command = require(path)
+                        if(!Command) return;
+                        const commandName = files.replace(/.js/g, '').toLowerCase()
+                        const command = new Command(commandName, client, path)
+                        client.commands.set(commandName, command, path)             
+                    }
+                })
+            })
+        }
+        return await arrayCmds
+    }
     initializeEvents (path) {
         readdirSync(path).forEach(file => {
             try {

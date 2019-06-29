@@ -2,8 +2,8 @@ const { command } = require('../../utils'),
     inWindow = [];
 
 module.exports = class Staff extends command {
-    constructor (name, client) {
-        super (name, client)
+    constructor (name, client, locale) {
+        super (name, client, locale)
     }
     async run ({message, args, usuario, prefix}, t) {
         if(args[0] && args[0].toLowerCase() === 'form') {

@@ -95,6 +95,22 @@ const Guild = new Schema({
   }
 })
 
+const Ship = new Schema({
+  _id: {
+    type: String
+  },
+  user1: {
+    type: String
+  },
+  user2: {
+    type: String
+  },
+  percentage: {
+    type: Number,
+    default: 0
+  }
+})
+
 const Command = new Schema({
   _id: {
     type: String
@@ -128,7 +144,9 @@ const Users = mongoose.model('Users', User)
 const Guilds = mongoose.model('Guilds', Guild)
 const Commands = mongoose.model('Commands', Command)
 const Forms = mongoose.model('Forms', Form)
+const Ships = mongoose.model('Ships', Ship)
 exports.Users = Users
 exports.Guilds = Guilds
 exports.Commands = Commands
 exports.Forms = Forms
+exports.Ships = Ships

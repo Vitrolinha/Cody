@@ -1,8 +1,8 @@
 const { command } = require('../../utils');
 
 module.exports = class extends command {
-    constructor (name, client) {
-        super (name, client)
+    constructor (name, client, locale) {
+        super (name, client, locale)
         this.aliases = ['code']
     }
     async run ({message, argsAlt, usuario}, t) {

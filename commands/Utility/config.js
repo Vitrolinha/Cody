@@ -3,8 +3,8 @@ const { command } = require('../../utils'),
     inWindowSugest = [];
 
 module.exports = class extends command {
-    constructor (name, client) {
-        super (name, client)
+    constructor (name, client, locale) {
+        super (name, client, locale)
         this.aliases = ['configurar']
     }
     async run ({message, argsAlt, prefix, usuario, servidor}, t) {

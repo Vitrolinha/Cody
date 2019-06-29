@@ -1,8 +1,8 @@
 const { command } = require('../../utils');
 
 module.exports = class extends command {
-    constructor (name, client) {
-        super (name, client)
+    constructor (name, client, locale) {
+        super (name, client, locale)
         this.aliases = ['srole']
     }
     async run ({message, args, prefix, usuario}, t) {
@@ -31,31 +31,21 @@ module.exports = class extends command {
         let usuarioMencionado = message.mentions.users.first()
         if(usuarioMencionado.bot) return message.channel.send(t('comandos:staffrole.mentionBot', { member: message.member }))
         if(cargosB[cargo].permission >= authorPerm && message.author.id !== this.client.config.ownerID) return message.channel.send(t('comandos:staffrole.noRolePermission'));
-        this.client.database.Users.findOne({'_id': usuarioMencionado.id}).then(mencionadoDB => {
-            if(mencionadoDB) {
-                if(funcao === 'add' && mencionadoDB.cargos.get(cargo)) return message.channel.send(t('comandos:staffrole.alreadyHaveRole', { member: message.member }));
-                if(funcao === 'del' && !mencionadoDB.cargos.get(cargo)) return message.channel.send(t('comandos:staffrole.roleNotFound', { member: message.member }));
-                if(funcao === 'add') {
-                    if(mencionadoDB.banned.get('ban')) return message.channel.send(t('comandos:staffrole.bannedUser', { member: message.member }))
-                    mencionadoDB.cargos.set(cargo, true)
-                    message.channel.send(t('comandos:staffrole.added', { role: cargo }))
-                    if(this.client.dataStaff.get(cargo).includes(mencionadoDB._id)) return;
-                    this.client.dataStaff.get(cargo).push(mencionadoDB._id)
-                } else if(funcao === 'del') {
-                    mencionadoDB.cargos.set(cargo, false)
-                    message.channel.send(t('comandos:staffrole.removed', { role: cargo }))
-                    if(!this.client.dataStaff.get(cargo).includes(mencionadoDB._id)) return;
-                    this.client.dataStaff.get(cargo).splice(this.client.dataStaff.get(cargo).indexOf(mencionadoDB._id), 1)
-                }
-                mencionadoDB.save();
-            } else {
-                message.channel.send(t('comandos:staffrole.noUserDB'));
-                this.client.newDocDB({
-                    id: usuarioMencionado.id,
-                    type: 1,
-                    content: usuarioMencionado
-                })
-            }
-        })
+        let mencionadoDB = await this.client.docDB({type: 1, content: usuarioMencionado})
+        if(funcao === 'add' && mencionadoDB.cargos.get(cargo)) return message.channel.send(t('comandos:staffrole.alreadyHaveRole', { member: message.member }));
+        if(funcao === 'del' && !mencionadoDB.cargos.get(cargo)) return message.channel.send(t('comandos:staffrole.roleNotFound', { member: message.member }));
+        if(funcao === 'add') {
+            if(mencionadoDB.banned.get('ban')) return message.channel.send(t('comandos:staffrole.bannedUser', { member: message.member }))
+            mencionadoDB.cargos.set(cargo, true)
+            message.channel.send(t('comandos:staffrole.added', { role: cargo }))
+            if(this.client.dataStaff.get(cargo).includes(mencionadoDB._id)) return;
+            this.client.dataStaff.get(cargo).push(mencionadoDB._id)
+        } else if(funcao === 'del') {
+            mencionadoDB.cargos.set(cargo, false)
+            message.channel.send(t('comandos:staffrole.removed', { role: cargo }))
+            if(!this.client.dataStaff.get(cargo).includes(mencionadoDB._id)) return;
+            this.client.dataStaff.get(cargo).splice(this.client.dataStaff.get(cargo).indexOf(mencionadoDB._id), 1)
+        }
+        mencionadoDB.save();
     }
 }

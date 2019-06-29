@@ -1,8 +1,8 @@
 const { command } = require('../../utils');
 
 module.exports = class extends command {
-    constructor (name, client) {
-        super (name, client)
+    constructor (name, client, locale) {
+        super (name, client, locale)
     }
     async run ({message, argsAlt, servidor, usuario, prefix}, t) {
         if(!(await this.client.verPerm(['MANAGE_ROLES_OR_PERMISSIONS', 'owner', 'subowner', 'operator'], message.member, usuario))) return message.channel.send(t('comandos:autorole.noPermission'));

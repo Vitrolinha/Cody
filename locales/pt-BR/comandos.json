@@ -33,7 +33,6 @@
         "noPermission": "😒 Você **precisa** ser um `owner`, `subowner`, `operator`, `developer` ou `supervisor` para usar **este** comando",
         "howToUse": "🗃 Como usar:",
         "howDesc":"`{{prefix}}botban <menção>` - proíba o usuário de utilizar o bot permanentemente.\n`{{prefix}}botban <menção> <tempo>` - proíba o usuário de utilizar o bot por um tempo.",
-        "noUserDB": "😶 O **usuário mencionado** parece **não** estar registrado em meu **banco de dados**, tente usar o comando novamente.",
         "iMentioned": "😕 Você **não pode** banir **você mesmo**.",
         "botMention": "😶 Você **não** pode **banir um bot**.",
         "mentionedStaff": "🕵 O **usuário mencionado** faz parte da **staff** do bot.",
@@ -227,6 +226,11 @@
         "notReason": "Motivo não mencionado.",
         "kicked": "✅ O **usuário** `{{member}}` foi **expulso do servidor** por {{author}}."
     },
+    "kiss": {
+        "noMention":"😯 {{member}}, É **necessário mencionar** o usuário que **deseja beijar**.",
+        "mentionYou": "😕 {{member}}, **Não é possível** beijar **você mesmo**.",
+        "kiss": "😘 **{{member}}** deu um **beijo** em **{{kissed}}**"
+    },
     "lang": {
         "noPermission": "😕 É **necessário** possuir a **permissão** `GERENCIAR SERVIDOR`.",
         "inWindow": "🙄 **Você** já está com uma **jánela** de linguagem aberta, **finalize-a** ou aguarde **1 minuto**.",
@@ -258,6 +262,13 @@
     "rank": {
         "inWindow":"🙄 **Você** já está com uma **jánela** de ranking aberta, **finalize-a** ou aguarde **1 minuto**.",
         "footer": "Sua posição: {{position}} (atualizado à {{lastUpdate}} minutos atrás)"
+    },
+    "reload": {
+        "noPermission":"😒 {{member}}, Você **precisa** ser um `owner`, `subowner` ou `operator` para usar **este** comando.",
+        "noCommand": "🙄 {{member}}, Você deve **especificar** o **nome dos comandos** à serem **reiniciados**.",
+        "noSearch": "🙄 {{member}}, Um **ou mais** comandos **não foram encontrados**.",
+        "title": "Recarregados com sucesso:",
+        "desc": "🔦 **Comandos recarregados:** `{{commands}}`\n🕐 **Tempo de resposta:** {{time}}**ms**"
     },
     "shop": {
         "inWindow":"🙄 **Você** já está com a **loja** aberta, **finalize-a** ou aguarde **1 minuto**.",
@@ -314,7 +325,6 @@
         "roleNotExist": "😕 O cargo `{{role}}` não existe, tente `{{roles}}`.",
         "noMention": "😯 Você **precisa** mencionar **um** usuário que deseja **dar** o cargo.",
         "mentionBot": "👾 {{member}}, Um bot **não** pode se **tornar staff**.",
-        "noRolePermission": "😟 Você **não** pode dar seu **próprio** cargo ou **superiores**.",
         "noUserDB": "😶 O **usuário mencionado** parece **não** estar registrado em meu **banco de dados**, tente usar o comando novamente.",
         "alreadyHaveRole": "😑 {{member}}, O usuário já possui **este** cargo.",
         "roleNotFound": "🙄 {{member}}, O usuário mencionado **não** possui **este** cargo.",

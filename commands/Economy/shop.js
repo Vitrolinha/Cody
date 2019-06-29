@@ -2,8 +2,8 @@ const { command } = require('../../utils'),
     inWindow = [];
 
 module.exports = class extends command {
-    constructor (name, client) {
-        super (name, client)
+    constructor (name, client, locale) {
+        super (name, client, locale)
         this.aliases = ['loja', 'comprar', 'buy']
     }
     async run ({message, argsAlt, prefix, usuario}, t) {
