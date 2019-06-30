@@ -17,9 +17,9 @@ module.exports = class extends command {
             avatar1 = await this.client.canvasNP.loadImage(user1.avatarURL),
             avatar2 = await this.client.canvasNP.loadImage(user2.avatarURL);
         let bar = '█'.repeat(parseInt(shipDB.percentage/10)) + '.'.repeat(parseInt((100-shipDB.percentage)/10)),
-            emoji = shipDB.percentage < 30 ? await this.client.canvasNP.loadImage('https://cdn.glitch.com/4cae6274-5fff-4a8d-ba9a-0f3799f464a7%2Fface-with-cold-sweat_1f613.png?1561862308075')
-            : shipDB.percentage < 60 ? await this.client.canvasNP.loadImage('https://cdn.glitch.com/4cae6274-5fff-4a8d-ba9a-0f3799f464a7%2Fface-with-rolling-eyes_1f644.png?1561862488713')
-            : await this.client.canvasNP.loadImage('https://cdn.glitch.com/4cae6274-5fff-4a8d-ba9a-0f3799f464a7%2Fsmiling-face-with-heart-shaped-eyes_1f60d.png?1561862571320')
+            emoji = shipDB.percentage < 30 ? await this.client.canvasNP.loadImage('https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/twitter/214/face-with-cold-sweat_1f613.png')
+            : shipDB.percentage < 60 ? await this.client.canvasNP.loadImage('https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/twitter/214/face-with-rolling-eyes_1f644.png')
+            : await this.client.canvasNP.loadImage('https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/twitter/214/smiling-face-with-heart-shaped-eyes_1f60d.png')
         bar = bar.length < 10 ? bar + '.'.repeat(10 - bar.length) : bar
         ctx.drawImage(emoji, 134, 12, 116, 116)
         ctx.drawImage(avatar1, 0, 0, 128, 128)
