@@ -273,7 +273,7 @@
     "ship": {
         "noMention": "😯 {{member}}, Você **precisa** mencionar **um ou mais** usuários para **shipar**.",
         "phrases": {
-            "0": "😯 **Vocês realmente tem coragem de se verem?**",
+            "00": "😯 **Vocês realmente tem coragem de se verem?**",
             "10": "🤷 **Acho que são apenas amigos...**",
             "20": "🤷 **Acho que são apenas amigos...**",
             "30": "🙄 **Pode até dar certo, mas...**",
