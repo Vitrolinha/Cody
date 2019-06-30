@@ -69,6 +69,11 @@
         "howToUse": "{{prefix}}kick <mention>\n{{prefix}}kick <mention> <reason>",
         "category": 2
     },
+    "kiss": {
+        "desc": "Dê um beijo em algum usuário.",
+        "howToUse": "{{prefix}}kiss <mention>",
+        "category": 4
+    },
     "lang": {
         "desc": "Altere o idioma do bot em seu servidor.",
         "howToUse": "{{prefix}}lang",
@@ -93,6 +98,11 @@
         "desc": "Veja os 10 primeiros usuários no ranking do bot.",
         "howToUse": "{{prefix}}rank\n{{prefix}}rank <codes/decoders>",
         "category": 1
+    },
+    "ship": {
+        "desc": "Veja se um casal vai dar certo.",
+        "howToUse": "{{prefix}}kiss <mention>",
+        "category": 4
     },
     "shop": {
         "desc": "Compre itens com seus codes.",

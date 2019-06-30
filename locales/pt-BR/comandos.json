@@ -270,6 +270,22 @@
         "title": "Recarregados com sucesso:",
         "desc": "🔦 **Comandos recarregados:** `{{commands}}`\n🕐 **Tempo de resposta:** {{time}}**ms**"
     },
+    "ship": {
+        "noMention": "😯 {{member}}, Você **precisa** mencionar **um ou mais** usuários para **shipar**.",
+        "phrases": {
+            "0": "😯 **Vocês realmente tem coragem de se verem?**",
+            "10": "🤷 **Acho que são apenas amigos...**",
+            "20": "🤷 **Acho que são apenas amigos...**",
+            "30": "🙄 **Pode até dar certo, mas...**",
+            "40": "🙄 **Pode até dar certo, mas...**",
+            "50": "😉 **Talvez vocês tenham um bom futuro.**",
+            "60": "😉 **Talvez vocês tenham um bom futuro.**",
+            "70": "😉 **Talvez vocês tenham um bom futuro.**",
+            "80": "😘 **Vocês seriam um ótimo casal, ou será que já são?**",
+            "90": "😘 **Vocês seriam um ótimo casal, ou será que já são?**",
+            "100": "😍 **Este é um dos canais mais perfeitos que já conheci.**"
+        }
+    },
     "shop": {
         "inWindow":"🙄 **Você** já está com a **loja** aberta, **finalize-a** ou aguarde **1 minuto**.",
         "products": {

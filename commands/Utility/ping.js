@@ -5,7 +5,6 @@ module.exports = class extends command {
         super (name, client, locale)
     }
     async run ({message, args}, t) {
-        console.log('sou o ping')
         let pings = await this.client.shard.broadcastEval('this.ping'),
             dit = args[0] ? parseInt(args[0]) - 1 : 1,
             selected = args[0] ? pings[parseInt(dit)] ? parseInt(dit) : this.client.shard.id : this.client.shard.id,

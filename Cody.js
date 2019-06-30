@@ -13,6 +13,7 @@ module.exports = class Cody extends Client {
         this.i18next = require('i18next')
         this.translationBackend = require('i18next-node-fs-backend')
         this.fetch = require('node-fetch')
+        this.canvasNP = require('canvas')
         this.moment = require('moment')
         require('moment-duration-format')
         this.ms = require('ms')
@@ -126,7 +127,7 @@ module.exports = class Cody extends Client {
                     _id: doc.id1 + doc.id2,
                     user1: doc.id1,
                     user2: doc.id2,
-                    percentage: parseInt((Math.random() * 99) + 1)
+                    percentage: Math.round(Math.random() * 100)
                 }); await ship.save(); return ship;
                 break;
         };
