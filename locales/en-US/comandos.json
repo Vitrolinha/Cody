@@ -1,0 +1,22 @@
+{
+    "autorole": {
+        "noPermission": "😕 Is **required** to have the **permission** `MANAGE ROLES`.",
+        "howToUse": "🗃 How to use:",
+        "howDesc": "`{{prefix}}autorole add <role-mençion/id/name>` - adds one role of input.\n`{{prefix}}autorole del <role-mençion/id/name>` - remove role the system.",
+        "definedRoles": "📋 roles defined:",
+        "none": "No definite role.",
+        "invalidFunction": "😣 The **function** `{{function}}` is invalid, try `add` or `del`.",
+        "limitRoles": "📀 You have reached the **limit** of `5` roles on this **server**.",
+        "noDefinedRoles": "💿 There are no roles to delete.",
+        "noMentionRole": "😕 You should mention a paper or say your name or id.",
+        "invalidRole": "😒 {{member}}, The **role** quoted **does not exist**.",
+        "alreadyDefined": "😒 {{member}}, The **role** **Already defined**.",
+        "roleNotDefined": "😒 {{member}}, The **role** quoted **is not defined**.",
+        "noPermRole": "😶 You **there is not** permission to **give** this **role** the **other people**.",
+        "noPermRoleBot": "😶 I do**not** own **permission** for add **this** role the **other people**.",
+        "addedRole": "✅ The **role** `{{role}}` was **added to autorole**.",
+        "removedRole": "❌ the **role** `{{role}}` was **removed from autorole**."
+    },
+    "avatar": {
+        "title": "🖼 image of {{user}}"
+    },
