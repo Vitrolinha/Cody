@@ -16,7 +16,7 @@ module.exports = class extends command {
         }, {
             name: t('comandos:shop.products.capacitor'),
             price: ((27000 * (usuario.economy.get('capacitors') * 25))*2) + (1000 * usuario.economy.get('capacitors')),
-            count: true,
+            count: false,
             num: 2
         }, {
             name: t('comandos:shop.products.processor'),

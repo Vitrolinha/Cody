@@ -270,6 +270,29 @@
         "title": "Recarregados com sucesso:",
         "desc": "🔦 **Comandos recarregados:** `{{commands}}`\n🕐 **Tempo de resposta:** {{time}}**ms**"
     },
+    "security": {
+        "noPermission":"😕 É **necessário** possuir as **permissões:**\n`GERENCIAR SERVIDOR, BANIR MEMBROS, EXPULSAR MEMBROS, GERENCIAR CARGOS e GERENCIAR CANAIS`.",
+        "inWindow":"🙄 **Você** já está com uma **jánela** de segurança aberta, **finalize-a** ou aguarde **1 minuto**.",
+        "options": {
+            "botEntry": "Proíba **bots** de entrarem no **seu servidor**.",
+            "newUsers": "Proíba **usuários novos** de entrarem em **sem servidor**.",
+            "antiSpam": "Defina **punições** para quem **spammar** em **seu servidor**.",
+            "massBan": "Proteção contra **banimento em massa**.",
+            "massMention": "Proteção contra **menção em massa**.",
+            "inviteLink": "Proíba o envio de **convites** para **outros servidores**.",
+            "captcha": "Defina uma **mensagem de confirmação** para **novos usuários**.",
+            "blockRole": "**Bloqueie** um cargo de **ser adicionado** à usuários."
+        },
+        "menu": {
+            "title": "<:houseShield:596766210453012490> Segurança:",
+            "desc": "Este comando oferece **várias proteções** para o **seu servidor** impedindo o máximo de **ataques** possíveis.\n\n**Como usar:**`{{prefix}}security <nome>`\n",
+            "footer": "Página {{page}} de {{total}}"
+        },
+        "alreadyOn": "🙄 {{member}}, A **proteção** `{{protection}}` já **está ativada**.",
+        "alreadyOff": "🙄 {{member}}, A **proteção** `{{protection}}` já **está desativada**.",
+        "enabled": "✅ {{member}}, A **proteção** `{{protection}}` foi **ativada**.",
+        "disabled": "✅ {{member}}, A **proteção** `{{protection}}` foi **desativada**."
+    },
     "ship": {
         "noMention": "😯 {{member}}, Você **precisa** mencionar **um ou mais** usuários para **shipar**.",
         "phrases": {

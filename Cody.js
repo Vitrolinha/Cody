@@ -96,7 +96,8 @@ module.exports = class Cody extends Client {
                     lockedChannels: [],
                     allowedChannels: [],
                     votePoints: 0,
-                    vipBought: []
+                    vipBought: [],
+                    security: []
                 }); await servidor.save(); return servidor;
                 break;
             case 3:

@@ -92,6 +92,10 @@ const Guild = new Schema({
   vipBought: {
     type: Array,
     default: []
+  },
+  security: {
+    type: Array,
+    default: []
   }
 })
 
